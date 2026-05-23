@@ -4,6 +4,7 @@
 
 - Add Themes Attributions
 - Clean and organized the project
+- Add zoom control
 
 ## 38
 

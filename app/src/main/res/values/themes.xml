@@ -43,6 +43,11 @@
         <item name="android:divider">@drawable/list_divider</item>
     </style>
 
+    <style name="HorizontalListDividedSmall" parent="HorizontalList">
+        <item name="android:showDividers">middle</item>
+        <item name="android:divider">@drawable/list_divider_small</item>
+    </style>
+
     <style name="VerticalList" parent="BlockFlow">
         <item name="android:orientation">vertical</item>
     </style>
@@ -123,6 +128,19 @@
 
     <style name="BTN_danger" parent="BTN">
         <item name="android:background">@color/danger</item>
+    </style>
+
+    <style name="BTN_range" parent="BlockFlow">
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:paddingStart">2sp</item>
+        <item name="android:paddingEnd">2sp</item>
+        <item name="android:textSize">@dimen/small</item>
+        <item name="android:background">@color/button_2</item>
+        <item name="android:textColor">@color/bg_1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="RadioGroup" parent="VerticalListDivided_BG2" />

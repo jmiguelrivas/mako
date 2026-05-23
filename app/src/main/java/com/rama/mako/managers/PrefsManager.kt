@@ -114,6 +114,8 @@ class PrefsManager private constructor(context: Context) {
         const val SETTINGS_SECTION_SECURITY = "settings:section:apps"
         const val SETTINGS_SECTION_THEMES = "settings:section:themes"
 
+        const val APP_UI_SCALE = "app:ui_scale"
+
         fun appKey(pkg: String, userHandle: UserHandle): String {
             val userId = userHandle.hashCode()
             return if (userId == 0) "app:$pkg" else "app:$pkg:profile_$userId"
@@ -204,6 +206,8 @@ class PrefsManager private constructor(context: Context) {
                 .putString(PrefKeys.CLOCK_FORMAT, ClockFormat.HOUR_24)
                 .putString(PrefKeys.CLOCK_APP, "")
                 .putString(PrefKeys.APP_LANGUAGE, Language.SYSTEM)
+
+                .putInt(PrefKeys.APP_UI_SCALE, 1)
 
                 .putBoolean(PrefKeys.APPS_ICONS, false)
                 .putBoolean(PrefKeys.APPS_SEARCH, false)
@@ -497,6 +501,13 @@ class PrefsManager private constructor(context: Context) {
     fun setAppLanguage(language: String) {
         prefs.edit().putString(PrefKeys.APP_LANGUAGE, language).apply()
     }
+
+    fun getUiScale(): Float =
+        prefs.getFloat(PrefKeys.APP_UI_SCALE, 1f)
+
+    fun setUiScale(scale: Float) =
+        prefs.edit().putFloat(PrefKeys.APP_UI_SCALE, scale)
+            .apply()
 
     // SECURITY - PIN (stored in EncryptedSharedPreferences)
 

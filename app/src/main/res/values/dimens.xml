@@ -1,7 +1,9 @@
 <resources>
     <dimen name="space_between_elements">8sp</dimen>
+    <dimen name="space_between_elements_small">2dp</dimen>
     <dimen name="h1">72sp</dimen>
     <dimen name="h2">32sp</dimen>
     <dimen name="h3">18sp</dimen>
     <dimen name="text">16sp</dimen>
+    <dimen name="small">12sp</dimen>
 </resources>

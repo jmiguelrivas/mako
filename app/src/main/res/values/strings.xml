@@ -115,6 +115,9 @@
     <string name="ctxmenu_add_to_favorites">Change group...</string>
     <string name="ctxmenu_open_settings">App settings...</string>
 
+    <!-- InputLabel -->
+    <string name="label_zoom">Zoom</string>
+
     <!-- InputHints -->
     <string name="hint_search_apps">Search apps...</string>
 

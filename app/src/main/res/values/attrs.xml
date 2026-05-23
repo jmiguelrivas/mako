@@ -10,4 +10,8 @@
         <attr name="defaultExpanded" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="WdRange">
+        <attr name="values" format="string" />
+        <attr name="valuesArray" format="reference" />
+    </declare-styleable>
 </resources>

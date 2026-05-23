@@ -29,11 +29,6 @@
                 app:header="@string/h3_system"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
-                    android:id="@+id/show_system_bar"
-                    android:text="@string/checkbox_show_system_bar"
-                    style="@style/Checkbox" />
-
                 <Button
                     android:id="@+id/activate_button"
                     android:text="@string/btn_set_default"
@@ -48,6 +43,24 @@
                     android:id="@+id/change_apps_button"
                     android:text="@string/btn_edit_apps"
                     style="@style/BTN2" />
+
+                <com.rama.mako.widgets.WdCheckbox
+                    android:id="@+id/show_system_bar"
+                    android:text="@string/checkbox_show_system_bar"
+                    style="@style/Checkbox" />
+
+                <LinearLayout style="@style/VerticalListDivided_BG2">
+
+                    <TextView
+                        android:text="@string/label_zoom"
+                        style="@style/Text" />
+
+                    <com.rama.mako.widgets.WdRange
+                        android:id="@+id/zoom"
+                        app:valuesArray="@array/ui_scale_steps"
+                        style="@style/BlockFlow" />
+
+                </LinearLayout>
             </com.rama.mako.widgets.WdCollapsibleSection>
             <!--Groups-->
             <com.rama.mako.widgets.WdCollapsibleSection
@@ -144,7 +157,7 @@
                             android:id="@+id/h1"
                             app:text="@string/colorpicker_theme_h1"
                             style="@style/ColorPickerBtn" />
-                        
+
                         <com.rama.mako.widgets.WdColorPicker
                             android:id="@+id/foreground"
                             app:text="@string/colorpicker_theme_foreground"
