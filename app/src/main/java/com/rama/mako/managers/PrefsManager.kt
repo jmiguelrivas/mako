@@ -207,7 +207,7 @@ class PrefsManager private constructor(context: Context) {
                 .putString(PrefKeys.CLOCK_APP, "")
                 .putString(PrefKeys.APP_LANGUAGE, Language.SYSTEM)
 
-                .putInt(PrefKeys.APP_UI_SCALE, 1)
+                .putFloat(PrefKeys.APP_UI_SCALE, 1f)
 
                 .putBoolean(PrefKeys.APPS_ICONS, false)
                 .putBoolean(PrefKeys.APPS_SEARCH, false)

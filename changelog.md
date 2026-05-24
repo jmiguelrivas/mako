@@ -1,10 +1,13 @@
 # Changelog
 
+## 40
+- Add zoom control
+- Prevent non letter for been the initial of the profiles
+
 ## 39
 
 - Add Themes Attributions
 - Clean and organized the project
-- Add zoom control
 
 ## 38
 
