@@ -115,18 +115,25 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
             val targetGroups = groupsManager.getGroupIds().filter { it != currentGroupId }
             var selectedGroupId: String? = null
 
+            val radioIdToGroupId = mutableMapOf<Int, String>()
+
             targetGroups.forEachIndexed { index, targetId ->
                 val radio = RadioButton(activity).apply {
                     id = View.generateViewId()
                     text = prefs.getGroupLabel(targetId)
                 }
 
+                radioIdToGroupId[radio.id] = targetId
                 radioGroup.addView(radio)
 
                 if (index == 0) {
                     radio.isChecked = true
                     selectedGroupId = targetId
                 }
+            }
+
+            radioGroup.setOnCheckedChangeListener { _, checkedId ->
+                selectedGroupId = radioIdToGroupId[checkedId]
             }
 
             SettingsUiUtils.setClickWithHaptics(yes) {
