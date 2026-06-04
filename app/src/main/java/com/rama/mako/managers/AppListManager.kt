@@ -405,6 +405,34 @@ class AppListManager(
         )
     }
 
+    private fun handleIconClick(app: AppsProvider.AppEntry) {
+        if (suppressNextClick) {
+            suppressNextClick = false
+            return
+        }
+
+        if (isMultiSelectMode) {
+            toggleSelection(app)
+            return
+        }
+
+        if (prefs.hasIconsOpenSettings()) {
+            openAppSettings(app.packageName)
+            return
+        }
+
+        if (!appsProvider.launch(app)) {
+            Toast.makeText(
+                context,
+                context.getString(R.string.toast_unable_launch_app),
+                Toast.LENGTH_SHORT
+            ).show()
+            refresh()
+        } else {
+            onAppLaunched?.invoke()
+        }
+    }
+
     private fun showRenameDialog(app: AppsProvider.AppEntry) {
         val pkg = app.packageName
         val currentName = prefs.getCustomName(app.packageName, app.userHandle)
@@ -732,22 +760,11 @@ class AppListManager(
 
                             icon.setImageDrawable(drawable)
                             icon.visibility = View.VISIBLE
+
                             icon.setOnClickListener {
-                                if (suppressNextClick) {
-                                    suppressNextClick = false
-                                } else if (isMultiSelectMode) {
-                                    toggleSelection(app)
-                                } else if (!appsProvider.launch(app)) {
-                                    Toast.makeText(
-                                        context,
-                                        context.getString(R.string.toast_unable_launch_app),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    refresh()
-                                } else {
-                                    onAppLaunched?.invoke()
-                                }
+                                handleIconClick(app)
                             }
+
                             icon.setOnLongClickListener {
                                 if (isMultiSelectMode) {
                                     toggleSelection(app); true

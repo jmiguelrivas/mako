@@ -72,7 +72,11 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             PrefKeys.SECURITY_KEYPAD_RANDOMIZED,
             true,
         )
-
+        bindWdCheckbox(
+            R.id.icons_open_settings,
+            PrefKeys.APPS_ICONS_OPEN_SETTINGS,
+            true,
+        )
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int) {

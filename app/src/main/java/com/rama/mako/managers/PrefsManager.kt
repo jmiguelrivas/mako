@@ -53,10 +53,12 @@ class PrefsManager private constructor(context: Context) {
     object PrefKeys {
         const val APPS_SEARCH = "apps:search"
         const val APPS_SEARCH_ALWAYS_VISIBLE = "apps:search:always_visible"
+        const val APPS_PROFILE_INDICATOR = "apps:profile_indicator"
+
         const val APPS_ICONS = "apps:icons"
         const val APPS_ICON_SOURCE = "apps:icon_source"
         const val APPS_ICON_PACK_PACKAGE = "apps:icon_pack_package"
-        const val APPS_PROFILE_INDICATOR = "apps:profile_indicator"
+        const val APPS_ICONS_OPEN_SETTINGS = "apps:icons:open_settings"
 
         const val HOME_BACKGROUND_MODE = "home:background_mode"
         const val HOME_DOUBLE_TAP_SLEEP = "home:double_tap_sleep"
@@ -214,12 +216,14 @@ class PrefsManager private constructor(context: Context) {
                 .putString(PrefKeys.APP_LANGUAGE, Language.SYSTEM)
 
                 .putFloat(PrefKeys.APP_UI_SCALE, 1f)
-
-                .putBoolean(PrefKeys.APPS_ICONS, false)
                 .putBoolean(PrefKeys.APPS_SEARCH, false)
                 .putBoolean(PrefKeys.APPS_PROFILE_INDICATOR, true)
+
+                .putBoolean(PrefKeys.APPS_ICONS, false)
                 .putString(PrefKeys.APPS_ICON_SOURCE, IconSource.NONE)
                 .putString(PrefKeys.APPS_ICON_PACK_PACKAGE, "")
+                .putBoolean(PrefKeys.APPS_ICONS_OPEN_SETTINGS, true)
+
                 .putString(PrefKeys.HOME_BACKGROUND_MODE, BackgroundMode.DEFAULT)
                 .putBoolean(PrefKeys.HOME_DOUBLE_TAP_SLEEP, false)
                 .putInt(PrefKeys.HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH, 9)
@@ -372,6 +376,9 @@ class PrefsManager private constructor(context: Context) {
 
     fun hasProfileIndicator(): Boolean =
         prefs.getBoolean(PrefKeys.APPS_PROFILE_INDICATOR, true)
+
+    fun hasIconsOpenSettings(): Boolean =
+        prefs.getBoolean(PrefKeys.APPS_ICONS_OPEN_SETTINGS, true)
 
     fun getIconSource(): String {
         return when (prefs.getString(PrefKeys.APPS_ICON_SOURCE, IconSource.NONE)) {

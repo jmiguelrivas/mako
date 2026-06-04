@@ -54,7 +54,7 @@
                     android:id="@+id/double_tap_sleep"
                     android:text="@string/double_tap_sleep_label"
                     style="@style/Checkbox" />
-              
+
                 <com.rama.mako.widgets.WdCheckbox
                     android:id="@+id/prevent_home_screen_rotation"
                     android:text="@string/checkbox_prevent_home_screen_rotation"
@@ -279,6 +279,11 @@
                 app:key="SETTINGS_SECTION_ICONS"
                 app:header="@string/h3_icons"
                 app:defaultExpanded="true">
+
+                <com.rama.mako.widgets.WdCheckbox
+                    android:id="@+id/icons_open_settings"
+                    android:text="@string/checkbox_click_on_icons_open_app_settings"
+                    style="@style/Checkbox" />
 
                 <RadioGroup
                     android:id="@+id/icon_source_group"

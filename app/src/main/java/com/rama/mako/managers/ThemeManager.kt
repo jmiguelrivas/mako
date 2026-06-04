@@ -92,15 +92,15 @@ object ThemeManager {
         bg_2 = 0xFFCCD0DA.toInt(),
         bg_3 = 0xFFBCC0CC.toInt(),
 
-        accent_1 = 0xFF40A02B.toInt(), // green
-        accent_2 = 0xFFDF8E1D.toInt(), // yellow
-        accent_3 = 0xFFFE640B.toInt(), // orange
+        accent_1 = 0xFF40A02B.toInt(),
+        accent_2 = 0xFFDF8E1D.toInt(),
+        accent_3 = 0xFFFE640B.toInt(),
 
         disabled = 0xFF9CA0B0.toInt(),
         input = 0xFFE6E9EF.toInt(),
 
-        button_1 = 0xFF1E66F5.toInt(), // blue
-        button_2 = 0xFF04A5E5.toInt(), // sky
+        button_1 = 0xFF1E66F5.toInt(),
+        button_2 = 0xFF04A5E5.toInt(),
 
         danger = 0xFFD20F39.toInt(),
         collapsible_header = 0xFF7287FD.toInt(),

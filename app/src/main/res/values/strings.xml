@@ -113,6 +113,7 @@
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_always_show_search_bar">Always visible</string>
     <string name="checkbox_prevent_home_screen_rotation">Lock screen rotation</string>
+    <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">Rename app...</string>
