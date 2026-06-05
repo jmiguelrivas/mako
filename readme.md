@@ -100,4 +100,4 @@ No network access is required.
 ## Acknowledgements
 
 Inspired by [YAML Launcher](https://f-droid.org/en/packages/eu.ottop.yamlauncher/) and other
-privacy-focused Android tooling.
+privacy-focused Android tooling. 
