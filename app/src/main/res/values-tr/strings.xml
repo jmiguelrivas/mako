@@ -154,6 +154,13 @@
     <string name="double_tap_sleep_enable_admin_toast">Çift dokunarak uyutma için cihaz yöneticisi erişimini etkinleştir</string>
     <string name="double_tap_sleep_admin_declined_toast">Cihaz yöneticisi erişimi verilmedi</string>
     <string name="double_tap_sleep_failed_toast">Ekran kilitlenemedi</string>
+    <string name="double_tap_lock_method_label">Kilit yöntemi</string>
+    <string name="double_tap_lock_method_device_admin">Cihaz yöneticisi</string>
+    <string name="double_tap_lock_method_accessibility">Erişilebilirlik servisi</string>
+    <string name="accessibility_service_description">Mako\'nun erişilebilirlik hareketiyle ekranı kilitlemesine izin verir.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Android 9+ gerektirir</string>
+    <string name="double_tap_lock_method_admin_info">Cihaz yöneticisi API\'si kullanır.\nBiyometrik giriş (parmak izi) desteklenmeyebilir.</string>
+    <string name="double_tap_lock_method_accessibility_info">Erişilebilirlik servisi kullanır.\nBiyometrik giriş (parmak izi, yüz) normal çalışır.\nAndroid 9+ gerekir.</string>
 
     <!-- AltDescription -->
     <string name="altdescr_search_icon">Aramayı aç/kapat</string>

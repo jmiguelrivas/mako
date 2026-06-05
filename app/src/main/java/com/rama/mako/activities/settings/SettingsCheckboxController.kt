@@ -1,29 +1,25 @@
 package com.rama.mako.activities.settings
 
-import android.app.admin.DevicePolicyManager
-import android.content.ComponentName
-import android.content.Intent
+import android.app.AlertDialog
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import com.rama.mako.R
-import com.rama.mako.activities.MainActivity
 import com.rama.mako.activities.SettingsActivity
 import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager.PrefKeys
-import com.rama.mako.receivers.ScreenLockAdminReceiver
 import com.rama.mako.widgets.WdCheckbox
 
 class SettingsCheckboxController(private val activity: SettingsActivity) {
 
     private val prefs get() = activity.prefs
-    private val devicePolicyManager by lazy {
-        activity.getSystemService(android.content.Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
-    }
-    private val screenLockAdminComponent by lazy {
-        ComponentName(activity, ScreenLockAdminReceiver::class.java)
-    }
+    private val lockManager = DoubleTapLockManager(activity)
+
     private lateinit var doubleTapSleepCheckbox: WdCheckbox
+    private lateinit var lockMethodContainer: View
+    private lateinit var lockMethodAccessibility: RadioButton
     private var isSyncingDoubleTapSleepCheckbox = false
+    private var isSyncingLockMethodGroup = false
 
     fun setup() {
         bindWdCheckbox(R.id.show_date, PrefKeys.DATE_VISIBLE, false, listOf(R.id.show_year_day))
@@ -61,6 +57,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
         )
         bindWdCheckbox(R.id.show_profile_indicator, PrefKeys.APPS_PROFILE_INDICATOR, true)
         setupDoubleTapToSleepCheckbox()
+        setupLockMethodRadioGroup()
 
         bindWdCheckbox(
             R.id.lock_settings,
@@ -209,7 +206,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             lockMethodAccessibility.isEnabled = false
             lockMethodAccessibility.text =
                 activity.getString(R.string.double_tap_lock_method_accessibility) +
-                " (" + activity.getString(R.string.double_tap_lock_method_accessibility_unavailable) + ")"
+                        " (" + activity.getString(R.string.double_tap_lock_method_accessibility_unavailable) + ")"
         }
 
         updateCheckedRadioButton(prefs.getDoubleTapLockMethod())
@@ -245,6 +242,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
                 title = activity.getString(R.string.double_tap_lock_method_device_admin)
                 message = activity.getString(R.string.double_tap_lock_method_admin_info)
             }
+
             else -> {
                 title = activity.getString(R.string.double_tap_lock_method_accessibility)
                 message = activity.getString(R.string.double_tap_lock_method_accessibility_info)

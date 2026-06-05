@@ -62,6 +62,7 @@ class PrefsManager private constructor(context: Context) {
 
         const val HOME_BACKGROUND_MODE = "home:background_mode"
         const val HOME_DOUBLE_TAP_SLEEP = "home:double_tap_sleep"
+        const val HOME_DOUBLE_TAP_LOCK_METHOD = "home:double_tap_lock_method"
         const val HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH =
             "home:background_mode:screen_opacity_strength"
         const val GROUPS_IDS = "groups:ids"
@@ -226,6 +227,7 @@ class PrefsManager private constructor(context: Context) {
 
                 .putString(PrefKeys.HOME_BACKGROUND_MODE, BackgroundMode.DEFAULT)
                 .putBoolean(PrefKeys.HOME_DOUBLE_TAP_SLEEP, false)
+                .putString(PrefKeys.HOME_DOUBLE_TAP_LOCK_METHOD, "device_admin")
                 .putInt(PrefKeys.HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH, 9)
                 .putBoolean(PrefKeys.SYSTEM_BAR_VISIBLE, false)
                 .putBoolean(PrefKeys.SYSTEM_PREVENT_ROTATION, false)
@@ -422,6 +424,12 @@ class PrefsManager private constructor(context: Context) {
 
     fun setDoubleTapToSleepEnabled(enabled: Boolean) =
         prefs.edit().putBoolean(PrefKeys.HOME_DOUBLE_TAP_SLEEP, enabled).apply()
+
+    fun getDoubleTapLockMethod(): String =
+        prefs.getString(PrefKeys.HOME_DOUBLE_TAP_LOCK_METHOD, "device_admin") ?: "device_admin"
+
+    fun setDoubleTapLockMethod(method: String) =
+        prefs.edit().putString(PrefKeys.HOME_DOUBLE_TAP_LOCK_METHOD, method).apply()
 
     // SETTINGS - CLOCK
 

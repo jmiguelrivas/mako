@@ -154,6 +154,13 @@
     <string name="double_tap_sleep_enable_admin_toast">Aktiviere Geräteadministrator für Doppeltippen zum Sperren</string>
     <string name="double_tap_sleep_admin_declined_toast">Geräteadministrator wurde nicht aktiviert</string>
     <string name="double_tap_sleep_failed_toast">Bildschirm konnte nicht gesperrt werden</string>
+    <string name="double_tap_lock_method_label">Sperrmethode</string>
+    <string name="double_tap_lock_method_device_admin">Geräteadministrator</string>
+    <string name="double_tap_lock_method_accessibility">Bedienungshilfe</string>
+    <string name="accessibility_service_description">Ermöglicht Mako, den Bildschirm über eine Bedienungshilfe-Geste zu sperren.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Erfordert Android 9+</string>
+    <string name="double_tap_lock_method_admin_info">Nutzt Geräteadministrator-API.\nBiometrische Entsperrung (Fingerabdruck) ggf. nicht unterstützt.</string>
+    <string name="double_tap_lock_method_accessibility_info">Nutzt Bedienungshilfe.\nBiometrische Entsperrung (Fingerabdruck, Gesicht) funktioniert normal.\nErfordert Android 9+.</string>
 
     <!-- AltDescription -->
     <string name="altdescr_search_icon">Suche de-/aktivieren</string>
