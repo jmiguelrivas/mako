@@ -11,7 +11,7 @@ import com.rama.mako.managers.PrefsManager.PrefKeys
 import com.rama.mako.widgets.WdCheckbox
 
 class SettingsCheckboxController(private val activity: SettingsActivity) {
-
+    
     private val prefs get() = activity.prefs
     private val lockManager = DoubleTapLockManager(activity)
 
@@ -75,74 +75,6 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             PrefKeys.APPS_ICONS_OPEN_SETTINGS,
             true,
         )
-    }
-
-    fun onActivityResult(requestCode: Int, resultCode: Int) {
-        if (requestCode != REQUEST_ENABLE_SCREEN_LOCK_ADMIN) return
-
-        val adminActive = devicePolicyManager.isAdminActive(screenLockAdminComponent)
-        prefs.setDoubleTapToSleepEnabled(adminActive)
-        syncDoubleTapSleepCheckbox(adminActive)
-
-        if (!adminActive) {
-            Toast.makeText(
-                activity,
-                activity.getString(R.string.double_tap_sleep_admin_declined_toast),
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    private fun setupDoubleTapToSleepCheckbox() {
-        doubleTapSleepCheckbox = activity.findViewById(R.id.double_tap_sleep)
-
-        val isAdminActive = devicePolicyManager.isAdminActive(screenLockAdminComponent)
-        val isFeatureEnabled = prefs.isDoubleTapToSleepEnabled() && isAdminActive
-
-        if (!isAdminActive) {
-            prefs.setDoubleTapToSleepEnabled(false)
-        }
-
-        syncDoubleTapSleepCheckbox(isFeatureEnabled)
-
-        doubleTapSleepCheckbox.setOnCheckedChangeListener { checked ->
-            if (isSyncingDoubleTapSleepCheckbox) return@setOnCheckedChangeListener
-
-            if (checked) {
-                enableDoubleTapToSleep()
-            } else {
-                prefs.setDoubleTapToSleepEnabled(false)
-            }
-        }
-    }
-
-    private fun enableDoubleTapToSleep() {
-        if (devicePolicyManager.isAdminActive(screenLockAdminComponent)) {
-            prefs.setDoubleTapToSleepEnabled(true)
-            return
-        }
-
-        syncDoubleTapSleepCheckbox(false)
-
-        val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).apply {
-            putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, screenLockAdminComponent)
-            putExtra(
-                DevicePolicyManager.EXTRA_ADD_EXPLANATION,
-                activity.getString(R.string.double_tap_sleep_admin_explanation)
-            )
-        }
-
-        activity.startActivityForResult(intent, REQUEST_ENABLE_SCREEN_LOCK_ADMIN)
-    }
-
-    private fun syncDoubleTapSleepCheckbox(isChecked: Boolean) {
-        isSyncingDoubleTapSleepCheckbox = true
-        doubleTapSleepCheckbox.setChecked(isChecked)
-        isSyncingDoubleTapSleepCheckbox = false
-    }
-
-    companion object {
-        private const val REQUEST_ENABLE_SCREEN_LOCK_ADMIN = 2201
     }
 
     fun refresh() {
