@@ -113,6 +113,7 @@
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_always_show_search_bar">Always visible</string>
     <string name="checkbox_prevent_home_screen_rotation">Lock screen rotation</string>
+    <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">Rename app...</string>
@@ -153,6 +154,13 @@
     <string name="double_tap_sleep_enable_admin_toast">Enable device admin access for double tap to sleep</string>
     <string name="double_tap_sleep_admin_declined_toast">Device admin access was not granted</string>
     <string name="double_tap_sleep_failed_toast">Unable to lock the screen</string>
+    <string name="double_tap_lock_method_label">Lock method</string>
+    <string name="double_tap_lock_method_device_admin">Device Admin</string>
+    <string name="double_tap_lock_method_accessibility">Accessibility Service</string>
+    <string name="accessibility_service_description">Allows Mako to lock the screen via accessibility gesture.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Requires Android 9+</string>
+    <string name="double_tap_lock_method_admin_info">Uses Device Admin API.\nBiometric unlock (fingerprint) may not work.</string>
+    <string name="double_tap_lock_method_accessibility_info">Uses Accessibility Service.\nBiometric unlock (fingerprint, face) works normally.\nRequires Android 9+.</string>
 
     <!-- AltDescription -->
     <string name="altdescr_search_icon">Toggle search</string>

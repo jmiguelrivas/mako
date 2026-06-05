@@ -2,9 +2,7 @@ package com.rama.mako.activities
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.admin.DevicePolicyManager
 import android.content.BroadcastReceiver
-import android.content.ComponentName
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ActivityInfo
@@ -34,9 +32,9 @@ import com.rama.mako.managers.AppsProvider
 import com.rama.mako.managers.BatteryManager
 import com.rama.mako.managers.ClockManager
 import com.rama.mako.managers.HomeBackgroundManager
+import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager
 import com.rama.mako.managers.ThemeManager
-import com.rama.mako.receivers.ScreenLockAdminReceiver
 
 class MainActivity : CsActivity() {
 
@@ -69,7 +67,7 @@ class MainActivity : CsActivity() {
     private var lastAppliedWallpaperSignature: Int? = null
     private var isDoubleTapToSleepEnabled = false
     private lateinit var doubleTapGestureDetector: GestureDetector
-    private lateinit var screenLockAdminComponent: ComponentName
+    private lateinit var doubleTapLockManager: DoubleTapLockManager
     private var lastAppliedTheme: String? = null
 
     companion object {
@@ -167,7 +165,7 @@ class MainActivity : CsActivity() {
     }
 
     private fun initDoubleTapToSleep() {
-        screenLockAdminComponent = ComponentName(this, ScreenLockAdminReceiver::class.java)
+        doubleTapLockManager = DoubleTapLockManager(this)
         doubleTapGestureDetector = GestureDetector(
             this,
             object : GestureDetector.SimpleOnGestureListener() {
@@ -332,21 +330,23 @@ class MainActivity : CsActivity() {
         if (!isDoubleTapToSleepEnabled) return false
         if (isSearchExpanded || appListManager.isInMultiSelectMode()) return false
 
-        val policyManager = getSystemService(DEVICE_POLICY_SERVICE) as DevicePolicyManager
-        if (!policyManager.isAdminActive(screenLockAdminComponent)) {
-            Toast.makeText(this, getString(R.string.double_tap_sleep_enable_admin_toast), Toast.LENGTH_SHORT)
-                .show()
+        if (!doubleTapLockManager.isCurrentMethodAvailable()) {
+            val msg = when (doubleTapLockManager.getMethod()) {
+                DoubleTapLockManager.METHOD_ACCESSIBILITY ->
+                    getString(R.string.double_tap_sleep_failed_toast)
+                else ->
+                    getString(R.string.double_tap_sleep_enable_admin_toast)
+            }
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             return false
         }
 
-        return runCatching {
-            policyManager.lockNow()
-            true
-        }.getOrElse {
+        if (!doubleTapLockManager.lock()) {
             Toast.makeText(this, getString(R.string.double_tap_sleep_failed_toast), Toast.LENGTH_SHORT)
                 .show()
-            false
+            return false
         }
+        return true
     }
 
     // --- Open date app ---

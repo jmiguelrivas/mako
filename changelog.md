@@ -11,7 +11,12 @@
 - Add option for sleep among the apps that can be selected for gestures
 - Add option for open settings among the apps that can be selected for gestures
 
+## 42
+
+- Add click on icon open app settings checkbox
+
 ## 41
+
 - Screen opacity control
 - Fix navigation bar color + opacity
 - Add catppuccin latte light theme
@@ -25,6 +30,7 @@
 - Add multiple selection option
 
 ## 40
+
 - Add zoom control
 - Prevent non letter for been the initial of the profiles
 

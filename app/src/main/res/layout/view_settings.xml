@@ -54,7 +54,53 @@
                     android:id="@+id/double_tap_sleep"
                     android:text="@string/double_tap_sleep_label"
                     style="@style/Checkbox" />
-              
+
+                <LinearLayout
+                    android:id="@+id/double_tap_lock_method_container"
+                    android:visibility="gone"
+                    style="@style/VerticalListDivided_BG2">
+
+                    <TextView
+                        android:text="@string/double_tap_lock_method_label"
+                        style="@style/Text" />
+
+                    <LinearLayout
+                        android:id="@+id/double_tap_lock_method_group"
+                        style="@style/VerticalListDivided">
+
+                        <LinearLayout style="@style/HorizontalListDivided">
+
+                            <RadioButton
+                                android:id="@+id/lock_method_device_admin"
+                                android:text="@string/double_tap_lock_method_device_admin"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                style="@style/Radio" />
+
+                            <ImageButton
+                                android:id="@+id/lock_method_admin_info"
+                                style="@style/InfoButton" />
+
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/HorizontalListDivided">
+
+                            <RadioButton
+                                android:id="@+id/lock_method_accessibility"
+                                android:text="@string/double_tap_lock_method_accessibility"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                style="@style/Radio" />
+
+                            <ImageButton
+                                android:id="@+id/lock_method_accessibility_info"
+                                style="@style/InfoButton" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
                 <com.rama.mako.widgets.WdCheckbox
                     android:id="@+id/prevent_home_screen_rotation"
                     android:text="@string/checkbox_prevent_home_screen_rotation"
@@ -279,6 +325,11 @@
                 app:key="SETTINGS_SECTION_ICONS"
                 app:header="@string/h3_icons"
                 app:defaultExpanded="true">
+
+                <com.rama.mako.widgets.WdCheckbox
+                    android:id="@+id/icons_open_settings"
+                    android:text="@string/checkbox_click_on_icons_open_app_settings"
+                    style="@style/Checkbox" />
 
                 <RadioGroup
                     android:id="@+id/icon_source_group"

@@ -1,28 +1,25 @@
 package com.rama.mako.activities.settings
 
-import android.app.admin.DevicePolicyManager
-import android.content.ComponentName
-import android.content.Intent
+import android.app.AlertDialog
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import com.rama.mako.R
-import com.rama.mako.activities.MainActivity
 import com.rama.mako.activities.SettingsActivity
+import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager.PrefKeys
-import com.rama.mako.receivers.ScreenLockAdminReceiver
 import com.rama.mako.widgets.WdCheckbox
 
 class SettingsCheckboxController(private val activity: SettingsActivity) {
-
+    
     private val prefs get() = activity.prefs
-    private val devicePolicyManager by lazy {
-        activity.getSystemService(android.content.Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
-    }
-    private val screenLockAdminComponent by lazy {
-        ComponentName(activity, ScreenLockAdminReceiver::class.java)
-    }
+    private val lockManager = DoubleTapLockManager(activity)
+
     private lateinit var doubleTapSleepCheckbox: WdCheckbox
+    private lateinit var lockMethodContainer: View
+    private lateinit var lockMethodAccessibility: RadioButton
     private var isSyncingDoubleTapSleepCheckbox = false
+    private var isSyncingLockMethodGroup = false
 
     fun setup() {
         bindWdCheckbox(R.id.show_date, PrefKeys.DATE_VISIBLE, false, listOf(R.id.show_year_day))
@@ -60,6 +57,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
         )
         bindWdCheckbox(R.id.show_profile_indicator, PrefKeys.APPS_PROFILE_INDICATOR, true)
         setupDoubleTapToSleepCheckbox()
+        setupLockMethodRadioGroup()
 
         bindWdCheckbox(
             R.id.lock_settings,
@@ -72,17 +70,35 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             PrefKeys.SECURITY_KEYPAD_RANDOMIZED,
             true,
         )
+        bindWdCheckbox(
+            R.id.icons_open_settings,
+            PrefKeys.APPS_ICONS_OPEN_SETTINGS,
+            true,
+        )
+    }
 
+    fun refresh() {
+        val method = prefs.getDoubleTapLockMethod()
+        val available = lockManager.isCurrentMethodAvailable()
+        val shouldBeOn = prefs.isDoubleTapToSleepEnabled() && available
+
+        if (prefs.isDoubleTapToSleepEnabled() && !available) {
+            prefs.setDoubleTapToSleepEnabled(false)
+        }
+
+        syncDoubleTapSleepCheckbox(shouldBeOn)
+        refreshLockMethodUI()
+        updateCheckedRadioButton(method)
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int) {
-        if (requestCode != REQUEST_ENABLE_SCREEN_LOCK_ADMIN) return
+        if (requestCode != DoubleTapLockManager.REQUEST_ENABLE_SCREEN_LOCK_ADMIN) return
 
-        val adminActive = devicePolicyManager.isAdminActive(screenLockAdminComponent)
-        prefs.setDoubleTapToSleepEnabled(adminActive)
-        syncDoubleTapSleepCheckbox(adminActive)
+        val granted = lockManager.isMethodAvailable(DoubleTapLockManager.METHOD_DEVICE_ADMIN)
+        prefs.setDoubleTapToSleepEnabled(granted)
+        syncDoubleTapSleepCheckbox(granted)
 
-        if (!adminActive) {
+        if (!granted) {
             Toast.makeText(
                 activity,
                 activity.getString(R.string.double_tap_sleep_admin_declined_toast),
@@ -94,53 +110,105 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
     private fun setupDoubleTapToSleepCheckbox() {
         doubleTapSleepCheckbox = activity.findViewById(R.id.double_tap_sleep)
 
-        val isAdminActive = devicePolicyManager.isAdminActive(screenLockAdminComponent)
-        val isFeatureEnabled = prefs.isDoubleTapToSleepEnabled() && isAdminActive
+        val available = lockManager.isCurrentMethodAvailable()
+        val shouldBeOn = prefs.isDoubleTapToSleepEnabled() && available
 
-        if (!isAdminActive) {
+        if (prefs.isDoubleTapToSleepEnabled() && !available) {
             prefs.setDoubleTapToSleepEnabled(false)
         }
 
-        syncDoubleTapSleepCheckbox(isFeatureEnabled)
+        syncDoubleTapSleepCheckbox(shouldBeOn)
 
         doubleTapSleepCheckbox.setOnCheckedChangeListener { checked ->
             if (isSyncingDoubleTapSleepCheckbox) return@setOnCheckedChangeListener
-
             if (checked) {
                 enableDoubleTapToSleep()
             } else {
                 prefs.setDoubleTapToSleepEnabled(false)
             }
+            refreshLockMethodUI()
         }
     }
 
+    private fun setupLockMethodRadioGroup() {
+        lockMethodContainer = activity.findViewById(R.id.double_tap_lock_method_container)
+        lockMethodAccessibility = activity.findViewById(R.id.lock_method_accessibility)
+
+        if (!lockManager.isAccessibilitySupported()) {
+            lockMethodAccessibility.isEnabled = false
+            lockMethodAccessibility.text =
+                activity.getString(R.string.double_tap_lock_method_accessibility) +
+                        " (" + activity.getString(R.string.double_tap_lock_method_accessibility_unavailable) + ")"
+        }
+
+        updateCheckedRadioButton(prefs.getDoubleTapLockMethod())
+        refreshLockMethodUI()
+
+        val adminRadio = activity.findViewById<RadioButton>(R.id.lock_method_device_admin)
+        val accessibilityRadio = activity.findViewById<RadioButton>(R.id.lock_method_accessibility)
+
+        fun onMethodSelected(method: String) {
+            if (isSyncingLockMethodGroup) return
+            if (prefs.getDoubleTapLockMethod() == method) return
+            lockManager.setMethod(method)
+            updateCheckedRadioButton(method)
+            if (prefs.isDoubleTapToSleepEnabled() && !lockManager.isCurrentMethodAvailable()) {
+                lockManager.requestPermission(activity, method)
+            }
+        }
+
+        adminRadio.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
+        accessibilityRadio.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_ACCESSIBILITY) }
+
+        activity.findViewById<View>(R.id.lock_method_admin_info)
+            .setOnClickListener { showMethodInfo(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
+        activity.findViewById<View>(R.id.lock_method_accessibility_info)
+            .setOnClickListener { showMethodInfo(DoubleTapLockManager.METHOD_ACCESSIBILITY) }
+    }
+
+    private fun showMethodInfo(method: String) {
+        val title: String
+        val message: String
+        when (method) {
+            DoubleTapLockManager.METHOD_DEVICE_ADMIN -> {
+                title = activity.getString(R.string.double_tap_lock_method_device_admin)
+                message = activity.getString(R.string.double_tap_lock_method_admin_info)
+            }
+
+            else -> {
+                title = activity.getString(R.string.double_tap_lock_method_accessibility)
+                message = activity.getString(R.string.double_tap_lock_method_accessibility_info)
+            }
+        }
+        AlertDialog.Builder(activity)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
+    }
+
     private fun enableDoubleTapToSleep() {
-        if (devicePolicyManager.isAdminActive(screenLockAdminComponent)) {
-            prefs.setDoubleTapToSleepEnabled(true)
-            return
-        }
+        prefs.setDoubleTapToSleepEnabled(true)
+    }
 
-        syncDoubleTapSleepCheckbox(false)
+    private fun refreshLockMethodUI() {
+        val isOn = prefs.isDoubleTapToSleepEnabled()
+        lockMethodContainer.visibility = if (isOn) View.VISIBLE else View.GONE
+    }
 
-        val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).apply {
-            putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, screenLockAdminComponent)
-            putExtra(
-                DevicePolicyManager.EXTRA_ADD_EXPLANATION,
-                activity.getString(R.string.double_tap_sleep_admin_explanation)
-            )
-        }
-
-        activity.startActivityForResult(intent, REQUEST_ENABLE_SCREEN_LOCK_ADMIN)
+    private fun updateCheckedRadioButton(method: String) {
+        isSyncingLockMethodGroup = true
+        activity.findViewById<RadioButton>(R.id.lock_method_device_admin).isChecked =
+            method == DoubleTapLockManager.METHOD_DEVICE_ADMIN
+        activity.findViewById<RadioButton>(R.id.lock_method_accessibility).isChecked =
+            method == DoubleTapLockManager.METHOD_ACCESSIBILITY
+        isSyncingLockMethodGroup = false
     }
 
     private fun syncDoubleTapSleepCheckbox(isChecked: Boolean) {
         isSyncingDoubleTapSleepCheckbox = true
         doubleTapSleepCheckbox.setChecked(isChecked)
         isSyncingDoubleTapSleepCheckbox = false
-    }
-
-    companion object {
-        private const val REQUEST_ENABLE_SCREEN_LOCK_ADMIN = 2201
     }
 
     private fun bindWdCheckbox(
