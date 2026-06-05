@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.rama.mako.R
 import com.rama.mako.activities.MainActivity
 import com.rama.mako.activities.SettingsActivity
+import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager.PrefKeys
 import com.rama.mako.receivers.ScreenLockAdminReceiver
 import com.rama.mako.widgets.WdCheckbox
@@ -145,6 +146,139 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
 
     companion object {
         private const val REQUEST_ENABLE_SCREEN_LOCK_ADMIN = 2201
+    }
+
+    fun refresh() {
+        val method = prefs.getDoubleTapLockMethod()
+        val available = lockManager.isCurrentMethodAvailable()
+        val shouldBeOn = prefs.isDoubleTapToSleepEnabled() && available
+
+        if (prefs.isDoubleTapToSleepEnabled() && !available) {
+            prefs.setDoubleTapToSleepEnabled(false)
+        }
+
+        syncDoubleTapSleepCheckbox(shouldBeOn)
+        refreshLockMethodUI()
+        updateCheckedRadioButton(method)
+    }
+
+    fun onActivityResult(requestCode: Int, resultCode: Int) {
+        if (requestCode != DoubleTapLockManager.REQUEST_ENABLE_SCREEN_LOCK_ADMIN) return
+
+        val granted = lockManager.isMethodAvailable(DoubleTapLockManager.METHOD_DEVICE_ADMIN)
+        prefs.setDoubleTapToSleepEnabled(granted)
+        syncDoubleTapSleepCheckbox(granted)
+
+        if (!granted) {
+            Toast.makeText(
+                activity,
+                activity.getString(R.string.double_tap_sleep_admin_declined_toast),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun setupDoubleTapToSleepCheckbox() {
+        doubleTapSleepCheckbox = activity.findViewById(R.id.double_tap_sleep)
+
+        val available = lockManager.isCurrentMethodAvailable()
+        val shouldBeOn = prefs.isDoubleTapToSleepEnabled() && available
+
+        if (prefs.isDoubleTapToSleepEnabled() && !available) {
+            prefs.setDoubleTapToSleepEnabled(false)
+        }
+
+        syncDoubleTapSleepCheckbox(shouldBeOn)
+
+        doubleTapSleepCheckbox.setOnCheckedChangeListener { checked ->
+            if (isSyncingDoubleTapSleepCheckbox) return@setOnCheckedChangeListener
+            if (checked) {
+                enableDoubleTapToSleep()
+            } else {
+                prefs.setDoubleTapToSleepEnabled(false)
+            }
+            refreshLockMethodUI()
+        }
+    }
+
+    private fun setupLockMethodRadioGroup() {
+        lockMethodContainer = activity.findViewById(R.id.double_tap_lock_method_container)
+        lockMethodAccessibility = activity.findViewById(R.id.lock_method_accessibility)
+
+        if (!lockManager.isAccessibilitySupported()) {
+            lockMethodAccessibility.isEnabled = false
+            lockMethodAccessibility.text =
+                activity.getString(R.string.double_tap_lock_method_accessibility) +
+                " (" + activity.getString(R.string.double_tap_lock_method_accessibility_unavailable) + ")"
+        }
+
+        updateCheckedRadioButton(prefs.getDoubleTapLockMethod())
+        refreshLockMethodUI()
+
+        val adminRadio = activity.findViewById<RadioButton>(R.id.lock_method_device_admin)
+        val accessibilityRadio = activity.findViewById<RadioButton>(R.id.lock_method_accessibility)
+
+        fun onMethodSelected(method: String) {
+            if (isSyncingLockMethodGroup) return
+            if (prefs.getDoubleTapLockMethod() == method) return
+            lockManager.setMethod(method)
+            updateCheckedRadioButton(method)
+            if (prefs.isDoubleTapToSleepEnabled() && !lockManager.isCurrentMethodAvailable()) {
+                lockManager.requestPermission(activity, method)
+            }
+        }
+
+        adminRadio.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
+        accessibilityRadio.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_ACCESSIBILITY) }
+
+        activity.findViewById<View>(R.id.lock_method_admin_info)
+            .setOnClickListener { showMethodInfo(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
+        activity.findViewById<View>(R.id.lock_method_accessibility_info)
+            .setOnClickListener { showMethodInfo(DoubleTapLockManager.METHOD_ACCESSIBILITY) }
+    }
+
+    private fun showMethodInfo(method: String) {
+        val title: String
+        val message: String
+        when (method) {
+            DoubleTapLockManager.METHOD_DEVICE_ADMIN -> {
+                title = activity.getString(R.string.double_tap_lock_method_device_admin)
+                message = activity.getString(R.string.double_tap_lock_method_admin_info)
+            }
+            else -> {
+                title = activity.getString(R.string.double_tap_lock_method_accessibility)
+                message = activity.getString(R.string.double_tap_lock_method_accessibility_info)
+            }
+        }
+        AlertDialog.Builder(activity)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
+    }
+
+    private fun enableDoubleTapToSleep() {
+        prefs.setDoubleTapToSleepEnabled(true)
+    }
+
+    private fun refreshLockMethodUI() {
+        val isOn = prefs.isDoubleTapToSleepEnabled()
+        lockMethodContainer.visibility = if (isOn) View.VISIBLE else View.GONE
+    }
+
+    private fun updateCheckedRadioButton(method: String) {
+        isSyncingLockMethodGroup = true
+        activity.findViewById<RadioButton>(R.id.lock_method_device_admin).isChecked =
+            method == DoubleTapLockManager.METHOD_DEVICE_ADMIN
+        activity.findViewById<RadioButton>(R.id.lock_method_accessibility).isChecked =
+            method == DoubleTapLockManager.METHOD_ACCESSIBILITY
+        isSyncingLockMethodGroup = false
+    }
+
+    private fun syncDoubleTapSleepCheckbox(isChecked: Boolean) {
+        isSyncingDoubleTapSleepCheckbox = true
+        doubleTapSleepCheckbox.setChecked(isChecked)
+        isSyncingDoubleTapSleepCheckbox = false
     }
 
     private fun bindWdCheckbox(

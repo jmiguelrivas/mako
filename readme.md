@@ -1,11 +1,5 @@
 ![Preview](./docs/img/mako_header_1200x630.svg)
-
-<p align="center">
-  <a href="https://github.com/rama-io/mako/stargazers"><img src="https://img.shields.io/github/stars/rama-io/mako?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-  <a href="https://github.com/rama-io/mako/issues"><img src="https://img.shields.io/github/issues/rama-io/mako?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-  <a href="https://github.com/rama-io/mako/releases/latest"><img src="https://img.shields.io/github/v/release/rama-io/mako?colorA=363a4f&colorB=a6da95&style=for-the-badge" alt="Release"></a>
-  <a href="https://github.com/rama-io/mako/releases"><img src="https://img.shields.io/github/downloads/rama-io/mako/total?colorA=363a4f&colorB=ea999c&style=for-the-badge" alt="Downloads"></a>
-</p>
+![Badge](https://rama-io.github.io/img/badge_mako.svg)
 
 # Mako
 

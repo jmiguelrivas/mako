@@ -34,6 +34,7 @@ import com.rama.mako.managers.AppsProvider
 import com.rama.mako.managers.BatteryManager
 import com.rama.mako.managers.ClockManager
 import com.rama.mako.managers.HomeBackgroundManager
+import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager
 import com.rama.mako.managers.ThemeManager
 import com.rama.mako.receivers.ScreenLockAdminReceiver
