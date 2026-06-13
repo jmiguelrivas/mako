@@ -46,6 +46,7 @@
     <!-- Buttons 2 -->
     <string name="btn_join_discord">Join Discord</string>
     <string name="btn_export_data">Export Data</string>
+    <string name="btn_import_data">Import Data</string>
     <string name="btn_clear_data">Clear Data</string>
     <string name="btn_theme_apply_custom">Apply Custom Theme</string>
     <string name="btn_set_default">Set Launcher as default</string>
@@ -134,6 +135,8 @@
     <string name="toast_unable_launch_app">Unable to launch app</string>
     <string name="toast_reset_done">Reset done</string>
     <string name="toast_reset_failed">Reset failed</string>
+    <string name="toast_import_done">Import successful</string>
+    <string name="toast_import_failed">Import failed</string>
     <string name="toast_clock_app_selected">Selected: %1$s</string>
     <string name="toast_date_app_selected">Selected: %1$s</string>
     <string name="toast_no_date_app_found">No date app found</string>

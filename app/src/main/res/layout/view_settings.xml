@@ -625,6 +625,11 @@
                     style="@style/BTN_danger" />
 
                 <Button
+                    android:id="@+id/import_button"
+                    android:text="@string/btn_import_data"
+                    style="@style/BTN_danger" />
+
+                <Button
                     android:id="@+id/clear_prefs_button"
                     android:text="@string/btn_clear_data"
                     style="@style/BTN_danger" />

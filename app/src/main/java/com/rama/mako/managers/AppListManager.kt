@@ -826,6 +826,7 @@ class AppListManager(
         }
 
         listView.adapter = adapter
+        listView.setCacheColorHint(android.graphics.Color.TRANSPARENT)
 
         // When focus enters the list from outside (e.g. D-pad down from clock),
         // always land on the first item. focusedChild is null when focus arrives

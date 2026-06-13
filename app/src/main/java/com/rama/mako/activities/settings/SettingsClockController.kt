@@ -1,6 +1,5 @@
 package com.rama.mako.activities.settings
 
-import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -19,12 +18,6 @@ class SettingsClockController(private val activity: SettingsActivity) {
     fun setup() {
         setupClockFormat()
         setupClockAppButton()
-    }
-
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1001 && resultCode == android.app.Activity.RESULT_OK) {
-            data?.data?.let { prefs.exportToUri(activity, it) }
-        }
     }
 
     private fun setupClockFormat() {

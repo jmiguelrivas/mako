@@ -1,6 +1,7 @@
 # Changelog
 
 ## Backlog
+
 - Add gesture section
 - Add option for home double tap
 - Add option for home long press (currently shows settings)
@@ -10,6 +11,11 @@
 - Add option for date long press
 - Add option for sleep among the apps that can be selected for gestures
 - Add option for open settings among the apps that can be selected for gestures
+
+## 43
+
+- Fix wallpaper overlay stacking and list ghosting
+- Add proper export and import data
 
 ## 42
 

@@ -13,6 +13,11 @@ class SettingsBasicController(private val activity: SettingsActivity) {
 
     private val prefs get() = activity.prefs
 
+    companion object {
+        private const val EXPORT_REQUEST = 2001
+        private const val IMPORT_REQUEST = 2002
+    }
+
     fun setup() {
         SettingsUiUtils.setupButton(activity, R.id.about_button) {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
@@ -56,7 +61,15 @@ class SettingsBasicController(private val activity: SettingsActivity) {
                 type = "application/json"
                 putExtra(Intent.EXTRA_TITLE, "prefs_backup.json")
             }
-            activity.startActivityForResult(intent, 1001)
+            activity.startActivityForResult(intent, EXPORT_REQUEST)
+        }
+
+        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.import_button)) {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                addCategory(Intent.CATEGORY_OPENABLE)
+                type = "application/json"
+            }
+            activity.startActivityForResult(intent, IMPORT_REQUEST)
         }
 
         SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.clear_prefs_button)) {
@@ -67,6 +80,12 @@ class SettingsBasicController(private val activity: SettingsActivity) {
                         activity.getString(R.string.toast_reset_done),
                         Toast.LENGTH_SHORT
                     ).show()
+                    activity.finish()
+                    activity.startActivity(
+                        Intent(activity, MainActivity::class.java).apply {
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        }
+                    )
                 }
                 .onFailure {
                     Toast.makeText(
@@ -75,6 +94,37 @@ class SettingsBasicController(private val activity: SettingsActivity) {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+        }
+    }
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode != android.app.Activity.RESULT_OK || data?.data == null) return
+
+        when (requestCode) {
+            EXPORT_REQUEST -> {
+                prefs.exportToUri(activity, data.data!!)
+            }
+            IMPORT_REQUEST -> {
+                val success = prefs.importFromUri(activity, data.data!!)
+                if (success) {
+                    Toast.makeText(
+                        activity,
+                        activity.getString(R.string.toast_import_done),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    activity.startActivity(
+                        Intent(activity, MainActivity::class.java).apply {
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        }
+                    )
+                } else {
+                    Toast.makeText(
+                        activity,
+                        activity.getString(R.string.toast_import_failed),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
     }
 }

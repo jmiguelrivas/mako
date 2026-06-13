@@ -77,7 +77,7 @@ class MainActivity : CsActivity() {
     private val wallpaperChangedReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: android.content.Context?, intent: Intent?) {
             if (intent?.action == WALLPAPER_CHANGED_ACTION) {
-                applyHomeBackground()
+                applyHomeBackground(force = true)
             }
         }
         }
@@ -276,8 +276,8 @@ class MainActivity : CsActivity() {
 
     override fun onResume() {
         super.onResume()
+        registerWallpaperReceiverIfNeeded()
         applyHomeBackground(force = true)
-        unregisterWallpaperReceiverIfNeeded()
         syncSettings()
         schedulePostResumeRefresh()
 
@@ -411,6 +411,9 @@ class MainActivity : CsActivity() {
             applyWindowBackground()
             homeBackgroundManager.applyTo(rootView, mode)
         }
+
+        rootView.invalidate()
+        rootView.requestLayout()
 
         lastAppliedBackgroundMode = mode
         lastAppliedWallpaperSignature = wallpaperSignature

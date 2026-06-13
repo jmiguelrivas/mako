@@ -47,6 +47,7 @@
     <!-- Buttons 2 -->
     <string name="btn_join_discord">Discord beitreten</string>
     <string name="btn_export_data">Daten exportieren</string>
+    <string name="btn_import_data">Daten importieren</string>
     <string name="btn_clear_data">Daten löschen</string>
     <string name="btn_theme_apply_custom">Benutzerdefiniertes Design anwenden</string>
     <string name="btn_set_default">Launcher als Standard festlegen</string>
@@ -114,6 +115,7 @@
     <string name="checkbox_randomized_keypad">Zufälliges Tastenfeld</string>
     <string name="checkbox_always_show_search_bar">Immer anzeigen</string>
     <string name="checkbox_prevent_home_screen_rotation">Bildschirmrotation sperren</string>
+    <string name="checkbox_click_on_icons_open_app_settings">App-Einstellungen beim Klicken auf Icon öffnen</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">App umbenennen...</string>
@@ -134,6 +136,8 @@
     <string name="toast_unable_launch_app">App konnte nicht geöffnet werden</string>
     <string name="toast_reset_done">Zurücksetzen abgeschlossen</string>
     <string name="toast_reset_failed">Zurücksetzen fehlgeschlagen</string>
+    <string name="toast_import_done">Import erfolgreich</string>
+    <string name="toast_import_failed">Import fehlgeschlagen</string>
     <string name="toast_clock_app_selected">Ausgewählt: %1$s</string>
     <string name="toast_date_app_selected">Ausgewählt: %1$s</string>
     <string name="toast_no_date_app_found">Keine Datums-App gefunden</string>
