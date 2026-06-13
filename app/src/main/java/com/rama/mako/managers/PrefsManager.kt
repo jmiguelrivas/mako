@@ -37,6 +37,11 @@ class PrefsManager private constructor(context: Context) {
                 INSTANCE ?: PrefsManager(context.applicationContext).also { INSTANCE = it }
             }
         }
+
+        // Keys whose JSON-encoded integers must be re-coerced to Float on import
+        private val FLOAT_PREF_KEYS = setOf(
+            PrefKeys.APP_UI_SCALE
+        )
     }
 
     object UI {
@@ -645,7 +650,11 @@ class PrefsManager private constructor(context: Context) {
             json.keys().forEach { key ->
                 when (val value = json.get(key)) {
                     is Boolean -> editor.putBoolean(key, value)
-                    is Int -> editor.putInt(key, value)
+                    is Int -> {
+                        if (key in FLOAT_PREF_KEYS) editor.putFloat(key, value.toFloat())
+                        else editor.putInt(key, value)
+                    }
+
                     is Long -> editor.putLong(key, value)
                     is Float -> editor.putFloat(key, value)
                     is Double -> editor.putFloat(key, value.toFloat())
