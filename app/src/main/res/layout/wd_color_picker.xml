@@ -14,7 +14,6 @@
         android:layout_weight="1"
         android:textColor="@color/foreground"
         android:textAllCaps="true"
-        android:textStyle="bold"
         android:textSize="16sp" />
 
     <FrameLayout

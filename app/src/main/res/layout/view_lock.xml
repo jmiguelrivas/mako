@@ -118,7 +118,6 @@
         android:layout_height="wrap_content"
         android:text="@string/easter_eggs_unlock"
         android:textSize="18sp"
-        android:textStyle="bold"
         android:gravity="center"
         android:padding="16dp"
         android:visibility="gone"
