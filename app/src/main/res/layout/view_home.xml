@@ -33,7 +33,6 @@
                         android:background="@android:color/transparent"
                         android:layout_width="wrap_content"
                         android:focusable="false"
-                        android:textColor="@color/h1"
                         style="@style/H1" />
 
                     <LinearLayout
