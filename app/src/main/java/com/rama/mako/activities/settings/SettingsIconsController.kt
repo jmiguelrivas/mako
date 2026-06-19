@@ -7,8 +7,8 @@ import android.widget.*
 import com.rama.mako.R
 import com.rama.mako.activities.SettingsActivity
 import com.rama.mako.managers.PrefsManager
-import com.rama.mako.managers.ThemeManager
-import com.rama.mako.utils.SettingsUiUtils
+import com.rama.bohio.managers.ThemeManager
+import com.rama.bohio.util.UiActions
 
 class SettingsIconsController(private val activity: SettingsActivity) {
 
@@ -51,7 +51,7 @@ class SettingsIconsController(private val activity: SettingsActivity) {
             refreshIconPackSection()
         }
 
-        SettingsUiUtils.setClickWithHaptics(selectIconPackButton) {
+        UiActions.setClickWithHaptics(selectIconPackButton) {
             showIconPackPickerDialog()
         }
     }
@@ -141,7 +141,7 @@ class SettingsIconsController(private val activity: SettingsActivity) {
             refreshIconPackSection()
         }
 
-        SettingsUiUtils.setClickWithHaptics(closeBtn) {
+        UiActions.setClickWithHaptics(closeBtn) {
             refreshIconPackSection()
             dialog.dismiss()
         }

@@ -2,8 +2,8 @@ package com.rama.mako.activities.settings
 
 import com.rama.mako.R
 import com.rama.mako.activities.SettingsActivity
-import com.rama.mako.managers.PrefsManager.PrefKeys
-import com.rama.mako.widgets.WdCheckbox
+import com.rama.mako.managers.PrefsManager.FileKeys
+import com.rama.bohio.widgets.WdCheckbox
 import com.rama.mako.widgets.WdPinField
 
 class SettingsPinController(private val activity: SettingsActivity) {
@@ -17,11 +17,11 @@ class SettingsPinController(private val activity: SettingsActivity) {
 
     private fun setupRandomizedKeypadToggle() {
         val checkbox = activity.findViewById<WdCheckbox>(R.id.randomized_keypad)
-        val isRandomized = prefs.getBoolean(PrefKeys.SECURITY_KEYPAD_RANDOMIZED, true)
+        val isRandomized = prefs.getBoolean(FileKeys.SECURITY_KEYPAD_RANDOMIZED, true)
         checkbox.setChecked(isRandomized)
 
         checkbox.setOnCheckedChangeListener { checked ->
-            prefs.setBoolean(PrefKeys.SECURITY_KEYPAD_RANDOMIZED, checked)
+            prefs.setBoolean(FileKeys.SECURITY_KEYPAD_RANDOMIZED, checked)
         }
     }
 

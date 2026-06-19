@@ -7,7 +7,7 @@ import com.rama.mako.R
 import com.rama.mako.activities.AboutActivity
 import com.rama.mako.activities.MainActivity
 import com.rama.mako.activities.SettingsActivity
-import com.rama.mako.utils.SettingsUiUtils
+import com.rama.bohio.util.UiActions
 
 class SettingsBasicController(private val activity: SettingsActivity) {
 
@@ -19,31 +19,31 @@ class SettingsBasicController(private val activity: SettingsActivity) {
     }
 
     fun setup() {
-        SettingsUiUtils.setupButton(activity, R.id.about_button) {
+        UiActions.setupButton(activity, R.id.about_button) {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
         }
 
-        SettingsUiUtils.setupButton(activity, R.id.close_button) {
+        UiActions.setupButton(activity, R.id.close_button) {
             activity.finish()
         }
 
-        SettingsUiUtils.setupButton(activity, R.id.activate_button) {
-            SettingsUiUtils.openIntent(
+        UiActions.setupButton(activity, R.id.activate_button) {
+            UiActions.openIntent(
                 activity,
                 Intent(Settings.ACTION_HOME_SETTINGS),
                 activity.getString(R.string.toast_unable_open_settings)
             )
         }
 
-        SettingsUiUtils.setupButton(activity, R.id.wallpaper_button) {
-            SettingsUiUtils.openIntent(
+        UiActions.setupButton(activity, R.id.wallpaper_button) {
+            UiActions.openIntent(
                 activity,
                 Intent(Intent.ACTION_SET_WALLPAPER),
                 activity.getString(R.string.toast_unable_open_wallpaper_app)
             )
         }
 
-        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.reset_button)) {
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.reset_button)) {
             activity.startActivity(
                 Intent(activity, MainActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -51,11 +51,11 @@ class SettingsBasicController(private val activity: SettingsActivity) {
             )
         }
 
-        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.change_apps_button)) {
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.change_apps_button)) {
             activity.startActivity(Intent(Settings.ACTION_APPLICATION_SETTINGS))
         }
 
-        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.export_button)) {
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.export_button)) {
             val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "application/json"
@@ -64,7 +64,7 @@ class SettingsBasicController(private val activity: SettingsActivity) {
             activity.startActivityForResult(intent, EXPORT_REQUEST)
         }
 
-        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.import_button)) {
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.import_button)) {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "application/json"
@@ -72,7 +72,7 @@ class SettingsBasicController(private val activity: SettingsActivity) {
             activity.startActivityForResult(intent, IMPORT_REQUEST)
         }
 
-        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.clear_prefs_button)) {
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.clear_prefs_button)) {
             prefs.clearAllPrefs()
                 .onSuccess {
                     Toast.makeText(
@@ -104,6 +104,7 @@ class SettingsBasicController(private val activity: SettingsActivity) {
             EXPORT_REQUEST -> {
                 prefs.exportToUri(activity, data.data!!)
             }
+
             IMPORT_REQUEST -> {
                 val success = prefs.importFromUri(activity, data.data!!)
                 if (success) {

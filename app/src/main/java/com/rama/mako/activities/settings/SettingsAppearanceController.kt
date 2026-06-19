@@ -148,26 +148,28 @@ class SettingsAppearanceController(private val activity: SettingsActivity) {
         when (prefs.getTheme()) {
             PrefTheme.RAMA -> group.check(R.id.theme_rama)
             PrefTheme.MAKO -> group.check(R.id.theme_mako)
+            PrefTheme.TEYIN -> group.check(R.id.theme_teyin)
             PrefTheme.CATPPUCCIN_MOCHA -> group.check(R.id.theme_catppuccin_mocha)
             PrefTheme.CATPPUCCIN_LATTE -> group.check(R.id.theme_catppuccin_latte)
             PrefTheme.DRACULA -> group.check(R.id.theme_dracula)
             PrefTheme.MELANGE -> group.check(R.id.theme_melange)
             PrefTheme.TOKYO_NIGHT -> group.check(R.id.theme_tokyo_night)
             PrefTheme.CUSTOM -> group.check(R.id.theme_custom)
-            else -> group.check(R.id.theme_mako)
+            else -> group.check(R.id.theme_teyin)
         }
 
         group.setOnCheckedChangeListener { _, id ->
             val theme = when (id) {
-                R.id.theme_rama -> PrefTheme.RAMA
                 R.id.theme_mako -> PrefTheme.MAKO
+                R.id.theme_rama -> PrefTheme.RAMA
+                R.id.theme_teyin -> PrefTheme.TEYIN
                 R.id.theme_catppuccin_mocha -> PrefTheme.CATPPUCCIN_MOCHA
                 R.id.theme_catppuccin_latte -> PrefTheme.CATPPUCCIN_LATTE
                 R.id.theme_dracula -> PrefTheme.DRACULA
                 R.id.theme_melange -> PrefTheme.MELANGE
                 R.id.theme_tokyo_night -> PrefTheme.TOKYO_NIGHT
                 R.id.theme_custom -> PrefTheme.CUSTOM
-                else -> PrefTheme.MAKO
+                else -> PrefTheme.TEYIN
             }
 
             // Show/hide the custom form

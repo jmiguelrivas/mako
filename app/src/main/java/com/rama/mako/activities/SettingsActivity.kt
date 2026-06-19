@@ -79,7 +79,7 @@ class SettingsActivity : CsActivity() {
         if (isUnlocked || isLockScreenShowing) return
 
         val lockEnabled = prefs.getBoolean(
-            PrefsManager.PrefKeys.SECURITY_KEYPAD_VISIBLE,
+            PrefsManager.FileKeys.SECURITY_KEYPAD_VISIBLE,
             false
         )
         val hasPin = prefs.getPin().isNotEmpty()
@@ -92,7 +92,7 @@ class SettingsActivity : CsActivity() {
             )
         }
     }
-    
+
     fun applySettingsBackground(force: Boolean = false) {
         applyWindowBackground()
         homeBackgroundManager.applyToSettings(settingsRootView, PrefsManager.BackgroundMode.DEFAULT)

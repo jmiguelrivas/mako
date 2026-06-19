@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import android.widget.*
 import com.rama.mako.R
 import com.rama.mako.activities.SettingsActivity
-import com.rama.mako.managers.ThemeManager
-import com.rama.mako.utils.SettingsUiUtils
+import com.rama.bohio.managers.ThemeManager
+import com.rama.bohio.util.UiActions
 
 class SettingsDateController(private val activity: SettingsActivity) {
 
@@ -19,7 +19,7 @@ class SettingsDateController(private val activity: SettingsActivity) {
     }
 
     private fun setupDateAppButton() {
-        SettingsUiUtils.setClickWithHaptics(activity.findViewById(R.id.set_date_app_button)) {
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.set_date_app_button)) {
             showAppPickerDialog()
         }
     }
@@ -69,7 +69,7 @@ class SettingsDateController(private val activity: SettingsActivity) {
             dialog.dismiss()
         }
 
-        SettingsUiUtils.setClickWithHaptics(closeBtn) { dialog.dismiss() }
+        UiActions.setClickWithHaptics(closeBtn) { dialog.dismiss() }
 
         dialog.show()
         dialog.window?.setLayout(

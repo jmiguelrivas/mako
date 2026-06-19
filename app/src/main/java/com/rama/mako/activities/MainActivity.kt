@@ -5,7 +5,6 @@ import android.animation.ObjectAnimator
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -34,7 +33,7 @@ import com.rama.mako.managers.ClockManager
 import com.rama.mako.managers.HomeBackgroundManager
 import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager
-import com.rama.mako.managers.ThemeManager
+import com.rama.bohio.managers.ThemeManager
 
 class MainActivity : CsActivity() {
 
@@ -80,7 +79,7 @@ class MainActivity : CsActivity() {
                 applyHomeBackground(force = true)
             }
         }
-        }
+    }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
@@ -308,7 +307,7 @@ class MainActivity : CsActivity() {
         }
         return super.dispatchTouchEvent(ev)
     }
-    
+
     private fun syncSettings() {
         val searchVisible = prefs.isSearchVisible()
 
@@ -334,6 +333,7 @@ class MainActivity : CsActivity() {
             val msg = when (doubleTapLockManager.getMethod()) {
                 DoubleTapLockManager.METHOD_ACCESSIBILITY ->
                     getString(R.string.double_tap_sleep_failed_toast)
+
                 else ->
                     getString(R.string.double_tap_sleep_enable_admin_toast)
             }
@@ -342,7 +342,11 @@ class MainActivity : CsActivity() {
         }
 
         if (!doubleTapLockManager.lock()) {
-            Toast.makeText(this, getString(R.string.double_tap_sleep_failed_toast), Toast.LENGTH_SHORT)
+            Toast.makeText(
+                this,
+                getString(R.string.double_tap_sleep_failed_toast),
+                Toast.LENGTH_SHORT
+            )
                 .show()
             return false
         }
