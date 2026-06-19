@@ -5,10 +5,9 @@ import android.os.Looper
 import android.text.format.DateFormat
 import android.view.View
 import android.widget.TextView
-import com.rama.mako.utils.LocaleHelper
+import com.rama.bohio.util.LocaleHelper
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 
 class ClockManager(
     private val timeTextView: TextView,

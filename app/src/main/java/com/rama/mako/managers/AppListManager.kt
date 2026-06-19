@@ -13,11 +13,12 @@ import android.widget.*
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.rama.mako.R
-import com.rama.mako.utils.sp
+import com.rama.bohio.util.Dimens.spToPx
 import com.rama.mako.activities.SettingsActivity
 import java.text.Normalizer
 import java.util.Locale
 import kotlin.math.abs
+import com.rama.bohio.managers.ThemeManager
 
 class AppListManager(
     private val context: Context,
@@ -516,7 +517,7 @@ class AppListManager(
                         RadioGroup.LayoutParams.MATCH_PARENT,
                         RadioGroup.LayoutParams.WRAP_CONTENT
                     ).apply {
-                        bottomMargin = if (isLast) 0 else context.sp(8f)
+                        bottomMargin = if (isLast) 0 else spToPx(context, 8f)
                     }
                 }
 

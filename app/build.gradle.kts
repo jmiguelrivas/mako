@@ -19,19 +19,6 @@ android {
         versionName = "$currentYear.$versionCode"
     }
 
-    flavorDimensions += "version"
-
-    productFlavors {
-        create("base") {
-            dimension = "version"
-        }
-        create("ext") {
-            dimension = "version"
-            applicationIdSuffix = ".ext"
-            versionNameSuffix = "-ext"
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = true

@@ -1,7 +1,7 @@
 package com.rama.mako.managers
 
 import android.content.Context
-import com.rama.mako.utils.IdUtils
+import com.rama.bohio.util.IdUtils
 
 class GroupsManager(
     context: Context,
