@@ -1,13 +1,11 @@
 package com.rama.mako.managers
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.UserHandle
 import com.rama.bohio.util.IdUtils
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.rama.bohio.managers.PrefsManager
 import com.rama.bohio.objects.PrefTheme
 import com.rama.bohio.managers.PrefsManager as BohioPrefsManager
 

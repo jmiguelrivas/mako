@@ -8,6 +8,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import com.rama.bohio.widgets.WdCheckbox
 import com.rama.mako.R
+import com.rama.bohio.R as BohioR
 import com.rama.mako.activities.SettingsActivity
 import com.rama.bohio.managers.FontManager
 import com.rama.mako.managers.PrefsManager
@@ -266,7 +267,7 @@ class SettingsAppearanceController(private val activity: SettingsActivity) {
 
         if (matchIndex >= 0) {
             range.post {
-                val container = range.findViewById<android.widget.LinearLayout>(R.id.container)
+                val container = range.findViewById<android.widget.LinearLayout>(BohioR.id.container)
                 (container?.getChildAt(matchIndex) as? android.widget.Button)?.performClick()
             }
         }
@@ -293,11 +294,11 @@ class SettingsAppearanceController(private val activity: SettingsActivity) {
             }
         }
 
-        val steps = activity.resources.getStringArray(R.array.ui_scale_steps).toList()
+        val steps = activity.resources.getStringArray(BohioR.array.ui_scale_steps).toList()
         val matchIndex = steps.indexOfFirst { it.toFloatOrNull() == savedScale }
         if (matchIndex >= 0) {
             range.post {
-                val container = range.findViewById<android.widget.LinearLayout>(R.id.container)
+                val container = range.findViewById<android.widget.LinearLayout>(BohioR.id.container)
                 (container?.getChildAt(matchIndex) as? android.widget.Button)?.performClick()
             }
         }

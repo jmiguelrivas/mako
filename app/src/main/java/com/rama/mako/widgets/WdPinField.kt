@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import com.rama.mako.R
+import com.rama.bohio.R as BohioR
 
 class WdPinField @JvmOverloads constructor(
     context: Context,
@@ -47,11 +48,11 @@ class WdPinField @JvmOverloads constructor(
             if (isVisible) {
                 pinField.inputType = InputType.TYPE_CLASS_NUMBER or
                         InputType.TYPE_NUMBER_VARIATION_NORMAL
-                toggleIcon.setImageResource(R.drawable.px_eye_cross)
+                toggleIcon.setImageResource(BohioR.drawable.px_eye_cross)
             } else {
                 pinField.inputType = InputType.TYPE_CLASS_NUMBER or
                         InputType.TYPE_NUMBER_VARIATION_PASSWORD
-                toggleIcon.setImageResource(R.drawable.icon_eye)
+                toggleIcon.setImageResource(BohioR.drawable.px_eye)
             }
 
             // Keep cursor at end after toggling

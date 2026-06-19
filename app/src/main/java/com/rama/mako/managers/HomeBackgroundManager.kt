@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
 import androidx.core.graphics.ColorUtils
+import com.rama.bohio.managers.ThemeManager
 
 class HomeBackgroundManager(context: Context) {
 

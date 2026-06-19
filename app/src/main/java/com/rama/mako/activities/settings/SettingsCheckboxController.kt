@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
+import com.rama.bohio.objects.PrefKeys
 import com.rama.mako.R
 import com.rama.mako.activities.SettingsActivity
 import com.rama.mako.managers.DoubleTapLockManager
@@ -46,10 +47,10 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
         )
         bindWdCheckbox(R.id.show_battery_temperature, FileKeys.BATTERY_TEMPERATURE, false)
         bindWdCheckbox(R.id.show_battery_charge_status, FileKeys.BATTERY_CHARGE_STATUS, false)
-        bindWdCheckbox(R.id.show_system_bar, FileKeys.SYSTEM_BAR_VISIBLE, false)
+        bindWdCheckbox(R.id.show_system_bar, PrefKeys.SYSTEM_BAR_VISIBLE, false)
         bindWdCheckbox(
             R.id.prevent_home_screen_rotation,
-            FileKeys.SYSTEM_PREVENT_ROTATION,
+            PrefKeys.SYSTEM_PREVENT_ROTATION,
             false,
             onChange = { isChecked ->
                 activity.applyRotationLock(isChecked)

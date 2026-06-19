@@ -7,6 +7,7 @@ import android.view.View.generateViewId
 import android.view.ViewGroup
 import android.widget.*
 import com.rama.mako.R
+import com.rama.bohio.R as BohioR
 import com.rama.mako.activities.SettingsActivity
 import com.rama.bohio.managers.ThemeManager
 import com.rama.bohio.util.UiActions
@@ -54,8 +55,8 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
 
         fun updateIcon() {
             toggleIcon.setImageResource(
-                if (prefs.isGroupVisible(groupId)) R.drawable.icon_eye
-                else R.drawable.px_eye_cross
+                if (prefs.isGroupVisible(groupId)) BohioR.drawable.px_eye
+                else BohioR.drawable.px_eye_cross
             )
         }
 
