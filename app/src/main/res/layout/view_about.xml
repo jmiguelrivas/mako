@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/about_root"
     android:layout_height="match_parent"
     android:background="@color/bg_1"
     android:orientation="vertical"
@@ -45,244 +46,244 @@
                 android:text="@string/h3_app"
                 style="@style/H3" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/app_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/app_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_mako_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/app_ads_desc" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/app_background_tasks_desc" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/app_trackers_desc" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/app_offline_desc" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_gpl3" />
 
             <TextView
                 android:text="@string/h3_contributors"
                 style="@style/H3" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/contributor_isotjs" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/contributor_isotjs_url" />
 
             <View style="@style/Separator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/contributor_etwasmitbaum" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/contributor_etwasmitbaum_url" />
 
             <TextView
                 android:text="@string/h3_icons"
                 style="@style/H3" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/product_hackernoon_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/product_hackernoon_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_hackernoon_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_cc_4" />
 
             <TextView
                 android:text="@string/h3_fonts"
                 style="@style/H3" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/product_jersey_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/product_jersey_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_jersey_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_ofl_1_1" />
 
             <TextView
                 android:text="@string/h3_themes"
                 style="@style/H3" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/product_dracula_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/product_dracula_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_dracula_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_mit" />
 
             <View style="@style/Separator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/product_catppuccin_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/product_catppuccin_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_catppuccin_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_mit" />
 
             <View style="@style/Separator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/product_tokyo_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/product_tokyo_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_tokyo_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_mit" />
 
             <View style="@style/Separator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_user"
+                android:icon="@drawable/px_user"
                 android:text="@string/product_melange_creator" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_seedlings"
+                android:icon="@drawable/px_seedlings"
                 android:text="@string/product_melange_name" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_github"
+                android:icon="@drawable/px_github"
                 android:text="@string/product_melange_url" />
 
-            <com.rama.mako.widgets.WdLabel
+            <com.rama.bohio.widgets.WdLabel
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/icon_octagon_check_solid"
+                android:icon="@drawable/px_octagon_check"
                 android:text="@string/license_mit" />
 
         </LinearLayout>

@@ -1,13 +1,7 @@
 <resources>
     <!-- Base theme -->
-    <style name="Theme.Mako" parent="android:Theme.DeviceDefault.NoActionBar">
+    <style name="Theme.Mako" parent="Theme.Rama.Base">
         <item name="bgColor">@color/bg_1</item>
-        <item name="foregroundColor">@color/foreground</item>
-
-        <item name="android:windowBackground">?attr/bgColor</item>
-        <item name="android:textColor">?attr/foregroundColor</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowFullscreen">false</item>
     </style>
 
     <style name="PinButton">
@@ -21,175 +15,13 @@
         <item name="android:textSize">24sp</item>
     </style>
 
-    <!-- Global -->
-
-    <style name="BlockFlow">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="HorizontalList" parent="BlockFlow">
-        <item name="android:orientation">horizontal</item>
-        <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <style name="HorizontalList_BG2" parent="HorizontalList">
-        <item name="android:background">@color/bg_2</item>
-        <item name="android:padding">16sp</item>
-    </style>
-
-    <style name="HorizontalListDivided" parent="HorizontalList">
-        <item name="android:showDividers">middle</item>
-        <item name="android:divider">@drawable/list_divider</item>
-    </style>
-
-    <style name="HorizontalListDividedSmall" parent="HorizontalList">
-        <item name="android:showDividers">middle</item>
-        <item name="android:divider">@drawable/list_divider_small</item>
-    </style>
-
-    <style name="VerticalList" parent="BlockFlow">
-        <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="VerticalList_BG2" parent="VerticalList">
-        <item name="android:background">@color/bg_2</item>
-        <item name="android:padding">16sp</item>
-    </style>
-
-    <style name="VerticalListDivided" parent="VerticalList">
-        <item name="android:showDividers">middle</item>
-        <item name="android:divider">@drawable/list_divider</item>
-    </style>
-
-    <style name="VerticalListDivided_BG2" parent="VerticalList_BG2">
-        <item name="android:showDividers">middle</item>
-        <item name="android:divider">@drawable/list_divider</item>
-    </style>
-
-    <style name="H1" parent="BlockFlow">
-        <item name="android:textColor">@color/h1</item>
-        <item name="android:textSize">@dimen/h1</item>
-    </style>
-
-    <style name="H1_center" parent="H1">
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="H2" parent="BlockFlow">
-        <item name="android:textColor">@color/foreground</item>
-        <item name="android:textSize">@dimen/h2</item>
-    </style>
-
-    <style name="H2_center" parent="H2">
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="H3" parent="BlockFlow">
-        <item name="android:textColor">@color/foreground</item>
-        <item name="android:textSize">@dimen/h3</item>
-    </style>
-
-    <style name="Disclaimer" parent="BlockFlow">
-        <item name="android:textColor">@color/foreground</item>
-        <item name="android:textSize">@dimen/h3</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="Text" parent="BlockFlow">
-        <item name="android:textColor">@color/foreground</item>
-        <item name="android:textSize">@dimen/text</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="BTN" parent="BlockFlow">
-        <item name="android:padding">16sp</item>
-        <item name="android:textColor">@color/bg_1</item>
-        <item name="android:textSize">@dimen/text</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="BTN1" parent="BTN">
-        <item name="android:background">@color/button_1</item>
-    </style>
-
-    <style name="BTN2" parent="BTN">
-        <item name="android:background">@color/button_2</item>
-    </style>
-
-    <style name="BTN3" parent="BTN">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:background">@color/bg_3</item>
-    </style>
-
-    <style name="BTN_danger" parent="BTN">
-        <item name="android:background">@color/danger</item>
-    </style>
-
-    <style name="BTN_range" parent="BlockFlow">
-        <item name="android:paddingTop">10sp</item>
-        <item name="android:paddingBottom">10sp</item>
-        <item name="android:paddingStart">2sp</item>
-        <item name="android:paddingEnd">2sp</item>
-        <item name="android:textSize">@dimen/small</item>
-        <item name="android:background">@color/button_2</item>
-        <item name="android:textColor">@color/bg_1</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="RadioGroup" parent="VerticalListDivided_BG2" />
-
-    <style name="Radio" parent="BlockFlow">
-        <item name="android:textColor">@color/foreground</item>
-        <item name="android:textSize">@dimen/text</item>
-    </style>
-
-    <style name="Checkbox" parent="BlockFlow" />
-
-    <style name="EditText" parent="BlockFlow">
-        <item name="android:textColor">@color/foreground</item>
-        <item name="android:textSize">@dimen/text</item>
-        <item name="android:background">@color/input</item>
-        <item name="android:paddingTop">16sp</item>
-        <item name="android:paddingBottom">16sp</item>
-        <item name="android:paddingStart">8sp</item>
-        <item name="android:paddingEnd">8sp</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:singleLine">true</item>
-    </style>
-
-    <style name="Icon18">
-        <item name="android:layout_width">18sp</item>
-        <item name="android:layout_height">18sp</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
-    <style name="Icon24">
-        <item name="android:layout_width">24sp</item>
-        <item name="android:layout_height">24sp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:tint">@color/icon</item>
-    </style>
-
-    <style name="ColorPickerBtn" parent="BlockFlow">
-        <item name="android:layout_marginBottom">8sp</item>
-    </style>
-
     <style name="InfoButton">
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
-        <item name="android:src">@drawable/icon_info_solid</item>
+        <item name="android:src">@drawable/px_info</item>
         <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
         <item name="android:tint">@color/accent_1</item>
         <item name="android:scaleType">center</item>
     </style>
 
-    <style name="Separator">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/disabled</item>
-        <item name="android:layout_marginTop">16sp</item>
-        <item name="android:layout_marginBottom">16sp</item>
-    </style>
 </resources>

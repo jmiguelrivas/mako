@@ -47,7 +47,7 @@ class WdPinField @JvmOverloads constructor(
             if (isVisible) {
                 pinField.inputType = InputType.TYPE_CLASS_NUMBER or
                         InputType.TYPE_NUMBER_VARIATION_NORMAL
-                toggleIcon.setImageResource(R.drawable.icon_eye_cross)
+                toggleIcon.setImageResource(R.drawable.px_eye_cross)
             } else {
                 pinField.inputType = InputType.TYPE_CLASS_NUMBER or
                         InputType.TYPE_NUMBER_VARIATION_PASSWORD

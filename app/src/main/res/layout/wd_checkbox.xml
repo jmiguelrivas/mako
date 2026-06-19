@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/HorizontalList_BG2">
-
-    <CheckBox
-        android:id="@+id/checkbox"
-        style="@style/Checkbox" />
-</FrameLayout>

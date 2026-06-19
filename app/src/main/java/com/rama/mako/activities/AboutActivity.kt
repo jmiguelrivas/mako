@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import com.rama.mako.CsActivity
 import com.rama.mako.R
+import com.rama.bohio.R as BohioR
 
 class AboutActivity : CsActivity() {
 
@@ -15,7 +16,7 @@ class AboutActivity : CsActivity() {
 
         setContentView(R.layout.view_about)
 
-        val root = findViewById<View>(android.R.id.content)
+        val root = findViewById<View>(R.id.about_root)
         applyEdgeToEdgePadding(root)
         applyCurrentTheme(root)
 
@@ -32,6 +33,6 @@ class AboutActivity : CsActivity() {
 
         val version = packageManager.getPackageInfo(packageName, 0).versionCode
         val nameView = findViewById<TextView>(R.id.name_version)
-        nameView.text = getString(R.string.app_name) + ' ' + version
+        nameView.text = getString(BohioR.string.name_version, getString(R.string.app_name), version)
     }
 }

@@ -34,7 +34,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             vcsInfo.include = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -46,7 +46,7 @@ android {
             applicationIdSuffix = ".beta"
             versionNameSuffix = "-beta"
 
-            isMinifyEnabled = false
+            isMinifyEnabled = true
 
             signingConfig = signingConfigs.getByName("debug")
         }
@@ -93,4 +93,5 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    implementation(project(":bohio"))
 }

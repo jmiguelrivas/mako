@@ -11,7 +11,7 @@
 
         <ImageView
             android:id="@+id/toggle_visibility_img"
-            android:src="@drawable/icon_eye"
+            android:src="@drawable/px_eye"
             android:contentDescription="@string/altdescr_toggle_pin_visibility"
             style="@style/Icon24" />
     </FrameLayout>
@@ -31,7 +31,7 @@
         android:padding="12sp">
 
         <ImageView
-            android:src="@drawable/icon_disk"
+            android:src="@drawable/px_disk"
             android:contentDescription="@string/altdescr_save_pin"
             style="@style/Icon24" />
     </FrameLayout>

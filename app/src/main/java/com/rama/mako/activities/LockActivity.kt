@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import com.rama.mako.CsActivity
 import com.rama.mako.R
+import com.rama.mako.managers.PrefsManager
 
 class LockActivity : CsActivity() {
 
@@ -81,7 +82,7 @@ class LockActivity : CsActivity() {
 
     private fun setupKeypad() {
         val isRandomized = prefs.getBoolean(
-            com.rama.mako.managers.PrefsManager.PrefKeys.SECURITY_KEYPAD_RANDOMIZED,
+            PrefsManager.FileKeys.SECURITY_KEYPAD_RANDOMIZED,
             true
         )
 

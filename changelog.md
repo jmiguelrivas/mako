@@ -16,6 +16,7 @@
 
 - Fix wallpaper overlay stacking and list ghosting
 - Add proper export and import data
+- Migrating common assets to bohio
 
 ## 42
 

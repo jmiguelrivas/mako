@@ -178,52 +178,19 @@
     <string name="altdescr_save_pin">Save PIN</string>
 
     <!-- APP -->
-    <string name="app_name" translatable="false">Mako</string>
-    <string name="app_creator" translatable="false">Pombo</string>
+    <string name="app_name" translatable="false">@string/product_mako</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
     <string name="app_background_tasks_desc">No Background Tasks</string>
     <string name="app_ads_desc">No Ads</string>
     <string name="app_trackers_desc">No Trackers</string>
     <string name="app_offline_desc">Works Offline</string>
-    <!-- Product -->
-    <string name="product_mako_url" translatable="false">github.com/rama-io/mako</string>
-    <string name="product_hackernoon_creator" translatable="false">HackerNoon</string>
-    <string name="product_hackernoon_name" translatable="false">Pixel Icon Library</string>
-    <string name="product_hackernoon_url" translatable="false">github.com/hackernoon/pixel-icon-library</string>
-    <string name="product_jersey_creator" translatable="false">Sarah Cadigan-Fried</string>
-    <string name="product_jersey_name" translatable="false">Jersey 25</string>
-    <string name="product_jersey_url" translatable="false">github.com/scfried/soft-type-jersey</string>
-    <string name="product_dracula_creator" translatable="false">Zeno Rocha</string>
-    <string name="product_dracula_name" translatable="false">Dracula</string>
-    <string name="product_dracula_url" translatable="false">github.com/dracula</string>
-    <string name="product_catppuccin_creator" translatable="false">Pocco</string>
-    <string name="product_catppuccin_name" translatable="false">Catppuccin Moccha</string>
-    <string name="product_catppuccin_latte_name" translatable="false">Catppuccin Latte</string>
-    <string name="product_catppuccin_url" translatable="false">github.com/catppuccin</string>
-    <string name="product_tokyo_creator" translatable="false">Enkia</string>
-    <string name="product_tokyo_name" translatable="false">Tokyo Night</string>
-    <string name="product_tokyo_url" translatable="false">github.com/enkia/tokyo-night-vscode-theme</string>
-    <string name="product_melange_creator" translatable="false">Savq</string>
-    <string name="product_melange_name" translatable="false">Mélange Dark</string>
-    <string name="product_melange_url" translatable="false">github.com/savq/melange-nvim</string>
-
-    <!-- License -->
-    <string name="license_gpl3" translatable="false">GPL 3.0 or Later</string>
-    <string name="license_ofl_1_1" translatable="false">OFL 1.1</string>
-    <string name="license_apache_2" translatable="false">Apache 2.0</string>
-    <string name="license_cc_4" translatable="false">CC 4.0</string>
-    <string name="license_mit" translatable="false">MIT</string>
 
     <!-- Contributors -->
-    <string name="contributor_isotjs" translatable="false">isotjs</string>
-    <string name="contributor_isotjs_url" translatable="false">github.com/isotjs</string>
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
 
     <!-- Custom Blocks -->
     <!-- Groups -->
-    <string name="settings_section_expand_indicator" translatable="false">[+]</string>
-    <string name="settings_section_collapse_indicator" translatable="false">[-]</string>
     <string name="new_group_header">------ New Group</string>
     <string name="new_group_header_count">------ New Group %d</string>
     <!-- Main :: Temperature labels -->

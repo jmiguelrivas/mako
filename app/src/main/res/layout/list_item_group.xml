@@ -10,7 +10,7 @@
 
         <ImageView
             android:id="@+id/toggle_visibility_img"
-            android:src="@drawable/icon_eye"
+            android:src="@drawable/px_eye"
             android:contentDescription="@string/altdescr_toggle_group_visibility"
             style="@style/Icon24" />
     </FrameLayout>
@@ -22,7 +22,7 @@
         android:padding="12sp">
 
         <ImageView
-            android:src="@drawable/icon_chevron_up_solid"
+            android:src="@drawable/px_chevron_up"
             android:contentDescription="@string/altdescr_ascend_group"
             style="@style/Icon24" />
     </FrameLayout>
@@ -34,7 +34,7 @@
         android:padding="12sp">
 
         <ImageView
-            android:src="@drawable/icon_chevron_down_solid"
+            android:src="@drawable/px_chevron_down"
             android:contentDescription="@string/altdescr_descend_group"
             style="@style/Icon24" />
     </FrameLayout>
@@ -54,7 +54,7 @@
         android:padding="12sp">
 
         <ImageView
-            android:src="@drawable/icon_disk"
+            android:src="@drawable/px_disk"
             android:contentDescription="@string/altdescr_save"
             style="@style/Icon24" />
     </FrameLayout>
@@ -66,7 +66,7 @@
         android:padding="12sp">
 
         <ImageView
-            android:src="@drawable/icon_close"
+            android:src="@drawable/px_times"
             android:contentDescription="@string/altdescr_delete_group"
             style="@style/Icon24" />
     </FrameLayout>

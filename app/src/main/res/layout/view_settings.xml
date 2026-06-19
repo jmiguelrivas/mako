@@ -23,7 +23,7 @@
                 style="@style/H2" />
 
             <!--System-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_SYSTEM"
@@ -45,12 +45,12 @@
                     android:text="@string/btn_edit_apps"
                     style="@style/BTN2" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_system_bar"
                     android:text="@string/checkbox_show_system_bar"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/double_tap_sleep"
                     android:text="@string/double_tap_sleep_label"
                     style="@style/Checkbox" />
@@ -101,7 +101,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/prevent_home_screen_rotation"
                     android:text="@string/checkbox_prevent_home_screen_rotation"
                     style="@style/Checkbox" />
@@ -112,27 +112,27 @@
                         android:text="@string/label_zoom"
                         style="@style/Text" />
 
-                    <com.rama.mako.widgets.WdRange
+                    <com.rama.bohio.widgets.WdRange
                         android:id="@+id/zoom"
                         app:valuesArray="@array/ui_scale_steps"
                         style="@style/BlockFlow" />
 
                 </LinearLayout>
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Groups-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_GROUPS"
                 app:header="@string/h3_groups"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_group_header"
                     android:text="@string/checkbox_show_group_header"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/has_collapsible_groups"
                     android:text="@string/checkbox_has_collapsible_groups"
                     style="@style/Checkbox" />
@@ -150,10 +150,10 @@
                     android:text="@string/btn_add_group"
                     style="@style/BTN2" />
 
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
 
             <!--Themes-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_THEMES"
@@ -216,64 +216,64 @@
                         android:focusableInTouchMode="true"
                         style="@style/VerticalListDivided_BG2">
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/h1"
                             app:text="@string/colorpicker_theme_h1"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/foreground"
                             app:text="@string/colorpicker_theme_foreground"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/collapsible_header"
                             app:text="@string/colorpicker_theme_collapsible_header"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/icons"
                             android:visibility="gone"
                             app:text="@string/colorpicker_theme_icons"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/accent"
                             android:visibility="gone"
                             app:text="@string/colorpicker_theme_accent"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/bg_1"
                             app:text="@string/colorpicker_theme_background_1"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/bg_2"
                             app:text="@string/colorpicker_theme_background_2"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/bg_3"
                             app:text="@string/colorpicker_theme_background_3"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/input"
                             app:text="@string/colorpicker_theme_input_background"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/btn_1"
                             app:text="@string/colorpicker_theme_button_1_background"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/btn_2"
                             app:text="@string/colorpicker_theme_button_2_background"
                             style="@style/ColorPickerBtn" />
 
-                        <com.rama.mako.widgets.WdColorPicker
+                        <com.rama.bohio.widgets.WdColorPicker
                             android:id="@+id/danger"
                             app:text="@string/colorpicker_theme_danger"
                             style="@style/ColorPickerBtn" />
@@ -284,17 +284,17 @@
                             style="@style/BTN2" />
                     </LinearLayout>
                 </LinearLayout>
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
 
             <!--Background-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_BACKGROUND"
                 app:header="@string/h3_background"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/home_background_wallpaper"
                     android:text="@string/radio_background_wallpaper"
                     style="@style/Checkbox" />
@@ -307,7 +307,7 @@
                         android:text="@string/label_screen_opacity_strength"
                         style="@style/Text" />
 
-                    <com.rama.mako.widgets.WdRange
+                    <com.rama.bohio.widgets.WdRange
                         android:id="@+id/screen_opacity"
                         app:valuesArray="@array/wallpaper_screen_opacity_strength"
                         style="@style/BlockFlow" />
@@ -317,16 +317,16 @@
                     android:id="@+id/wallpaper_button"
                     android:text="@string/btn_change_wallpaper"
                     style="@style/BTN2" />
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Icons-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_ICONS"
                 app:header="@string/h3_icons"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/icons_open_settings"
                     android:text="@string/checkbox_click_on_icons_open_app_settings"
                     style="@style/Checkbox" />
@@ -374,9 +374,9 @@
                         android:text="@string/btn_select_icon_pack"
                         style="@style/BTN2" />
                 </LinearLayout>
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Fonts-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_FONTS"
@@ -424,9 +424,9 @@
 
                 </LinearLayout>
 
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Clock-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_CLOCK"
@@ -462,21 +462,21 @@
                     android:id="@+id/set_clock_app_button"
                     android:text="@string/btn_set_clock_app"
                     style="@style/BTN2" />
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Date-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_DATE"
                 app:header="@string/h3_date"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_date"
                     android:text="@string/checkbox_show_date"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_year_day"
                     android:text="@string/checkbox_show_year_day"
                     style="@style/Checkbox" />
@@ -485,33 +485,33 @@
                     android:id="@+id/set_date_app_button"
                     android:text="@string/btn_set_date_app"
                     style="@style/BTN2" />
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Battery-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_BATTERY"
                 app:header="@string/h3_battery"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_battery"
                     android:text="@string/checkbox_show_battery"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_battery_temperature"
                     android:text="@string/checkbox_show_battery_temperature"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_battery_charge_status"
                     android:text="@string/checkbox_show_battery_charge_status"
                     style="@style/Checkbox" />
 
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Temperature-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_TEMPERATURE"
@@ -537,53 +537,53 @@
                         android:text="@string/radio_fahrenheit"
                         style="@style/Radio" />
                 </RadioGroup>
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Search-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_SEARCH"
                 app:header="@string/h3_search"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_search"
                     android:text="@string/checkbox_show_search"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/always_show_search"
                     android:text="@string/checkbox_always_show_search_bar"
                     style="@style/Checkbox" />
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Apps-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_APPS"
                 app:header="@string/h3_apps"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_profile_indicator"
                     android:text="@string/checkbox_show_profile_indicator"
                     style="@style/Checkbox" />
 
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Security-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_SECURITY"
                 app:header="@string/h3_security"
                 app:defaultExpanded="true">
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/lock_settings"
                     android:text="@string/checkbox_lock_settings"
                     style="@style/Checkbox" />
 
-                <com.rama.mako.widgets.WdCheckbox
+                <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/randomized_keypad"
                     android:text="@string/checkbox_randomized_keypad"
                     style="@style/Checkbox" />
@@ -598,9 +598,9 @@
                         android:layout_height="match_parent" />
                 </LinearLayout>
 
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Language-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_LANGUAGE"
@@ -610,9 +610,9 @@
                 <RadioGroup
                     android:id="@+id/language_group"
                     style="@style/RadioGroup" />
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Data-->
-            <com.rama.mako.widgets.WdCollapsibleSection
+            <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="SETTINGS_SECTION_DATA"
@@ -633,7 +633,7 @@
                     android:id="@+id/clear_prefs_button"
                     android:text="@string/btn_clear_data"
                     style="@style/BTN_danger" />
-            </com.rama.mako.widgets.WdCollapsibleSection>
+            </com.rama.bohio.widgets.WdCollapsibleSection>
         </LinearLayout>
     </ScrollView>
 
