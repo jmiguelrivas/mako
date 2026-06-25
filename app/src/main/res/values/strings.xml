@@ -103,6 +103,7 @@
     <string name="checkbox_show_battery_charge_status">Show battery charge status</string>
     <string name="checkbox_show_ungrouped_apps">Show ungrouped apps</string>
     <string name="checkbox_has_collapsible_groups">Allow collapsing groups</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Collapse groups when returning home</string>
     <string name="checkbox_show_search">Show search bar</string>
     <string name="checkbox_show_battery">Show battery</string>
     <string name="checkbox_show_system_bar">Show system bar</string>

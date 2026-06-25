@@ -278,7 +278,11 @@ class MainActivity : CsActivity() {
         registerWallpaperReceiverIfNeeded()
         applyHomeBackground(force = true)
         syncSettings()
-        schedulePostResumeRefresh()
+
+        val groupsWereCollapsed = prefs.shouldCollapseGroupsOnHomeFocus() &&
+            appListManager.collapseAllGroups()
+
+        schedulePostResumeRefresh(skipAppListRefresh = groupsWereCollapsed)
 
         if (isSearchBarAlwaysVisible)
             expandSearch()
@@ -424,12 +428,12 @@ class MainActivity : CsActivity() {
         lastAppliedTheme = theme
     }
 
-    private fun schedulePostResumeRefresh() {
+    private fun schedulePostResumeRefresh(skipAppListRefresh: Boolean = false) {
         clearPendingResumeRefresh()
 
         resumeRefreshRunnable = Runnable {
             if (isFinishing || isDestroyed) return@Runnable
-            appListManager.refresh()
+            if (!skipAppListRefresh) appListManager.refresh()
             batteryManager.forceUpdate()
         }
 
