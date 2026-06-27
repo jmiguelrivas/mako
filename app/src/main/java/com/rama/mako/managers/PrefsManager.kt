@@ -31,6 +31,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val GROUPS_IDS = "groups:ids"
         const val GROUPS_HEADERS = "groups:headers"
         const val GROUPS_COLLAPSIBLE = "groups:collapsible"
+        const val GROUPS_COLLAPSE_ON_HOME_FOCUS = "groups:collapse_on_home_focus"
         const val DATE_VISIBLE = "date:visible"
         const val DATE_YEAR_DAY = "date:year_day"
         const val BATTERY_VISIBLE = "battery:visible"
@@ -157,6 +158,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
         editor.putBoolean(FileKeys.GROUPS_HEADERS, true)
         editor.putBoolean(FileKeys.GROUPS_COLLAPSIBLE, true)
+        editor.putBoolean(FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS, false)
 
         editor.putBoolean(FileKeys.SECURITY_KEYPAD_VISIBLE, false)
         editor.putBoolean(FileKeys.SECURITY_KEYPAD_RANDOMIZED, true)
@@ -268,6 +270,12 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     fun setGroupExpanded(id: String, value: Boolean) =
         prefs.edit().putBoolean(FileKeys.GROUP_EXPANDED(id), value).apply()
 
+    fun setGroupsExpanded(ids: Set<String>, expanded: Boolean) {
+        val editor = prefs.edit()
+        ids.forEach { editor.putBoolean(FileKeys.GROUP_EXPANDED(it), expanded) }
+        editor.apply()
+    }
+
     fun hasGroupOrder(id: String): Boolean =
         prefs.contains(FileKeys.GROUP_ORDER(id))
 
@@ -323,6 +331,9 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun hasCollapsibleGroups(): Boolean =
         prefs.getBoolean(FileKeys.GROUPS_COLLAPSIBLE, false)
+
+    fun shouldCollapseGroupsOnHomeFocus(): Boolean =
+        prefs.getBoolean(FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS, false)
 
     fun isDoubleTapToSleepEnabled(): Boolean =
         prefs.getBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, false)

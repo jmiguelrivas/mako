@@ -42,6 +42,7 @@ class AppListManager(
 
     private val prefs = PrefsManager.getInstance(context)
     private val iconManager = IconManager(context, appsProvider)
+    private val groupsManager = GroupsManager(context, appsProvider)
     private val items = mutableListOf<ListItem>()
     private lateinit var adapter: ArrayAdapter<ListItem>
     private var allAppsCache: List<AppsProvider.AppEntry> = emptyList()
@@ -88,6 +89,26 @@ class AppListManager(
         adapter.notifyDataSetChanged()
     }
 
+    fun collapseAllGroups(): Boolean {
+        if (!prefs.hasGroupHeaders() || !prefs.hasCollapsibleGroups()) return false
+
+        val expandedIds = getAllGroupIds().filter { prefs.isGroupExpanded(it) }
+        if (expandedIds.isEmpty()) return false
+
+        prefs.setGroupsExpanded(expandedIds.toSet(), false)
+        refresh()
+        return true
+    }
+
+    private fun getAllGroupIds(): List<String> {
+        val knownGroupIds = groupsManager.getGroupIds()
+        val appGroupIds = allAppsCache.map { app ->
+            prefs.getAppGroupId(app.packageName, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
+        }.distinct()
+        val unknownGroupIds = appGroupIds.filter { it !in knownGroupIds }
+        return (knownGroupIds + unknownGroupIds).distinct()
+    }
+
     private fun updateAppsCache() {
         allAppsCache = appsProvider.getAll()
         searchableNameCache.clear()
@@ -97,9 +118,6 @@ class AppListManager(
     private fun buildItems() {
         val allApps = allAppsCache
 
-        // Get all known group IDs
-        val groupIds = GroupsManager(context, appsProvider).getGroupIds()
-
         // Map apps by groupId (NOT label)
         val groupedMap = allApps.groupBy { app ->
             prefs.getAppGroupId(app.packageName, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
@@ -107,11 +125,7 @@ class AppListManager(
 
         items.clear()
 
-        // Include unknown groupIds (apps pointing to deleted groups)
-        val unknownGroupIds = groupedMap.keys.filter { it !in groupIds }
-        val allGroupIds = (groupIds + unknownGroupIds).distinct()
-
-        allGroupIds.forEach { groupId ->
+        getAllGroupIds().forEach { groupId ->
 
             val apps = groupedMap[groupId] ?: return@forEach
 
@@ -315,18 +329,12 @@ class AppListManager(
 
         val allApps = allAppsCache
 
-        // All known group IDs
-        val groupIds = GroupsManager(context, appsProvider).getGroupIds()
-
         // Group by ID
         val groupedMap = allApps.groupBy { app ->
             prefs.getAppGroupId(app.packageName, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
         }
 
-        // Handle unknown groups (apps pointing to deleted groups)
-        val unknownGroupIds = groupedMap.keys.filter { it !in groupIds }
-        val allGroupIds = (groupIds + unknownGroupIds)
-            .distinct()
+        val allGroupIds = getAllGroupIds()
             .sortedBy { prefs.getGroupLabel(it).lowercase(Locale.ROOT) }
 
         allGroupIds.forEach { groupId ->
@@ -501,10 +509,7 @@ class AppListManager(
                 prefs.getAppGroupId(pkg, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
 
             // All group IDs (include ungrouped)
-            val groupIds = GroupsManager(
-                context,
-                appsProvider
-            ).getGroupIds()
+            val groupIds = groupsManager.getGroupIds()
 
             groupIds.forEachIndexed { index, groupId ->
                 val isLast = index == groupIds.lastIndex
@@ -638,7 +643,7 @@ class AppListManager(
             container.removeAllViews()
             val radioGroup = RadioGroup(context)
 
-            val groupIds = GroupsManager(context, appsProvider).getGroupIds()
+            val groupIds = groupsManager.getGroupIds()
 
             groupIds.forEachIndexed { index, groupId ->
                 val isLast = index == groupIds.lastIndex

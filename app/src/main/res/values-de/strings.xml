@@ -82,6 +82,7 @@
     <string name="checkbox_show_battery_charge_status">Ladestatus anzeigen</string>
     <string name="checkbox_show_ungrouped_apps">Zeige nicht gruppierte Apps an</string>
     <string name="checkbox_has_collapsible_groups">Minimieren von Gruppen zulassen</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Gruppen beim Zurückkehren einklappen</string>
     <string name="checkbox_show_search">Suchleiste anzeigen</string>
     <string name="checkbox_show_battery">Ladestand anzeigen</string>
 

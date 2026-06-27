@@ -31,13 +31,40 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             listOf(R.id.always_show_search)
         )
         bindWdCheckbox(R.id.always_show_search, FileKeys.APPS_SEARCH_ALWAYS_VISIBLE, false)
+
+        val showGroupHeader = activity.findViewById<WdCheckbox>(R.id.show_group_header)
+        val hasCollapsibleGroups = activity.findViewById<WdCheckbox>(R.id.has_collapsible_groups)
+        val collapseOnHomeFocus = activity.findViewById<WdCheckbox>(R.id.collapse_groups_on_home_focus)
+
+        fun updateCollapseOnHomeVisibility() {
+            collapseOnHomeFocus.visibility =
+                if (showGroupHeader.isChecked() && hasCollapsibleGroups.isChecked()) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
+        }
+
         bindWdCheckbox(
             R.id.show_group_header,
             FileKeys.GROUPS_HEADERS,
             false,
-            listOf(R.id.has_collapsible_groups)
+            listOf(R.id.has_collapsible_groups),
+            onChange = { updateCollapseOnHomeVisibility() }
         )
-        bindWdCheckbox(R.id.has_collapsible_groups, FileKeys.GROUPS_COLLAPSIBLE, false)
+        bindWdCheckbox(
+            R.id.has_collapsible_groups,
+            FileKeys.GROUPS_COLLAPSIBLE,
+            false,
+            onChange = { updateCollapseOnHomeVisibility() }
+        )
+        bindWdCheckbox(
+            R.id.collapse_groups_on_home_focus,
+            FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS,
+            false
+        )
+
+        updateCollapseOnHomeVisibility()
         bindWdCheckbox(R.id.show_year_day, FileKeys.DATE_YEAR_DAY, false)
         bindWdCheckbox(
             R.id.show_battery,

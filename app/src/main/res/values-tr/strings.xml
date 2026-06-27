@@ -82,6 +82,7 @@
     <string name="checkbox_show_battery_charge_status">Pil şarj durumunu göster</string>
     <string name="checkbox_show_ungrouped_apps">Gruplanmamış uygulamaları göster</string>
     <string name="checkbox_has_collapsible_groups">Grupların daraltılmasına izin ver</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Ana ekrana dönünce grupları daralt</string>
     <string name="checkbox_show_search">Arama çubuğunu göster</string>
     <string name="checkbox_show_battery">Pili göster</string>
     <string name="double_tap_sleep_label">Çift dokunarak ekranı kapat</string>
