@@ -5,15 +5,10 @@
     <string name="activity_lock_label">Lock</string>
 
     <!-- H2 -->
-    <string name="h2_color_picker">Pick a Color</string>
     <string name="h2_delete_group">Are you sure you want to delete this group?</string>
     <string name="h2_select_group">Select Group</string>
     <string name="h2_rename_app">Rename app</string>
     <!-- H3 -->
-    <string name="h3_contributors">Contributors</string>
-    <string name="h3_icons">Icons</string>
-    <string name="h3_fonts">Fonts</string>
-    <string name="h3_themes">Themes</string>
     <string name="h3_apps">Applications</string>
     <string name="h3_clock">Clock</string>
     <string name="h3_search">Search</string>
@@ -22,11 +17,9 @@
     <string name="h3_data">Data</string>
     <string name="h3_temperature">Temperature</string>
     <string name="h3_groups">Groups</string>
-    <string name="h3_language">Language</string>
     <string name="h3_security">Security</string>
-    <string name="h3_system">System</string>
     <string name="h3_background">Background</string>
-    <string name="h3_app">App</string>
+
     <!-- Disclaimers/small -->
     <string name="disclaimer_delete_group">Your apps will go to the following group.</string>
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
@@ -58,19 +51,6 @@
     <string name="btn_add_group">+ Add New Group</string>
     <string name="btn_select_icon_pack">Choose icon pack</string>
     <string name="btn_font_custom_pick">Choose Font file</string>
-    <!-- ColorPicker -->
-    <string name="colorpicker_theme_foreground">Foreground</string>
-    <string name="colorpicker_theme_collapsible_header">Collapsible Header</string>
-    <string name="colorpicker_theme_h1">H1</string>
-    <string name="colorpicker_theme_icons">Icons</string>
-    <string name="colorpicker_theme_accent">Accent</string>
-    <string name="colorpicker_theme_background_1">Background 1</string>
-    <string name="colorpicker_theme_background_2">Background 2</string>
-    <string name="colorpicker_theme_background_3">Background 3</string>
-    <string name="colorpicker_theme_input_background">Input Background</string>
-    <string name="colorpicker_theme_button_1_background">Button 1 Background</string>
-    <string name="colorpicker_theme_button_2_background">Button 2 Background</string>
-    <string name="colorpicker_theme_danger">Danger</string>
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
@@ -80,10 +60,6 @@
     <string name="radio_default">Default</string>
     <string name="radio_default_system">Default (System)</string>
     <string name="radio_none">None</string>
-    <string name="radio_language_system_default">System Default (fallback to English)</string>
-    <string name="radio_language_english" translatable="false">English</string>
-    <string name="radio_language_german" translatable="false">Deutsch</string>
-    <string name="radio_language_turkish" translatable="false">Türkçe</string>
     <string name="radio_icons_monochrome">Monochrome</string>
     <string name="radio_custom_icon_pack">Custom icon pack</string>
     <string name="radio_clock_none">Hide clock</string>
@@ -105,7 +81,6 @@
     <string name="checkbox_has_collapsible_groups">Allow collapsing groups</string>
     <string name="checkbox_show_search">Show search bar</string>
     <string name="checkbox_show_battery">Show battery</string>
-    <string name="checkbox_show_system_bar">Show system bar</string>
     <string name="double_tap_sleep_label">Double tap to sleep</string>
     <string name="checkbox_show_date">Show date</string>
     <string name="checkbox_show_clock">Show clock</string>
@@ -122,7 +97,6 @@
     <string name="ctxmenu_open_settings">App settings...</string>
 
     <!-- InputLabel -->
-    <string name="label_zoom">Zoom</string>
     <string name="label_screen_opacity_strength">Screen opacity strength</string>
 
     <!-- InputHints -->
@@ -180,10 +154,7 @@
     <!-- APP -->
     <string name="app_name" translatable="false">@string/product_mako</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
-    <string name="app_background_tasks_desc">No Background Tasks</string>
-    <string name="app_ads_desc">No Ads</string>
-    <string name="app_trackers_desc">No Trackers</string>
-    <string name="app_offline_desc">Works Offline</string>
+
 
     <!-- Contributors -->
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>

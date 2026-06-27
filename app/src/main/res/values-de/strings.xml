@@ -11,10 +11,6 @@
     <string name="h2_select_group">Gruppe auswählen</string>
     <string name="h2_rename_app">App umbenennen</string>
     <!-- H3 -->
-    <string name="h3_contributors">Beitragende</string>
-    <string name="h3_icons">Icons</string>
-    <string name="h3_fonts">Schriftarten</string>
-    <string name="h3_themes">Designs</string>
     <string name="h3_apps">Anwendungen</string>
     <string name="h3_clock">Uhr</string>
     <string name="h3_search">Suche</string>
@@ -23,11 +19,9 @@
     <string name="h3_data">Daten</string>
     <string name="h3_temperature">Temperatur</string>
     <string name="h3_groups">Gruppen</string>
-    <string name="h3_language">Sprache</string>
     <string name="h3_security">Sicherheit</string>
-    <string name="h3_system">System</string>
+
     <string name="h3_background">Hintergrund</string>
-    <string name="h3_app">App</string>
     <!-- Disclaimers/small -->
     <string name="disclaimer_delete_group">Die Apps werden in die folgende Gruppe verschoben.</string>
     <string name="disclaimer_pick_clock_app">Die ausgewählte App wird als Standard-Uhr-Aktion festgelegt. Beim Antippen der Uhr auf dem Startbildschirm wird diese App gestartet.</string>
@@ -59,19 +53,7 @@
     <string name="btn_add_group">+ Neue Gruppe hinzufügen</string>
     <string name="btn_select_icon_pack">Icon-Paket auswählen</string>
     <string name="btn_font_custom_pick">Schriftart-Datei auswählen</string>
-    <!-- ColorPicker -->
-    <string name="colorpicker_theme_foreground">Vordergrund</string>
-    <string name="colorpicker_theme_collapsible_header">Einklappbare Kopfzeile</string>
-    <string name="colorpicker_theme_h1">H1</string>
-    <string name="colorpicker_theme_icons">Icons</string>
-    <string name="colorpicker_theme_accent">Akzent</string>
-    <string name="colorpicker_theme_background_1">Hintergrund 1</string>
-    <string name="colorpicker_theme_background_2">Hintergrund 2</string>
-    <string name="colorpicker_theme_background_3">Hintergrund 3</string>
-    <string name="colorpicker_theme_input_background">Eingabehintergrund</string>
-    <string name="colorpicker_theme_button_1_background">Schaltfläche 1 Hintergrund</string>
-    <string name="colorpicker_theme_button_2_background">Schaltfläche 2 Hintergrund</string>
-    <string name="colorpicker_theme_danger">Gefahr</string>
+
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Ausgewähltes Paket: %1$s</string>
     <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>
@@ -81,7 +63,6 @@
     <string name="radio_default">Standard-Design</string>
     <string name="radio_default_system">Systemstandard</string>
     <string name="radio_none">Nichts</string>
-    <string name="radio_language_system_default">Systemstandard (Fallback auf Englisch)</string>
     <string name="radio_icons_monochrome">Monochrom</string>
     <string name="radio_custom_icon_pack">Benutzerdefiniertes Icon-Paket</string>
     <string name="radio_clock_none">Uhr verstecken</string>
@@ -103,7 +84,7 @@
     <string name="checkbox_has_collapsible_groups">Minimieren von Gruppen zulassen</string>
     <string name="checkbox_show_search">Suchleiste anzeigen</string>
     <string name="checkbox_show_battery">Ladestand anzeigen</string>
-    <string name="checkbox_show_system_bar">Systemleiste anzeigen</string>
+
     <string name="double_tap_sleep_label">Doppeltippen zum Sperren</string>
     <string name="checkbox_show_date">Datum anzeigen</string>
     <string name="checkbox_show_clock">Uhr anzeigen</string>
@@ -120,7 +101,6 @@
     <string name="ctxmenu_open_settings">App-Einstellungen...</string>
 
     <!-- InputLabel -->
-    <string name="label_zoom">Zoom</string>
     <string name="label_screen_opacity_strength">Bildschirmdeckkraft</string>
 
     <!-- InputHints -->
@@ -177,10 +157,6 @@
 
     <!-- APP -->
     <string name="app_desc">Ein leichtgewichtiger, ablenkungsfreier Android-Launcher mit einem Fokus auf Privatssphäre und lokaler Nutzung, optimiert auf Fokus und Einfachheit.</string>
-    <string name="app_background_tasks_desc">Keine Hintergrundprozesse</string>
-    <string name="app_ads_desc">Keine Werbung</string>
-    <string name="app_trackers_desc">Keine Tracker</string>
-    <string name="app_offline_desc">Funktioniert offline</string>
 
     <!-- Custom Blocks -->
     <!-- Groups -->
