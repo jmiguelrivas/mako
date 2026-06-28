@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Activities -->
-    <string name="activity_settings_label">Ayarlar</string>
-    <string name="activity_about_label">Hakkında</string>
     <string name="activity_lock_label">Kilitle</string>
 
     <!-- H2 -->
@@ -30,16 +28,10 @@
 
     <!-- Buttons 1 -->
     <string name="btn_unlock">Kilidi Aç</string>
-    <string name="btn_go_back">Geri Dön</string>
-    <string name="btn_apply">Uygula</string>
-    <string name="btn_clear">Temizle</string>
     <string name="btn_about_mako">Mako hakkında</string>
     <string name="btn_lock">Kilitle</string>
-    <string name="btn_reset">Sıfırla</string>
-    <string name="btn_cancel">İptal</string>
     <string name="btn_delete_group">Grubu sil</string>
     <!-- Buttons 2 -->
-    <string name="btn_join_discord">Discord\'a Katıl</string>
     <string name="btn_export_data">Veriyi Dışa Aktar</string>
     <string name="btn_import_data">Veriyi İçe Aktar</string>
     <string name="btn_clear_data">Veriyi Temizle</string>
@@ -51,7 +43,6 @@
     <string name="btn_edit_apps">Yüklü uygulamaları yönet</string>
     <string name="btn_add_group">+ Yeni Grup Ekle</string>
     <string name="btn_select_icon_pack">İkon paketi seç</string>
-    <string name="btn_font_custom_pick">Yazı Tipi Dosyası Seç</string>
 
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Seçili paket: %1$s</string>
@@ -68,10 +59,7 @@
     <string name="radio_clock_12">12 saat (AM/PM)</string>
     <string name="radio_celsius">Celsius</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
-    <string name="radio_font_custom">Özel yazı tipi</string>
     <string name="radio_background_wallpaper">Duvar kağıdı</string>
-    <string name="radio_theme_rama">Rama</string>
-    <string name="radio_theme_custom">Özel</string>
 
     <!-- Checkbox -->
     <string name="checkbox_lock_settings">Ayarları Kilitle</string>
@@ -89,8 +77,6 @@
     <string name="checkbox_show_year_day">Yılın gününü göster</string>
     <string name="checkbox_show_group_header">Grup başlığını göster</string>
     <string name="checkbox_randomized_keypad">Rastgele tuş takımı</string>
-    <string name="checkbox_always_show_search_bar">Her zaman görünür</string>
-    <string name="checkbox_prevent_home_screen_rotation">Ekran döndürmeyi kilitle</string>
     <string name="checkbox_click_on_icons_open_app_settings">İkonuna tıklandığında uygulama ayarlarını aç</string>
 
     <!-- ContextMenu -->

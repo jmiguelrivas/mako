@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Activities -->
-    <string name="activity_settings_label">Einstellungen</string>
-    <string name="activity_about_label">Über</string>
     <string name="activity_lock_label">Sperren</string>
 
     <!-- H2 -->
@@ -30,16 +28,10 @@
 
     <!-- Buttons 1 -->
     <string name="btn_unlock">Entsperren</string>
-    <string name="btn_go_back">Zurück</string>
-    <string name="btn_apply">Anwenden</string>
-    <string name="btn_clear">Löschen</string>
     <string name="btn_about_mako">Über Mako</string>
     <string name="btn_lock">Sperren</string>
-    <string name="btn_reset">Zurücksetzen</string>
-    <string name="btn_cancel">Abbrechen</string>
     <string name="btn_delete_group">Gruppe entfernen</string>
     <!-- Buttons 2 -->
-    <string name="btn_join_discord">Discord beitreten</string>
     <string name="btn_export_data">Daten exportieren</string>
     <string name="btn_import_data">Daten importieren</string>
     <string name="btn_clear_data">Daten löschen</string>
@@ -51,7 +43,6 @@
     <string name="btn_edit_apps">Installierte Apps verwalten</string>
     <string name="btn_add_group">+ Neue Gruppe hinzufügen</string>
     <string name="btn_select_icon_pack">Icon-Paket auswählen</string>
-    <string name="btn_font_custom_pick">Schriftart-Datei auswählen</string>
 
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Ausgewähltes Paket: %1$s</string>
@@ -68,10 +59,7 @@
     <string name="radio_clock_12">12-Stunden-Format (AM/PM)</string>
     <string name="radio_celsius">Celsius</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
-    <string name="radio_font_custom">Benutzerdefinierte Schriftart</string>
     <string name="radio_background_wallpaper">Hintergrundbild</string>
-    <string name="radio_theme_rama">Rama</string>
-    <string name="radio_theme_custom">Benutzerdefiniert</string>
 
     <!-- Checkbox -->
     <string name="checkbox_lock_settings">Einstellungen sperren</string>
@@ -83,15 +71,12 @@
     <string name="checkbox_collapse_groups_on_home_focus">Gruppen beim Zurückkehren einklappen</string>
     <string name="checkbox_show_search">Suchleiste anzeigen</string>
     <string name="checkbox_show_battery">Ladestand anzeigen</string>
-
     <string name="double_tap_sleep_label">Doppeltippen zum Sperren</string>
     <string name="checkbox_show_date">Datum anzeigen</string>
     <string name="checkbox_show_clock">Uhr anzeigen</string>
     <string name="checkbox_show_year_day">Tag des Jahres anzeigen</string>
     <string name="checkbox_show_group_header">Gruppenüberschrift anzeigen</string>
     <string name="checkbox_randomized_keypad">Zufälliges Tastenfeld</string>
-    <string name="checkbox_always_show_search_bar">Immer anzeigen</string>
-    <string name="checkbox_prevent_home_screen_rotation">Bildschirmrotation sperren</string>
     <string name="checkbox_click_on_icons_open_app_settings">App-Einstellungen beim Klicken auf Icon öffnen</string>
 
     <!-- ContextMenu -->
@@ -125,7 +110,6 @@
     <string name="toast_icon_pack_selected">Ausgewähltes Icon-Paket: %1$s</string>
     <string name="toast_monochrome_fallback">Monochrome Icons benötigen Android 13+, wenn nicht verfügbar wird eine Ersatzlösung verwendet</string>
     <string name="toast_no_icon_pack_found">Kein kompatibles Icon-Paket gefunden</string>
-    <string name="toast_invalid_color">Ungültige Farbe</string>
 
     <!-- Admin Screen Lock -->
     <string name="device_admin_label">Mako Bildschirm sperren</string>

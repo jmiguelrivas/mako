@@ -1,7 +1,5 @@
 <resources>
     <!-- Activities -->
-    <string name="activity_settings_label">Settings</string>
-    <string name="activity_about_label">About</string>
     <string name="activity_lock_label">Lock</string>
 
     <!-- H2 -->
@@ -28,16 +26,10 @@
 
     <!-- Buttons 1 -->
     <string name="btn_unlock">Unlock</string>
-    <string name="btn_go_back">Go Back</string>
-    <string name="btn_apply">Apply</string>
-    <string name="btn_clear">Clear</string>
     <string name="btn_about_mako">About Mako</string>
     <string name="btn_lock">Lock</string>
-    <string name="btn_reset">Reset</string>
-    <string name="btn_cancel">Cancel</string>
     <string name="btn_delete_group">Delete group</string>
     <!-- Buttons 2 -->
-    <string name="btn_join_discord">Join Discord</string>
     <string name="btn_export_data">Export Data</string>
     <string name="btn_import_data">Import Data</string>
     <string name="btn_clear_data">Clear Data</string>
@@ -64,10 +56,7 @@
     <string name="radio_clock_12">12-hour (AM/PM)</string>
     <string name="radio_celsius">Celsius</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
-    <string name="radio_font_custom">Custom font</string>
     <string name="radio_background_wallpaper">Show Wallpaper on Home Screen</string>
-    <string name="radio_theme_rama">Rama</string>
-    <string name="radio_theme_custom">Custom</string>
 
     <!-- Checkbox -->
     <string name="checkbox_lock_settings">Lock Settings</string>
@@ -85,8 +74,6 @@
     <string name="checkbox_show_year_day">Show day of the year</string>
     <string name="checkbox_show_group_header">Show group header</string>
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
-    <string name="checkbox_always_show_search_bar">Always visible</string>
-    <string name="checkbox_prevent_home_screen_rotation">Lock screen rotation</string>
     <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
 
     <!-- ContextMenu -->
@@ -120,7 +107,6 @@
     <string name="toast_icon_pack_selected">Selected icon pack: %1$s</string>
     <string name="toast_monochrome_fallback">Monochrome icons require Android 13+, using fallback where unavailable</string>
     <string name="toast_no_icon_pack_found">No compatible icon pack found</string>
-    <string name="toast_invalid_color">Invalid color</string>
 
     <!-- Admin Screen Lock -->
     <string name="device_admin_label">Mako screen lock</string>
