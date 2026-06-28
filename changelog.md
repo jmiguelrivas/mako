@@ -12,6 +12,16 @@
 - Add option for sleep among the apps that can be selected for gestures
 - Add option for open settings among the apps that can be selected for gestures
 
+## 44
+
+- Fix color picker
+- Fix choose custom font button visibility
+- Fix expanded sections on settings not keeping state
+- Auto hide groups
+- Add Mono Dark theme
+- Add Mono Light theme
+- Migrating common assets to bohio
+
 ## 43
 
 - Fix wallpaper overlay stacking and list ghosting
