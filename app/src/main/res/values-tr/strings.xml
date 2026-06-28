@@ -43,7 +43,6 @@
     <string name="btn_export_data">Veriyi Dışa Aktar</string>
     <string name="btn_import_data">Veriyi İçe Aktar</string>
     <string name="btn_clear_data">Veriyi Temizle</string>
-    <string name="btn_theme_apply_custom">Özel Temayı Uygula</string>
     <string name="btn_set_default">Başlatıcıyı varsayılan yap</string>
     <string name="btn_set_clock_app">Saat dokunuş eylemini değiştir</string>
     <string name="btn_set_date_app">Tarih dokunuş eylemini değiştir</string>

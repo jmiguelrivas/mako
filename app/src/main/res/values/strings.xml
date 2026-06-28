@@ -41,7 +41,6 @@
     <string name="btn_export_data">Export Data</string>
     <string name="btn_import_data">Import Data</string>
     <string name="btn_clear_data">Clear Data</string>
-    <string name="btn_theme_apply_custom">Apply Custom Theme</string>
     <string name="btn_set_default">Set Launcher as default</string>
     <string name="btn_set_clock_app">Change Clock Tap Action</string>
     <string name="btn_set_date_app">Change Date Tap Action</string>
@@ -50,7 +49,6 @@
     <string name="btn_edit_apps">Manage Installed Apps</string>
     <string name="btn_add_group">+ Add New Group</string>
     <string name="btn_select_icon_pack">Choose icon pack</string>
-    <string name="btn_font_custom_pick">Choose Font file</string>
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>

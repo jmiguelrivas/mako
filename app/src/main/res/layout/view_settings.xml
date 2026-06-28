@@ -210,6 +210,16 @@
                         style="@style/Radio" />
 
                     <RadioButton
+                        android:id="@+id/theme_mono_dark"
+                        android:text="Mono Dark"
+                        style="@style/Radio" />
+
+                    <RadioButton
+                        android:id="@+id/theme_mono_light"
+                        android:text="Mono Light"
+                        style="@style/Radio" />
+
+                    <RadioButton
                         android:id="@+id/theme_custom"
                         android:text="@string/radio_theme_custom"
                         style="@style/Radio" />
