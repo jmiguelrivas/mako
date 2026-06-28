@@ -57,7 +57,6 @@
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Ausgewähltes Paket: %1$s</string>
     <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>
-    <string name="filepicker_font_custom_none">Keine Schriftart ausgewählt</string>
 
     <!-- Radio -->
     <string name="radio_default">Standard-Design</string>

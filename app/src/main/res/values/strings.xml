@@ -54,7 +54,6 @@
     <!-- FilePicker -->
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
-    <string name="filepicker_font_custom_none">No font selected</string>
 
     <!-- Radio -->
     <string name="radio_default">Default</string>
@@ -155,7 +154,7 @@
     <!-- APP -->
     <string name="app_name" translatable="false">@string/product_mako</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
-    
+
     <!-- Contributors -->
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
