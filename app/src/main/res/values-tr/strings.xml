@@ -4,7 +4,6 @@
     <string name="activity_lock_label">Kilitle</string>
 
     <!-- H2 -->
-    <string name="h2_color_picker">Renk Seç</string>
     <string name="h2_delete_group">Bu grubu silmek istediğinizden emin misiniz?</string>
     <string name="h2_select_group">Grup Seç</string>
     <string name="h2_rename_app">Uygulamayı yeniden adlandır</string>
@@ -110,7 +109,6 @@
     <string name="toast_icon_pack_selected">Seçili ikon paketi: %1$s</string>
     <string name="toast_monochrome_fallback">Monokrom ikonlar Android 13+ gerektirir, mevcut olmayan yerlerde alternatif kullanılıyor</string>
     <string name="toast_no_icon_pack_found">Uyumlu ikon paketi bulunamadı</string>
-    <string name="toast_invalid_color">Geçersiz renk</string>
 
     <!-- Admin Screen Lock -->
     <string name="device_admin_label">Mako ekran kilidi</string>

@@ -4,7 +4,6 @@
     <string name="activity_lock_label">Sperren</string>
 
     <!-- H2 -->
-    <string name="h2_color_picker">Farbe auswählen</string>
     <string name="h2_delete_group">Sind Sie sicher, dass Sie die Gruppe entfernen möchten?</string>
     <string name="h2_select_group">Gruppe auswählen</string>
     <string name="h2_rename_app">App umbenennen</string>

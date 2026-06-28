@@ -32,9 +32,11 @@ android {
         create("beta") {
             applicationIdSuffix = ".beta"
             versionNameSuffix = "-beta"
-
             isMinifyEnabled = true
-
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
             signingConfig = signingConfigs.getByName("debug")
         }
         debug {
