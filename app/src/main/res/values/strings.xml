@@ -155,8 +155,7 @@
     <!-- APP -->
     <string name="app_name" translatable="false">@string/product_mako</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
-
-
+    
     <!-- Contributors -->
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>

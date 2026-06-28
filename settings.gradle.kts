@@ -27,4 +27,4 @@ include(":bohio")
 //project(":bohio").projectDir = file("bohio")
 
 // Activate For Bohio Development (and locate your local source)
-project(":bohio").projectDir = file("../git-mod_bohio")
+project(":bohio").projectDir = file("../25_mod__bohio")
