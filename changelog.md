@@ -1,17 +1,5 @@
 # Changelog
 
-## Backlog
-
-- Add gesture section
-- Add option for home double tap
-- Add option for home long press (currently shows settings)
-- Move clock tap option to gestures
-- Move date tap option to gestures
-- Add option for clock long press
-- Add option for date long press
-- Add option for sleep among the apps that can be selected for gestures
-- Add option for open settings among the apps that can be selected for gestures
-
 ## 44
 
 - Fix color picker
