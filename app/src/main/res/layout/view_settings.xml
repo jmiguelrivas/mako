@@ -211,12 +211,12 @@
 
                     <RadioButton
                         android:id="@+id/theme_mono_dark"
-                        android:text="Mono Dark"
+                        android:text="@string/radio_theme_mono_dark"
                         style="@style/Radio" />
 
                     <RadioButton
                         android:id="@+id/theme_mono_light"
-                        android:text="Mono Light"
+                        android:text="@string/radio_theme_mono_light"
                         style="@style/Radio" />
 
                     <RadioButton
