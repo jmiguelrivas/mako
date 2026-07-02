@@ -175,6 +175,10 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
         val adminRadio = activity.findViewById<RadioButton>(R.id.lock_method_device_admin)
         val accessibilityRadio = activity.findViewById<RadioButton>(R.id.lock_method_accessibility)
 
+        if (lockManager.isAccessibilitySupported()) {
+            (adminRadio.parent as? View)?.visibility = View.GONE
+        }
+
         fun onMethodSelected(method: String) {
             if (isSyncingLockMethodGroup) return
             if (prefs.getDoubleTapLockMethod() == method) return

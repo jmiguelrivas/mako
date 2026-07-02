@@ -330,9 +330,16 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     fun setDoubleTapToSleepEnabled(enabled: Boolean) =
         prefs.edit().putBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, enabled).apply()
 
-    fun getDoubleTapLockMethod(): String =
-        prefs.getString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, defaultDoubleTapLockMethod)
-            ?: defaultDoubleTapLockMethod
+    fun getDoubleTapLockMethod(): String {
+        val stored = prefs.getString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, null)
+        return when {
+            stored == null -> defaultDoubleTapLockMethod
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                    stored == DoubleTapLockManager.METHOD_DEVICE_ADMIN ->
+                DoubleTapLockManager.METHOD_ACCESSIBILITY
+            else -> stored
+        }
+    }
 
     private val defaultDoubleTapLockMethod: String
         get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
