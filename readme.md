@@ -61,15 +61,15 @@ No network access is required.
 
 <p>
   <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/rama-io/mako">
-    <img src="https://rama-io.github.io/img/obtainium.png" alt="Get mako From Obtainium">
+    <img src="https://rama-io.github.io/img/obtainium.svg" alt="Get mako From Obtainium">
   </a>
   &nbsp;
   <a href="https://f-droid.org/app/com.rama.mako">
-    <img src="https://rama-io.github.io/img/fdroid.png" alt="Get mako From F-Droid">
+    <img src="https://rama-io.github.io/img/fdroid.svg" alt="Get mako From F-Droid">
   </a>
   &nbsp;
   <a href="https://github.com/rama-io/mako/releases/latest">
-    <img src="https://rama-io.github.io/img/github.png" alt="Get mako From GitHub">
+    <img src="https://rama-io.github.io/img/github.svg" alt="Get mako From GitHub">
   </a>
 </p>
 
