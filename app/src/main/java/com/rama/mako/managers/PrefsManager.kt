@@ -2,6 +2,7 @@ package com.rama.mako.managers
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.UserHandle
 import com.rama.bohio.util.IdUtils
 import androidx.security.crypto.EncryptedSharedPreferences
@@ -145,7 +146,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
         editor.putString(FileKeys.HOME_BACKGROUND_MODE, BackgroundMode.DEFAULT)
         editor.putBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, false)
-        editor.putString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, "device_admin")
+        editor.putString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, defaultDoubleTapLockMethod)
         editor.putInt(FileKeys.HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH, 9)
 
         editor.putBoolean(FileKeys.BATTERY_VISIBLE, true)
@@ -355,8 +356,23 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     fun setDoubleTapToSleepEnabled(enabled: Boolean) =
         prefs.edit().putBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, enabled).apply()
 
-    fun getDoubleTapLockMethod(): String =
-        prefs.getString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, "device_admin") ?: "device_admin"
+    fun getDoubleTapLockMethod(): String {
+        val stored = prefs.getString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, null)
+        return when {
+            stored == null -> defaultDoubleTapLockMethod
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                    stored == DoubleTapLockManager.METHOD_DEVICE_ADMIN ->
+                DoubleTapLockManager.METHOD_ACCESSIBILITY
+            else -> stored
+        }
+    }
+
+    private val defaultDoubleTapLockMethod: String
+        get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            DoubleTapLockManager.METHOD_ACCESSIBILITY
+        } else {
+            DoubleTapLockManager.METHOD_DEVICE_ADMIN
+        }
 
     fun setDoubleTapLockMethod(method: String) =
         prefs.edit().putString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, method).apply()
