@@ -2,6 +2,9 @@
 
 ## 45
 
+- Replace date visibility for date format
+- Fix accessibility checkbox visibility for API 37
+
 ## 44
 
 - Fix color picker

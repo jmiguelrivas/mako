@@ -48,9 +48,6 @@
     <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>
 
     <!-- Radio -->
-    <string name="radio_default">Varsayılan tema</string>
-    <string name="radio_default_system">Varsayılan (Sistem)</string>
-    <string name="radio_none">Yok</string>
     <string name="radio_icons_monochrome">Monokrom</string>
     <string name="radio_custom_icon_pack">Özel ikon paketi</string>
     <string name="radio_clock_none">Saati gizle</string>
