@@ -23,7 +23,6 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
     private var isSyncingLockMethodGroup = false
 
     fun setup() {
-        bindWdCheckbox(R.id.show_date, FileKeys.DATE_VISIBLE, false, listOf(R.id.show_year_day))
         bindWdCheckbox(
             R.id.show_search,
             FileKeys.APPS_SEARCH,

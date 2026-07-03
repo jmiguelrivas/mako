@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.rama.mako.R
 import com.rama.mako.activities.SettingsActivity
+import com.rama.mako.managers.PrefsManager
 import com.rama.bohio.managers.ThemeManager
 import com.rama.bohio.util.UiActions
 
@@ -15,7 +16,40 @@ class SettingsDateController(private val activity: SettingsActivity) {
     private val iconManager get() = activity.iconManager
 
     fun setup() {
+        setupDateFormat()
         setupDateAppButton()
+    }
+
+    private fun setupDateFormat() {
+        val group = activity.findViewById<RadioGroup>(R.id.date_format_group)
+        val yearDayCheckbox = activity.findViewById<View>(R.id.show_year_day)
+
+        fun updateYearDayVisibility(format: String) {
+            yearDayCheckbox.visibility =
+                if (format != PrefsManager.DateFormat.NONE) View.VISIBLE else View.GONE
+        }
+
+        when (prefs.getDateFormat()) {
+            PrefsManager.DateFormat.NONE -> group.check(R.id.date_none)
+            PrefsManager.DateFormat.YMD -> group.check(R.id.radio_YMD)
+            PrefsManager.DateFormat.MDY -> group.check(R.id.radio_MDY)
+            PrefsManager.DateFormat.DMY -> group.check(R.id.radio_DMY)
+            else -> group.check(R.id.date_system)
+        }
+        updateYearDayVisibility(prefs.getDateFormat())
+
+        group.setOnCheckedChangeListener { _, id ->
+            val format = when (id) {
+                R.id.date_none -> PrefsManager.DateFormat.NONE
+                R.id.date_system -> PrefsManager.DateFormat.DEFAULT
+                R.id.radio_YMD -> PrefsManager.DateFormat.YMD
+                R.id.radio_MDY -> PrefsManager.DateFormat.MDY
+                R.id.radio_DMY -> PrefsManager.DateFormat.DMY
+                else -> return@setOnCheckedChangeListener
+            }
+            prefs.setDateFormat(format)
+            updateYearDayVisibility(format)
+        }
     }
 
     private fun setupDateAppButton() {

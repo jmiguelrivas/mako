@@ -44,10 +44,24 @@ class ClockManager(
             }
 
             // --- Date ---
+            val dateFormatPref = prefs.getDateFormat()
+
             if (prefs.isDateVisible()) {
                 dateTextView.visibility = View.VISIBLE
 
-                val dateFormat = DateFormat.getDateFormat(dateTextView.context)
+                val datePattern = when (dateFormatPref) {
+                    PrefsManager.DateFormat.YMD -> "yyyy-MM-dd"
+                    PrefsManager.DateFormat.MDY -> "MM-dd-yyyy"
+                    PrefsManager.DateFormat.DMY -> "dd-MM-yyyy"
+                    else -> null
+                }
+
+                val formattedDate = if (datePattern != null) {
+                    SimpleDateFormat(datePattern, locale).format(calendar.time)
+                } else {
+                    DateFormat.getDateFormat(dateTextView.context).format(calendar.time)
+                }
+
                 val weekday = calendar.getDisplayName(
                     Calendar.DAY_OF_WEEK,
                     Calendar.LONG,
@@ -58,7 +72,7 @@ class ClockManager(
                 val totalDays = calendar.getActualMaximum(Calendar.DAY_OF_YEAR)
                 val yearDay = if (prefs.isYearDayVisible()) "$dayOfYear/$totalDays" else null
 
-                val parts = listOfNotNull(weekday, dateFormat.format(calendar.time), yearDay)
+                val parts = listOfNotNull(weekday, formattedDate, yearDay)
                 dateTextView.text = parts.joinToString(" :: ").uppercase(locale)
             } else {
                 dateTextView.visibility = View.GONE
