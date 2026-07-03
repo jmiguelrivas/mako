@@ -491,10 +491,41 @@
                 app:header="@string/h3_date"
                 app:defaultExpanded="true">
 
-                <com.rama.bohio.widgets.WdCheckbox
-                    android:id="@+id/show_date"
-                    android:text="@string/checkbox_show_date"
-                    style="@style/Checkbox" />
+                <!--                <com.rama.bohio.widgets.WdCheckbox-->
+                <!--                    android:id="@+id/show_date"-->
+                <!--                    android:text="@string/checkbox_show_date"-->
+                <!--                    style="@style/Checkbox" />-->
+
+                <RadioGroup
+                    android:id="@+id/date_format_group"
+                    style="@style/RadioGroup">
+
+                    <RadioButton
+                        android:id="@+id/date_none"
+                        android:text="@string/radio_none"
+                        style="@style/Radio" />
+
+                    <RadioButton
+                        android:id="@+id/clock_system"
+                        android:text="@string/radio_default_system"
+                        style="@style/Radio" />
+
+                    <RadioButton
+                        android:id="@+id/radio_YMD"
+                        android:text="YYYY-MM-DD"
+                        style="@style/Radio" />
+
+                    <RadioButton
+                        android:id="@+id/radio_MDY"
+                        android:text="MM-DD-YYYY"
+                        style="@style/Radio" />
+
+                    <RadioButton
+                        android:id="@+id/radio_DMY"
+                        android:text="DD-MM-YYYY"
+                        style="@style/Radio" />
+
+                </RadioGroup>
 
                 <com.rama.bohio.widgets.WdCheckbox
                     android:id="@+id/show_year_day"

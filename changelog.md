@@ -1,5 +1,7 @@
 # Changelog
 
+## 45
+
 ## 44
 
 - Fix color picker

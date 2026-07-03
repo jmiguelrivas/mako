@@ -34,6 +34,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val GROUPS_COLLAPSIBLE = "groups:collapsible"
         const val GROUPS_COLLAPSE_ON_HOME_FOCUS = "groups:collapse_on_home_focus"
         const val DATE_VISIBLE = "date:visible"
+        const val DATE_FORMAT = "date:format"
         const val DATE_YEAR_DAY = "date:year_day"
         const val BATTERY_VISIBLE = "battery:visible"
         const val BATTERY_TEMPERATURE = "battery:temperature"
@@ -83,6 +84,14 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val HOUR_24 = "24-hour"
     }
 
+    object DateFormat {
+        const val NONE = "none"
+        const val DEFAULT = "default"
+        const val YMD = "YYYYMMDD"
+        const val MDY = "MMDDYYYY"
+        const val DMY = "DDMMYYYY"
+    }
+
     object IconSource {
         const val NONE = "none"
         const val SYSTEM = "system"
@@ -122,7 +131,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
         editor.putString(FileKeys.CLOCK_FORMAT, ClockFormat.HOUR_24)
         editor.putString(FileKeys.CLOCK_APP, "")
-        editor.putString(FileKeys.DATE_APP, "")
 
         editor.putBoolean(FileKeys.APPS_SEARCH, false)
         editor.putBoolean(FileKeys.APPS_PROFILE_INDICATOR, true)
@@ -142,8 +150,10 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putString(FileKeys.TEMPERATURE_FORMAT, TemperatureFormat.DEFAULT)
         editor.putBoolean(FileKeys.BATTERY_CHARGE_STATUS, false)
 
-        editor.putBoolean(FileKeys.DATE_VISIBLE, true)
+//        editor.putBoolean(FileKeys.DATE_VISIBLE, true)
+        editor.putString(FileKeys.DATE_FORMAT, DateFormat.YMD)
         editor.putBoolean(FileKeys.DATE_YEAR_DAY, true)
+        editor.putString(FileKeys.DATE_APP, "")
 
         editor.putBoolean(FileKeys.GROUPS_HEADERS, true)
         editor.putBoolean(FileKeys.GROUPS_COLLAPSIBLE, true)
