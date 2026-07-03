@@ -13,7 +13,24 @@ class GroupsManager(
     // ------------------- Groups -------------------
 
     fun getGroupIds(): List<String> {
-        val ids = prefs.getGroupIds()
+        val ids = prefs.getGroupIds().toMutableSet()
+
+        // Recover orphaned groups from stored metadata.
+        var repaired = false
+        prefs.getAllKeys()
+            .asSequence()
+            .filter { it.startsWith("group:") && it.endsWith(":label") }
+            .map { it.removePrefix("group:").removeSuffix(":label") }
+            .forEach { id ->
+                if (ids.add(id)) {
+                    repaired = true
+                }
+            }
+
+        if (repaired) {
+            prefs.setGroupIds(ids)
+        }
+
         val needsOrder = ids.filter { !prefs.hasGroupOrder(it) }
 
         if (needsOrder.isNotEmpty()) {
@@ -22,10 +39,11 @@ class GroupsManager(
                 .maxOfOrNull { prefs.getGroupOrder(it) }
                 ?: -1
 
-            // Assign order to ungrouped ones, falling back to alphabetical for consistency
             needsOrder
                 .sortedBy { prefs.getGroupLabel(it).lowercase() }
-                .forEachIndexed { i, id -> prefs.setGroupOrder(id, maxExisting + 1 + i) }
+                .forEachIndexed { i, id ->
+                    prefs.setGroupOrder(id, maxExisting + 1 + i)
+                }
         }
 
         return ids.sortedBy { prefs.getGroupOrder(it) }

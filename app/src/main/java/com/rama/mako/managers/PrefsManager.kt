@@ -233,6 +233,8 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         )
     }
 
+    fun getAllKeys(): Set<String> = prefs.all.keys
+
     fun addGroupId(id: String) {
         val updated = getGroupIds().toMutableSet()
         updated.add(id)
@@ -363,6 +365,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
                     stored == DoubleTapLockManager.METHOD_DEVICE_ADMIN ->
                 DoubleTapLockManager.METHOD_ACCESSIBILITY
+
             else -> stored
         }
     }
