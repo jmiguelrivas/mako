@@ -75,6 +75,17 @@
                 </LinearLayout>
 
                 <FrameLayout
+                    android:id="@+id/unlock_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12sp">
+
+                    <ImageView
+                        android:src="@drawable/px_lock"
+                        style="@style/Icon24" />
+                </FrameLayout>
+
+                <FrameLayout
                     android:id="@+id/search_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

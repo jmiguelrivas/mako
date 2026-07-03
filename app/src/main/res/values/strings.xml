@@ -24,6 +24,10 @@
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_icon_pack">Choose an installed icon pack. If an icon is missing, Mako will use the system icon for that app.</string>
 
+    <!-- Privacy Space -->
+    <string name="privacy_space_row_locked">🔒 Unlock Private Space</string>
+    <string name="privacy_space_row_unlocked">🔓 Lock Private Space</string>
+
     <!-- Buttons 1 -->
     <string name="btn_unlock">Unlock</string>
     <string name="btn_about_mako">About Mako</string>

@@ -81,6 +81,20 @@ class MainActivity : CsActivity() {
         }
     }
 
+    private var privacySpaceReceiverRegistered = false
+
+    // Fired by the system once a profile (Private Space, work profile, ...)
+    // actually finishes unlocking/locking - unlocking in particular runs the
+    // system's own auth screen first, so this can arrive well after the tap.
+    private val privacySpaceReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: Intent?) {
+            when (intent?.action) {
+                Intent.ACTION_PROFILE_AVAILABLE,
+                Intent.ACTION_PROFILE_UNAVAILABLE -> appListManager.refresh()
+            }
+        }
+    }
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
             KeyEvent.KEYCODE_MENU,
@@ -276,6 +290,7 @@ class MainActivity : CsActivity() {
     override fun onResume() {
         super.onResume()
         registerWallpaperReceiverIfNeeded()
+        registerPrivacySpaceReceiverIfNeeded()
         applyHomeBackground(force = true)
         syncSettings()
 
@@ -291,12 +306,14 @@ class MainActivity : CsActivity() {
     override fun onPause() {
         super.onPause()
         unregisterWallpaperReceiverIfNeeded()
+        unregisterPrivacySpaceReceiverIfNeeded()
         clearPendingResumeRefresh()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         unregisterWallpaperReceiverIfNeeded()
+        unregisterPrivacySpaceReceiverIfNeeded()
         clearPendingResumeRefresh()
 
         searchDebounceRunnable?.let { searchDebounceHandler.removeCallbacks(it) }
@@ -470,5 +487,34 @@ class MainActivity : CsActivity() {
 
         runCatching { unregisterReceiver(wallpaperChangedReceiver) }
         wallpaperReceiverRegistered = false
+    }
+
+    private fun registerPrivacySpaceReceiverIfNeeded() {
+        if (privacySpaceReceiverRegistered) return
+
+        val filter = IntentFilter().apply {
+            addAction(Intent.ACTION_PROFILE_AVAILABLE)
+            addAction(Intent.ACTION_PROFILE_UNAVAILABLE)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(
+                privacySpaceReceiver,
+                filter,
+                RECEIVER_NOT_EXPORTED
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            registerReceiver(privacySpaceReceiver, filter)
+        }
+
+        privacySpaceReceiverRegistered = true
+    }
+
+    private fun unregisterPrivacySpaceReceiverIfNeeded() {
+        if (!privacySpaceReceiverRegistered) return
+
+        runCatching { unregisterReceiver(privacySpaceReceiver) }
+        privacySpaceReceiverRegistered = false
     }
 }

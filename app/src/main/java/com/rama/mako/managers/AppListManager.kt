@@ -150,6 +150,10 @@ class AppListManager(
             apps.sortedBy { getSearchableName(it) }
                 .forEach { items.add(ListItem.App(it)) }
         }
+
+        appsProvider.isPrivateSpaceLocked()?.let { isLocked ->
+            items.add(ListItem.PrivacySpaceControl(isLocked))
+        }
     }
 
     private fun getAppCacheKey(app: AppsProvider.AppEntry): String {
@@ -693,10 +697,11 @@ class AppListManager(
 
     private fun setupAdapter() {
         adapter = object : ArrayAdapter<ListItem>(context, 0, items) {
-            override fun getViewTypeCount() = 2
+            override fun getViewTypeCount() = 3
             override fun getItemViewType(position: Int) = when (getItem(position)) {
                 is ListItem.Header -> 0
                 is ListItem.App -> 1
+                is ListItem.PrivacySpaceControl -> 2
                 else -> 1
             }
 
@@ -828,16 +833,35 @@ class AppListManager(
                         ThemeManager.applyTheme(context, label)
                         view
                     }
+
+                    is ListItem.PrivacySpaceControl -> {
+                        val view = convertView
+                            ?: View.inflate(context, R.layout.list_item_privacy_lock, null)
+                        val label = view.findViewById<TextView>(R.id.privacy_lock_label)
+                        val emptySpace =
+                            view.findViewById<View>(R.id.privacy_lock_empty_space)
+
+                        label.text = context.getString(
+                            if (item.isLocked) R.string.privacy_space_row_locked
+                            else R.string.privacy_space_row_unlocked
+                        )
+                        ThemeManager.applyTheme(context, label)
+
+                        val togglePrivacySpace: () -> Unit = {
+                            appsProvider.setPrivateSpaceLocked(!item.isLocked)
+                            refresh()
+                        }
+                        label.setOnClickListener { togglePrivacySpace() }
+                        emptySpace.setOnClickListener { togglePrivacySpace() }
+
+                        view
+                    }
                 }
             }
         }
 
         listView.adapter = adapter
         listView.setCacheColorHint(android.graphics.Color.TRANSPARENT)
-
-        // When focus enters the list from outside (e.g. D-pad down from clock),
-        // always land on the first item. focusedChild is null when focus arrives
-        // from an external view, so this won't interfere with navigating within the list.
         listView.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus && listView.focusedChild == null) {
                 listView.setSelection(0)
@@ -872,6 +896,11 @@ class AppListManager(
                         onAppLaunched?.invoke()
                     }
                 }
+
+                is ListItem.PrivacySpaceControl -> {
+                    appsProvider.setPrivateSpaceLocked(!item.isLocked)
+                    refresh()
+                }
             }
         }
     }
@@ -891,5 +920,6 @@ class AppListManager(
     private sealed class ListItem {
         data class Header(val id: String, val title: String) : ListItem()
         data class App(val info: AppsProvider.AppEntry) : ListItem()
+        data class PrivacySpaceControl(val isLocked: Boolean) : ListItem()
     }
 }

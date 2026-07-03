@@ -107,7 +107,12 @@ class IconManager(
     ): Drawable? {
         if (packageName.isBlank()) return null
 
-        val drawableName = resolvePackDrawableName(packageName, app.activityInfo.componentName)
+        // PWA shortcuts (Firefox/Brave/Vanadium "add to home screen") have no
+        // real activity component to match against an icon pack's appfilter,
+        // so fall back to the shortcut's own badge icon.
+        val activityInfo = app.activityInfo ?: return null
+
+        val drawableName = resolvePackDrawableName(packageName, activityInfo.componentName)
             ?: return null
 
         return runCatching {
@@ -270,7 +275,10 @@ class IconManager(
         source: String,
         selectedPack: String
     ): String {
-        return "$source:$selectedPack:${app.packageName}:${app.activityInfo.componentName.className}:${app.userHandle.hashCode()}"
+        val componentKey = app.activityInfo?.componentName?.className
+            ?: app.shortcutInfo?.id
+            ?: "unknown"
+        return "$source:$selectedPack:${app.packageName}:$componentKey:${app.userHandle.hashCode()}"
     }
 
     private fun getIconPackActions(): List<String> {
