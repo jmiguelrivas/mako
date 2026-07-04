@@ -24,7 +24,6 @@
     <string name="disclaimer_pick_clock_app">Die ausgewählte App wird als Standard-Uhr-Aktion festgelegt. Beim Antippen der Uhr auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_date_app">Die ausgewählte App wird als Standard-Datumsaktion festgelegt. Beim Antippen des Datums auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_icon_pack">Wähle ein installiertes Icon-Paket aus. Bei fehlenden Icons wird Mako das System-Icon für die App verwenden.</string>
-    <string name="h2_hidden_apps">Versteckte Apps</string>
 
     <!-- Buttons 1 -->
     <string name="btn_unlock">Entsperren</string>
@@ -75,23 +74,11 @@
     <string name="checkbox_show_group_header">Gruppenüberschrift anzeigen</string>
     <string name="checkbox_randomized_keypad">Zufälliges Tastenfeld</string>
     <string name="checkbox_click_on_icons_open_app_settings">App-Einstellungen beim Klicken auf Icon öffnen</string>
-    <string name="btn_hidden_apps">Versteckte Apps</string>
-
-    <!-- Hidden apps -->
-    <string name="h2_hide_apps">Ausgewählte Apps ausblenden?</string>
-    <string name="disclaimer_hide_apps">Die ausgewählten Apps werden auf allen Bildschirmen ausgeblendet. Sie können sie in den Einstellungen wiederherstellen.</string>
-    <string name="btn_hide">Ausblenden</string>
-    <string name="h2_restore_app">Diese App wiederherstellen?</string>
-    <string name="disclaimer_restore_app">Diese App wird wieder auf dem Startbildschirm angezeigt.</string>
-    <string name="btn_restore">Wiederherstellen</string>
-    <string name="altdescr_restore_app">App wiederherstellen</string>
-    <string name="dialog_more_apps">+%1$d weitere</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">App umbenennen...</string>
     <string name="ctxmenu_move_to_group">Gruppe ändern...</string>
     <string name="ctxmenu_open_settings">App-Einstellungen...</string>
-    <string name="ctxmenu_hide_app">App ausblenden...</string>
 
     <!-- InputLabel -->
     <string name="label_screen_opacity_strength">Bildschirmdeckkraft</string>
@@ -114,7 +101,6 @@
     <string name="toast_group_label_updated">Label aktualisiert</string>
     <string name="toast_select_target_group">Wählen Sie eine Zielgruppe aus</string>
     <string name="toast_label_changed">App-Bezeichnung aktualisiert</string>
-    <string name="toast_no_hidden_apps">Keine versteckten Apps</string>
     <string name="toast_pin_saved">PIN gespeichert</string>
     <string name="toast_pin_too_short">PIN muss mindestens 1 Ziffer lang sein</string>
     <string name="toast_icon_pack_selected">Ausgewähltes Icon-Paket: %1$s</string>

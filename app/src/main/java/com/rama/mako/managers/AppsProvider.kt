@@ -25,7 +25,6 @@ class AppsProvider(private val context: Context) {
         context.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
     private val iconCache = mutableMapOf<String, Drawable>()
     private val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
-    private val prefs = PrefsManager.getInstance(context)
 
     fun getAll(): List<AppEntry> {
         val realApps = userManager.userProfiles.flatMap { userHandle ->
@@ -52,12 +51,6 @@ class AppsProvider(private val context: Context) {
 
         return realApps
     }
-
-    fun getVisibleApps(): List<AppEntry> =
-        getAll().filterNot { prefs.isAppHidden(it) }
-
-    fun getVisibleApp(packageName: String): AppEntry? =
-        getVisibleApps().firstOrNull { it.packageName == packageName }
 
     fun launch(app: AppEntry): Boolean {
         return try {

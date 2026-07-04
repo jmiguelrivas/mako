@@ -10,7 +10,6 @@ import com.rama.mako.activities.settings.SettingsBasicController
 import com.rama.mako.activities.settings.SettingsCheckboxController
 import com.rama.mako.activities.settings.SettingsClockController
 import com.rama.mako.activities.settings.SettingsDateController
-import com.rama.mako.activities.settings.SettingsHiddenAppsController
 import com.rama.mako.activities.settings.SettingsPinController
 import com.rama.mako.activities.settings.SettingsGroupsController
 import com.rama.mako.activities.settings.SettingsIconsController
@@ -64,7 +63,6 @@ class SettingsActivity : CsActivity() {
         SettingsIconsController(this).setup()
         checkboxController = SettingsCheckboxController(this).also { it.setup() }
         SettingsGroupsController(this).setup()
-        SettingsHiddenAppsController(this).setup()
         SettingsPinController(this).setup()
     }
 
