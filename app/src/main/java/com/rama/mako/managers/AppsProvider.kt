@@ -5,6 +5,7 @@ import android.content.pm.LauncherActivityInfo
 import android.os.UserHandle
 import android.content.pm.LauncherApps
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.UserManager
 
 class AppsProvider(private val context: Context) {
@@ -26,9 +27,18 @@ class AppsProvider(private val context: Context) {
     private val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
 
     fun getAll(): List<AppEntry> {
-        return userManager.userProfiles.flatMap { userHandle ->
+        val realApps = userManager.userProfiles.flatMap { userHandle ->
             val profileInitial = getProfileInitial(userHandle)
-            launcherApps.getActivityList(null, userHandle).map { info ->
+
+            val activities = try {
+                launcherApps.getActivityList(null, userHandle)
+            } catch (e: SecurityException) {
+                emptyList()
+            } catch (e: IllegalStateException) {
+                emptyList()
+            }
+
+            activities.map { info ->
                 AppEntry(
                     packageName = info.applicationInfo.packageName,
                     label = info.label.toString(),
@@ -38,12 +48,14 @@ class AppsProvider(private val context: Context) {
                 )
             }
         }
+
+        return realApps
     }
 
     fun launch(app: AppEntry): Boolean {
         return try {
             launcherApps.startMainActivity(
-                app.activityInfo.componentName,
+                app.activityInfo!!.componentName,
                 app.userHandle,
                 null,
                 null
@@ -57,7 +69,39 @@ class AppsProvider(private val context: Context) {
     fun getIcon(app: AppEntry): Drawable {
         val key = "${app.packageName}:${app.userHandle.hashCode()}"
         return iconCache.getOrPut(key) {
-            app.activityInfo.getIcon(context.resources.displayMetrics.densityDpi)
+            app.activityInfo!!.getIcon(context.resources.displayMetrics.densityDpi)
+        }
+    }
+
+    fun getPrivateProfileHandle(): UserHandle? {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) return null
+
+        return userManager.userProfiles.firstOrNull { handle ->
+            runCatching {
+                launcherApps.getLauncherUserInfo(handle)?.userType ==
+                        UserManager.USER_TYPE_PROFILE_PRIVATE
+            }.getOrDefault(false)
+        }
+    }
+
+    fun hasPrivateSpace(): Boolean = getPrivateProfileHandle() != null
+
+    fun isPrivateSpaceLocked(): Boolean? {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return null
+
+        val handle = getPrivateProfileHandle() ?: return null
+        return userManager.isQuietModeEnabled(handle)
+    }
+
+    fun setPrivateSpaceLocked(locked: Boolean): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) return false
+
+        val handle = getPrivateProfileHandle() ?: return false
+
+        return try {
+            userManager.requestQuietModeEnabled(locked, handle)
+        } catch (e: SecurityException) {
+            false
         }
     }
 

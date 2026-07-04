@@ -21,9 +21,11 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import com.rama.bohio.R as BohioR
 import com.rama.mako.CsActivity
 import com.rama.mako.R
 import com.rama.mako.managers.AppListManager
@@ -68,6 +70,8 @@ class MainActivity : CsActivity() {
     private lateinit var doubleTapGestureDetector: GestureDetector
     private lateinit var doubleTapLockManager: DoubleTapLockManager
     private var lastAppliedTheme: String? = null
+    private lateinit var lockButton: FrameLayout
+    private lateinit var lockButtonIcon: ImageView
 
     companion object {
         private const val WALLPAPER_CHANGED_ACTION = "android.intent.action.WALLPAPER_CHANGED"
@@ -81,6 +85,17 @@ class MainActivity : CsActivity() {
         }
     }
 
+    private var privacySpaceReceiverRegistered = false
+
+    private val privacySpaceReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: Intent?) {
+            when (intent?.action) {
+                Intent.ACTION_PROFILE_AVAILABLE,
+                Intent.ACTION_PROFILE_UNAVAILABLE -> appListManager.refresh()
+            }
+        }
+    }
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
             KeyEvent.KEYCODE_MENU,
@@ -90,6 +105,22 @@ class MainActivity : CsActivity() {
             }
 
             else -> super.onKeyDown(keyCode, event)
+        }
+    }
+
+    private fun updateLockButton() {
+        if (appsProvider.hasPrivateSpace()) {
+            lockButton.visibility = View.VISIBLE
+
+            val isLocked = appsProvider.isPrivateSpaceLocked() ?: return
+
+            lockButtonIcon.setImageResource(
+                if (isLocked) BohioR.drawable.px_lock
+                else BohioR.drawable.px_lock_open
+            )
+
+        } else {
+            lockButton.visibility = View.GONE
         }
     }
 
@@ -136,6 +167,19 @@ class MainActivity : CsActivity() {
             }
         }
         appListManager.setup()
+
+        lockButton = findViewById(R.id.lock_btn)
+        lockButtonIcon = lockButton.findViewById(R.id.lock_icon)
+
+        updateLockButton()
+
+        lockButton.setOnClickListener {
+            val isLocked = appsProvider.isPrivateSpaceLocked() ?: return@setOnClickListener
+
+            if (appsProvider.setPrivateSpaceLocked(!isLocked)) {
+                updateLockButton()
+            }
+        }
 
         timeText.setTextColor(palette.h1)
 
@@ -276,11 +320,12 @@ class MainActivity : CsActivity() {
     override fun onResume() {
         super.onResume()
         registerWallpaperReceiverIfNeeded()
+        registerPrivacySpaceReceiverIfNeeded()
         applyHomeBackground(force = true)
         syncSettings()
 
         val groupsWereCollapsed = prefs.shouldCollapseGroupsOnHomeFocus() &&
-            appListManager.collapseAllGroups()
+                appListManager.collapseAllGroups()
 
         schedulePostResumeRefresh(skipAppListRefresh = groupsWereCollapsed)
 
@@ -291,12 +336,14 @@ class MainActivity : CsActivity() {
     override fun onPause() {
         super.onPause()
         unregisterWallpaperReceiverIfNeeded()
+        unregisterPrivacySpaceReceiverIfNeeded()
         clearPendingResumeRefresh()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         unregisterWallpaperReceiverIfNeeded()
+        unregisterPrivacySpaceReceiverIfNeeded()
         clearPendingResumeRefresh()
 
         searchDebounceRunnable?.let { searchDebounceHandler.removeCallbacks(it) }
@@ -470,5 +517,34 @@ class MainActivity : CsActivity() {
 
         runCatching { unregisterReceiver(wallpaperChangedReceiver) }
         wallpaperReceiverRegistered = false
+    }
+
+    private fun registerPrivacySpaceReceiverIfNeeded() {
+        if (privacySpaceReceiverRegistered) return
+
+        val filter = IntentFilter().apply {
+            addAction(Intent.ACTION_PROFILE_AVAILABLE)
+            addAction(Intent.ACTION_PROFILE_UNAVAILABLE)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(
+                privacySpaceReceiver,
+                filter,
+                RECEIVER_NOT_EXPORTED
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            registerReceiver(privacySpaceReceiver, filter)
+        }
+
+        privacySpaceReceiverRegistered = true
+    }
+
+    private fun unregisterPrivacySpaceReceiverIfNeeded() {
+        if (!privacySpaceReceiverRegistered) return
+
+        runCatching { unregisterReceiver(privacySpaceReceiver) }
+        privacySpaceReceiverRegistered = false
     }
 }

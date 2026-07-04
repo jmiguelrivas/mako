@@ -4,6 +4,8 @@
 
 - Replace date visibility for date format
 - Fix accessibility checkbox visibility for API 37
+- Self heal orphan groups
+- Private space visibility
 
 ## 44
 

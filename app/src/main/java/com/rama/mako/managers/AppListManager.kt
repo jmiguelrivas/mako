@@ -693,7 +693,7 @@ class AppListManager(
 
     private fun setupAdapter() {
         adapter = object : ArrayAdapter<ListItem>(context, 0, items) {
-            override fun getViewTypeCount() = 2
+            override fun getViewTypeCount() = 3
             override fun getItemViewType(position: Int) = when (getItem(position)) {
                 is ListItem.Header -> 0
                 is ListItem.App -> 1
@@ -834,10 +834,6 @@ class AppListManager(
 
         listView.adapter = adapter
         listView.setCacheColorHint(android.graphics.Color.TRANSPARENT)
-
-        // When focus enters the list from outside (e.g. D-pad down from clock),
-        // always land on the first item. focusedChild is null when focus arrives
-        // from an external view, so this won't interfere with navigating within the list.
         listView.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus && listView.focusedChild == null) {
                 listView.setSelection(0)

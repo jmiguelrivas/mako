@@ -108,7 +108,6 @@ class IconManager(
         if (packageName.isBlank()) return null
 
         val drawableName = resolvePackDrawableName(packageName, app.activityInfo.componentName)
-            ?: return null
 
         return runCatching {
             val resources = packageManager.getResourcesForApplication(packageName)
