@@ -206,8 +206,6 @@ class MainActivity : CsActivity() {
                     searchField.clearFocus()
                 } else if (isSearchExpanded) {
                     collapseSearch()
-                } else {
-                    finish()
                 }
             }
         })
