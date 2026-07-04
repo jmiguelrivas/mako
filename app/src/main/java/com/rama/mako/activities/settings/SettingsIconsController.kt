@@ -103,7 +103,7 @@ class SettingsIconsController(private val activity: SettingsActivity) {
 
         val listView = dialogView.findViewById<ListView>(R.id.icon_pack_list)
         val closeBtn = dialogView.findViewById<Button>(R.id.close_button)
-        val selectedPackage = prefs.getIconPackPackage()
+        var selectedPackage = prefs.getIconPackPackage()
 
         val adapter = object : BaseAdapter() {
             override fun getCount() = iconPacks.size
@@ -130,6 +130,8 @@ class SettingsIconsController(private val activity: SettingsActivity) {
             itemView.performHapticFeedback(android.view.HapticFeedbackConstants.KEYBOARD_TAP)
             val selectedIconPack = iconPacks[position]
             prefs.setIconPackPackage(selectedIconPack.packageName)
+            selectedPackage = selectedIconPack.packageName
+            adapter.notifyDataSetChanged()
             prefs.setIconSource(PrefsManager.IconSource.ICON_PACK)
             activity.findViewById<RadioGroup>(R.id.icon_source_group)
                 .check(R.id.icon_source_icon_pack)
