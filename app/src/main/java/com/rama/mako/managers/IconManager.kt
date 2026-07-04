@@ -23,7 +23,7 @@ class IconManager(
 ) {
 
     companion object {
-        private const val MONOCHROME_SCALE = 1.3f
+        private const val MONOCHROME_SCALE = 1.5f
     }
 
     data class IconPackEntry(
