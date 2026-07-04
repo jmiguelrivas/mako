@@ -80,7 +80,11 @@ class MainActivity : CsActivity() {
     private val wallpaperChangedReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: android.content.Context?, intent: Intent?) {
             if (intent?.action == WALLPAPER_CHANGED_ACTION) {
-                applyHomeBackground(force = true)
+                startActivity(
+                    Intent(this@MainActivity, MainActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    }
+                )
             }
         }
     }

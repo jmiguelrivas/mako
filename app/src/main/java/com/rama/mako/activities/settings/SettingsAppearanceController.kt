@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.rama.bohio.widgets.WdCheckbox
 import com.rama.mako.R
 import com.rama.bohio.R as BohioR
+import com.rama.mako.activities.MainActivity
 import com.rama.mako.activities.SettingsActivity
 import com.rama.bohio.managers.FontManager
 import com.rama.mako.managers.PrefsManager
@@ -264,6 +265,13 @@ class SettingsAppearanceController(private val activity: SettingsActivity) {
                 if (isChecked) PrefsManager.BackgroundMode.WALLPAPER else PrefsManager.BackgroundMode.DEFAULT
             prefs.setHomeBackgroundMode(mode)
             activity.applySettingsBackground()
+            if (isChecked) {
+                activity.startActivity(
+                    Intent(activity, MainActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    }
+                )
+            }
         }
     }
 
