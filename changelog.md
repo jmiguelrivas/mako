@@ -6,6 +6,10 @@
 - Fix accessibility checkbox visibility for API 37
 - Self heal orphan groups
 - Private space visibility
+- Fix wallpaper overlay stacking and list ghosting
+- Made monochrome icons bigger
+- Fix back gesture on main screen
+- Fix render issues on icon pack selection
 
 ## 44
 
