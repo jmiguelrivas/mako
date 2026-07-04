@@ -50,6 +50,9 @@
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
 
     <!-- Radio -->
+    <string name="radio_none">None</string>
+    <string name="radio_default">Default</string>
+    <string name="radio_default_system">Default (System)</string>
     <string name="radio_icons_monochrome">Monochrome</string>
     <string name="radio_custom_icon_pack">Custom icon pack</string>
     <string name="radio_clock_none">Hide clock</string>

@@ -462,9 +462,9 @@ class MainActivity : CsActivity() {
 
         if (mode == PrefsManager.BackgroundMode.WALLPAPER) {
             window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER)
-            window.setBackgroundDrawable(homeBackgroundManager.createWallpaperOverlayDrawable())
+            window.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(Color.TRANSPARENT))
             window.navigationBarColor = Color.TRANSPARENT
-            rootView.setBackgroundColor(Color.TRANSPARENT)
+            rootView.background = homeBackgroundManager.createWallpaperOverlayDrawable()
         } else {
             applyWindowBackground()
             homeBackgroundManager.applyTo(rootView, mode)
