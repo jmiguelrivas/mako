@@ -12,10 +12,12 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.core.content.ContextCompat
 import com.rama.mako.R
 import com.rama.bohio.R as BohioR
 import com.rama.bohio.util.Dimens.spToPx
 import com.rama.mako.activities.SettingsActivity
+import com.rama.bohio.widgets.WdConfirmDialog
 import java.text.Normalizer
 import java.util.Locale
 import kotlin.math.abs
@@ -63,6 +65,7 @@ class AppListManager(
     private var selectedCountText: TextView? = null
     private var renameButton: FrameLayout? = null
     private var appSettingsButton: FrameLayout? = null
+    private var hideButton: FrameLayout? = null
     private var suppressNextClick = false
 
     fun setup() {
@@ -110,7 +113,7 @@ class AppListManager(
     }
 
     private fun updateAppsCache() {
-        allAppsCache = appsProvider.getAll()
+        allAppsCache = appsProvider.getVisibleApps()
         searchableNameCache.clear()
         packageNameCache.clear()
     }
@@ -565,6 +568,7 @@ class AppListManager(
         selectedCountText = root.findViewById(R.id.selected_count)
         renameButton = root.findViewById(R.id.rename_btn)
         appSettingsButton = root.findViewById(R.id.app_settings)
+        hideButton = root.findViewById(R.id.hide_btn)
 
         val moveButton = root.findViewById<FrameLayout>(R.id.move_to_group_button)
         val cancelButton = root.findViewById<FrameLayout>(R.id.multi_select_cancel_button)
@@ -584,6 +588,10 @@ class AppListManager(
                 exitMultiSelectMode()
                 openAppSettings(app)
             }
+        }
+
+        hideButton?.setOnClickListener {
+            hideSelectedApps()
         }
     }
 
@@ -693,6 +701,84 @@ class AppListManager(
                 prefs.setAppGroupId(app.packageName, app.userHandle, groupId)
             }
         }
+        exitMultiSelectMode()
+        refresh()
+    }
+
+    private fun hideSelectedApps() {
+        val appsToHide = selectedApps.mapNotNull { key ->
+            allAppsCache.find { getSelectionKey(it) == key }
+        }
+
+        if (appsToHide.isEmpty()) return
+        showHideConfirmationDialog(appsToHide)
+    }
+
+    private fun showHideConfirmationDialog(appsToHide: List<AppsProvider.AppEntry>) {
+        val view = WdConfirmDialog(context)
+        ThemeManager.applyTheme(context, view)
+
+        val dialog = AlertDialog.Builder(context)
+            .setView(view)
+            .create()
+
+        view.titleView.setText(R.string.h2_hide_apps)
+        view.messageView.setText(R.string.disclaimer_hide_apps)
+        view.previewIconView.setImageDrawable(iconManager.getIcon(appsToHide.first()))
+        view.previewCountView.text = context.getString(R.string.multi_select_count, appsToHide.size)
+        view.previewNamesView.text = buildAppsPreviewText(appsToHide)
+        view.confirmButton.text = context.getString(R.string.btn_hide)
+        view.confirmButton.setBackgroundColor(ContextCompat.getColor(context, BohioR.color.danger))
+        view.cancelButton.text = context.getString(BohioR.string.btn_cancel)
+
+        view.confirmButton.setOnClickListener {
+            hideApps(appsToHide)
+            dialog.dismiss()
+        }
+        view.cancelButton.setOnClickListener { dialog.dismiss() }
+
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+    }
+
+    private fun buildAppsPreviewText(apps: List<AppsProvider.AppEntry>): String {
+        val previewNames = apps.take(3).map { getDisplayName(it) }
+        val remaining = apps.size - previewNames.size
+
+        return buildString {
+            previewNames.forEachIndexed { index, name ->
+                if (index > 0) append('\n')
+                append(name)
+            }
+
+            if (remaining > 0) {
+                if (isNotEmpty()) append('\n')
+                append(context.getString(R.string.dialog_more_apps, remaining))
+            }
+        }
+    }
+
+    private fun hideApps(appsToHide: List<AppsProvider.AppEntry>) {
+        val hiddenPackages = appsToHide.mapTo(mutableSetOf()) { it.packageName }
+
+        appsToHide.forEach { app ->
+            prefs.setAppHidden(app.packageName, app.userHandle, true)
+        }
+
+        hiddenPackages.forEach { packageName ->
+            if (prefs.getClockApp() == packageName) {
+                prefs.setClockApp("")
+            }
+
+            if (prefs.getDateApp() == packageName) {
+                prefs.setDateApp("")
+            }
+        }
+
         exitMultiSelectMode()
         refresh()
     }

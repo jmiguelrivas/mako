@@ -69,7 +69,7 @@ class SettingsDateController(private val activity: SettingsActivity) {
 
         val listView = dialogView.findViewById<ListView>(R.id.app_list)
         val closeBtn = dialogView.findViewById<Button>(R.id.close_button)
-        val apps = appsProvider.getAll().sortedBy { it.label.lowercase() }
+        val apps = appsProvider.getVisibleApps().sortedBy { it.label.lowercase() }
 
         val adapter = object : BaseAdapter() {
             override fun getCount() = apps.size

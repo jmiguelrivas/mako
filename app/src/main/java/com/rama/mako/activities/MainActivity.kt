@@ -328,6 +328,7 @@ class MainActivity : CsActivity() {
         registerPrivacySpaceReceiverIfNeeded()
         applyHomeBackground(force = true)
         syncSettings()
+        sanitizeHiddenAppSelections()
 
         val groupsWereCollapsed = prefs.shouldCollapseGroupsOnHomeFocus() &&
                 appListManager.collapseAllGroups()
@@ -411,9 +412,11 @@ class MainActivity : CsActivity() {
 
     // --- Open date app ---
     private fun openDateApp() {
+        sanitizeHiddenAppSelections()
+
         val packageName = prefs.getDateApp()
         if (packageName.isNotEmpty()) {
-            val app = appsProvider.getAll().firstOrNull { it.packageName == packageName }
+            val app = appsProvider.getVisibleApp(packageName)
             if (app != null) {
                 if (!appsProvider.launch(app)) {
                     Toast.makeText(
@@ -424,14 +427,18 @@ class MainActivity : CsActivity() {
                 }
                 return
             }
+
+            prefs.setDateApp("")
         }
     }
 
     // --- Open system clock safely ---
     private fun openSystemClock() {
+        sanitizeHiddenAppSelections()
+
         val packageName = prefs.getClockApp()
         if (packageName.isNotEmpty()) {
-            val app = appsProvider.getAll().firstOrNull { it.packageName == packageName }
+            val app = appsProvider.getVisibleApp(packageName)
             if (app != null) {
                 if (!appsProvider.launch(app)) {
                     Toast.makeText(
@@ -442,11 +449,27 @@ class MainActivity : CsActivity() {
                 }
                 return
             }
+
+            prefs.setClockApp("")
         }
         val intent = Intent(android.provider.AlarmClock.ACTION_SHOW_ALARMS).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         runCatching { startActivity(intent) }
+    }
+
+    private fun sanitizeHiddenAppSelections() {
+        val hiddenPackages = appsProvider.getAll()
+            .filter { prefs.isAppHidden(it) }
+            .mapTo(mutableSetOf()) { it.packageName }
+
+        if (prefs.getDateApp() in hiddenPackages) {
+            prefs.setDateApp("")
+        }
+
+        if (prefs.getClockApp() in hiddenPackages) {
+            prefs.setClockApp("")
+        }
     }
 
     // The only place in the app where FLAG_SHOW_WALLPAPER is ever set.

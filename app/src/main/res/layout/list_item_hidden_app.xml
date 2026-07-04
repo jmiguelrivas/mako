@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_row"
+    android:descendantFocusability="blocksDescendants"
+    style="@style/HorizontalList">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="32sp"
+        android:layout_height="32sp"
+        android:focusable="false"
+        android:paddingEnd="8sp" />
+
+    <TextView
+        android:id="@+id/open_app_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="12sp"
+        android:paddingBottom="12sp"
+        android:focusable="false"
+        android:clickable="false"
+        android:textSize="32sp"
+        android:textColor="@color/foreground" />
+
+    <FrameLayout
+        android:id="@+id/restore_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12sp">
+
+        <ImageView
+            android:src="@drawable/px_eye"
+            android:contentDescription="@string/altdescr_restore_app"
+            style="@style/Icon24" />
+    </FrameLayout>
+
+</LinearLayout>

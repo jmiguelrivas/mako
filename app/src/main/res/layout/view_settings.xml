@@ -615,6 +615,13 @@
                     android:text="@string/checkbox_show_profile_indicator"
                     style="@style/Checkbox" />
 
+                <View style="@style/Separator" />
+
+                <Button
+                    android:id="@+id/hidden_apps_button"
+                    android:text="@string/btn_hidden_apps"
+                    style="@style/BTN2" />
+
             </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Security-->
             <com.rama.bohio.widgets.WdCollapsibleSection

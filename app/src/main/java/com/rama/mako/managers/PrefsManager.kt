@@ -19,6 +19,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val APPS_SEARCH = "apps:search"
         const val APPS_SEARCH_ALWAYS_VISIBLE = "apps:search:always_visible"
         const val APPS_PROFILE_INDICATOR = "apps:profile_indicator"
+        const val APPS_HIDDEN = "apps:hidden"
 
         const val APPS_ICONS = "apps:icons"
         const val APPS_ICON_SOURCE = "apps:icon_source"
@@ -313,6 +314,31 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun hasProfileIndicator(): Boolean =
         prefs.getBoolean(FileKeys.APPS_PROFILE_INDICATOR, true)
+
+    fun getHiddenAppIds(): Set<String> =
+        prefs.getStringSet(FileKeys.APPS_HIDDEN, emptySet()) ?: emptySet()
+
+    fun setHiddenAppIds(ids: Set<String>) =
+        prefs.edit().putStringSet(FileKeys.APPS_HIDDEN, ids).apply()
+
+    fun isAppHidden(pkg: String, userHandle: UserHandle): Boolean =
+        getHiddenAppIds().contains(FileKeys.appKey(pkg, userHandle))
+
+    fun isAppHidden(app: AppsProvider.AppEntry): Boolean =
+        isAppHidden(app.packageName, app.userHandle)
+
+    fun setAppHidden(pkg: String, userHandle: UserHandle, hidden: Boolean) {
+        val updated = getHiddenAppIds().toMutableSet()
+        val key = FileKeys.appKey(pkg, userHandle)
+
+        if (hidden) {
+            updated.add(key)
+        } else {
+            updated.remove(key)
+        }
+
+        setHiddenAppIds(updated)
+    }
 
     fun hasIconsOpenSettings(): Boolean =
         prefs.getBoolean(FileKeys.APPS_ICONS_OPEN_SETTINGS, true)

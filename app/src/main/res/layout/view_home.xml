@@ -194,6 +194,18 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/hide_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12sp">
+
+            <ImageView
+                android:src="@drawable/px_eye_cross"
+                android:contentDescription="@string/ctxmenu_hide_app"
+                style="@style/Icon24" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/app_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

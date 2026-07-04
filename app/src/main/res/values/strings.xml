@@ -23,6 +23,7 @@
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_icon_pack">Choose an installed icon pack. If an icon is missing, Mako will use the system icon for that app.</string>
+    <string name="h2_hidden_apps">Hidden apps</string>
 
     <!-- Privacy Space -->
     <string name="privacy_space_row_locked">🔒 Unlock Private Space</string>
@@ -79,11 +80,23 @@
     <string name="checkbox_show_group_header">Show group header</string>
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
+    <string name="btn_hidden_apps">Hidden apps</string>
+
+    <!-- Hidden apps -->
+    <string name="h2_hide_apps">Hide selected apps?</string>
+    <string name="disclaimer_hide_apps">The selected apps will be hidden from all screens. You can restore them from Settings.</string>
+    <string name="btn_hide">Hide</string>
+    <string name="h2_restore_app">Restore this app?</string>
+    <string name="disclaimer_restore_app">This app will reappear on your home screen.</string>
+    <string name="btn_restore">Restore</string>
+    <string name="altdescr_restore_app">Restore app</string>
+    <string name="dialog_more_apps">+%1$d more</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">Rename app...</string>
     <string name="ctxmenu_move_to_group">Change group...</string>
     <string name="ctxmenu_open_settings">App settings...</string>
+    <string name="ctxmenu_hide_app">Hide app...</string>
 
     <!-- InputLabel -->
     <string name="label_screen_opacity_strength">Screen opacity strength</string>
@@ -106,6 +119,7 @@
     <string name="toast_group_label_updated">Label Updated</string>
     <string name="toast_select_target_group">Select a target group</string>
     <string name="toast_label_changed">App label updated</string>
+    <string name="toast_no_hidden_apps">No hidden apps</string>
     <string name="toast_pin_saved">PIN saved</string>
     <string name="toast_pin_too_short">PIN must be at least 1 digits</string>
     <string name="toast_icon_pack_selected">Selected icon pack: %1$s</string>

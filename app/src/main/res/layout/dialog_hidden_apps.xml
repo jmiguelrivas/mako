@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16sp"
+    android:background="@color/bg_1"
+    android:focusableInTouchMode="true"
+    style="@style/VerticalListDivided">
+
+    <TextView
+        android:text="@string/h2_hidden_apps"
+        style="@style/H2_center" />
+
+    <ListView
+        android:id="@+id/hidden_app_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        style="@style/VerticalListDivided_BG2" />
+
+    <Button
+        android:id="@+id/close_button"
+        android:text="@string/btn_go_back"
+        style="@style/BTN1" />
+</LinearLayout>

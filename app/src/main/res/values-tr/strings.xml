@@ -24,6 +24,7 @@
     <string name="disclaimer_pick_clock_app">Buradan bir uygulama seçmek, onu varsayılan saat eylemi olarak ayarlar. Ana ekranınızdaki saate dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_date_app">Buradan bir uygulama seçmek, onu varsayılan tarih eylemi olarak ayarlar. Ana ekranınızdaki tarihe dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_icon_pack">Yüklü bir ikon paketi seçin. Bir ikon eksikse Mako, o uygulama için sistem ikonunu kullanır.</string>
+    <string name="h2_hidden_apps">Gizli uygulamalar</string>
 
     <!-- Buttons 1 -->
     <string name="btn_unlock">Kilidi Aç</string>
@@ -74,11 +75,23 @@
     <string name="checkbox_show_group_header">Grup başlığını göster</string>
     <string name="checkbox_randomized_keypad">Rastgele tuş takımı</string>
     <string name="checkbox_click_on_icons_open_app_settings">İkonuna tıklandığında uygulama ayarlarını aç</string>
+    <string name="btn_hidden_apps">Gizli uygulamalar</string>
+
+    <!-- Hidden apps -->
+    <string name="h2_hide_apps">Seçili uygulamalar gizlensin mi?</string>
+    <string name="disclaimer_hide_apps">Seçili uygulamalar tüm ekranlardan gizlenecek. Ayarlar\'dan geri getirebilirsiniz.</string>
+    <string name="btn_hide">Gizle</string>
+    <string name="h2_restore_app">Bu uygulama geri yüklensin mi?</string>
+    <string name="disclaimer_restore_app">Bu uygulama ana ekranınızda tekrar görünecek.</string>
+    <string name="btn_restore">Geri Yükle</string>
+    <string name="altdescr_restore_app">Uygulamayı geri yükle</string>
+    <string name="dialog_more_apps">+%1$d daha</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır...</string>
     <string name="ctxmenu_move_to_group">Grubu değiştir...</string>
     <string name="ctxmenu_open_settings">Uygulama ayarları...</string>
+    <string name="ctxmenu_hide_app">Uygulamayı gizle...</string>
 
     <!-- InputLabel -->
     <string name="label_screen_opacity_strength">Ekran opaklık seviyesi</string>
@@ -101,6 +114,7 @@
     <string name="toast_group_label_updated">Etiket Güncellendi</string>
     <string name="toast_select_target_group">Bir hedef grup seçin</string>
     <string name="toast_label_changed">Uygulama etiketi güncellendi</string>
+    <string name="toast_no_hidden_apps">Gizli uygulama yok</string>
     <string name="toast_pin_saved">PIN kaydedildi</string>
     <string name="toast_pin_too_short">PIN en az 1 haneli olmalıdır</string>
     <string name="toast_icon_pack_selected">Seçili ikon paketi: %1$s</string>
