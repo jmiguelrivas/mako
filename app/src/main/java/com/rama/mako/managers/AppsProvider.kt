@@ -66,6 +66,20 @@ class AppsProvider(private val context: Context) {
         }
     }
 
+    fun openAppDetails(app: AppEntry): Boolean {
+        return try {
+            launcherApps.startAppDetailsActivity(
+                app.activityInfo!!.componentName,
+                app.userHandle,
+                null,
+                null
+            )
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
     fun getIcon(app: AppEntry): Drawable {
         val key = "${app.packageName}:${app.userHandle.hashCode()}"
         return iconCache.getOrPut(key) {

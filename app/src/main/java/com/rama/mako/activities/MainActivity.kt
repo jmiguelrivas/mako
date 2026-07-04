@@ -91,7 +91,10 @@ class MainActivity : CsActivity() {
         override fun onReceive(context: android.content.Context?, intent: Intent?) {
             when (intent?.action) {
                 Intent.ACTION_PROFILE_AVAILABLE,
-                Intent.ACTION_PROFILE_UNAVAILABLE -> appListManager.refresh()
+                Intent.ACTION_PROFILE_UNAVAILABLE -> {
+                    appListManager.refresh()
+                    updateLockButton()
+                }
             }
         }
     }
