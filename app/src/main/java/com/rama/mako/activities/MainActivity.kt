@@ -21,9 +21,11 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import com.rama.bohio.R as BohioR
 import com.rama.mako.CsActivity
 import com.rama.mako.R
 import com.rama.mako.managers.AppListManager
@@ -68,6 +70,8 @@ class MainActivity : CsActivity() {
     private lateinit var doubleTapGestureDetector: GestureDetector
     private lateinit var doubleTapLockManager: DoubleTapLockManager
     private var lastAppliedTheme: String? = null
+    private lateinit var lockButton: FrameLayout
+    private lateinit var lockButtonIcon: ImageView
 
     companion object {
         private const val WALLPAPER_CHANGED_ACTION = "android.intent.action.WALLPAPER_CHANGED"
@@ -83,9 +87,6 @@ class MainActivity : CsActivity() {
 
     private var privacySpaceReceiverRegistered = false
 
-    // Fired by the system once a profile (Private Space, work profile, ...)
-    // actually finishes unlocking/locking - unlocking in particular runs the
-    // system's own auth screen first, so this can arrive well after the tap.
     private val privacySpaceReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: android.content.Context?, intent: Intent?) {
             when (intent?.action) {
@@ -104,6 +105,22 @@ class MainActivity : CsActivity() {
             }
 
             else -> super.onKeyDown(keyCode, event)
+        }
+    }
+
+    private fun updateLockButton() {
+        if (appsProvider.hasPrivateSpace()) {
+            lockButton.visibility = View.VISIBLE
+
+            val isLocked = appsProvider.isPrivateSpaceLocked() ?: return
+
+            lockButtonIcon.setImageResource(
+                if (isLocked) BohioR.drawable.px_lock
+                else BohioR.drawable.px_lock_open
+            )
+
+        } else {
+            lockButton.visibility = View.GONE
         }
     }
 
@@ -150,6 +167,19 @@ class MainActivity : CsActivity() {
             }
         }
         appListManager.setup()
+
+        lockButton = findViewById(R.id.lock_btn)
+        lockButtonIcon = lockButton.findViewById(R.id.lock_icon)
+
+        updateLockButton()
+
+        lockButton.setOnClickListener {
+            val isLocked = appsProvider.isPrivateSpaceLocked() ?: return@setOnClickListener
+
+            if (appsProvider.setPrivateSpaceLocked(!isLocked)) {
+                updateLockButton()
+            }
+        }
 
         timeText.setTextColor(palette.h1)
 
@@ -295,7 +325,7 @@ class MainActivity : CsActivity() {
         syncSettings()
 
         val groupsWereCollapsed = prefs.shouldCollapseGroupsOnHomeFocus() &&
-            appListManager.collapseAllGroups()
+                appListManager.collapseAllGroups()
 
         schedulePostResumeRefresh(skipAppListRefresh = groupsWereCollapsed)
 
