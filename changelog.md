@@ -1,5 +1,7 @@
 # Changelog
 
+## 46
+
 ## 45
 
 - Replace date visibility for date format
