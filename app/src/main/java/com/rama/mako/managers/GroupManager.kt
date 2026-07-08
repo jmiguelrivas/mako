@@ -77,6 +77,7 @@ class GroupsManager(
         }
 
         prefs.removeGroupId(groupId)
+        prefs.clearGroupMetadata(groupId)
         reindexOrder()
     }
 

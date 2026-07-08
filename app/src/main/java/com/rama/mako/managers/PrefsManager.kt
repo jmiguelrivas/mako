@@ -247,6 +247,15 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         setGroupIds(updated)
     }
 
+    fun clearGroupMetadata(id: String) {
+        prefs.edit()
+            .remove(FileKeys.GROUP_LABEL(id))
+            .remove(FileKeys.GROUP_VISIBLE(id))
+            .remove(FileKeys.GROUP_EXPANDED(id))
+            .remove(FileKeys.GROUP_ORDER(id))
+            .apply()
+    }
+
     fun getAppGroupId(pkg: String, userHandle: UserHandle): String {
         return prefs.getString(FileKeys.APP_GROUP_ID(pkg, userHandle), null)
             ?: SystemIds.UNGROUPED.also {
