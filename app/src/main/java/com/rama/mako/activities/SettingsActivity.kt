@@ -31,6 +31,7 @@ class SettingsActivity : CsActivity() {
     private lateinit var dateController: SettingsDateController
     private lateinit var checkboxController: SettingsCheckboxController
     private lateinit var appearanceController: SettingsAppearanceController
+    internal lateinit var groupsController: SettingsGroupsController
     internal lateinit var homeBackgroundManager: HomeBackgroundManager
     internal lateinit var settingsRootView: View
 
@@ -62,7 +63,7 @@ class SettingsActivity : CsActivity() {
         SettingsLanguageController(this).setup()
         SettingsIconsController(this).setup()
         checkboxController = SettingsCheckboxController(this).also { it.setup() }
-        SettingsGroupsController(this).setup()
+        groupsController = SettingsGroupsController(this).also { it.setup() }
         SettingsPinController(this).setup()
     }
 

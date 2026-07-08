@@ -34,6 +34,7 @@
     <string name="btn_export_data">Veriyi Dışa Aktar</string>
     <string name="btn_import_data">Veriyi İçe Aktar</string>
     <string name="btn_clear_data">Veriyi Temizle</string>
+    <string name="btn_heal_data">Veriyi Onar</string>
     <string name="btn_set_default">Başlatıcıyı varsayılan yap</string>
     <string name="btn_set_clock_app">Saat dokunuş eylemini değiştir</string>
     <string name="btn_set_date_app">Tarih dokunuş eylemini değiştir</string>
@@ -95,6 +96,8 @@
     <string name="toast_reset_failed">Sıfırlama başarısız</string>
     <string name="toast_import_done">İçe aktarma başarılı</string>
     <string name="toast_import_failed">İçe aktarma başarısız</string>
+    <string name="toast_heal_data_done">Veri başarıyla onarıldı</string>
+    <string name="toast_heal_data_unchanged">Eski veri bulunamadı</string>
     <string name="toast_clock_app_selected">Seçildi: %1$s</string>
     <string name="toast_date_app_selected">Seçildi: %1$s</string>
     <string name="toast_no_date_app_found">Tarih uygulaması bulunamadı</string>

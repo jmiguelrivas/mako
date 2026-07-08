@@ -34,6 +34,7 @@
     <string name="btn_export_data">Daten exportieren</string>
     <string name="btn_import_data">Daten importieren</string>
     <string name="btn_clear_data">Daten löschen</string>
+    <string name="btn_heal_data">Daten reparieren</string>
     <string name="btn_set_default">Launcher als Standard festlegen</string>
     <string name="btn_set_clock_app">Aktion beim Tippen auf die Uhr ändern</string>
     <string name="btn_set_date_app">Aktion beim Tippen auf das Datum ändern</string>
@@ -95,6 +96,8 @@
     <string name="toast_reset_failed">Zurücksetzen fehlgeschlagen</string>
     <string name="toast_import_done">Import erfolgreich</string>
     <string name="toast_import_failed">Import fehlgeschlagen</string>
+    <string name="toast_heal_data_done">Daten erfolgreich repariert</string>
+    <string name="toast_heal_data_unchanged">Keine veralteten Daten gefunden</string>
     <string name="toast_clock_app_selected">Ausgewählt: %1$s</string>
     <string name="toast_date_app_selected">Ausgewählt: %1$s</string>
     <string name="toast_no_date_app_found">Keine Datums-App gefunden</string>

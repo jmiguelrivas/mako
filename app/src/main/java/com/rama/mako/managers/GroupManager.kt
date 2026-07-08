@@ -96,6 +96,12 @@ class GroupsManager(
         prefs.setGroupOrder(swapId, thisOrder)
     }
 
+    fun healData(): Boolean {
+        val changed = prefs.healData(appsProvider.getAll())
+        reindexOrder()
+        return changed
+    }
+
     // ------------------- Label logic -------------------
 
     private fun generateUniqueLabel(base: String): String {
