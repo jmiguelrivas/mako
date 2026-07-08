@@ -146,9 +146,7 @@
     <!-- Contributors -->
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
-    <string name="contributor_joerikaiser" translatable="false">Joeri Kaiser</string>
-    <string name="contributor_joerikaiser_url" translatable="false">github.com/JoeriKaiser</string>
-
+   
     <!-- Custom Blocks -->
     <!-- Groups -->
     <string name="new_group_header">------ New Group</string>
