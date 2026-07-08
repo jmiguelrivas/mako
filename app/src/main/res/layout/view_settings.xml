@@ -26,7 +26,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_SYSTEM"
+                app:key="settings:section:system"
                 app:header="@string/h3_system"
                 app:defaultExpanded="true">
 
@@ -123,7 +123,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_GROUPS"
+                app:key="settings:section:groups"
                 app:header="@string/h3_groups"
                 app:defaultExpanded="true">
 
@@ -161,7 +161,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_THEMES"
+                app:key="settings:section:themes"
                 app:header="@string/h3_themes"
                 app:defaultExpanded="true">
 
@@ -310,7 +310,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_BACKGROUND"
+                app:key="settings:section:background"
                 app:header="@string/h3_background"
                 app:defaultExpanded="true">
 
@@ -342,7 +342,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_ICONS"
+                app:key="settings:section:icons"
                 app:header="@string/h3_icons"
                 app:defaultExpanded="true">
 
@@ -399,7 +399,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_FONTS"
+                app:key="settings:section:fonts"
                 app:header="@string/h3_fonts"
                 app:defaultExpanded="true">
 
@@ -449,7 +449,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_CLOCK"
+                app:key="settings:section:clock"
                 app:header="@string/h3_clock"
                 app:defaultExpanded="true">
 
@@ -487,7 +487,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_DATE"
+                app:key="settings:section:date"
                 app:header="@string/h3_date"
                 app:defaultExpanded="true">
 
@@ -536,7 +536,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_BATTERY"
+                app:key="settings:section:battery"
                 app:header="@string/h3_battery"
                 app:defaultExpanded="true">
 
@@ -560,7 +560,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_TEMPERATURE"
+                app:key="settings:section:temperature"
                 app:header="@string/h3_temperature"
                 app:defaultExpanded="true">
 
@@ -588,7 +588,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_SEARCH"
+                app:key="settings:section:search"
                 app:header="@string/h3_search"
                 app:defaultExpanded="true">
 
@@ -606,7 +606,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_APPS"
+                app:key="settings:section:apps"
                 app:header="@string/h3_apps"
                 app:defaultExpanded="true">
 
@@ -620,7 +620,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_SECURITY"
+                app:key="settings:section:security"
                 app:header="@string/h3_security"
                 app:defaultExpanded="true">
 
@@ -649,7 +649,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_LANGUAGE"
+                app:key="settings:section:language"
                 app:header="@string/h3_language"
                 app:defaultExpanded="true">
 
@@ -661,7 +661,7 @@
             <com.rama.bohio.widgets.WdCollapsibleSection
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:key="SETTINGS_SECTION_DATA"
+                app:key="settings:section:data"
                 app:header="@string/h3_data"
                 app:defaultExpanded="true">
 
