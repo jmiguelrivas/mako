@@ -467,8 +467,7 @@ class AppListManager(
         val dialog = AlertDialog.Builder(context).setView(view).create()
 
         yesButton.setOnClickListener {
-            input.text.toString().trim().takeIf { it.isNotEmpty() }
-                ?.let { prefs.setCustomName(pkg, app.userHandle, it) }
+            input.text.toString().trim().let { prefs.setCustomName(pkg, app.userHandle, it) }
             refresh()
             Toast.makeText(
                 context,

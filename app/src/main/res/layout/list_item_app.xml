@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="12sp"
         android:paddingBottom="12sp"
+        android:paddingEnd="30sp"
         android:focusable="false"
         android:clickable="false"
         android:textSize="32sp"

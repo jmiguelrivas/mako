@@ -479,7 +479,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun getCustomName(pkg: String, userHandle: UserHandle): String? =
         prefs.getString(FileKeys.APP_CUSTOM_LABEL(pkg, userHandle), null)
-            ?.takeIf { it.isNotEmpty() }
 
     fun setCustomName(pkg: String, userHandle: UserHandle, name: String) =
         prefs.edit().putString(FileKeys.APP_CUSTOM_LABEL(pkg, userHandle), name).apply()
