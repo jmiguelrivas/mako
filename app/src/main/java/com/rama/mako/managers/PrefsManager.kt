@@ -315,6 +315,8 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         prefs.edit().putInt(FileKeys.GROUP_ORDER(id), value).apply()
 
     fun healData(installedApps: List<AppsProvider.AppEntry>): Boolean {
+        if (installedApps.isEmpty()) return false
+
         val editor = prefs.edit()
         var changed = false
 

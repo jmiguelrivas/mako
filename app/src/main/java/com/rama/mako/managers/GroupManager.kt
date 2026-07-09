@@ -98,7 +98,7 @@ class GroupsManager(
 
     fun healData(): Boolean {
         val changed = prefs.healData(appsProvider.getAll())
-        reindexOrder()
+        if (changed) reindexOrder()
         return changed
     }
 

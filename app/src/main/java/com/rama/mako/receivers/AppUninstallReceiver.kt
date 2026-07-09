@@ -11,14 +11,17 @@ class AppUninstallReceiver : BroadcastReceiver() {
         when (intent.action) {
             Intent.ACTION_PACKAGE_REMOVED,
             Intent.ACTION_PACKAGE_FULLY_REMOVED -> {
+                if (intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return
                 val pendingResult = goAsync()
-                try {
-                    val appsProvider = AppsProvider(context)
-                    val groupsManager = GroupsManager(context, appsProvider)
-                    groupsManager.healData()
-                } finally {
-                    pendingResult.finish()
-                }
+                Thread {
+                    try {
+                        val appsProvider = AppsProvider(context)
+                        val groupsManager = GroupsManager(context, appsProvider)
+                        groupsManager.healData()
+                    } finally {
+                        pendingResult.finish()
+                    }
+                }.start()
             }
         }
     }
