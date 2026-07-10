@@ -80,7 +80,11 @@ android {
 androidComponents {
     onVariants { variant ->
         variant.outputs.forEach { output ->
-            output.outputFileName.set("mako_${variant.name}.apk")
+            output.outputFileName.set(
+                output.versionName.map { name ->
+                    "mako_${name}.apk"
+                }
+            )
         }
     }
 }
