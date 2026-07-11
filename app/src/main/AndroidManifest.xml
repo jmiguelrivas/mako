@@ -52,6 +52,16 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name=".receivers.AppUninstallReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".services.ScreenLockAccessibilityService"
             android:exported="true"

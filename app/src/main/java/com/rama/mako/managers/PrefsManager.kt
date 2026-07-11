@@ -247,12 +247,24 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         setGroupIds(updated)
     }
 
+    fun clearGroupMetadata(id: String) {
+        prefs.edit()
+            .remove(FileKeys.GROUP_LABEL(id))
+            .remove(FileKeys.GROUP_VISIBLE(id))
+            .remove(FileKeys.GROUP_EXPANDED(id))
+            .remove(FileKeys.GROUP_ORDER(id))
+            .apply()
+    }
+
     fun getAppGroupId(pkg: String, userHandle: UserHandle): String {
         return prefs.getString(FileKeys.APP_GROUP_ID(pkg, userHandle), null)
             ?: SystemIds.UNGROUPED.also {
                 prefs.edit().putString(FileKeys.APP_GROUP_ID(pkg, userHandle), it).apply()
             }
     }
+
+    fun getRawAppGroupId(pkg: String, userHandle: UserHandle): String? =
+        prefs.getString(FileKeys.APP_GROUP_ID(pkg, userHandle), null)
 
     fun setAppGroupId(pkg: String, userHandle: UserHandle, groupId: String?) {
         val key = FileKeys.APP_GROUP_ID(pkg, userHandle)
@@ -301,6 +313,55 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun setGroupOrder(id: String, value: Int) =
         prefs.edit().putInt(FileKeys.GROUP_ORDER(id), value).apply()
+
+    fun healData(installedApps: List<AppsProvider.AppEntry>): Boolean {
+        if (installedApps.isEmpty()) return false
+
+        val editor = prefs.edit()
+        var changed = false
+
+        val installedKeys = installedApps
+            .map { FileKeys.appKey(it.packageName, it.userHandle) }
+            .toSet()
+
+        getAllKeys().forEach { key ->
+            if (!key.startsWith("app:")) return@forEach
+
+            val appKey = when {
+                key.endsWith(":group_id") -> key.removeSuffix(":group_id")
+                key.endsWith(":custom_label") -> key.removeSuffix(":custom_label")
+                else -> null
+            }
+
+            if (appKey != null && appKey !in installedKeys) {
+                editor.remove(key)
+                changed = true
+            }
+        }
+
+        val activeGroupIds = mutableSetOf(SystemIds.UNGROUPED, SystemIds.FAVORITES)
+        installedApps.forEach { app ->
+            getRawAppGroupId(app.packageName, app.userHandle)?.let(activeGroupIds::add)
+        }
+
+        val currentGroupIds = getGroupIds().toMutableSet()
+        val idsToRemove = currentGroupIds - activeGroupIds
+        idsToRemove.forEach { id ->
+            editor.remove(FileKeys.GROUP_LABEL(id))
+            editor.remove(FileKeys.GROUP_VISIBLE(id))
+            editor.remove(FileKeys.GROUP_EXPANDED(id))
+            editor.remove(FileKeys.GROUP_ORDER(id))
+            currentGroupIds.remove(id)
+            changed = true
+        }
+
+        if (changed) {
+            editor.putStringSet(FileKeys.GROUPS_IDS, currentGroupIds)
+            editor.apply()
+        }
+
+        return changed
+    }
 
     fun isSearchVisible(): Boolean =
         prefs.getBoolean(FileKeys.APPS_SEARCH, false)

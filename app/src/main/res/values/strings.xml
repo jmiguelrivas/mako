@@ -37,6 +37,7 @@
     <string name="btn_export_data">Export Data</string>
     <string name="btn_import_data">Import Data</string>
     <string name="btn_clear_data">Clear Data</string>
+    <string name="btn_heal_data">Heal Data</string>
     <string name="btn_set_default">Set Launcher as default</string>
     <string name="btn_set_clock_app">Change Clock Tap Action</string>
     <string name="btn_set_date_app">Change Date Tap Action</string>
@@ -100,6 +101,8 @@
     <string name="toast_reset_failed">Reset failed</string>
     <string name="toast_import_done">Import successful</string>
     <string name="toast_import_failed">Import failed</string>
+    <string name="toast_heal_data_done">Data healed successfully</string>
+    <string name="toast_heal_data_unchanged">No stale data found</string>
     <string name="toast_clock_app_selected">Selected: %1$s</string>
     <string name="toast_date_app_selected">Selected: %1$s</string>
     <string name="toast_no_date_app_found">No date app found</string>

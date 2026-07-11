@@ -95,6 +95,22 @@ class SettingsBasicController(private val activity: SettingsActivity) {
                     ).show()
                 }
         }
+
+        UiActions.setClickWithHaptics(activity.findViewById(R.id.heal_data_button)) {
+            Thread {
+                val healed = activity.groupsManager.healData()
+                activity.runOnUiThread {
+                    activity.groupsController.setup()
+                    Toast.makeText(
+                        activity,
+                        activity.getString(
+                            if (healed) R.string.toast_heal_data_done else R.string.toast_heal_data_unchanged
+                        ),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }.start()
+        }
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

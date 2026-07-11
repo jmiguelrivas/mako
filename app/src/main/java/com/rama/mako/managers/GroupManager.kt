@@ -77,6 +77,7 @@ class GroupsManager(
         }
 
         prefs.removeGroupId(groupId)
+        prefs.clearGroupMetadata(groupId)
         reindexOrder()
     }
 
@@ -93,6 +94,12 @@ class GroupsManager(
 
         prefs.setGroupOrder(groupId, swapOrder)
         prefs.setGroupOrder(swapId, thisOrder)
+    }
+
+    fun healData(): Boolean {
+        val changed = prefs.healData(appsProvider.getAll())
+        if (changed) reindexOrder()
+        return changed
     }
 
     // ------------------- Label logic -------------------

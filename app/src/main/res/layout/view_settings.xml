@@ -679,6 +679,11 @@
                     android:id="@+id/clear_prefs_button"
                     android:text="@string/btn_clear_data"
                     style="@style/BTN_danger" />
+
+                <Button
+                    android:id="@+id/heal_data_button"
+                    android:text="@string/btn_heal_data"
+                    style="@style/BTN_danger" />
             </com.rama.bohio.widgets.WdCollapsibleSection>
         </LinearLayout>
     </ScrollView>
