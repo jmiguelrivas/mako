@@ -69,10 +69,11 @@ class ClockManager(
                 ).orEmpty()
 
                 val dayOfYear = calendar.get(Calendar.DAY_OF_YEAR)
+                val weekNumber = calendar.get(Calendar.WEEK_OF_YEAR)
                 val totalDays = calendar.getActualMaximum(Calendar.DAY_OF_YEAR)
                 val yearDay = if (prefs.isYearDayVisible()) "$dayOfYear/$totalDays" else null
 
-                val parts = listOfNotNull(weekday, formattedDate, yearDay)
+                val parts = listOfNotNull(weekday, formattedDate, yearDay, weekNumber)
                 dateTextView.text = parts.joinToString(" :: ").uppercase(locale)
             } else {
                 dateTextView.visibility = View.GONE
