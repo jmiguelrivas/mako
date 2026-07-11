@@ -27,7 +27,10 @@ class AboutActivity : CsActivity() {
 
         val discordButton = findViewById<View>(R.id.discord_button)
         discordButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/zFFupY8PFE"))
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(getString(BohioR.string.discord_url))
+            )
             startActivity(intent)
         }
 
