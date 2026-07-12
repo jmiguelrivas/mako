@@ -1,5 +1,7 @@
 # Changelog
 
+## 47
+
 ## 46
 
 - Fix settings section state
