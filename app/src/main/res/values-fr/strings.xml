@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activities -->
+    <string name="activity_lock_label">Verrouiller</string>
+
+    <!-- H2 -->
+    <string name="h2_delete_group">Voulez-vous vraiment supprimer ce groupe ?</string>
+    <string name="h2_select_group">Sélectionner un groupe</string>
+    <string name="h2_rename_app">Renommer l\'application</string>
+    <!-- H3 -->
+    <string name="h3_apps">Applications</string>
+    <string name="h3_clock">Horloge</string>
+    <string name="h3_search">Recherche</string>
+    <string name="h3_battery">Batterie</string>
+    <string name="h3_date">Date</string>
+    <string name="h3_data">Données</string>
+    <string name="h3_temperature">Température</string>
+    <string name="h3_groups">Groupes</string>
+    <string name="h3_security">Sécurité</string>
+    <string name="h3_background">Arrière-plan</string>
+
+    <!-- Disclaimers/small -->
+    <string name="disclaimer_delete_group">Vos applications seront déplacées vers le groupe suivant.</string>
+    <string name="disclaimer_pick_clock_app">Sélectionner une application ici la définira comme action horloge par défaut. Lorsque vous tapotez l\'horloge sur l\'écran d\'accueil, cette application sera lancée.</string>
+    <string name="disclaimer_pick_date_app">Sélectionner une application ici la définira comme action date par défaut. Lorsque vous tapotez la date sur l\'écran d\'accueil, cette application sera lancée.</string>
+    <string name="disclaimer_pick_icon_pack">Choisissez un pack d\'icônes installé. Si une icône est manquante, Mako utilisera l\'icône système de l\'application.</string>
+
+    <!-- Buttons 1 -->
+    <string name="btn_unlock">Déverrouiller</string>
+    <string name="btn_about_mako">À propos de Mako</string>
+    <string name="btn_lock">Verrouiller</string>
+    <string name="btn_delete_group">Supprimer le groupe</string>
+    <!-- Buttons 2 -->
+    <string name="btn_export_data">Exporter les données</string>
+    <string name="btn_import_data">Importer les données</string>
+    <string name="btn_clear_data">Effacer les données</string>
+    <string name="btn_set_default">Définir comme launcher par défaut</string>
+    <string name="btn_set_clock_app">Modifier l\'action de l\'horloge</string>
+    <string name="btn_set_date_app">Modifier l\'action de la date</string>
+    <string name="btn_refresh_launcher">Actualiser le launcher</string>
+    <string name="btn_change_wallpaper">Modifier le fond d\'écran du système</string>
+    <string name="btn_edit_apps">Gérer les applications installées</string>
+    <string name="btn_add_group">+ Ajouter un groupe</string>
+    <string name="btn_select_icon_pack">Choisir un pack d\'icônes</string>
+    <!-- FilePicker -->
+    <string name="filepicker_selected_icon_pack">Pack sélectionné : %1$s</string>
+    <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>
+
+    <!-- Radio -->
+    <string name="radio_default">Par défaut</string>
+    <string name="radio_default_system">Par défaut (système)</string>
+    <string name="radio_none">Aucun</string>
+    <string name="radio_icons_monochrome">Monochrome</string>
+    <string name="radio_custom_icon_pack">Pack d\'icônes personnalisé</string>
+    <string name="radio_clock_none">Masquer l\'horloge</string>
+    <string name="radio_clock_24">24 heures</string>
+    <string name="radio_clock_12">12 heures (AM/PM)</string>
+    <string name="radio_celsius">Celsius</string>
+    <string name="radio_fahrenheit">Fahrenheit</string>
+    <string name="radio_background_wallpaper">Afficher le fond d\'écran</string>
+
+    <!-- Checkbox -->
+    <string name="checkbox_lock_settings">Verrouiller les paramètres</string>
+    <string name="checkbox_show_profile_indicator">Afficher l\'indicateur de profil</string>
+    <string name="checkbox_show_battery_temperature">Afficher la température de la batterie</string>
+    <string name="checkbox_show_battery_charge_status">Afficher l\'état de charge</string>
+    <string name="checkbox_show_ungrouped_apps">Afficher les applications non groupées</string>
+    <string name="checkbox_has_collapsible_groups">Permettre de replier les groupes</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Replier les groupes au retour à l\'accueil</string>
+    <string name="checkbox_show_search">Afficher la barre de recherche</string>
+    <string name="checkbox_show_battery">Afficher la batterie</string>
+    <string name="double_tap_sleep_label">Double appui pour éteindre l\'écran</string>
+    <string name="checkbox_show_date">Afficher la date</string>
+    <string name="checkbox_show_clock">Afficher l\'horloge</string>
+    <string name="checkbox_show_year_day">Afficher le jour de l\'année</string>
+    <string name="checkbox_show_group_header">Afficher l\'en-tête du groupe</string>
+    <string name="checkbox_randomized_keypad">Clavier aléatoire</string>
+    <string name="checkbox_click_on_icons_open_app_settings">Ouvrir les paramètres de l\'application en touchant l\'icône</string>
+
+    <!-- ContextMenu -->
+    <string name="ctxmenu_rename_app">Renommer l\'application...</string>
+    <string name="ctxmenu_move_to_group">Changer de groupe...</string>
+    <string name="ctxmenu_open_settings">Paramètres de l\'application...</string>
+
+    <!-- InputLabel -->
+    <string name="label_screen_opacity_strength">Opacité de l\'écran</string>
+
+    <!-- InputHints -->
+    <string name="hint_search_apps">Rechercher des applications...</string>
+
+    <!-- Toasts -->
+    <string name="toast_no_clock_app_found">Aucune application horloge trouvée</string>
+    <string name="toast_unable_open_settings">Impossible d\'ouvrir les paramètres du launcher</string>
+    <string name="toast_unable_open_wallpaper_app">Aucune application de fond d\'écran disponible</string>
+    <string name="toast_unable_launch_app">Impossible de lancer l\'application</string>
+    <string name="toast_reset_done">Réinitialisation effectuée</string>
+    <string name="toast_reset_failed">Échec de la réinitialisation</string>
+    <string name="toast_import_done">Importation réussie</string>
+    <string name="toast_import_failed">Échec de l\'importation</string>
+    <string name="toast_clock_app_selected">Sélectionné : %1$s</string>
+    <string name="toast_date_app_selected">Sélectionné : %1$s</string>
+    <string name="toast_no_date_app_found">Aucune application de date trouvée</string>
+    <string name="toast_group_label_updated">Libellé mis à jour</string>
+    <string name="toast_select_target_group">Sélectionnez un groupe cible</string>
+    <string name="toast_label_changed">Libellé de l\'application mis à jour</string>
+    <string name="toast_pin_saved">PIN enregistré</string>
+    <string name="toast_pin_too_short">Le PIN doit comporter au moins 1 chiffre</string>
+    <string name="toast_icon_pack_selected">Pack d\'icônes sélectionné : %1$s</string>
+    <string name="toast_monochrome_fallback">Les icônes monochromes nécessitent Android 13+, solution de repli utilisée si indisponible</string>
+    <string name="toast_no_icon_pack_found">Aucun pack d\'icônes compatible trouvé</string>
+
+    <!-- Admin Screen Lock -->
+    <string name="device_admin_label">Verrouillage d\'écran Mako</string>
+    <string name="device_admin_description">Permet à Mako de verrouiller l\'écran depuis le geste de l\'écran d\'accueil.</string>
+    <string name="double_tap_sleep_admin_explanation">Mako a besoin de l\'autorisation d\'administrateur de l\'appareil pour éteindre l\'écran lorsque vous effectuez un double appui sur l\'écran d\'accueil.</string>
+    <string name="double_tap_sleep_enable_admin_toast">Activez l\'accès administrateur de l\'appareil pour le double appui</string>
+    <string name="double_tap_sleep_admin_declined_toast">L\'accès administrateur de l\'appareil n\'a pas été accordé</string>
+    <string name="double_tap_sleep_failed_toast">Impossible de verrouiller l\'écran</string>
+    <string name="double_tap_lock_method_label">Méthode de verrouillage</string>
+    <string name="double_tap_lock_method_device_admin">Administrateur de l\'appareil</string>
+    <string name="double_tap_lock_method_accessibility">Service d\'accessibilité</string>
+    <string name="accessibility_service_description">Permet à Mako de verrouiller l\'écran via un geste d\'accessibilité.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Nécessite Android 9+</string>
+    <string name="double_tap_lock_method_admin_info">Utilise l\'API Administrateur de l\'appareil.\nLe déverrouillage biométrique (empreinte digitale) peut ne pas fonctionner.</string>
+    <string name="double_tap_lock_method_accessibility_info">Utilise le Service d\'accessibilité.\nLe déverrouillage biométrique (empreinte digitale, visage) fonctionne normalement.\nNécessite Android 9+.</string>
+
+    <!-- AltDescription -->
+    <string name="altdescr_search_icon">Activer/désactiver la recherche</string>
+    <string name="altdescr_clear_search">Effacer la recherche</string>
+    <string name="altdescr_toggle_group_visibility">Basculer la visibilité du groupe</string>
+    <string name="altdescr_ascend_group">Monter le groupe</string>
+    <string name="altdescr_descend_group">Descendre le groupe</string>
+    <string name="altdescr_save">Enregistrer</string>
+    <string name="altdescr_selection_check">Sélectionné</string>
+    <string name="altdescr_delete_group">Supprimer le groupe</string>
+    <string name="altdescr_toggle_pin_visibility">Basculer la visibilité du PIN</string>
+    <string name="altdescr_save_pin">Enregistrer le PIN</string>
+
+    <!-- APP -->
+    <string name="app_desc">Un launcher Android léger, sans distraction, qui privilégie la confidentialité et fonctionne entièrement sur l\'appareil, conçu pour la concentration et la simplicité.</string>
+
+    <!-- Custom Blocks -->
+    <!-- Groups -->
+    <string name="new_group_header">------ Nouveau groupe</string>
+    <string name="new_group_header_count">------ Nouveau groupe %d</string>
+    <!-- Main :: Temperature labels -->
+    <string name="temp_warm">Chaud</string>
+    <string name="temp_hot">Très chaud</string>
+    <string name="temp_critical">Critique</string>
+    <!-- Main :: Battery status -->
+    <string name="status_charging">En charge</string>
+    <string name="status_discharging">Décharge</string>
+    <string name="status_full">Pleine</string>
+    <string name="status_not_charging">Pas en charge</string>
+    <string name="status_unknown">Inconnu</string>
+    <!-- Main :: Charging types -->
+    <string name="charge_usb">USB</string>
+    <string name="charge_ac">Secteur</string>
+    <string name="charge_wireless">Sans fil</string>
+    <!-- Main :: Formatting -->
+    <string name="unit_celsius">C</string>
+    <string name="unit_fahrenheit">F</string>
+
+    <!-- Multi Select -->
+    <string name="multi_select_count">%d sélectionnés</string>
+    <string name="multi_select_move_to_group">Déplacer vers le groupe</string>
+    <string name="multi_select_cancel">Annuler</string>
+
+    <!-- Easter Egg -->
+    <string name="easter_eggs_unlock">Tu peux arrêter de jouer avec xD</string>
+    <string name="easter_eggs_counter">Encore %d...</string>
+</resources>
