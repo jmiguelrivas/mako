@@ -2,6 +2,8 @@
 
 ## 47
 
+- Add week number
+
 ## 46
 
 - Fix settings section state
