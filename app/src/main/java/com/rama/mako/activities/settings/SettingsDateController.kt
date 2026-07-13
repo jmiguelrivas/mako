@@ -23,10 +23,16 @@ class SettingsDateController(private val activity: SettingsActivity) {
     private fun setupDateFormat() {
         val group = activity.findViewById<RadioGroup>(R.id.date_format_group)
         val yearDayCheckbox = activity.findViewById<View>(R.id.show_year_day)
+        val yearWeekCheckbox = activity.findViewById<View>(R.id.show_year_week)
 
         fun updateYearDayVisibility(format: String) {
-            yearDayCheckbox.visibility =
-                if (format != PrefsManager.DateFormat.NONE) View.VISIBLE else View.GONE
+            if (format != PrefsManager.DateFormat.NONE) {
+                yearWeekCheckbox.visibility = View.VISIBLE
+                yearDayCheckbox.visibility = View.VISIBLE
+            } else {
+                yearWeekCheckbox.visibility = View.GONE
+                yearDayCheckbox.visibility = View.GONE
+            }
         }
 
         when (prefs.getDateFormat()) {

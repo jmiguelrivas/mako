@@ -39,6 +39,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val DATE_VISIBLE = "date:visible"
         const val DATE_FORMAT = "date:format"
         const val DATE_YEAR_DAY = "date:year_day"
+        const val DATE_YEAR_WEEK = "date:year_week"
         const val BATTERY_VISIBLE = "battery:visible"
         const val BATTERY_TEMPERATURE = "battery:temperature"
         const val TEMPERATURE_FORMAT = "temperature:format"
@@ -156,6 +157,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
         editor.putString(FileKeys.DATE_FORMAT, DateFormat.YMD)
         editor.putBoolean(FileKeys.DATE_YEAR_DAY, true)
+        editor.putBoolean(FileKeys.DATE_YEAR_WEEK, true)
         editor.putString(FileKeys.DATE_APP, "")
 
         editor.putBoolean(FileKeys.GROUPS_HEADERS, true)
@@ -472,6 +474,9 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun isYearDayVisible(): Boolean =
         prefs.getBoolean(FileKeys.DATE_YEAR_DAY, false)
+
+    fun isYearWeekVisible(): Boolean =
+        prefs.getBoolean(FileKeys.DATE_YEAR_WEEK, false)
 
     fun isBatteryVisible(): Boolean =
         prefs.getBoolean(FileKeys.BATTERY_VISIBLE, false)

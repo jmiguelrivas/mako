@@ -77,6 +77,7 @@
     <string name="checkbox_show_date">Show date</string>
     <string name="checkbox_show_clock">Show clock</string>
     <string name="checkbox_show_year_day">Show day of the year</string>
+    <string name="checkbox_show_year_week">Show week of the year</string>
     <string name="checkbox_show_group_header">Show group header</string>
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
@@ -149,7 +150,7 @@
     <!-- Contributors -->
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
-   
+
     <!-- Custom Blocks -->
     <!-- Groups -->
     <string name="new_group_header">------ New Group</string>

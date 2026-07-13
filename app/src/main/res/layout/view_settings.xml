@@ -527,6 +527,11 @@
                     android:text="@string/checkbox_show_year_day"
                     style="@style/Checkbox" />
 
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/show_year_week"
+                    android:text="@string/checkbox_show_year_week"
+                    style="@style/Checkbox" />
+
                 <Button
                     android:id="@+id/set_date_app_button"
                     android:text="@string/btn_set_date_app"
