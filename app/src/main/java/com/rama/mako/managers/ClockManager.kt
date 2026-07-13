@@ -70,7 +70,7 @@ class ClockManager(
 
                 val dayOfYear = calendar.get(Calendar.DAY_OF_YEAR)
                 val weekNumber =
-                    if (prefs.isYearWeekVisible()) "w${calendar.get(Calendar.WEEK_OF_YEAR)}" else null
+                    if (prefs.isYearWeekVisible()) "w-${calendar.get(Calendar.WEEK_OF_YEAR)}" else null
                 val totalDays = calendar.getActualMaximum(Calendar.DAY_OF_YEAR)
                 val yearDay = if (prefs.isYearDayVisible()) "$dayOfYear/$totalDays" else null
 
