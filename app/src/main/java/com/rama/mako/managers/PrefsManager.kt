@@ -24,6 +24,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val APPS_ICON_SOURCE = "apps:icon_source"
         const val APPS_ICON_PACK_PACKAGE = "apps:icon_pack_package"
         const val APPS_ICONS_OPEN_SETTINGS = "apps:icons:open_settings"
+        const val APPS_MULTI_COLUMN = "apps:multi_column"
 
         const val HOME_BACKGROUND_MODE = "home:background_mode"
         const val HOME_DOUBLE_TAP_SLEEP = "home:double_tap_sleep"
@@ -144,6 +145,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putString(FileKeys.APPS_ICON_SOURCE, IconSource.NONE)
         editor.putString(FileKeys.APPS_ICON_PACK_PACKAGE, "")
         editor.putBoolean(FileKeys.APPS_ICONS_OPEN_SETTINGS, true)
+        editor.putBoolean(FileKeys.APPS_MULTI_COLUMN, false)
 
         editor.putString(FileKeys.HOME_BACKGROUND_MODE, BackgroundMode.DEFAULT)
         editor.putBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, false)
@@ -379,6 +381,12 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun hasIconsOpenSettings(): Boolean =
         prefs.getBoolean(FileKeys.APPS_ICONS_OPEN_SETTINGS, true)
+
+    fun isMultiColumnEnabled(): Boolean =
+        prefs.getBoolean(FileKeys.APPS_MULTI_COLUMN, false)
+
+    fun setMultiColumnEnabled(enabled: Boolean) =
+        prefs.edit().putBoolean(FileKeys.APPS_MULTI_COLUMN, enabled).apply()
 
     fun getIconSource(): String {
         return when (prefs.getString(FileKeys.APPS_ICON_SOURCE, IconSource.NONE)) {

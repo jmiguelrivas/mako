@@ -10,8 +10,6 @@ import android.view.View
 import android.view.View.generateViewId
 import android.view.ViewGroup
 import android.widget.*
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import com.rama.mako.R
 import com.rama.bohio.R as BohioR
 import com.rama.bohio.util.Dimens.spToPx
@@ -19,11 +17,12 @@ import com.rama.mako.activities.SettingsActivity
 import java.text.Normalizer
 import java.util.Locale
 import kotlin.math.abs
+import kotlin.math.ceil
 import com.rama.bohio.managers.ThemeManager
 
 class AppListManager(
     private val context: Context,
-    private val listView: ListView,
+    private val container: LinearLayout,
     private val appsProvider: AppsProvider,
     private val onAppLaunched: (() -> Unit)? = null
 ) {
@@ -44,7 +43,9 @@ class AppListManager(
     private val iconManager = IconManager(context, appsProvider)
     private val groupsManager = GroupsManager(context, appsProvider)
     private val items = mutableListOf<ListItem>()
-    private lateinit var adapter: ArrayAdapter<ListItem>
+    private val adapters = mutableListOf<ArrayAdapter<ListItem>>()
+    private val adapterLists = mutableListOf<MutableList<ListItem>>()
+    private var columnCount: Int = 1
     private var allAppsCache: List<AppsProvider.AppEntry> = emptyList()
     private val searchableNameCache = mutableMapOf<String, String>()
     private val packageNameCache = mutableMapOf<String, String>()
@@ -66,11 +67,10 @@ class AppListManager(
     private var suppressNextClick = false
 
     fun setup() {
+        recreateListViews()
         updateAppsCache()
         buildItems()
         setupMultiSelectBar()
-        setupAdapter()
-        setupScrollListener()
     }
 
     fun handleBackPress(): Boolean {
@@ -84,9 +84,11 @@ class AppListManager(
     fun isInMultiSelectMode(): Boolean = isMultiSelectMode
 
     fun refresh() {
+        if (computeColumnCount() != columnCount) {
+            recreateListViews()
+        }
         updateAppsCache()
         buildItems()
-        adapter.notifyDataSetChanged()
     }
 
     fun collapseAllGroups(): Boolean {
@@ -150,6 +152,8 @@ class AppListManager(
             apps.sortedBy { getSearchableName(it) }
                 .forEach { items.add(ListItem.App(it)) }
         }
+
+        splitItemsForColumns()
     }
 
     private fun getAppCacheKey(app: AppsProvider.AppEntry): String {
@@ -320,7 +324,6 @@ class AppListManager(
 
         if (!isSearchActive) {
             buildItems()
-            adapter.notifyDataSetChanged()
             return
         }
 
@@ -402,7 +405,7 @@ class AppListManager(
 
         items.clear()
         items.addAll(filteredItems)
-        adapter.notifyDataSetChanged()
+        splitItemsForColumns()
     }
 
     private fun openAppSettings(app: AppsProvider.AppEntry) {
@@ -559,7 +562,7 @@ class AppListManager(
     }
 
     private fun setupMultiSelectBar() {
-        val root = listView.rootView
+        val root = container.rootView
         multiSelectBar = root.findViewById(R.id.menu_bar)
         selectedCountText = root.findViewById(R.id.selected_count)
         renameButton = root.findViewById(R.id.rename_btn)
@@ -598,14 +601,14 @@ class AppListManager(
         selectedApps.add(getSelectionKey(app))
         multiSelectBar?.visibility = View.VISIBLE
         updateMultiSelectBar()
-        adapter.notifyDataSetChanged()
+        notifyAdapters()
     }
 
     private fun exitMultiSelectMode() {
         isMultiSelectMode = false
         selectedApps.clear()
         multiSelectBar?.visibility = View.GONE
-        adapter.notifyDataSetChanged()
+        notifyAdapters()
     }
 
     private fun toggleSelection(app: AppsProvider.AppEntry) {
@@ -620,7 +623,7 @@ class AppListManager(
             selectedApps.add(key)
         }
         updateMultiSelectBar()
-        adapter.notifyDataSetChanged()
+        notifyAdapters()
     }
 
     private fun updateMultiSelectBar() {
@@ -696,8 +699,137 @@ class AppListManager(
         refresh()
     }
 
-    private fun setupAdapter() {
-        adapter = object : ArrayAdapter<ListItem>(context, 0, items) {
+    private fun computeColumnCount(): Int {
+        if (!prefs.isMultiColumnEnabled()) return 1
+        return context.resources.getInteger(R.integer.app_list_column_count)
+    }
+
+    private fun recreateListViews() {
+        columnCount = computeColumnCount()
+        container.removeAllViews()
+        adapters.clear()
+        adapterLists.clear()
+
+        repeat(columnCount) { columnIndex ->
+            val listView = ListView(context).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    0,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    1f
+                )
+                dividerHeight = 0
+                divider = null
+                isFocusableInTouchMode = false
+                isNestedScrollingEnabled = false
+                setCacheColorHint(android.graphics.Color.TRANSPARENT)
+            }
+
+            container.addView(listView)
+
+            val backingList = mutableListOf<ListItem>()
+            val adapter = createColumnAdapter(backingList)
+            adapters.add(adapter)
+            adapterLists.add(backingList)
+            listView.adapter = adapter
+
+            listView.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus && listView.focusedChild == null) {
+                    listView.setSelection(0)
+                }
+            }
+
+            listView.setOnItemClickListener { _, _, position, _ ->
+                if (suppressNextClick) {
+                    suppressNextClick = false
+                    return@setOnItemClickListener
+                }
+                when (val item = adapter.getItem(position) ?: return@setOnItemClickListener) {
+                    is ListItem.Header -> {
+                        if (prefs.hasCollapsibleGroups()) {
+                            val isExpanded = prefs.isGroupExpanded(item.id)
+                            prefs.setGroupExpanded(item.id, !isExpanded)
+                            refresh()
+                        }
+                    }
+
+                    is ListItem.App -> {
+                        if (isMultiSelectMode) {
+                            toggleSelection(item.info)
+                        } else if (!appsProvider.launch(item.info)) {
+                            Toast.makeText(
+                                context,
+                                context.getString(R.string.toast_unable_launch_app),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            refresh()
+                        } else {
+                            onAppLaunched?.invoke()
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    private fun splitItemsForColumns() {
+        val columns = when {
+            columnCount == 1 -> listOf(items.toList())
+            prefs.hasGroupHeaders() -> splitItemsByGroupBlocks()
+            else -> splitItemsEvenly()
+        }
+
+        adapters.forEachIndexed { index, adapter ->
+            val backingList = adapterLists[index]
+            backingList.clear()
+            backingList.addAll(columns.getOrElse(index) { emptyList() })
+            adapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun splitItemsByGroupBlocks(): List<List<ListItem>> {
+        val blocks = mutableListOf<List<ListItem>>()
+        var current = mutableListOf<ListItem>()
+        for (item in items) {
+            if (item is ListItem.Header) {
+                if (current.isNotEmpty()) blocks.add(current)
+                current = mutableListOf(item)
+            } else {
+                current.add(item)
+            }
+        }
+        if (current.isNotEmpty()) blocks.add(current)
+
+        // Assign whole groups to columns by group index so a group never jumps
+        // between columns when it is expanded or collapsed.
+        val blocksPerColumn = ceil(blocks.size.toFloat() / columnCount).toInt()
+        val columns = List(columnCount) { mutableListOf<ListItem>() }
+        for ((index, block) in blocks.withIndex()) {
+            val columnIndex = (index / blocksPerColumn).coerceAtMost(columnCount - 1)
+            columns[columnIndex].addAll(block)
+        }
+        return columns.map { it.toList() }
+    }
+
+    private fun splitItemsEvenly(): List<List<ListItem>> {
+        val itemsPerColumn = ceil(items.size.toFloat() / columnCount).toInt()
+        return List(columnCount) { index ->
+            val start = index * itemsPerColumn
+            val end = minOf(start + itemsPerColumn, items.size)
+            items.subList(start, end).toList()
+        }
+    }
+
+    private fun notifyAdapters() {
+        adapters.forEach { it.notifyDataSetChanged() }
+    }
+
+    private fun createColumnAdapter(backingList: MutableList<ListItem>): ArrayAdapter<ListItem> {
+        return object : ArrayAdapter<ListItem>(
+            context,
+            0,
+            backingList
+        ) {
             override fun getViewTypeCount() = 3
             override fun getItemViewType(position: Int) = when (getItem(position)) {
                 is ListItem.Header -> 0
@@ -836,57 +968,6 @@ class AppListManager(
                 }
             }
         }
-
-        listView.adapter = adapter
-        listView.setCacheColorHint(android.graphics.Color.TRANSPARENT)
-        listView.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus && listView.focusedChild == null) {
-                listView.setSelection(0)
-            }
-        }
-
-        listView.setOnItemClickListener { _, _, position, _ ->
-            if (suppressNextClick) {
-                suppressNextClick = false
-                return@setOnItemClickListener
-            }
-            when (val item = items[position]) {
-                is ListItem.Header -> {
-                    if (prefs.hasCollapsibleGroups()) {
-                        val isExpanded = prefs.isGroupExpanded(item.id)
-                        prefs.setGroupExpanded(item.id, !isExpanded)
-                        refresh()
-                    }
-                }
-
-                is ListItem.App -> {
-                    if (isMultiSelectMode) {
-                        toggleSelection(item.info)
-                    } else if (!appsProvider.launch(item.info)) {
-                        Toast.makeText(
-                            context,
-                            context.getString(R.string.toast_unable_launch_app),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        refresh()
-                    } else {
-                        onAppLaunched?.invoke()
-                    }
-                }
-            }
-        }
-    }
-
-    private fun setupScrollListener() {
-        listView.setOnScrollListener(object : AbsListView.OnScrollListener {
-            override fun onScrollStateChanged(view: AbsListView?, scrollState: Int) = Unit
-            override fun onScroll(
-                view: AbsListView?,
-                firstVisibleItem: Int,
-                visibleItemCount: Int,
-                totalItemCount: Int
-            ) = Unit
-        })
     }
 
     private sealed class ListItem {

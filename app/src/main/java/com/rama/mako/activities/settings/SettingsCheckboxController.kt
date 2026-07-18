@@ -85,6 +85,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             }
         )
         bindWdCheckbox(R.id.show_profile_indicator, FileKeys.APPS_PROFILE_INDICATOR, true)
+        bindWdCheckbox(R.id.multi_column, FileKeys.APPS_MULTI_COLUMN, false)
         setupDoubleTapToSleepCheckbox()
         setupLockMethodRadioGroup()
 

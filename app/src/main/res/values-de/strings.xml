@@ -61,6 +61,7 @@
     <!-- Checkbox -->
     <string name="checkbox_lock_settings">Einstellungen sperren</string>
     <string name="checkbox_show_profile_indicator">Profilindikator anzeigen</string>
+    <string name="checkbox_multi_column">Mehrspaltiges Layout</string>
     <string name="checkbox_show_battery_temperature">Batterietemperatur anzeigen</string>
     <string name="checkbox_show_battery_charge_status">Ladestatus anzeigen</string>
     <string name="checkbox_show_ungrouped_apps">Zeige nicht gruppierte Apps an</string>

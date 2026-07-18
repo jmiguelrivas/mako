@@ -620,6 +620,11 @@
                     android:text="@string/checkbox_show_profile_indicator"
                     style="@style/Checkbox" />
 
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/multi_column"
+                    android:text="@string/checkbox_multi_column"
+                    style="@style/Checkbox" />
+
             </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Security-->
             <com.rama.bohio.widgets.WdCollapsibleSection
