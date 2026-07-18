@@ -222,7 +222,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         migrateLegacyPrefs(true)
     }
 
-    private val encryptedPrefs: SharedPreferences = run {
+    private val encryptedPrefs: SharedPreferences by lazy {
         val masterKey = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()

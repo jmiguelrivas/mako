@@ -29,7 +29,6 @@ android {
             )
             signingConfig = signingConfigs.getByName("debug")
         }
-
         create("beta") {
             applicationIdSuffix = ".beta"
             versionNameSuffix = "-beta"
@@ -40,7 +39,6 @@ android {
             )
             signingConfig = signingConfigs.getByName("debug")
         }
-
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-dev"
@@ -73,9 +71,15 @@ android {
             excludes += "META-INF/*.version"
             excludes += "META-INF/com/android/build/gradle/app-metadata.properties"
         }
-
         jniLibs {
             useLegacyPackaging = true
+        }
+    }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            isReturnDefaultValues = true
         }
     }
 }
@@ -97,4 +101,13 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
     implementation(project(":bohio"))
+
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockk)
+    testImplementation(libs.truth)
+    testImplementation(libs.androidx.test.core)
+
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }
