@@ -3,6 +3,8 @@
 ## 47
 
 - Add week number
+- Add tests
+- Add multi-column layout
 
 ## 46
 
