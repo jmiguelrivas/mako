@@ -1,5 +1,7 @@
 # Changelog
 
+## 48
+
 ## 47
 
 - Add week number
