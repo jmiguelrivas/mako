@@ -12,12 +12,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
-/**
- * GroupsManager is the highest-value target in the app module: it has real
- * business logic (ordering, unique labels, orphan recovery) sitting behind
- * PrefsManager/SharedPreferences. Robolectric gives us a working Context so
- * PrefsManager's SharedPreferences-backed calls work exactly like on-device.
- */
 @RunWith(RobolectricTestRunner::class)
 class GroupsManagerTest {
 
@@ -27,25 +21,13 @@ class GroupsManagerTest {
 
     @Before
     fun setUp() {
-        // PrefsManager (both the app's and bohio's) are process-wide singletons.
-        // Robolectric may reuse the classloader across tests in this class, so
-        // we reset them explicitly to keep each test isolated.
         resetCompanionField(PrefsManager::class.java, "INSTANCE")
         resetCompanionField(com.rama.bohio.managers.PrefsManager::class.java, "instance")
 
         every { appsProvider.getAll() } returns emptyList()
         manager = GroupsManager(context, appsProvider)
     }
-
-    /**
-     * A `private var` declared inside a Kotlin `companion object` is backed
-     * by a static field on the *outer* class, not on the synthetic
-     * `Companion` instance (that indirection is only needed for
-     * public/internal properties that must be reachable via the Companion
-     * object for JVM interop). Check the outer class first, and only fall
-     * back to the Companion instance for the rare case where that's where
-     * it actually lives.
-     */
+    
     private fun resetCompanionField(outerClass: Class<*>, fieldName: String) {
         val outerAttempt = runCatching {
             val field = outerClass.getDeclaredField(fieldName).apply { isAccessible = true }
