@@ -47,8 +47,6 @@
     <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>
 
     <!-- Radio -->
-    <string name="radio_default">Par défaut</string>
-    <string name="radio_default_system">Par défaut (système)</string>
     <string name="radio_none">Aucun</string>
     <string name="radio_icons_monochrome">Monochrome</string>
     <string name="radio_custom_icon_pack">Pack d\'icônes personnalisé</string>

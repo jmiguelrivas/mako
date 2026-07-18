@@ -99,14 +99,11 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/app_list"
+            <LinearLayout
+                android:id="@+id/app_list_container"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:dividerHeight="0dp"
-                android:divider="@null"
-                android:focusableInTouchMode="false"
-                android:nestedScrollingEnabled="false" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

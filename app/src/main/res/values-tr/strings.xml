@@ -61,6 +61,7 @@
     <!-- Checkbox -->
     <string name="checkbox_lock_settings">Ayarları Kilitle</string>
     <string name="checkbox_show_profile_indicator">Profil göstergesini göster</string>
+    <string name="checkbox_multi_column">Çok sütunlu düzen</string>
     <string name="checkbox_show_battery_temperature">Pil sıcaklığını göster</string>
     <string name="checkbox_show_battery_charge_status">Pil şarj durumunu göster</string>
     <string name="checkbox_show_ungrouped_apps">Gruplanmamış uygulamaları göster</string>

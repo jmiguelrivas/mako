@@ -17,7 +17,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.OvershootInterpolator
-import android.widget.ListView
 import android.widget.TextView
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -43,7 +42,7 @@ class MainActivity : CsActivity() {
     private lateinit var timeText: TextView
     private lateinit var dateText: TextView
     private lateinit var batteryText: TextView
-    private lateinit var listView: ListView
+    private lateinit var appListContainer: LinearLayout
 
     private lateinit var clockManager: ClockManager
     private lateinit var batteryManager: BatteryManager
@@ -151,7 +150,7 @@ class MainActivity : CsActivity() {
         timeText = findViewById(R.id.time)
         dateText = findViewById(R.id.date)
         batteryText = findViewById(R.id.battery)
-        listView = findViewById(R.id.app_list)
+        appListContainer = findViewById(R.id.app_list_container)
 
         clockManager = ClockManager(timeText, dateText, this)
         clockManager.start()
@@ -167,7 +166,7 @@ class MainActivity : CsActivity() {
         appsProvider = AppsProvider(this)
         appListManager = AppListManager(
             this,
-            listView,
+            appListContainer,
             appsProvider
         ) {
             if (isSearchExpanded) {

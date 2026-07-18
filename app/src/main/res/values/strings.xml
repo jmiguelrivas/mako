@@ -52,8 +52,6 @@
 
     <!-- Radio -->
     <string name="radio_none">None</string>
-    <string name="radio_default">Default</string>
-    <string name="radio_default_system">Default (System)</string>
     <string name="radio_icons_monochrome">Monochrome</string>
     <string name="radio_custom_icon_pack">Custom icon pack</string>
     <string name="radio_clock_none">Hide clock</string>
@@ -81,6 +79,7 @@
     <string name="checkbox_show_group_header">Show group header</string>
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
+    <string name="checkbox_multi_column">Multi-column layout</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">Rename app...</string>
