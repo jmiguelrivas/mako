@@ -70,7 +70,6 @@ class SettingsActivity : CsActivity() {
     override fun onResume() {
         super.onResume()
         applySettingsBackground()
-        checkboxController.refresh()
 
         // Prevent re-lock if already unlocked or lock screen is active
         if (isUnlocked || isLockScreenShowing) return
@@ -111,7 +110,6 @@ class SettingsActivity : CsActivity() {
         }
 
         basicController.onActivityResult(requestCode, resultCode, data)
-        checkboxController.onActivityResult(requestCode, resultCode)
         appearanceController.onActivityResult(requestCode, resultCode, data)
     }
 }
