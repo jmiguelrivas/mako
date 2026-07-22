@@ -27,8 +27,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val APPS_MULTI_COLUMN = "apps:multi_column"
 
         const val HOME_BACKGROUND_MODE = "home:background_mode"
-        const val HOME_DOUBLE_TAP_SLEEP = "home:double_tap_sleep"
-        const val HOME_DOUBLE_TAP_LOCK_METHOD = "home:double_tap_lock_method"
         const val HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH =
             "home:background_mode:screen_opacity_strength"
         const val GROUPS_IDS = "groups:ids"
@@ -454,7 +452,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         prefs.getBoolean(FileKeys.DATE_YEAR_DAY, false)
 
     fun isYearWeekVisible(): Boolean =
-        prefs.getBoolean(FileKeys.DATE_YEAR_WEEK, false)
+        prefs.getBoolean(FileKeys.DATE_YEAR_WEEK, true)
 
     fun isBatteryVisible(): Boolean =
         prefs.getBoolean(FileKeys.BATTERY_VISIBLE, false)

@@ -54,8 +54,8 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
         )
 
         updateCollapseOnHomeVisibility()
-        bindWdCheckbox(R.id.show_year_day, FileKeys.DATE_YEAR_DAY, true)
-        bindWdCheckbox(R.id.show_year_week, FileKeys.DATE_YEAR_WEEK, true)
+        bindWdCheckbox(R.id.show_year_day, FileKeys.DATE_YEAR_DAY, prefs.isYearDayVisible())
+        bindWdCheckbox(R.id.show_year_week, FileKeys.DATE_YEAR_WEEK, prefs.isYearWeekVisible())
         bindWdCheckbox(
             R.id.show_battery,
             FileKeys.BATTERY_VISIBLE,
