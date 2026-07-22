@@ -390,14 +390,7 @@ class MainActivity : CsActivity() {
         if (isSearchExpanded || appListManager.isInMultiSelectMode()) return false
 
         if (!doubleTapLockManager.isCurrentMethodAvailable()) {
-            val msg = when (doubleTapLockManager.getMethod()) {
-                DoubleTapLockManager.METHOD_ACCESSIBILITY ->
-                    getString(R.string.double_tap_sleep_failed_toast)
-
-                else ->
-                    getString(R.string.double_tap_sleep_enable_admin_toast)
-            }
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            doubleTapLockManager.requestPermission(this, doubleTapLockManager.getMethod())
             return false
         }
 

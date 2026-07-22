@@ -140,21 +140,14 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
     private fun setupDoubleTapToSleepCheckbox() {
         doubleTapSleepCheckbox = activity.findViewById(R.id.double_tap_sleep)
 
-        val available = lockManager.isCurrentMethodAvailable()
-        val shouldBeOn = prefs.isDoubleTapToSleepEnabled() && available
-
-        if (prefs.isDoubleTapToSleepEnabled() && !available) {
-            prefs.setDoubleTapToSleepEnabled(false)
-        }
-
+        val shouldBeOn = prefs.isDoubleTapToSleepEnabled()
         syncDoubleTapSleepCheckbox(shouldBeOn)
 
         doubleTapSleepCheckbox.setOnCheckedChangeListener { checked ->
             if (isSyncingDoubleTapSleepCheckbox) return@setOnCheckedChangeListener
-            if (checked) {
-                enableDoubleTapToSleep()
-            } else {
-                prefs.setDoubleTapToSleepEnabled(false)
+            prefs.setDoubleTapToSleepEnabled(checked)
+            if (checked && !lockManager.isCurrentMethodAvailable()) {
+                lockManager.requestPermission(activity, prefs.getDoubleTapLockMethod())
             }
             refreshLockMethodUI()
         }
@@ -183,16 +176,17 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
 
         fun onMethodSelected(method: String) {
             if (isSyncingLockMethodGroup) return
-            if (prefs.getDoubleTapLockMethod() == method) return
             lockManager.setMethod(method)
             updateCheckedRadioButton(method)
-            if (prefs.isDoubleTapToSleepEnabled() && !lockManager.isCurrentMethodAvailable()) {
+            if (!lockManager.isMethodAvailable(method)) {
                 lockManager.requestPermission(activity, method)
             }
         }
 
         adminRadio.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
         accessibilityRadio.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_ACCESSIBILITY) }
+        (adminRadio.parent as? View)?.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
+        (accessibilityRadio.parent as? View)?.setOnClickListener { onMethodSelected(DoubleTapLockManager.METHOD_ACCESSIBILITY) }
 
         activity.findViewById<View>(R.id.lock_method_admin_info)
             .setOnClickListener { showMethodInfo(DoubleTapLockManager.METHOD_DEVICE_ADMIN) }
