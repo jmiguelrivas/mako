@@ -1,8 +1,10 @@
 package com.rama.mako.activities
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import com.rama.bohio.widgets.WdCollapsibleSection
 import com.rama.mako.CsActivity
 import com.rama.mako.R
 import com.rama.mako.activities.settings.SettingsAppearanceController
@@ -44,12 +46,17 @@ class SettingsActivity : CsActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_settings)
 
+
         settingsRootView = findViewById(R.id.settings_root)
         applyEdgeToEdgePadding(settingsRootView)
         applyCurrentTheme(settingsRootView)
 
         homeBackgroundManager = HomeBackgroundManager(this)
         applySettingsBackground()
+
+        val securitySection: WdCollapsibleSection = findViewById(R.id.security_section)
+        securitySection.visibility =
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) View.GONE else View.VISIBLE
 
         appsProvider = AppsProvider(this)
         iconManager = IconManager(this, appsProvider)

@@ -580,6 +580,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:key="settings:section:security"
+                android:id="@+id/security_section"
                 app:header="@string/h3_security"
                 app:defaultExpanded="true">
 
