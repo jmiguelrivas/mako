@@ -574,6 +574,16 @@
                     android:text="@string/checkbox_multi_column"
                     style="@style/Checkbox" />
 
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/show_api_indicators"
+                    android:text="@string/checkbox_show_api_indicators"
+                    style="@style/Checkbox" />
+
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/show_app_size"
+                    android:text="@string/checkbox_show_app_size"
+                    style="@style/Checkbox" />
+
             </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Security-->
             <com.rama.bohio.widgets.WdCollapsibleSection

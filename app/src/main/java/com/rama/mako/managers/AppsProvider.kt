@@ -7,6 +7,7 @@ import android.content.pm.LauncherApps
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.UserManager
+import java.io.File
 
 class AppsProvider(private val context: Context) {
 
@@ -19,11 +20,21 @@ class AppsProvider(private val context: Context) {
     ) {
         val isWorkProfile: Boolean = userHandle.hashCode() != 0
         val displayLabel: String = label
+
+        // ApplicationInfo.minSdkVersion only exists starting API 24 (N).
+        val minSdkVersion: Int
+            get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                activityInfo.applicationInfo.minSdkVersion
+            } else 0
+
+        val targetSdkVersion: Int
+            get() = activityInfo.applicationInfo.targetSdkVersion
     }
 
     private val launcherApps =
         context.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
     private val iconCache = mutableMapOf<String, Drawable>()
+    private val appSizeCache = mutableMapOf<String, Long>()
     private val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
 
     fun getAll(): List<AppEntry> {
@@ -84,6 +95,22 @@ class AppsProvider(private val context: Context) {
         val key = "${app.packageName}:${app.userHandle.hashCode()}"
         return iconCache.getOrPut(key) {
             app.activityInfo!!.getIcon(context.resources.displayMetrics.densityDpi)
+        }
+    }
+
+    // Size on disk of the installed APK(s) (base + splits). Cached since it
+    // requires file stat calls and only changes when an app is updated.
+    fun getAppSizeBytes(app: AppEntry): Long {
+        val key = "${app.packageName}:${app.userHandle.hashCode()}"
+        return appSizeCache.getOrPut(key) {
+            runCatching {
+                val info = app.activityInfo.applicationInfo
+                var total = File(info.sourceDir).length()
+                info.splitSourceDirs?.forEach { split ->
+                    total += File(split).length()
+                }
+                total
+            }.getOrDefault(0L)
         }
     }
 

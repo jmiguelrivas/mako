@@ -4,12 +4,15 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
+import android.text.format.Formatter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.generateViewId
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import com.rama.mako.R
 import com.rama.bohio.R as BohioR
 import com.rama.bohio.util.Dimens.spToPx
@@ -56,6 +59,7 @@ class AppListManager(
     private companion object {
         private const val PACKAGE_SCORE_PENALTY = 2000
         private const val GROUP_SCORE_PENALTY = 4000
+        private const val APP_SIZE_WARNING_BYTES = 200L * 1024 * 1024 // 200 MB
     }
 
     private var isMultiSelectMode = false
@@ -449,6 +453,45 @@ class AppListManager(
             refresh()
         } else {
             onAppLaunched?.invoke()
+        }
+    }
+
+    private fun renderAppInfo(view: View, app: AppsProvider.AppEntry) {
+        val apiRow = view.findViewById<LinearLayout>(R.id.api)
+        val minApiText = view.findViewById<TextView>(R.id.min_api)
+        val apiSeparator = view.findViewById<TextView>(R.id.api_separator)
+        val targetApiText = view.findViewById<TextView>(R.id.target_api)
+        val appSizeText = view.findViewById<TextView>(R.id.app_size)
+
+        val normalColor = ContextCompat.getColor(context, BohioR.color.disabled)
+        val dangerColor by lazy { ThemeManager.paletteFor(prefs.getTheme(), context).danger }
+
+        if (prefs.hasApiIndicatorsVisible()) {
+            apiRow.visibility = View.VISIBLE
+
+            minApiText.text = app.minSdkVersion.toString()
+            targetApiText.text = app.targetSdkVersion.toString()
+
+            val isOutdatedTarget = app.targetSdkVersion < Build.VERSION.SDK_INT
+            val apiColor = if (isOutdatedTarget) dangerColor else normalColor
+
+            minApiText.setTextColor(apiColor)
+            apiSeparator.setTextColor(apiColor)
+            targetApiText.setTextColor(apiColor)
+        } else {
+            apiRow.visibility = View.GONE
+        }
+
+        if (prefs.hasAppSizeVisible()) {
+            appSizeText.visibility = View.VISIBLE
+
+            val sizeBytes = appsProvider.getAppSizeBytes(app)
+            appSizeText.text = Formatter.formatShortFileSize(context, sizeBytes)
+            appSizeText.setTextColor(
+                if (sizeBytes > APP_SIZE_WARNING_BYTES) dangerColor else normalColor
+            )
+        } else {
+            appSizeText.visibility = View.GONE
         }
     }
 
@@ -890,6 +933,8 @@ class AppListManager(
 
                         val icon = view.findViewById<ImageView>(R.id.app_icon)
                         val showIcons = prefs.hasIconsVisible()
+
+                        renderAppInfo(view, app)
 
                         val key = getSelectionKey(app)
                         if (isMultiSelectMode) {

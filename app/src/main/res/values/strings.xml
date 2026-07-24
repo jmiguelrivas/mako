@@ -80,6 +80,8 @@
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
     <string name="checkbox_multi_column">Multi-column layout</string>
+    <string name="checkbox_show_api_indicators">Show min/target API levels</string>
+    <string name="checkbox_show_app_size">Show app size</string>
 
     <!-- ContextMenu -->
     <string name="ctxmenu_rename_app">Rename app...</string>
