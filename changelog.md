@@ -3,6 +3,7 @@
 ## 48
 
 - Migrating double tap functionality to a separated module out of mako
+- Add app-info
 
 ## 47
 
