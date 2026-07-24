@@ -2,6 +2,8 @@
 
 ## 48
 
+- Migrating double tap functionality to a separated module out of mako
+
 ## 47
 
 - Add week number

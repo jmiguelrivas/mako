@@ -2,7 +2,6 @@ package com.rama.mako.managers
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.UserHandle
 import com.rama.bohio.util.IdUtils
 import androidx.security.crypto.EncryptedSharedPreferences
@@ -27,8 +26,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val APPS_MULTI_COLUMN = "apps:multi_column"
 
         const val HOME_BACKGROUND_MODE = "home:background_mode"
-        const val HOME_DOUBLE_TAP_SLEEP = "home:double_tap_sleep"
-        const val HOME_DOUBLE_TAP_LOCK_METHOD = "home:double_tap_lock_method"
         const val HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH =
             "home:background_mode:screen_opacity_strength"
         const val GROUPS_IDS = "groups:ids"
@@ -148,8 +145,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putBoolean(FileKeys.APPS_MULTI_COLUMN, false)
 
         editor.putString(FileKeys.HOME_BACKGROUND_MODE, BackgroundMode.DEFAULT)
-        editor.putBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, false)
-        editor.putString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, defaultDoubleTapLockMethod)
         editor.putInt(FileKeys.HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH, 9)
 
         editor.putBoolean(FileKeys.BATTERY_VISIBLE, true)
@@ -423,34 +418,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     fun shouldCollapseGroupsOnHomeFocus(): Boolean =
         prefs.getBoolean(FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS, false)
 
-    fun isDoubleTapToSleepEnabled(): Boolean =
-        prefs.getBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, false)
-
-    fun setDoubleTapToSleepEnabled(enabled: Boolean) =
-        prefs.edit().putBoolean(FileKeys.HOME_DOUBLE_TAP_SLEEP, enabled).apply()
-
-    fun getDoubleTapLockMethod(): String {
-        val stored = prefs.getString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, null)
-        return when {
-            stored == null -> defaultDoubleTapLockMethod
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-                    stored == DoubleTapLockManager.METHOD_DEVICE_ADMIN ->
-                DoubleTapLockManager.METHOD_ACCESSIBILITY
-
-            else -> stored
-        }
-    }
-
-    private val defaultDoubleTapLockMethod: String
-        get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            DoubleTapLockManager.METHOD_ACCESSIBILITY
-        } else {
-            DoubleTapLockManager.METHOD_DEVICE_ADMIN
-        }
-
-    fun setDoubleTapLockMethod(method: String) =
-        prefs.edit().putString(FileKeys.HOME_DOUBLE_TAP_LOCK_METHOD, method).apply()
-
     fun getClockFormat(): String =
         prefs.getString(FileKeys.CLOCK_FORMAT, "") ?: ""
 
@@ -484,7 +451,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         prefs.getBoolean(FileKeys.DATE_YEAR_DAY, false)
 
     fun isYearWeekVisible(): Boolean =
-        prefs.getBoolean(FileKeys.DATE_YEAR_WEEK, false)
+        prefs.getBoolean(FileKeys.DATE_YEAR_WEEK, true)
 
     fun isBatteryVisible(): Boolean =
         prefs.getBoolean(FileKeys.BATTERY_VISIBLE, false)

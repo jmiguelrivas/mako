@@ -32,7 +32,6 @@ import com.rama.mako.managers.AppsProvider
 import com.rama.mako.managers.BatteryManager
 import com.rama.mako.managers.ClockManager
 import com.rama.mako.managers.HomeBackgroundManager
-import com.rama.mako.managers.DoubleTapLockManager
 import com.rama.mako.managers.PrefsManager
 import com.rama.mako.managers.PrefsManager.FileKeys
 import com.rama.bohio.managers.ThemeManager
@@ -66,9 +65,6 @@ class MainActivity : CsActivity() {
     private var wallpaperReceiverRegistered = false
     private var lastAppliedBackgroundMode: String? = null
     private var lastAppliedWallpaperSignature: Int? = null
-    private var isDoubleTapToSleepEnabled = false
-    private lateinit var doubleTapGestureDetector: GestureDetector
-    private lateinit var doubleTapLockManager: DoubleTapLockManager
     private var lastAppliedTheme: String? = null
     private lateinit var lockButton: FrameLayout
     private lateinit var lockButtonIcon: ImageView
@@ -138,7 +134,6 @@ class MainActivity : CsActivity() {
 
         rootView = findViewById(R.id.root)
         applyEdgeToEdgePadding(rootView)
-        initDoubleTapToSleep()
         applyCurrentTheme(rootView)
         rootView.isFocusableInTouchMode = false
         rootView.requestFocus()
@@ -214,20 +209,6 @@ class MainActivity : CsActivity() {
             }
         })
 
-    }
-
-    private fun initDoubleTapToSleep() {
-        doubleTapLockManager = DoubleTapLockManager(this)
-        doubleTapGestureDetector = GestureDetector(
-            this,
-            object : GestureDetector.SimpleOnGestureListener() {
-                override fun onDown(e: MotionEvent): Boolean = true
-
-                override fun onDoubleTap(e: MotionEvent): Boolean {
-                    return lockScreenOnDoubleTap()
-                }
-            }
-        )
     }
 
     private fun initSearchbar() {
@@ -362,16 +343,12 @@ class MainActivity : CsActivity() {
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (isDoubleTapToSleepEnabled) {
-            doubleTapGestureDetector.onTouchEvent(ev)
-        }
         return super.dispatchTouchEvent(ev)
     }
 
     private fun syncSettings() {
         val searchVisible = prefs.isSearchVisible()
 
-        isDoubleTapToSleepEnabled = prefs.isDoubleTapToSleepEnabled()
         isSearchBarAlwaysVisible = prefs.isSearchBarAlwaysVisible()
         timeText.visibility =
             if (prefs.getClockFormat() != PrefsManager.ClockFormat.NONE) View.VISIBLE else View.GONE
@@ -383,27 +360,6 @@ class MainActivity : CsActivity() {
             if (searchVisible) View.VISIBLE else View.GONE
         searchIcon.visibility =
             if (searchVisible && !isSearchBarAlwaysVisible) View.VISIBLE else View.GONE
-    }
-
-    private fun lockScreenOnDoubleTap(): Boolean {
-        if (!isDoubleTapToSleepEnabled) return false
-        if (isSearchExpanded || appListManager.isInMultiSelectMode()) return false
-
-        if (!doubleTapLockManager.isCurrentMethodAvailable()) {
-            doubleTapLockManager.requestPermission(this, doubleTapLockManager.getMethod())
-            return false
-        }
-
-        if (!doubleTapLockManager.lock()) {
-            Toast.makeText(
-                this,
-                getString(R.string.double_tap_sleep_failed_toast),
-                Toast.LENGTH_SHORT
-            )
-                .show()
-            return false
-        }
-        return true
     }
 
     // --- Open date app ---
