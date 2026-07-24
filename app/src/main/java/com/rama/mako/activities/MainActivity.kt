@@ -198,9 +198,13 @@ class MainActivity : CsActivity() {
                 if (appListManager.handleBackPress()) return
 
                 if (isSearchBarAlwaysVisible) {
-                    searchField.clearFocus()
+                    if (searchField.hasFocus()) {
+                        searchField.clearFocus()
+                        return
+                    }
                 } else if (isSearchExpanded) {
                     collapseSearch()
+                    return
                 }
 
                 if (prefs.getBoolean(FileKeys.GROUPS_COLLAPSIBLE, true)) {
