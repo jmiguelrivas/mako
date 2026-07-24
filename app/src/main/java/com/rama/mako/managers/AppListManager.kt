@@ -462,6 +462,9 @@ class AppListManager(
         val apiSeparator = view.findViewById<TextView>(R.id.api_separator)
         val targetApiText = view.findViewById<TextView>(R.id.target_api)
         val appSizeText = view.findViewById<TextView>(R.id.app_size)
+        
+        ThemeManager.applyTheme(context, apiRow)
+        ThemeManager.applyTheme(context, appSizeText)
 
         val normalColor = ContextCompat.getColor(context, BohioR.color.disabled)
         val dangerColor by lazy { ThemeManager.paletteFor(prefs.getTheme(), context).danger }
