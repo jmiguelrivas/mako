@@ -3,6 +3,8 @@
 ## 48
 
 - Migrating double tap functionality to a separated module out of mako
+- Add app size option
+- Add api indicators option
 
 ## 47
 

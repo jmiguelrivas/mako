@@ -1,5 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/app_row"
+    android:gravity="center"
+    android:layout_gravity="center"
     android:descendantFocusability="blocksDescendants"
     style="@style/HorizontalList">
 
@@ -31,12 +33,53 @@
         android:textSize="32sp"
         android:textColor="@color/foreground" />
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/empty_space"
         android:layout_width="0dp"
-        android:background="@android:color/transparent"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:focusable="false"
         android:clickable="false"
-        android:layout_weight="1" />
+        android:gravity="center_vertical|end"
+        android:layout_weight="1"
+        android:paddingEnd="@dimen/small"
+        style="@style/VerticalListDividedSmall">
+
+        <LinearLayout
+            android:id="@+id/api"
+            android:layout_width="wrap_content"
+            android:minWidth="35sp"
+            android:gravity="end"
+            style="@style/HorizontalList">
+
+            <TextView
+                android:id="@+id/min_api"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/disabled"
+                android:textSize="@dimen/small" />
+
+            <TextView
+                android:id="@+id/api_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/disabled"
+                android:textSize="@dimen/small"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/target_api"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/disabled"
+                android:textSize="@dimen/small" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/disabled"
+            android:textSize="@dimen/small" />
+    </LinearLayout>
 </LinearLayout>
