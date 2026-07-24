@@ -52,8 +52,8 @@
 
     <!-- Radio -->
     <string name="radio_none">不显示图标</string>
-    <string name="radio_default">默认显示图标</string>
-    <string name="radio_default_system">默认设置</string>
+    <!--    <string name="radio_default">默认显示图标</string>-->
+    <!--    <string name="radio_default_system">默认设置</string>-->
     <string name="radio_icons_monochrome">单色图标</string>
     <string name="radio_custom_icon_pack">自定义图标</string>
     <string name="radio_clock_none">桌面隐藏时间显示</string>
@@ -149,7 +149,7 @@
     <!-- Contributors -->
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
-   
+
     <!-- Custom Blocks -->
     <!-- Groups -->
     <string name="new_group_header">------ 新群组</string>

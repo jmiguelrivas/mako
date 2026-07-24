@@ -87,6 +87,7 @@ class SettingsActivity : CsActivity() {
         )
         val hasPin = prefs.getPin().isNotEmpty()
 
+        // TODO: if someone get locked out of settings this is where you can disabled it
         if (lockEnabled && hasPin) {
             isLockScreenShowing = true
             startActivityForResult(
