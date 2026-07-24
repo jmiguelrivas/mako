@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/app_row"
-    android:gravity="center_vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
     android:descendantFocusability="blocksDescendants"
     style="@style/HorizontalList">
 
@@ -35,12 +36,12 @@
     <LinearLayout
         android:id="@+id/empty_space"
         android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:focusable="false"
         android:clickable="false"
-        android:layout_gravity="end"
+        android:gravity="center_vertical|end"
         android:layout_weight="1"
-        android:gravity="end"
         android:paddingEnd="@dimen/small"
         style="@style/VerticalListDividedSmall">
 
@@ -64,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/disabled"
                 android:textSize="@dimen/small"
-                android:text="::" />
+                android:text="-" />
 
             <TextView
                 android:id="@+id/target_api"
