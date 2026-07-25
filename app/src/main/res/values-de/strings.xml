@@ -1,174 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Activities -->
+    <string name="accessibility_service_description">Ermöglicht Mako, den Bildschirm über eine Bedienungshilfe-Geste zu sperren.</string>
     <string name="activity_lock_label">Sperren</string>
-
-    <!-- H2 -->
-    <string name="h2_delete_group">Sind Sie sicher, dass Sie die Gruppe entfernen möchten?</string>
-    <string name="h2_select_group">Gruppe auswählen</string>
-    <string name="h2_rename_app">App umbenennen</string>
-    <!-- H3 -->
-    <string name="h3_apps">Anwendungen</string>
-    <string name="h3_clock">Uhr</string>
-    <string name="h3_search">Suche</string>
-    <string name="h3_battery">Batterie</string>
-    <string name="h3_date">Datum</string>
-    <string name="h3_data">Daten</string>
-    <string name="h3_temperature">Temperatur</string>
-    <string name="h3_groups">Gruppen</string>
-    <string name="h3_security">Sicherheit</string>
-
-    <string name="h3_background">Hintergrund</string>
-    <!-- Disclaimers/small -->
+    <string name="altdescr_ascend_group">Gruppe nach oben verschieben</string>
+    <string name="altdescr_clear_search">Suche zurücksetzen</string>
+    <string name="altdescr_delete_group">Gruppe löschen</string>
+    <string name="altdescr_descend_group">Gruppe nach unten verschieben</string>
+    <string name="altdescr_save">Speichern</string>
+    <string name="altdescr_save_pin">PIN speichern</string>
+    <string name="altdescr_search_icon">Suche de-/aktivieren</string>
+    <string name="altdescr_selection_check">Ausgewählt</string>
+    <string name="altdescr_toggle_group_visibility">Gruppensichtbarkeit umschalten</string>
+    <string name="altdescr_toggle_pin_visibility">PIN-Sichtbarkeit umschalten</string>
+    <string name="app_desc">Ein leichtgewichtiger, ablenkungsfreier Android-Launcher mit einem Fokus auf Privatssphäre und lokaler Nutzung, optimiert auf Fokus und Einfachheit.</string>
+    <string name="btn_about_mako">Über Mako</string>
+    <string name="btn_add_group">+ Neue Gruppe hinzufügen</string>
+    <string name="btn_change_wallpaper">Betriebssystemhintergrundbild ändern</string>
+    <string name="btn_clear_data">Daten löschen</string>
+    <string name="btn_delete_group">Gruppe entfernen</string>
+    <string name="btn_edit_apps">Installierte Apps verwalten</string>
+    <string name="btn_export_data">Daten exportieren</string>
+    <string name="btn_heal_data">Daten reparieren</string>
+    <string name="btn_import_data">Daten importieren</string>
+    <string name="btn_lock">Sperren</string>
+    <string name="btn_refresh_launcher">Launcher neu laden</string>
+    <string name="btn_select_icon_pack">Icon-Paket auswählen</string>
+    <string name="btn_set_clock_app">Aktion beim Tippen auf die Uhr ändern</string>
+    <string name="btn_set_date_app">Aktion beim Tippen auf das Datum ändern</string>
+    <string name="btn_set_default">Launcher als Standard festlegen</string>
+    <string name="btn_unlock">Entsperren</string>
+    <string name="charge_ac">AC</string>
+    <string name="charge_usb">USB</string>
+    <string name="charge_wireless">Drahtlos</string>
+    <string name="checkbox_click_on_icons_open_app_settings">App-Einstellungen beim Klicken auf Icon öffnen</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Gruppen beim Zurückkehren einklappen</string>
+    <string name="checkbox_has_collapsible_groups">Minimieren von Gruppen zulassen</string>
+    <string name="checkbox_lock_settings">Einstellungen sperren</string>
+    <string name="checkbox_randomized_keypad">Zufälliges Tastenfeld</string>
+    <string name="checkbox_show_battery">Ladestand anzeigen</string>
+    <string name="checkbox_show_battery_charge_status">Ladestatus anzeigen</string>
+    <string name="checkbox_show_battery_temperature">Batterietemperatur anzeigen</string>
+    <string name="checkbox_show_clock">Uhr anzeigen</string>
+    <string name="checkbox_show_date">Datum anzeigen</string>
+    <string name="checkbox_show_group_header">Gruppenüberschrift anzeigen</string>
+    <string name="checkbox_show_profile_indicator">Profilindikator anzeigen</string>
+    <string name="checkbox_show_search">Suchleiste anzeigen</string>
+    <string name="checkbox_show_ungrouped_apps">Zeige nicht gruppierte Apps an</string>
+    <string name="checkbox_show_year_day">Tag des Jahres anzeigen</string>
+    <string name="checkbox_show_year_week"></string>
+    <string name="ctxmenu_move_to_group">Gruppe ändern...</string>
+    <string name="ctxmenu_open_settings">App-Einstellungen...</string>
+    <string name="ctxmenu_rename_app">App umbenennen...</string>
+    <string name="device_admin_description">Erlaubt Mako, den Bildschirm per Startbildschirm-Geste zu sperren.</string>
+    <string name="device_admin_label">Mako Bildschirm sperren</string>
     <string name="disclaimer_delete_group">Die Apps werden in die folgende Gruppe verschoben.</string>
     <string name="disclaimer_pick_clock_app">Die ausgewählte App wird als Standard-Uhr-Aktion festgelegt. Beim Antippen der Uhr auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_date_app">Die ausgewählte App wird als Standard-Datumsaktion festgelegt. Beim Antippen des Datums auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_icon_pack">Wähle ein installiertes Icon-Paket aus. Bei fehlenden Icons wird Mako das System-Icon für die App verwenden.</string>
-
-    <!-- Buttons 1 -->
-    <string name="btn_unlock">Entsperren</string>
-    <string name="btn_about_mako">Über Mako</string>
-    <string name="btn_lock">Sperren</string>
-    <string name="btn_delete_group">Gruppe entfernen</string>
-    <!-- Buttons 2 -->
-    <string name="btn_export_data">Daten exportieren</string>
-    <string name="btn_import_data">Daten importieren</string>
-    <string name="btn_clear_data">Daten löschen</string>
-    <string name="btn_heal_data">Daten reparieren</string>
-    <string name="btn_set_default">Launcher als Standard festlegen</string>
-    <string name="btn_set_clock_app">Aktion beim Tippen auf die Uhr ändern</string>
-    <string name="btn_set_date_app">Aktion beim Tippen auf das Datum ändern</string>
-    <string name="btn_refresh_launcher">Launcher neu laden</string>
-    <string name="btn_change_wallpaper">Betriebssystemhintergrundbild ändern</string>
-    <string name="btn_edit_apps">Installierte Apps verwalten</string>
-    <string name="btn_add_group">+ Neue Gruppe hinzufügen</string>
-    <string name="btn_select_icon_pack">Icon-Paket auswählen</string>
-
-    <!-- FilePicker -->
-    <string name="filepicker_selected_icon_pack">Ausgewähltes Paket: %1$s</string>
-    <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>
-
-    <!-- Radio -->
-    <string name="radio_icons_monochrome">Monochrom</string>
-    <string name="radio_custom_icon_pack">Benutzerdefiniertes Icon-Paket</string>
-    <string name="radio_clock_none">Uhr verstecken</string>
-    <string name="radio_clock_24">24-Stunden-Format</string>
-    <string name="radio_clock_12">12-Stunden-Format (AM/PM)</string>
-    <string name="radio_celsius">Celsius</string>
-    <string name="radio_fahrenheit">Fahrenheit</string>
-    <string name="radio_background_wallpaper">Hintergrundbild</string>
-
-    <!-- Checkbox -->
-    <string name="checkbox_lock_settings">Einstellungen sperren</string>
-    <string name="checkbox_show_profile_indicator">Profilindikator anzeigen</string>
-    <string name="checkbox_multi_column">Mehrspaltiges Layout</string>
-    <string name="checkbox_show_battery_temperature">Batterietemperatur anzeigen</string>
-    <string name="checkbox_show_battery_charge_status">Ladestatus anzeigen</string>
-    <string name="checkbox_show_ungrouped_apps">Zeige nicht gruppierte Apps an</string>
-    <string name="checkbox_has_collapsible_groups">Minimieren von Gruppen zulassen</string>
-    <string name="checkbox_collapse_groups_on_home_focus">Gruppen beim Zurückkehren einklappen</string>
-    <string name="checkbox_show_search">Suchleiste anzeigen</string>
-    <string name="checkbox_show_battery">Ladestand anzeigen</string>
-    <string name="double_tap_sleep_label">Doppeltippen zum Sperren</string>
-    <string name="checkbox_show_date">Datum anzeigen</string>
-    <string name="checkbox_show_clock">Uhr anzeigen</string>
-    <string name="checkbox_show_year_day">Tag des Jahres anzeigen</string>
-    <string name="checkbox_show_group_header">Gruppenüberschrift anzeigen</string>
-    <string name="checkbox_randomized_keypad">Zufälliges Tastenfeld</string>
-    <string name="checkbox_click_on_icons_open_app_settings">App-Einstellungen beim Klicken auf Icon öffnen</string>
-
-    <!-- ContextMenu -->
-    <string name="ctxmenu_rename_app">App umbenennen...</string>
-    <string name="ctxmenu_move_to_group">Gruppe ändern...</string>
-    <string name="ctxmenu_open_settings">App-Einstellungen...</string>
-
-    <!-- InputLabel -->
-    <string name="label_screen_opacity_strength">Bildschirmdeckkraft</string>
-
-    <!-- InputHints -->
-    <string name="hint_search_apps">Nach Apps suchen...</string>
-
-    <!-- Toasts -->
-    <string name="toast_no_clock_app_found">Keine Uhr-App gefunden</string>
-    <string name="toast_unable_open_settings">Launcher-Einstellungen konnten nicht geöffnet werden</string>
-    <string name="toast_unable_open_wallpaper_app">Keine Wallpaper-App verfügbar</string>
-    <string name="toast_unable_launch_app">App konnte nicht geöffnet werden</string>
-    <string name="toast_reset_done">Zurücksetzen abgeschlossen</string>
-    <string name="toast_reset_failed">Zurücksetzen fehlgeschlagen</string>
-    <string name="toast_import_done">Import erfolgreich</string>
-    <string name="toast_import_failed">Import fehlgeschlagen</string>
-    <string name="toast_heal_data_done">Daten erfolgreich repariert</string>
-    <string name="toast_heal_data_unchanged">Keine veralteten Daten gefunden</string>
-    <string name="toast_clock_app_selected">Ausgewählt: %1$s</string>
-    <string name="toast_date_app_selected">Ausgewählt: %1$s</string>
-    <string name="toast_no_date_app_found">Keine Datums-App gefunden</string>
-    <string name="toast_group_label_updated">Label aktualisiert</string>
-    <string name="toast_select_target_group">Wählen Sie eine Zielgruppe aus</string>
-    <string name="toast_label_changed">App-Bezeichnung aktualisiert</string>
-    <string name="toast_pin_saved">PIN gespeichert</string>
-    <string name="toast_pin_too_short">PIN muss mindestens 1 Ziffer lang sein</string>
-    <string name="toast_icon_pack_selected">Ausgewähltes Icon-Paket: %1$s</string>
-    <string name="toast_monochrome_fallback">Monochrome Icons benötigen Android 13+, wenn nicht verfügbar wird eine Ersatzlösung verwendet</string>
-    <string name="toast_no_icon_pack_found">Kein kompatibles Icon-Paket gefunden</string>
-
-    <!-- Admin Screen Lock -->
-    <string name="device_admin_label">Mako Bildschirm sperren</string>
-    <string name="device_admin_description">Erlaubt Mako, den Bildschirm per Startbildschirm-Geste zu sperren.</string>
+    <string name="double_tap_lock_method_accessibility">Bedienungshilfe</string>
+    <string name="double_tap_lock_method_accessibility_info">Nutzt Bedienungshilfe.
+Biometrische Entsperrung (Fingerabdruck, Gesicht) funktioniert normal.
+Erfordert Android 9+.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Erfordert Android 9+</string>
+    <string name="double_tap_lock_method_admin_info">Nutzt Geräteadministrator-API.
+Biometrische Entsperrung (Fingerabdruck) ggf. nicht unterstützt.</string>
+    <string name="double_tap_lock_method_device_admin">Geräteadministrator</string>
+    <string name="double_tap_lock_method_label">Sperrmethode</string>
+    <string name="double_tap_sleep_admin_declined_toast">Geräteadministrator wurde nicht aktiviert</string>
     <string name="double_tap_sleep_admin_explanation">Mako benötigt Geräteadministrator-Rechte, um den Bildschirm beim Doppeltippen auf dem Startbildschirm auszuschalten.</string>
     <string name="double_tap_sleep_enable_admin_toast">Aktiviere Geräteadministrator für Doppeltippen zum Sperren</string>
-    <string name="double_tap_sleep_admin_declined_toast">Geräteadministrator wurde nicht aktiviert</string>
     <string name="double_tap_sleep_failed_toast">Bildschirm konnte nicht gesperrt werden</string>
-    <string name="double_tap_lock_method_label">Sperrmethode</string>
-    <string name="double_tap_lock_method_device_admin">Geräteadministrator</string>
-    <string name="double_tap_lock_method_accessibility">Bedienungshilfe</string>
-    <string name="accessibility_service_description">Ermöglicht Mako, den Bildschirm über eine Bedienungshilfe-Geste zu sperren.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Erfordert Android 9+</string>
-    <string name="double_tap_lock_method_admin_info">Nutzt Geräteadministrator-API.\nBiometrische Entsperrung (Fingerabdruck) ggf. nicht unterstützt.</string>
-    <string name="double_tap_lock_method_accessibility_info">Nutzt Bedienungshilfe.\nBiometrische Entsperrung (Fingerabdruck, Gesicht) funktioniert normal.\nErfordert Android 9+.</string>
-
-    <!-- AltDescription -->
-    <string name="altdescr_search_icon">Suche de-/aktivieren</string>
-    <string name="altdescr_clear_search">Suche zurücksetzen</string>
-    <string name="altdescr_toggle_group_visibility">Gruppensichtbarkeit umschalten</string>
-    <string name="altdescr_ascend_group">Gruppe nach oben verschieben</string>
-    <string name="altdescr_descend_group">Gruppe nach unten verschieben</string>
-    <string name="altdescr_save">Speichern</string>
-    <string name="altdescr_selection_check">Ausgewählt</string>
-    <string name="altdescr_delete_group">Gruppe löschen</string>
-    <string name="altdescr_toggle_pin_visibility">PIN-Sichtbarkeit umschalten</string>
-    <string name="altdescr_save_pin">PIN speichern</string>
-
-    <!-- APP -->
-    <string name="app_desc">Ein leichtgewichtiger, ablenkungsfreier Android-Launcher mit einem Fokus auf Privatssphäre und lokaler Nutzung, optimiert auf Fokus und Einfachheit.</string>
-
-    <!-- Custom Blocks -->
-    <!-- Groups -->
+    <string name="double_tap_sleep_label">Doppeltippen zum Sperren</string>
+    <string name="easter_eggs_counter">Noch %1$d...</string>
+    <string name="easter_eggs_unlock">Kannst du bitte aufhören damit zu spielen xD</string>
+    <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>
+    <string name="filepicker_selected_icon_pack">Ausgewähltes Paket: %1$s</string>
+    <string name="h2_delete_group">Sind Sie sicher, dass Sie die Gruppe entfernen möchten?</string>
+    <string name="h2_rename_app">App umbenennen</string>
+    <string name="h2_select_group">Gruppe auswählen</string>
+    <string name="h3_apps">Anwendungen</string>
+    <string name="h3_background">Hintergrund</string>
+    <string name="h3_battery">Batterie</string>
+    <string name="h3_clock">Uhr</string>
+    <string name="h3_data">Daten</string>
+    <string name="h3_date">Datum</string>
+    <string name="h3_groups">Gruppen</string>
+    <string name="h3_search">Suche</string>
+    <string name="h3_security">Sicherheit</string>
+    <string name="h3_temperature">Temperatur</string>
+    <string name="hint_search_apps">Nach Apps suchen...</string>
+    <string name="label_screen_opacity_strength">Bildschirmdeckkraft</string>
+    <string name="multi_select_cancel">Abbrechen</string>
+    <string name="multi_select_count">%1$d ausgewählt</string>
+    <string name="multi_select_move_to_group">In Gruppe verschieben</string>
     <string name="new_group_header">------ Neue Gruppe</string>
-    <string name="new_group_header_count">------ Neue Gruppe %d</string>
-    <!-- Main :: Temperature labels -->
-    <string name="temp_warm">Warm</string>
-    <string name="temp_hot">Heiß</string>
-    <string name="temp_critical">Kritisch</string>
-    <!-- Main :: Battery status -->
+    <string name="new_group_header_count">------ Neue Gruppe %1$d</string>
+    <string name="privacy_space_row_locked"></string>
+    <string name="privacy_space_row_unlocked"></string>
+    <string name="radio_background_wallpaper">Hintergrundbild</string>
+    <string name="radio_celsius">Celsius</string>
+    <string name="radio_clock_12">12-Stunden-Format (AM/PM)</string>
+    <string name="radio_clock_24">24-Stunden-Format</string>
+    <string name="radio_clock_none">Uhr verstecken</string>
+    <string name="radio_custom_icon_pack">Benutzerdefiniertes Icon-Paket</string>
+    <string name="radio_fahrenheit">Fahrenheit</string>
+    <string name="radio_icons_monochrome">Monochrom</string>
+    <string name="radio_none"></string>
     <string name="status_charging">Lädt</string>
     <string name="status_discharging">Entlädt</string>
     <string name="status_full">Voll geladen</string>
     <string name="status_not_charging">Lädt nicht</string>
     <string name="status_unknown">Unbekannt</string>
-    <!-- Main :: Charging types -->
-    <string name="charge_usb">USB</string>
-    <string name="charge_ac">AC</string>
-    <string name="charge_wireless">Drahtlos</string>
-    <!-- Main :: Formatting -->
+    <string name="temp_critical">Kritisch</string>
+    <string name="temp_hot">Heiß</string>
+    <string name="temp_warm">Warm</string>
+    <string name="toast_clock_app_selected">Ausgewählt: %1$s</string>
+    <string name="toast_date_app_selected">Ausgewählt: %1$s</string>
+    <string name="toast_group_label_updated">Label aktualisiert</string>
+    <string name="toast_heal_data_done">Daten erfolgreich repariert</string>
+    <string name="toast_heal_data_unchanged">Keine veralteten Daten gefunden</string>
+    <string name="toast_icon_pack_selected">Ausgewähltes Icon-Paket: %1$s</string>
+    <string name="toast_import_done">Import erfolgreich</string>
+    <string name="toast_import_failed">Import fehlgeschlagen</string>
+    <string name="toast_label_changed">App-Bezeichnung aktualisiert</string>
+    <string name="toast_monochrome_fallback">Monochrome Icons benötigen Android 13+, wenn nicht verfügbar wird eine Ersatzlösung verwendet</string>
+    <string name="toast_no_clock_app_found">Keine Uhr-App gefunden</string>
+    <string name="toast_no_date_app_found">Keine Datums-App gefunden</string>
+    <string name="toast_no_icon_pack_found">Kein kompatibles Icon-Paket gefunden</string>
+    <string name="toast_pin_saved">PIN gespeichert</string>
+    <string name="toast_pin_too_short">PIN muss mindestens 1 Ziffer lang sein</string>
+    <string name="toast_reset_done">Zurücksetzen abgeschlossen</string>
+    <string name="toast_reset_failed">Zurücksetzen fehlgeschlagen</string>
+    <string name="toast_select_target_group">Wählen Sie eine Zielgruppe aus</string>
+    <string name="toast_unable_launch_app">App konnte nicht geöffnet werden</string>
+    <string name="toast_unable_open_settings">Launcher-Einstellungen konnten nicht geöffnet werden</string>
+    <string name="toast_unable_open_wallpaper_app">Keine Wallpaper-App verfügbar</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-
-    <!-- Multi Select -->
-    <string name="multi_select_count">%d ausgewählt</string>
-    <string name="multi_select_move_to_group">In Gruppe verschieben</string>
-    <string name="multi_select_cancel">Abbrechen</string>
-
-    <!-- Easter Egg -->
-    <string name="easter_eggs_unlock">Kannst du bitte aufhören damit zu spielen xD</string>
-    <string name="easter_eggs_counter">Noch %d...</string>
+    <string name="checkbox_multi_column"></string>
+    <string name="checkbox_show_api_indicators"></string>
+    <string name="checkbox_show_app_size"></string>
 </resources>

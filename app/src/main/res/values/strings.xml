@@ -1,189 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Activities -->
+    <string name="accessibility_service_description">Allows Mako to lock the screen via accessibility gesture.</string>
     <string name="activity_lock_label">Lock</string>
-
-    <!-- H2 -->
-    <string name="h2_delete_group">Are you sure you want to delete this group?</string>
-    <string name="h2_select_group">Select Group</string>
-    <string name="h2_rename_app">Rename app</string>
-    <!-- H3 -->
-    <string name="h3_apps">Applications</string>
-    <string name="h3_clock">Clock</string>
-    <string name="h3_search">Search</string>
-    <string name="h3_battery">Battery</string>
-    <string name="h3_date">Date</string>
-    <string name="h3_data">Data</string>
-    <string name="h3_temperature">Temperature</string>
-    <string name="h3_groups">Groups</string>
-    <string name="h3_security">Security</string>
-    <string name="h3_background">Background</string>
-
-    <!-- Disclaimers/small -->
+    <string name="altdescr_ascend_group">Move group up</string>
+    <string name="altdescr_clear_search">Clear search</string>
+    <string name="altdescr_delete_group">Delete group</string>
+    <string name="altdescr_descend_group">Move group down</string>
+    <string name="altdescr_save">Save</string>
+    <string name="altdescr_save_pin">Save PIN</string>
+    <string name="altdescr_search_icon">Toggle search</string>
+    <string name="altdescr_selection_check">Selected</string>
+    <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
+    <string name="altdescr_toggle_pin_visibility">Toggle PIN visibility</string>
+    <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
+    <string name="app_name" translatable="false">@string/product_mako</string>
+    <string name="battery_status_power" translatable="false">%1$s %2$dx</string>
+    <string name="battery_status_power_type" translatable="false">%1$s (%2$s) %3$dx</string>
+    <string name="battery_temp" translatable="false">%1$d°%2$s</string>
+    <string name="battery_temp_labeled" translatable="false">%1$d°%2$s (%3$s)</string>
+    <string name="btn_about_mako">About Mako</string>
+    <string name="btn_add_group">+ Add New Group</string>
+    <string name="btn_change_wallpaper">Change OS wallpaper</string>
+    <string name="btn_clear_data">Clear Data</string>
+    <string name="btn_delete_group">Delete group</string>
+    <string name="btn_edit_apps">Manage Installed Apps</string>
+    <string name="btn_export_data">Export Data</string>
+    <string name="btn_heal_data">Heal Data</string>
+    <string name="btn_import_data">Import Data</string>
+    <string name="btn_lock">Lock</string>
+    <string name="btn_refresh_launcher">Refresh launcher</string>
+    <string name="btn_select_icon_pack">Choose icon pack</string>
+    <string name="btn_set_clock_app">Change Clock Tap Action</string>
+    <string name="btn_set_date_app">Change Date Tap Action</string>
+    <string name="btn_set_default">Set Launcher as default</string>
+    <string name="btn_unlock">Unlock</string>
+    <string name="charge_ac">AC</string>
+    <string name="charge_usb">USB</string>
+    <string name="charge_wireless">Wireless</string>
+    <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Collapse groups when returning home</string>
+    <string name="checkbox_has_collapsible_groups">Allow collapsing groups</string>
+    <string name="checkbox_lock_settings">Lock Settings</string>
+    <string name="checkbox_randomized_keypad">Randomized keypad</string>
+    <string name="checkbox_show_battery">Show battery</string>
+    <string name="checkbox_show_battery_charge_status">Show battery charge status</string>
+    <string name="checkbox_show_battery_temperature">Show battery temperature</string>
+    <string name="checkbox_show_clock">Show clock</string>
+    <string name="checkbox_show_date">Show date</string>
+    <string name="checkbox_show_group_header">Show group header</string>
+    <string name="checkbox_show_profile_indicator">Show profile indicator</string>
+    <string name="checkbox_show_search">Show search bar</string>
+    <string name="checkbox_show_ungrouped_apps">Show ungrouped apps</string>
+    <string name="checkbox_show_year_day">Show day of the year</string>
+    <string name="checkbox_show_year_week">Show week of the year</string>
+    <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
+    <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
+    <string name="ctxmenu_move_to_group">Change group...</string>
+    <string name="ctxmenu_open_settings">App settings...</string>
+    <string name="ctxmenu_rename_app">Rename app...</string>
+    <string name="device_admin_description">Allows Mako to lock the screen from the home screen gesture.</string>
+    <string name="device_admin_label">Mako screen lock</string>
     <string name="disclaimer_delete_group">Your apps will go to the following group.</string>
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_icon_pack">Choose an installed icon pack. If an icon is missing, Mako will use the system icon for that app.</string>
-
-    <!-- Privacy Space -->
-    <string name="privacy_space_row_locked">🔒 Unlock Private Space</string>
-    <string name="privacy_space_row_unlocked">🔓 Lock Private Space</string>
-
-    <!-- Buttons 1 -->
-    <string name="btn_unlock">Unlock</string>
-    <string name="btn_about_mako">About Mako</string>
-    <string name="btn_lock">Lock</string>
-    <string name="btn_delete_group">Delete group</string>
-    <!-- Buttons 2 -->
-    <string name="btn_export_data">Export Data</string>
-    <string name="btn_import_data">Import Data</string>
-    <string name="btn_clear_data">Clear Data</string>
-    <string name="btn_heal_data">Heal Data</string>
-    <string name="btn_set_default">Set Launcher as default</string>
-    <string name="btn_set_clock_app">Change Clock Tap Action</string>
-    <string name="btn_set_date_app">Change Date Tap Action</string>
-    <string name="btn_refresh_launcher">Refresh launcher</string>
-    <string name="btn_change_wallpaper">Change OS wallpaper</string>
-    <string name="btn_edit_apps">Manage Installed Apps</string>
-    <string name="btn_add_group">+ Add New Group</string>
-    <string name="btn_select_icon_pack">Choose icon pack</string>
-    <!-- FilePicker -->
-    <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
-    <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
-
-    <!-- Radio -->
-    <string name="radio_none">None</string>
-    <string name="radio_icons_monochrome">Monochrome</string>
-    <string name="radio_custom_icon_pack">Custom icon pack</string>
-    <string name="radio_clock_none">Hide clock</string>
-    <string name="radio_clock_24">24-hour</string>
-    <string name="radio_clock_12">12-hour (AM/PM)</string>
-    <string name="radio_celsius">Celsius</string>
-    <string name="radio_fahrenheit">Fahrenheit</string>
-    <string name="radio_background_wallpaper">Show Wallpaper on Home Screen</string>
-
-    <!-- Checkbox -->
-    <string name="checkbox_lock_settings">Lock Settings</string>
-    <string name="checkbox_show_profile_indicator">Show profile indicator</string>
-    <string name="checkbox_show_battery_temperature">Show battery temperature</string>
-    <string name="checkbox_show_battery_charge_status">Show battery charge status</string>
-    <string name="checkbox_show_ungrouped_apps">Show ungrouped apps</string>
-    <string name="checkbox_has_collapsible_groups">Allow collapsing groups</string>
-    <string name="checkbox_collapse_groups_on_home_focus">Collapse groups when returning home</string>
-    <string name="checkbox_show_search">Show search bar</string>
-    <string name="checkbox_show_battery">Show battery</string>
-    <string name="double_tap_sleep_label">Double tap to sleep</string>
-    <string name="checkbox_show_date">Show date</string>
-    <string name="checkbox_show_clock">Show clock</string>
-    <string name="checkbox_show_year_day">Show day of the year</string>
-    <string name="checkbox_show_year_week">Show week of the year</string>
-    <string name="checkbox_show_group_header">Show group header</string>
-    <string name="checkbox_randomized_keypad">Randomized keypad</string>
-    <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
-    <string name="checkbox_multi_column">Multi-column layout</string>
-    <string name="checkbox_show_api_indicators">Show min/target API levels</string>
-    <string name="checkbox_show_app_size">Show app size</string>
-
-    <!-- ContextMenu -->
-    <string name="ctxmenu_rename_app">Rename app...</string>
-    <string name="ctxmenu_move_to_group">Change group...</string>
-    <string name="ctxmenu_open_settings">App settings...</string>
-
-    <!-- InputLabel -->
-    <string name="label_screen_opacity_strength">Screen opacity strength</string>
-
-    <!-- InputHints -->
-    <string name="hint_search_apps">Search apps...</string>
-
-    <!-- Toasts -->
-    <string name="toast_no_clock_app_found">No clock app found</string>
-    <string name="toast_unable_open_settings">Unable to open launcher settings</string>
-    <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>
-    <string name="toast_unable_launch_app">Unable to launch app</string>
-    <string name="toast_reset_done">Reset done</string>
-    <string name="toast_reset_failed">Reset failed</string>
-    <string name="toast_import_done">Import successful</string>
-    <string name="toast_import_failed">Import failed</string>
-    <string name="toast_heal_data_done">Data healed successfully</string>
-    <string name="toast_heal_data_unchanged">No stale data found</string>
-    <string name="toast_clock_app_selected">Selected: %1$s</string>
-    <string name="toast_date_app_selected">Selected: %1$s</string>
-    <string name="toast_no_date_app_found">No date app found</string>
-    <string name="toast_group_label_updated">Label Updated</string>
-    <string name="toast_select_target_group">Select a target group</string>
-    <string name="toast_label_changed">App label updated</string>
-    <string name="toast_pin_saved">PIN saved</string>
-    <string name="toast_pin_too_short">PIN must be at least 1 digits</string>
-    <string name="toast_icon_pack_selected">Selected icon pack: %1$s</string>
-    <string name="toast_monochrome_fallback">Monochrome icons require Android 13+, using fallback where unavailable</string>
-    <string name="toast_no_icon_pack_found">No compatible icon pack found</string>
-
-    <!-- Admin Screen Lock -->
-    <string name="device_admin_label">Mako screen lock</string>
-    <string name="device_admin_description">Allows Mako to lock the screen from the home screen gesture.</string>
+    <string name="double_tap_lock_method_accessibility">Accessibility Service</string>
+    <string name="double_tap_lock_method_accessibility_info">Uses Accessibility Service.
+Biometric unlock (fingerprint, face) works normally.
+Requires Android 9+.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Requires Android 9+</string>
+    <string name="double_tap_lock_method_admin_info">Uses Device Admin API.
+Biometric unlock (fingerprint) may not work.</string>
+    <string name="double_tap_lock_method_device_admin">Device Admin</string>
+    <string name="double_tap_lock_method_label">Lock method</string>
+    <string name="double_tap_sleep_admin_declined_toast">Device admin access was not granted</string>
     <string name="double_tap_sleep_admin_explanation">Mako needs device admin permission to turn off the screen when you double tap on the home screen.</string>
     <string name="double_tap_sleep_enable_admin_toast">Enable device admin access for double tap to sleep</string>
-    <string name="double_tap_sleep_admin_declined_toast">Device admin access was not granted</string>
     <string name="double_tap_sleep_failed_toast">Unable to lock the screen</string>
-    <string name="double_tap_lock_method_label">Lock method</string>
-    <string name="double_tap_lock_method_device_admin">Device Admin</string>
-    <string name="double_tap_lock_method_accessibility">Accessibility Service</string>
-    <string name="accessibility_service_description">Allows Mako to lock the screen via accessibility gesture.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Requires Android 9+</string>
-    <string name="double_tap_lock_method_admin_info">Uses Device Admin API.\nBiometric unlock (fingerprint) may not work.</string>
-    <string name="double_tap_lock_method_accessibility_info">Uses Accessibility Service.\nBiometric unlock (fingerprint, face) works normally.\nRequires Android 9+.</string>
-
-    <!-- AltDescription -->
-    <string name="altdescr_search_icon">Toggle search</string>
-    <string name="altdescr_clear_search">Clear search</string>
-    <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
-    <string name="altdescr_ascend_group">Move group up</string>
-    <string name="altdescr_descend_group">Move group down</string>
-    <string name="altdescr_save">Save</string>
-    <string name="altdescr_selection_check">Selected</string>
-    <string name="altdescr_delete_group">Delete group</string>
-    <string name="altdescr_toggle_pin_visibility">Toggle PIN visibility</string>
-    <string name="altdescr_save_pin">Save PIN</string>
-
-    <!-- APP -->
-    <string name="app_name" translatable="false">@string/product_mako</string>
-    <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
-
-    <!-- Contributors -->
-    <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
-    <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
-
-    <!-- Custom Blocks -->
-    <!-- Groups -->
+    <string name="double_tap_sleep_label">Double tap to sleep</string>
+    <string name="easter_eggs_counter">%1$d more...</string>
+    <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
+    <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
+    <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
+    <string name="h2_delete_group">Are you sure you want to delete this group?</string>
+    <string name="h2_rename_app">Rename app</string>
+    <string name="h2_select_group">Select Group</string>
+    <string name="h3_apps">Applications</string>
+    <string name="h3_background">Background</string>
+    <string name="h3_battery">Battery</string>
+    <string name="h3_clock">Clock</string>
+    <string name="h3_data">Data</string>
+    <string name="h3_date">Date</string>
+    <string name="h3_groups">Groups</string>
+    <string name="h3_search">Search</string>
+    <string name="h3_security">Security</string>
+    <string name="h3_temperature">Temperature</string>
+    <string name="hint_search_apps">Search apps...</string>
+    <string name="label_screen_opacity_strength">Screen opacity strength</string>
+    <string name="multi_select_cancel">Cancel</string>
+    <string name="multi_select_count">%1$d selected</string>
+    <string name="multi_select_move_to_group">Move to group</string>
     <string name="new_group_header">------ New Group</string>
-    <string name="new_group_header_count">------ New Group %d</string>
-    <!-- Main :: Temperature labels -->
-    <string name="temp_warm">Warm</string>
-    <string name="temp_hot">Hot</string>
-    <string name="temp_critical">Critical</string>
-    <!-- Main :: Battery status -->
+    <string name="new_group_header_count">------ New Group %1$d</string>
+    <string name="privacy_space_row_locked">🔒 Unlock Private Space</string>
+    <string name="privacy_space_row_unlocked">🔓 Lock Private Space</string>
+    <string name="radio_background_wallpaper">Show Wallpaper on Home Screen</string>
+    <string name="radio_celsius">Celsius</string>
+    <string name="radio_clock_12">12-hour (AM/PM)</string>
+    <string name="radio_clock_24">24-hour</string>
+    <string name="radio_clock_none">Hide clock</string>
+    <string name="radio_custom_icon_pack">Custom icon pack</string>
+    <string name="radio_fahrenheit">Fahrenheit</string>
+    <string name="radio_icons_monochrome">Monochrome</string>
+    <string name="radio_none">None</string>
     <string name="status_charging">Charging</string>
     <string name="status_discharging">Discharging</string>
     <string name="status_full">Full</string>
     <string name="status_not_charging">Not charging</string>
     <string name="status_unknown">Unknown</string>
-    <!-- Main :: Charging types -->
-    <string name="charge_usb">USB</string>
-    <string name="charge_ac">AC</string>
-    <string name="charge_wireless">Wireless</string>
-    <!-- Main :: Formatting -->
-    <string name="battery_status_power" translatable="false">%1$s %2$dx</string>
-    <string name="battery_status_power_type" translatable="false">%1$s (%2$s) %3$dx</string>
+    <string name="temp_critical">Critical</string>
+    <string name="temp_hot">Hot</string>
+    <string name="temp_warm">Warm</string>
+    <string name="toast_clock_app_selected">Selected: %1$s</string>
+    <string name="toast_date_app_selected">Selected: %1$s</string>
+    <string name="toast_group_label_updated">Label Updated</string>
+    <string name="toast_heal_data_done">Data healed successfully</string>
+    <string name="toast_heal_data_unchanged">No stale data found</string>
+    <string name="toast_icon_pack_selected">Selected icon pack: %1$s</string>
+    <string name="toast_import_done">Import successful</string>
+    <string name="toast_import_failed">Import failed</string>
+    <string name="toast_label_changed">App label updated</string>
+    <string name="toast_monochrome_fallback">Monochrome icons require Android 13+, using fallback where unavailable</string>
+    <string name="toast_no_clock_app_found">No clock app found</string>
+    <string name="toast_no_date_app_found">No date app found</string>
+    <string name="toast_no_icon_pack_found">No compatible icon pack found</string>
+    <string name="toast_pin_saved">PIN saved</string>
+    <string name="toast_pin_too_short">PIN must be at least 1 digits</string>
+    <string name="toast_reset_done">Reset done</string>
+    <string name="toast_reset_failed">Reset failed</string>
+    <string name="toast_select_target_group">Select a target group</string>
+    <string name="toast_unable_launch_app">Unable to launch app</string>
+    <string name="toast_unable_open_settings">Unable to open launcher settings</string>
+    <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="battery_temp" translatable="false">%1$d°%2$s</string>
-    <string name="battery_temp_labeled" translatable="false">%1$d°%2$s (%3$s)</string>
-
-    <!-- Multi Select -->
-    <string name="multi_select_count">%d selected</string>
-    <string name="multi_select_move_to_group">Move to group</string>
-    <string name="multi_select_cancel">Cancel</string>
-
-    <!-- Easter Egg -->
-    <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
-    <string name="easter_eggs_counter">%d more...</string>
+    <string name="checkbox_multi_column">Multi-column layout</string>
+    <string name="checkbox_show_api_indicators">Show min/target API levels</string>
+    <string name="checkbox_show_app_size">Show app size</string>
 </resources>

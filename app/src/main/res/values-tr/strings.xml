@@ -1,174 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Activities -->
+    <string name="accessibility_service_description">Mako\'nun erişilebilirlik hareketiyle ekranı kilitlemesine izin verir.</string>
     <string name="activity_lock_label">Kilitle</string>
-
-    <!-- H2 -->
-    <string name="h2_delete_group">Bu grubu silmek istediğinizden emin misiniz?</string>
-    <string name="h2_select_group">Grup Seç</string>
-    <string name="h2_rename_app">Uygulamayı yeniden adlandır</string>
-    <!-- H3 -->
-    <string name="h3_apps">Uygulamalar</string>
-    <string name="h3_clock">Saat</string>
-    <string name="h3_search">Ara</string>
-    <string name="h3_battery">Pil</string>
-    <string name="h3_date">Tarih</string>
-    <string name="h3_data">Veri</string>
-    <string name="h3_temperature">Sıcaklık</string>
-    <string name="h3_groups">Gruplar</string>
-    <string name="h3_security">Güvenlik</string>
-    <string name="h3_background">Arka Plan</string>
-
-    <!-- Disclaimers/small -->
+    <string name="altdescr_ascend_group">Grubu yukarı taşı</string>
+    <string name="altdescr_clear_search">Aramayı temizle</string>
+    <string name="altdescr_delete_group">Grubu sil</string>
+    <string name="altdescr_descend_group">Grubu aşağı taşı</string>
+    <string name="altdescr_save">Kaydet</string>
+    <string name="altdescr_save_pin">PIN\'i kaydet</string>
+    <string name="altdescr_search_icon">Aramayı aç/kapat</string>
+    <string name="altdescr_selection_check">Seçildi</string>
+    <string name="altdescr_toggle_group_visibility">Grup görünürlüğünü değiştir</string>
+    <string name="altdescr_toggle_pin_visibility">PIN görünürlüğünü değiştir</string>
+    <string name="app_desc">Odak ve sadelik için tasarlanmış, gizliliği önceleyen ve tamamen cihaz üzerinde çalışan, hafif ve dikkat dağıtmayan bir Android başlatıcı.</string>
+    <string name="btn_about_mako">Mako hakkında</string>
+    <string name="btn_add_group">+ Yeni Grup Ekle</string>
+    <string name="btn_change_wallpaper">Sistem duvar kağıdını değiştir</string>
+    <string name="btn_clear_data">Veriyi Temizle</string>
+    <string name="btn_delete_group">Grubu sil</string>
+    <string name="btn_edit_apps">Yüklü uygulamaları yönet</string>
+    <string name="btn_export_data">Veriyi Dışa Aktar</string>
+    <string name="btn_heal_data">Veriyi Onar</string>
+    <string name="btn_import_data">Veriyi İçe Aktar</string>
+    <string name="btn_lock">Kilitle</string>
+    <string name="btn_refresh_launcher">Başlatıcıyı yenile</string>
+    <string name="btn_select_icon_pack">İkon paketi seç</string>
+    <string name="btn_set_clock_app">Saat dokunuş eylemini değiştir</string>
+    <string name="btn_set_date_app">Tarih dokunuş eylemini değiştir</string>
+    <string name="btn_set_default">Başlatıcıyı varsayılan yap</string>
+    <string name="btn_unlock">Kilidi Aç</string>
+    <string name="charge_ac">AC</string>
+    <string name="charge_usb">USB</string>
+    <string name="charge_wireless">Kablosuz</string>
+    <string name="checkbox_click_on_icons_open_app_settings">İkonuna tıklandığında uygulama ayarlarını aç</string>
+    <string name="checkbox_collapse_groups_on_home_focus">Ana ekrana dönünce grupları daralt</string>
+    <string name="checkbox_has_collapsible_groups">Grupların daraltılmasına izin ver</string>
+    <string name="checkbox_lock_settings">Ayarları Kilitle</string>
+    <string name="checkbox_randomized_keypad">Rastgele tuş takımı</string>
+    <string name="checkbox_show_battery">Pili göster</string>
+    <string name="checkbox_show_battery_charge_status">Pil şarj durumunu göster</string>
+    <string name="checkbox_show_battery_temperature">Pil sıcaklığını göster</string>
+    <string name="checkbox_show_clock">Saati göster</string>
+    <string name="checkbox_show_date">Tarihi göster</string>
+    <string name="checkbox_show_group_header">Grup başlığını göster</string>
+    <string name="checkbox_show_profile_indicator">Profil göstergesini göster</string>
+    <string name="checkbox_show_search">Arama çubuğunu göster</string>
+    <string name="checkbox_show_ungrouped_apps">Gruplanmamış uygulamaları göster</string>
+    <string name="checkbox_show_year_day">Yılın gününü göster</string>
+    <string name="checkbox_show_year_week"></string>
+    <string name="ctxmenu_move_to_group">Grubu değiştir...</string>
+    <string name="ctxmenu_open_settings">Uygulama ayarları...</string>
+    <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır...</string>
+    <string name="device_admin_description">Mako\'nun ana ekran hareketiyle ekranı kilitlemesine izin verir.</string>
+    <string name="device_admin_label">Mako ekran kilidi</string>
     <string name="disclaimer_delete_group">Uygulamalarınız aşağıdaki gruba taşınacaktır.</string>
     <string name="disclaimer_pick_clock_app">Buradan bir uygulama seçmek, onu varsayılan saat eylemi olarak ayarlar. Ana ekranınızdaki saate dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_date_app">Buradan bir uygulama seçmek, onu varsayılan tarih eylemi olarak ayarlar. Ana ekranınızdaki tarihe dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_icon_pack">Yüklü bir ikon paketi seçin. Bir ikon eksikse Mako, o uygulama için sistem ikonunu kullanır.</string>
-
-    <!-- Buttons 1 -->
-    <string name="btn_unlock">Kilidi Aç</string>
-    <string name="btn_about_mako">Mako hakkında</string>
-    <string name="btn_lock">Kilitle</string>
-    <string name="btn_delete_group">Grubu sil</string>
-    <!-- Buttons 2 -->
-    <string name="btn_export_data">Veriyi Dışa Aktar</string>
-    <string name="btn_import_data">Veriyi İçe Aktar</string>
-    <string name="btn_clear_data">Veriyi Temizle</string>
-    <string name="btn_heal_data">Veriyi Onar</string>
-    <string name="btn_set_default">Başlatıcıyı varsayılan yap</string>
-    <string name="btn_set_clock_app">Saat dokunuş eylemini değiştir</string>
-    <string name="btn_set_date_app">Tarih dokunuş eylemini değiştir</string>
-    <string name="btn_refresh_launcher">Başlatıcıyı yenile</string>
-    <string name="btn_change_wallpaper">Sistem duvar kağıdını değiştir</string>
-    <string name="btn_edit_apps">Yüklü uygulamaları yönet</string>
-    <string name="btn_add_group">+ Yeni Grup Ekle</string>
-    <string name="btn_select_icon_pack">İkon paketi seç</string>
-
-    <!-- FilePicker -->
-    <string name="filepicker_selected_icon_pack">Seçili paket: %1$s</string>
-    <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>
-
-    <!-- Radio -->
-    <string name="radio_icons_monochrome">Monokrom</string>
-    <string name="radio_custom_icon_pack">Özel ikon paketi</string>
-    <string name="radio_clock_none">Saati gizle</string>
-    <string name="radio_clock_24">24 saat</string>
-    <string name="radio_clock_12">12 saat (AM/PM)</string>
-    <string name="radio_celsius">Celsius</string>
-    <string name="radio_fahrenheit">Fahrenheit</string>
-    <string name="radio_background_wallpaper">Duvar kağıdı</string>
-
-    <!-- Checkbox -->
-    <string name="checkbox_lock_settings">Ayarları Kilitle</string>
-    <string name="checkbox_show_profile_indicator">Profil göstergesini göster</string>
-    <string name="checkbox_multi_column">Çok sütunlu düzen</string>
-    <string name="checkbox_show_battery_temperature">Pil sıcaklığını göster</string>
-    <string name="checkbox_show_battery_charge_status">Pil şarj durumunu göster</string>
-    <string name="checkbox_show_ungrouped_apps">Gruplanmamış uygulamaları göster</string>
-    <string name="checkbox_has_collapsible_groups">Grupların daraltılmasına izin ver</string>
-    <string name="checkbox_collapse_groups_on_home_focus">Ana ekrana dönünce grupları daralt</string>
-    <string name="checkbox_show_search">Arama çubuğunu göster</string>
-    <string name="checkbox_show_battery">Pili göster</string>
-    <string name="double_tap_sleep_label">Çift dokunarak ekranı kapat</string>
-    <string name="checkbox_show_date">Tarihi göster</string>
-    <string name="checkbox_show_clock">Saati göster</string>
-    <string name="checkbox_show_year_day">Yılın gününü göster</string>
-    <string name="checkbox_show_group_header">Grup başlığını göster</string>
-    <string name="checkbox_randomized_keypad">Rastgele tuş takımı</string>
-    <string name="checkbox_click_on_icons_open_app_settings">İkonuna tıklandığında uygulama ayarlarını aç</string>
-
-    <!-- ContextMenu -->
-    <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır...</string>
-    <string name="ctxmenu_move_to_group">Grubu değiştir...</string>
-    <string name="ctxmenu_open_settings">Uygulama ayarları...</string>
-
-    <!-- InputLabel -->
-    <string name="label_screen_opacity_strength">Ekran opaklık seviyesi</string>
-
-    <!-- InputHints -->
-    <string name="hint_search_apps">Uygulama ara...</string>
-
-    <!-- Toasts -->
-    <string name="toast_no_clock_app_found">Saat uygulaması bulunamadı</string>
-    <string name="toast_unable_open_settings">Başlatıcı ayarları açılamadı</string>
-    <string name="toast_unable_open_wallpaper_app">Duvar kağıdı uygulaması bulunamadı</string>
-    <string name="toast_unable_launch_app">Uygulama başlatılamadı</string>
-    <string name="toast_reset_done">Sıfırlama tamamlandı</string>
-    <string name="toast_reset_failed">Sıfırlama başarısız</string>
-    <string name="toast_import_done">İçe aktarma başarılı</string>
-    <string name="toast_import_failed">İçe aktarma başarısız</string>
-    <string name="toast_heal_data_done">Veri başarıyla onarıldı</string>
-    <string name="toast_heal_data_unchanged">Eski veri bulunamadı</string>
-    <string name="toast_clock_app_selected">Seçildi: %1$s</string>
-    <string name="toast_date_app_selected">Seçildi: %1$s</string>
-    <string name="toast_no_date_app_found">Tarih uygulaması bulunamadı</string>
-    <string name="toast_group_label_updated">Etiket Güncellendi</string>
-    <string name="toast_select_target_group">Bir hedef grup seçin</string>
-    <string name="toast_label_changed">Uygulama etiketi güncellendi</string>
-    <string name="toast_pin_saved">PIN kaydedildi</string>
-    <string name="toast_pin_too_short">PIN en az 1 haneli olmalıdır</string>
-    <string name="toast_icon_pack_selected">Seçili ikon paketi: %1$s</string>
-    <string name="toast_monochrome_fallback">Monokrom ikonlar Android 13+ gerektirir, mevcut olmayan yerlerde alternatif kullanılıyor</string>
-    <string name="toast_no_icon_pack_found">Uyumlu ikon paketi bulunamadı</string>
-
-    <!-- Admin Screen Lock -->
-    <string name="device_admin_label">Mako ekran kilidi</string>
-    <string name="device_admin_description">Mako\'nun ana ekran hareketiyle ekranı kilitlemesine izin verir.</string>
+    <string name="double_tap_lock_method_accessibility">Erişilebilirlik servisi</string>
+    <string name="double_tap_lock_method_accessibility_info">Erişilebilirlik servisi kullanır.
+Biyometrik giriş (parmak izi, yüz) normal çalışır.
+Android 9+ gerekir.</string>
+    <string name="double_tap_lock_method_accessibility_unavailable">Android 9+ gerektirir</string>
+    <string name="double_tap_lock_method_admin_info">Cihaz yöneticisi API\'si kullanır.
+Biyometrik giriş (parmak izi) desteklenmeyebilir.</string>
+    <string name="double_tap_lock_method_device_admin">Cihaz yöneticisi</string>
+    <string name="double_tap_lock_method_label">Kilit yöntemi</string>
+    <string name="double_tap_sleep_admin_declined_toast">Cihaz yöneticisi erişimi verilmedi</string>
     <string name="double_tap_sleep_admin_explanation">Mako\'nun çift dokunarak ekranı kapatabilmesi için cihaz yöneticisi iznine ihtiyacı vardır.</string>
     <string name="double_tap_sleep_enable_admin_toast">Çift dokunarak uyutma için cihaz yöneticisi erişimini etkinleştir</string>
-    <string name="double_tap_sleep_admin_declined_toast">Cihaz yöneticisi erişimi verilmedi</string>
     <string name="double_tap_sleep_failed_toast">Ekran kilitlenemedi</string>
-    <string name="double_tap_lock_method_label">Kilit yöntemi</string>
-    <string name="double_tap_lock_method_device_admin">Cihaz yöneticisi</string>
-    <string name="double_tap_lock_method_accessibility">Erişilebilirlik servisi</string>
-    <string name="accessibility_service_description">Mako\'nun erişilebilirlik hareketiyle ekranı kilitlemesine izin verir.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Android 9+ gerektirir</string>
-    <string name="double_tap_lock_method_admin_info">Cihaz yöneticisi API\'si kullanır.\nBiyometrik giriş (parmak izi) desteklenmeyebilir.</string>
-    <string name="double_tap_lock_method_accessibility_info">Erişilebilirlik servisi kullanır.\nBiyometrik giriş (parmak izi, yüz) normal çalışır.\nAndroid 9+ gerekir.</string>
-
-    <!-- AltDescription -->
-    <string name="altdescr_search_icon">Aramayı aç/kapat</string>
-    <string name="altdescr_clear_search">Aramayı temizle</string>
-    <string name="altdescr_toggle_group_visibility">Grup görünürlüğünü değiştir</string>
-    <string name="altdescr_ascend_group">Grubu yukarı taşı</string>
-    <string name="altdescr_descend_group">Grubu aşağı taşı</string>
-    <string name="altdescr_save">Kaydet</string>
-    <string name="altdescr_selection_check">Seçildi</string>
-    <string name="altdescr_delete_group">Grubu sil</string>
-    <string name="altdescr_toggle_pin_visibility">PIN görünürlüğünü değiştir</string>
-    <string name="altdescr_save_pin">PIN\'i kaydet</string>
-
-    <!-- APP -->
-    <string name="app_desc">Odak ve sadelik için tasarlanmış, gizliliği önceleyen ve tamamen cihaz üzerinde çalışan, hafif ve dikkat dağıtmayan bir Android başlatıcı.</string>
-
-    <!-- Custom Blocks -->
-    <!-- Groups -->
+    <string name="double_tap_sleep_label">Çift dokunarak ekranı kapat</string>
+    <string name="easter_eggs_counter">%1$d kez daha...</string>
+    <string name="easter_eggs_unlock">Lütfen bununla oynamayı bırakır mısın xD</string>
+    <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>
+    <string name="filepicker_selected_icon_pack">Seçili paket: %1$s</string>
+    <string name="h2_delete_group">Bu grubu silmek istediğinizden emin misiniz?</string>
+    <string name="h2_rename_app">Uygulamayı yeniden adlandır</string>
+    <string name="h2_select_group">Grup Seç</string>
+    <string name="h3_apps">Uygulamalar</string>
+    <string name="h3_background">Arka Plan</string>
+    <string name="h3_battery">Pil</string>
+    <string name="h3_clock">Saat</string>
+    <string name="h3_data">Veri</string>
+    <string name="h3_date">Tarih</string>
+    <string name="h3_groups">Gruplar</string>
+    <string name="h3_search">Ara</string>
+    <string name="h3_security">Güvenlik</string>
+    <string name="h3_temperature">Sıcaklık</string>
+    <string name="hint_search_apps">Uygulama ara...</string>
+    <string name="label_screen_opacity_strength">Ekran opaklık seviyesi</string>
+    <string name="multi_select_cancel">İptal</string>
+    <string name="multi_select_count">%1$d seçildi</string>
+    <string name="multi_select_move_to_group">Gruba taşı</string>
     <string name="new_group_header">------ Yeni Grup</string>
-    <string name="new_group_header_count">------ Yeni Grup %d</string>
-    <!-- Main :: Temperature labels -->
-    <string name="temp_warm">Ilık</string>
-    <string name="temp_hot">Sıcak</string>
-    <string name="temp_critical">Kritik</string>
-    <!-- Main :: Battery status -->
+    <string name="new_group_header_count">------ Yeni Grup %1$d</string>
+    <string name="privacy_space_row_locked"></string>
+    <string name="privacy_space_row_unlocked"></string>
+    <string name="radio_background_wallpaper">Duvar kağıdı</string>
+    <string name="radio_celsius">Celsius</string>
+    <string name="radio_clock_12">12 saat (AM/PM)</string>
+    <string name="radio_clock_24">24 saat</string>
+    <string name="radio_clock_none">Saati gizle</string>
+    <string name="radio_custom_icon_pack">Özel ikon paketi</string>
+    <string name="radio_fahrenheit">Fahrenheit</string>
+    <string name="radio_icons_monochrome">Monokrom</string>
+    <string name="radio_none"></string>
     <string name="status_charging">Şarj oluyor</string>
     <string name="status_discharging">Deşarj oluyor</string>
     <string name="status_full">Dolu</string>
     <string name="status_not_charging">Şarj etmiyor</string>
     <string name="status_unknown">Bilinmiyor</string>
-    <!-- Main :: Charging types -->
-    <string name="charge_usb">USB</string>
-    <string name="charge_ac">AC</string>
-    <string name="charge_wireless">Kablosuz</string>
-    <!-- Main :: Formatting -->
+    <string name="temp_critical">Kritik</string>
+    <string name="temp_hot">Sıcak</string>
+    <string name="temp_warm">Ilık</string>
+    <string name="toast_clock_app_selected">Seçildi: %1$s</string>
+    <string name="toast_date_app_selected">Seçildi: %1$s</string>
+    <string name="toast_group_label_updated">Etiket Güncellendi</string>
+    <string name="toast_heal_data_done">Veri başarıyla onarıldı</string>
+    <string name="toast_heal_data_unchanged">Eski veri bulunamadı</string>
+    <string name="toast_icon_pack_selected">Seçili ikon paketi: %1$s</string>
+    <string name="toast_import_done">İçe aktarma başarılı</string>
+    <string name="toast_import_failed">İçe aktarma başarısız</string>
+    <string name="toast_label_changed">Uygulama etiketi güncellendi</string>
+    <string name="toast_monochrome_fallback">Monokrom ikonlar Android 13+ gerektirir, mevcut olmayan yerlerde alternatif kullanılıyor</string>
+    <string name="toast_no_clock_app_found">Saat uygulaması bulunamadı</string>
+    <string name="toast_no_date_app_found">Tarih uygulaması bulunamadı</string>
+    <string name="toast_no_icon_pack_found">Uyumlu ikon paketi bulunamadı</string>
+    <string name="toast_pin_saved">PIN kaydedildi</string>
+    <string name="toast_pin_too_short">PIN en az 1 haneli olmalıdır</string>
+    <string name="toast_reset_done">Sıfırlama tamamlandı</string>
+    <string name="toast_reset_failed">Sıfırlama başarısız</string>
+    <string name="toast_select_target_group">Bir hedef grup seçin</string>
+    <string name="toast_unable_launch_app">Uygulama başlatılamadı</string>
+    <string name="toast_unable_open_settings">Başlatıcı ayarları açılamadı</string>
+    <string name="toast_unable_open_wallpaper_app">Duvar kağıdı uygulaması bulunamadı</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-
-    <!-- Multi Select -->
-    <string name="multi_select_count">%d seçildi</string>
-    <string name="multi_select_move_to_group">Gruba taşı</string>
-    <string name="multi_select_cancel">İptal</string>
-
-    <!-- Easter Egg -->
-    <string name="easter_eggs_unlock">Lütfen bununla oynamayı bırakır mısın xD</string>
-    <string name="easter_eggs_counter">%d kez daha...</string>
+    <string name="checkbox_multi_column"></string>
+    <string name="checkbox_show_api_indicators"></string>
+    <string name="checkbox_show_app_size"></string>
 </resources>
