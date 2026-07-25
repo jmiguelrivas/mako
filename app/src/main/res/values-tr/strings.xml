@@ -45,15 +45,15 @@
     <string name="checkbox_show_ungrouped_apps">Gruplanmamış uygulamaları göster</string>
     <string name="checkbox_show_year_day">Yılın gününü göster</string>
     <string name="checkbox_show_year_week"></string>
-    <string name="ctxmenu_move_to_group">Grubu değiştir...</string>
-    <string name="ctxmenu_open_settings">Uygulama ayarları...</string>
-    <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır...</string>
+    <string name="ctxmenu_move_to_group">Grubu değiştir…</string>
+    <string name="ctxmenu_open_settings">Uygulama ayarları…</string>
+    <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır…</string>
     <string name="device_admin_label">Mako ekran kilidi</string>
     <string name="disclaimer_delete_group">Uygulamalarınız aşağıdaki gruba taşınacaktır.</string>
     <string name="disclaimer_pick_clock_app">Buradan bir uygulama seçmek, onu varsayılan saat eylemi olarak ayarlar. Ana ekranınızdaki saate dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_date_app">Buradan bir uygulama seçmek, onu varsayılan tarih eylemi olarak ayarlar. Ana ekranınızdaki tarihe dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_icon_pack">Yüklü bir ikon paketi seçin. Bir ikon eksikse Mako, o uygulama için sistem ikonunu kullanır.</string>
-    <string name="easter_eggs_counter">%1$d kez daha...</string>
+    <string name="easter_eggs_counter">%1$d kez daha…</string>
     <string name="easter_eggs_unlock">Lütfen bununla oynamayı bırakır mısın xD</string>
     <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>
     <string name="filepicker_selected_icon_pack">Seçili paket: %1$s</string>
@@ -70,7 +70,7 @@
     <string name="h3_search">Ara</string>
     <string name="h3_security">Güvenlik</string>
     <string name="h3_temperature">Sıcaklık</string>
-    <string name="hint_search_apps">Uygulama ara...</string>
+    <string name="hint_search_apps">Uygulama ara…</string>
     <string name="label_screen_opacity_strength">Ekran opaklık seviyesi</string>
     <string name="multi_select_cancel">İptal</string>
     <string name="multi_select_count">%1$d seçildi</string>
@@ -87,7 +87,6 @@
     <string name="radio_custom_icon_pack">Özel ikon paketi</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
     <string name="radio_icons_monochrome">Monokrom</string>
-    <string name="radio_none"></string>
     <string name="status_charging">Şarj oluyor</string>
     <string name="status_discharging">Deşarj oluyor</string>
     <string name="status_full">Dolu</string>

@@ -52,15 +52,15 @@
     <string name="checkbox_show_year_week">Show week of the year</string>
     <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
     <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
-    <string name="ctxmenu_move_to_group">Change group...</string>
-    <string name="ctxmenu_open_settings">App settings...</string>
-    <string name="ctxmenu_rename_app">Rename app...</string>
+    <string name="ctxmenu_move_to_group">Change group…</string>
+    <string name="ctxmenu_open_settings">App settings…</string>
+    <string name="ctxmenu_rename_app">Rename app…</string>
     <string name="device_admin_label">Mako screen lock</string>
     <string name="disclaimer_delete_group">Your apps will go to the following group.</string>
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_icon_pack">Choose an installed icon pack. If an icon is missing, Mako will use the system icon for that app.</string>
-    <string name="easter_eggs_counter">%1$d more...</string>
+    <string name="easter_eggs_counter">%1$d more…</string>
     <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
@@ -77,7 +77,7 @@
     <string name="h3_search">Search</string>
     <string name="h3_security">Security</string>
     <string name="h3_temperature">Temperature</string>
-    <string name="hint_search_apps">Search apps...</string>
+    <string name="hint_search_apps">Search apps…</string>
     <string name="label_screen_opacity_strength">Screen opacity strength</string>
     <string name="multi_select_cancel">Cancel</string>
     <string name="multi_select_count">%1$d selected</string>
@@ -94,7 +94,6 @@
     <string name="radio_custom_icon_pack">Custom icon pack</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
     <string name="radio_icons_monochrome">Monochrome</string>
-    <string name="radio_none">None</string>
     <string name="status_charging">Charging</string>
     <string name="status_discharging">Discharging</string>
     <string name="status_full">Full</string>

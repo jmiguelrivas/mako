@@ -87,7 +87,6 @@
     <string name="radio_custom_icon_pack">Oma kuvakepaketti</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
     <string name="radio_icons_monochrome">Mustavalkoinen</string>
-    <string name="radio_none">Ei mitään</string>
     <string name="status_charging">Latautuu</string>
     <string name="status_discharging">Kuluu</string>
     <string name="status_full">Täynnä</string>

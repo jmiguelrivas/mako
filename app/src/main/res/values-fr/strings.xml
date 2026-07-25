@@ -45,15 +45,15 @@
     <string name="checkbox_show_ungrouped_apps">Afficher les applications non groupées</string>
     <string name="checkbox_show_year_day">Afficher le jour de l\'année</string>
     <string name="checkbox_show_year_week"></string>
-    <string name="ctxmenu_move_to_group">Changer de groupe...</string>
-    <string name="ctxmenu_open_settings">Paramètres de l\'application...</string>
-    <string name="ctxmenu_rename_app">Renommer l\'application...</string>
+    <string name="ctxmenu_move_to_group">Changer de groupe…</string>
+    <string name="ctxmenu_open_settings">Paramètres de l\'application…</string>
+    <string name="ctxmenu_rename_app">Renommer l\'application…</string>
     <string name="device_admin_label">Verrouillage d\'écran Mako</string>
     <string name="disclaimer_delete_group">Vos applications seront déplacées vers le groupe suivant.</string>
     <string name="disclaimer_pick_clock_app">Sélectionner une application ici la définira comme action horloge par défaut. Lorsque vous tapotez l\'horloge sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_date_app">Sélectionner une application ici la définira comme action date par défaut. Lorsque vous tapotez la date sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_icon_pack">Choisissez un pack d\'icônes installé. Si une icône est manquante, Mako utilisera l\'icône système de l\'application.</string>
-    <string name="easter_eggs_counter">Encore %1$d...</string>
+    <string name="easter_eggs_counter">Encore %1$d…</string>
     <string name="easter_eggs_unlock">Tu peux arrêter de jouer avec xD</string>
     <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>
     <string name="filepicker_selected_icon_pack">Pack sélectionné : %1$s</string>
@@ -70,7 +70,7 @@
     <string name="h3_search">Recherche</string>
     <string name="h3_security">Sécurité</string>
     <string name="h3_temperature">Température</string>
-    <string name="hint_search_apps">Rechercher des applications...</string>
+    <string name="hint_search_apps">Rechercher des applications…</string>
     <string name="label_screen_opacity_strength">Opacité de l\'écran</string>
     <string name="multi_select_cancel">Annuler</string>
     <string name="multi_select_count">%1$d sélectionnés</string>
@@ -87,7 +87,6 @@
     <string name="radio_custom_icon_pack">Pack d\'icônes personnalisé</string>
     <string name="radio_fahrenheit">Fahrenheit</string>
     <string name="radio_icons_monochrome">Monochrome</string>
-    <string name="radio_none">Aucun</string>
     <string name="status_charging">En charge</string>
     <string name="status_discharging">Décharge</string>
     <string name="status_full">Pleine</string>
