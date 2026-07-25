@@ -5,8 +5,6 @@
     <string name="altdescr_clear_search">I-clear ang paghahanap</string>
     <string name="altdescr_delete_group">Tanggalin ang grupo</string>
     <string name="altdescr_descend_group">Ilipat ang grupo pababa</string>
-    <string name="altdescr_save">I-save</string>
-    <string name="altdescr_save_pin">I-save ang PIN</string>
     <string name="altdescr_search_icon">I-toggle ang paghahanap</string>
     <string name="altdescr_selection_check">Napili</string>
     <string name="altdescr_toggle_group_visibility">I-toggle ang visibility ng grupo</string>
@@ -98,8 +96,7 @@
     <string name="temp_critical">Kritikal</string>
     <string name="temp_hot">Mainit</string>
     <string name="temp_warm">Mainit-init</string>
-    <string name="toast_clock_app_selected">Napili: %1$s</string>
-    <string name="toast_date_app_selected">Napili: %1$s</string>
+    <string name="toast_app_selected">Napili: %1$s</string>
     <string name="toast_group_label_updated">Na-update ang Label</string>
     <string name="toast_heal_data_done">Matagumpay na na-ayos ang data</string>
     <string name="toast_heal_data_unchanged">Walang nakitang lumang data</string>

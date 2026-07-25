@@ -5,8 +5,6 @@
     <string name="altdescr_clear_search">Suche zurücksetzen</string>
     <string name="altdescr_delete_group">Gruppe löschen</string>
     <string name="altdescr_descend_group">Gruppe nach unten verschieben</string>
-    <string name="altdescr_save">Speichern</string>
-    <string name="altdescr_save_pin">PIN speichern</string>
     <string name="altdescr_search_icon">Suche de-/aktivieren</string>
     <string name="altdescr_selection_check">Ausgewählt</string>
     <string name="altdescr_toggle_group_visibility">Gruppensichtbarkeit umschalten</string>
@@ -98,8 +96,7 @@
     <string name="temp_critical">Kritisch</string>
     <string name="temp_hot">Heiß</string>
     <string name="temp_warm">Warm</string>
-    <string name="toast_clock_app_selected">Ausgewählt: %1$s</string>
-    <string name="toast_date_app_selected">Ausgewählt: %1$s</string>
+    <string name="toast_app_selected">Ausgewählt: %1$s</string>
     <string name="toast_group_label_updated">Label aktualisiert</string>
     <string name="toast_heal_data_done">Daten erfolgreich repariert</string>
     <string name="toast_heal_data_unchanged">Keine veralteten Daten gefunden</string>

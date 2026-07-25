@@ -5,8 +5,6 @@
     <string name="altdescr_clear_search">Clear search</string>
     <string name="altdescr_delete_group">删除群组</string>
     <string name="altdescr_descend_group">Move group down</string>
-    <string name="altdescr_save">Save</string>
-    <string name="altdescr_save_pin">保存PIN</string>
     <string name="altdescr_search_icon">Toggle search</string>
     <string name="altdescr_selection_check">Selected</string>
     <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
@@ -98,8 +96,7 @@
     <string name="temp_critical">Critical</string>
     <string name="temp_hot">Hot</string>
     <string name="temp_warm">Warm</string>
-    <string name="toast_clock_app_selected">Selected: %1$s</string>
-    <string name="toast_date_app_selected">Selected: %1$s</string>
+    <string name="toast_app_selected">Selected: %1$s</string>
     <string name="toast_group_label_updated">Label Updated</string>
     <string name="toast_heal_data_done">Data healed successfully</string>
     <string name="toast_heal_data_unchanged">No stale data found</string>

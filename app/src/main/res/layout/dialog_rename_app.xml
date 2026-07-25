@@ -27,7 +27,7 @@
 
             <ImageView
                 android:src="@drawable/px_disk"
-                android:contentDescription="@string/altdescr_save"
+                android:contentDescription="@string/btn_save"
                 style="@style/Icon24" />
         </FrameLayout>
     </LinearLayout>

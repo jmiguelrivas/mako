@@ -85,7 +85,7 @@ class SettingsClockController(private val activity: SettingsActivity) {
             prefs.setClockApp(selectedApp.packageName)
             Toast.makeText(
                 activity,
-                activity.getString(R.string.toast_clock_app_selected, selectedApp.label),
+                activity.getString(R.string.toast_app_selected, selectedApp.label),
                 Toast.LENGTH_SHORT
             ).show()
             dialog.dismiss()

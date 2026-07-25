@@ -5,8 +5,6 @@
     <string name="altdescr_clear_search">Effacer la recherche</string>
     <string name="altdescr_delete_group">Supprimer le groupe</string>
     <string name="altdescr_descend_group">Descendre le groupe</string>
-    <string name="altdescr_save">Enregistrer</string>
-    <string name="altdescr_save_pin">Enregistrer le PIN</string>
     <string name="altdescr_search_icon">Activer/désactiver la recherche</string>
     <string name="altdescr_selection_check">Sélectionné</string>
     <string name="altdescr_toggle_group_visibility">Basculer la visibilité du groupe</string>
@@ -98,8 +96,7 @@
     <string name="temp_critical">Critique</string>
     <string name="temp_hot">Très chaud</string>
     <string name="temp_warm">Chaud</string>
-    <string name="toast_clock_app_selected">Sélectionné : %1$s</string>
-    <string name="toast_date_app_selected">Sélectionné : %1$s</string>
+    <string name="toast_app_selected">Sélectionné : %1$s</string>
     <string name="toast_group_label_updated">Libellé mis à jour</string>
     <string name="toast_heal_data_done"></string>
     <string name="toast_heal_data_unchanged"></string>
