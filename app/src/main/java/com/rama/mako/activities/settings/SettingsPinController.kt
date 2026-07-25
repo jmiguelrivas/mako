@@ -29,17 +29,26 @@ class SettingsPinController(private val activity: SettingsActivity) {
         val pinField = activity.findViewById<WdPinField>(R.id.pin_field_widget)
 
         pinField.onPinSaved = { pin ->
-            if (pin.length >= 1) {
-                prefs.setPin(pin)
-                android.widget.Toast.makeText(
-                    activity,
-                    activity.getString(R.string.toast_pin_saved),
-                    android.widget.Toast.LENGTH_SHORT
-                ).show()
+            if (pin.isNotEmpty()) {
+                android.app.AlertDialog.Builder(activity)
+                    .setTitle(R.string.dialog_save_pin_title)
+                    .setMessage(R.string.dialog_save_pin_warning)
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                        prefs.setPin(pin)
+                        android.widget.Toast.makeText(
+                            activity,
+                            activity.getString(R.string.toast_pin_saved),
+                            android.widget.Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    .show()
             } else {
+                prefs.clearPin()
+                activity.findViewById<WdCheckbox>(R.id.lock_settings).setChecked(false)
                 android.widget.Toast.makeText(
                     activity,
-                    activity.getString(R.string.toast_pin_too_short),
+                    activity.getString(R.string.toast_pin_removed),
                     android.widget.Toast.LENGTH_SHORT
                 ).show()
             }
