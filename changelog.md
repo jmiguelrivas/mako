@@ -1,5 +1,7 @@
 # Changelog
 
+## 49
+
 ## 48
 
 - Migrating double tap functionality to a separated module out of mako
