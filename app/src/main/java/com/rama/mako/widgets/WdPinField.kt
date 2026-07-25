@@ -34,7 +34,7 @@ class WdPinField @JvmOverloads constructor(
         toggleIcon = findViewById(R.id.toggle_visibility_img)
         saveBtn = findViewById(R.id.save_changes)
 
-        pinField.setSaveEnabled(false)
+        pinField.isSaveEnabled = false
         pinField.id = generateViewId()
 
         setupToggle()

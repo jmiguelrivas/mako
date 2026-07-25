@@ -284,7 +284,7 @@ class MainActivity : CsActivity() {
         }
 
         val imm =
-            getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
         imm.showSoftInput(searchField, 0)
     }
 
@@ -306,7 +306,7 @@ class MainActivity : CsActivity() {
 
         if (hideKeyboard) {
             val imm =
-                getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+                getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
             imm.hideSoftInputFromWindow(searchField.windowToken, 0)
         }
     }

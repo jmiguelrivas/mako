@@ -50,7 +50,7 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
 
         name.setText(groupLabel)
         name.tag = groupId
-        name.setSaveEnabled(false)
+        name.isSaveEnabled = false
         name.id = generateViewId()
 
         fun updateIcon() {
@@ -120,7 +120,7 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
 
             targetGroups.forEachIndexed { index, targetId ->
                 val radio = RadioButton(activity).apply {
-                    id = View.generateViewId()
+                    id = generateViewId()
                     text = prefs.getGroupLabel(targetId)
                 }
 

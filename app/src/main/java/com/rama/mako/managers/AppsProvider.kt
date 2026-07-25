@@ -150,7 +150,7 @@ class AppsProvider(private val context: Context) {
         if (userHandle.hashCode() == 0) return null
         return context.packageManager.getUserBadgedLabel("", userHandle).toString()
             .trim()
-            .firstOrNull() { it.isLetter() }
+            .firstOrNull { it.isLetter() }
             ?.uppercase()
             ?: "E"
     }

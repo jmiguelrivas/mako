@@ -222,7 +222,7 @@ class SettingsAppearanceController(private val activity: SettingsActivity) {
         val currentPalette = ThemeManager.paletteFor(prefs.getTheme(), activity)
         populateCustomFields(currentPalette)
 
-        val saveButton = activity.findViewById<android.view.View>(R.id.save_custom_theme)
+        val saveButton = activity.findViewById<View>(R.id.save_custom_theme)
         saveButton.setOnClickListener {
             val fields = mapOf(
                 PrefKeys.APP_THEME_FOREGROUND to activity.findViewById<WdColorPicker>(R.id.foreground),
