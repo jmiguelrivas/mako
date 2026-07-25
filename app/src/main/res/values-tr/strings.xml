@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_description">Mako\'nun erişilebilirlik hareketiyle ekranı kilitlemesine izin verir.</string>
     <string name="activity_lock_label">Kilitle</string>
     <string name="altdescr_ascend_group">Grubu yukarı taşı</string>
     <string name="altdescr_clear_search">Aramayı temizle</string>
@@ -51,26 +50,11 @@
     <string name="ctxmenu_move_to_group">Grubu değiştir...</string>
     <string name="ctxmenu_open_settings">Uygulama ayarları...</string>
     <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır...</string>
-    <string name="device_admin_description">Mako\'nun ana ekran hareketiyle ekranı kilitlemesine izin verir.</string>
     <string name="device_admin_label">Mako ekran kilidi</string>
     <string name="disclaimer_delete_group">Uygulamalarınız aşağıdaki gruba taşınacaktır.</string>
     <string name="disclaimer_pick_clock_app">Buradan bir uygulama seçmek, onu varsayılan saat eylemi olarak ayarlar. Ana ekranınızdaki saate dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_date_app">Buradan bir uygulama seçmek, onu varsayılan tarih eylemi olarak ayarlar. Ana ekranınızdaki tarihe dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_icon_pack">Yüklü bir ikon paketi seçin. Bir ikon eksikse Mako, o uygulama için sistem ikonunu kullanır.</string>
-    <string name="double_tap_lock_method_accessibility">Erişilebilirlik servisi</string>
-    <string name="double_tap_lock_method_accessibility_info">Erişilebilirlik servisi kullanır.
-Biyometrik giriş (parmak izi, yüz) normal çalışır.
-Android 9+ gerekir.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Android 9+ gerektirir</string>
-    <string name="double_tap_lock_method_admin_info">Cihaz yöneticisi API\'si kullanır.
-Biyometrik giriş (parmak izi) desteklenmeyebilir.</string>
-    <string name="double_tap_lock_method_device_admin">Cihaz yöneticisi</string>
-    <string name="double_tap_lock_method_label">Kilit yöntemi</string>
-    <string name="double_tap_sleep_admin_declined_toast">Cihaz yöneticisi erişimi verilmedi</string>
-    <string name="double_tap_sleep_admin_explanation">Mako\'nun çift dokunarak ekranı kapatabilmesi için cihaz yöneticisi iznine ihtiyacı vardır.</string>
-    <string name="double_tap_sleep_enable_admin_toast">Çift dokunarak uyutma için cihaz yöneticisi erişimini etkinleştir</string>
-    <string name="double_tap_sleep_failed_toast">Ekran kilitlenemedi</string>
-    <string name="double_tap_sleep_label">Çift dokunarak ekranı kapat</string>
     <string name="easter_eggs_counter">%1$d kez daha...</string>
     <string name="easter_eggs_unlock">Lütfen bununla oynamayı bırakır mısın xD</string>
     <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>

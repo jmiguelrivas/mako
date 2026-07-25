@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_description">Permite que Mako bloqueie a tela através de gesto de acessibilidade.</string>
     <string name="activity_lock_label">Bloqueio</string>
     <string name="altdescr_ascend_group">Mover Grupo Acima</string>
     <string name="altdescr_clear_search">Limpar Pesquisa</string>
@@ -51,23 +50,11 @@
     <string name="ctxmenu_move_to_group">Mover para Grupo...</string>
     <string name="ctxmenu_open_settings">Configurações App...</string>
     <string name="ctxmenu_rename_app">Renomear App...</string>
-    <string name="device_admin_description">Permite que Mako bloqueie a tela do gesto da tela inicial.</string>
     <string name="device_admin_label">Tela de bloqueio Mako</string>
     <string name="disclaimer_delete_group">Seus aplicativos irão para o grupo a seguir.</string>
     <string name="disclaimer_pick_clock_app">Selecionar um aplicativo aqui irá defini-lo como sua ação de toque padrão. Quando você toca no relógio na tela inicial, este aplicativo será iniciado.</string>
     <string name="disclaimer_pick_date_app">Selecionar um aplicativo aqui irá defini-lo como sua ação de data padrão. Quando você toca na data na tela inicial, este aplicativo será iniciado.</string>
     <string name="disclaimer_pick_icon_pack">Escolha um pacote de ícones instalado. Se um ícone estiver ausente, o Mako usará o ícone do sistema para esse aplicativo.</string>
-    <string name="double_tap_lock_method_accessibility">Serviço de Acessibilidade</string>
-    <string name="double_tap_lock_method_accessibility_info">Usar Serviço de Acessibilidade.Desbloqueio Biométrico (Digital, facial) Funciona normalmente.Requer Android 9+.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Requer Android 9+</string>
-    <string name="double_tap_lock_method_admin_info">Usa a API do Admin do dispositivo.O desbloqueio biométrico (impressão digital) pode não funcionar.</string>
-    <string name="double_tap_lock_method_device_admin">Admin do dispositivo</string>
-    <string name="double_tap_lock_method_label">Método de bloqueio</string>
-    <string name="double_tap_sleep_admin_declined_toast">O acesso do administrador do dispositivo não foi concedido</string>
-    <string name="double_tap_sleep_admin_explanation">Mako precisa de permissão de administrador do dispositivo para desligar a tela quando você toca duas vezes na tela inicial.</string>
-    <string name="double_tap_sleep_enable_admin_toast">Ative o acesso do administrador do dispositivo para toque duplo para dormir</string>
-    <string name="double_tap_sleep_failed_toast">Não é possível bloquear a tela</string>
-    <string name="double_tap_sleep_label">Toque duplo para bloquear</string>
     <string name="easter_eggs_counter">%1$d mais...</string>
     <string name="easter_eggs_unlock">Pode, por favor, parar de brincar com ele xD</string>
     <string name="filepicker_icon_pack_not_selected">Nenhum pacote de ícones selecionado</string>

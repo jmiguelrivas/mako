@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_description">Allows Mako to lock the screen via accessibility gesture.</string>
     <string name="activity_lock_label">Lock</string>
     <string name="altdescr_ascend_group">Move group up</string>
     <string name="altdescr_clear_search">Clear search</string>
@@ -58,26 +57,11 @@
     <string name="ctxmenu_move_to_group">Change group...</string>
     <string name="ctxmenu_open_settings">App settings...</string>
     <string name="ctxmenu_rename_app">Rename app...</string>
-    <string name="device_admin_description">Allows Mako to lock the screen from the home screen gesture.</string>
     <string name="device_admin_label">Mako screen lock</string>
     <string name="disclaimer_delete_group">Your apps will go to the following group.</string>
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_icon_pack">Choose an installed icon pack. If an icon is missing, Mako will use the system icon for that app.</string>
-    <string name="double_tap_lock_method_accessibility">Accessibility Service</string>
-    <string name="double_tap_lock_method_accessibility_info">Uses Accessibility Service.
-Biometric unlock (fingerprint, face) works normally.
-Requires Android 9+.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Requires Android 9+</string>
-    <string name="double_tap_lock_method_admin_info">Uses Device Admin API.
-Biometric unlock (fingerprint) may not work.</string>
-    <string name="double_tap_lock_method_device_admin">Device Admin</string>
-    <string name="double_tap_lock_method_label">Lock method</string>
-    <string name="double_tap_sleep_admin_declined_toast">Device admin access was not granted</string>
-    <string name="double_tap_sleep_admin_explanation">Mako needs device admin permission to turn off the screen when you double tap on the home screen.</string>
-    <string name="double_tap_sleep_enable_admin_toast">Enable device admin access for double tap to sleep</string>
-    <string name="double_tap_sleep_failed_toast">Unable to lock the screen</string>
-    <string name="double_tap_sleep_label">Double tap to sleep</string>
     <string name="easter_eggs_counter">%1$d more...</string>
     <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_description">Permet à Mako de verrouiller l\'écran via un geste d\'accessibilité.</string>
     <string name="activity_lock_label">Verrouiller</string>
     <string name="altdescr_ascend_group">Monter le groupe</string>
     <string name="altdescr_clear_search">Effacer la recherche</string>
@@ -51,26 +50,11 @@
     <string name="ctxmenu_move_to_group">Changer de groupe...</string>
     <string name="ctxmenu_open_settings">Paramètres de l\'application...</string>
     <string name="ctxmenu_rename_app">Renommer l\'application...</string>
-    <string name="device_admin_description">Permet à Mako de verrouiller l\'écran depuis le geste de l\'écran d\'accueil.</string>
     <string name="device_admin_label">Verrouillage d\'écran Mako</string>
     <string name="disclaimer_delete_group">Vos applications seront déplacées vers le groupe suivant.</string>
     <string name="disclaimer_pick_clock_app">Sélectionner une application ici la définira comme action horloge par défaut. Lorsque vous tapotez l\'horloge sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_date_app">Sélectionner une application ici la définira comme action date par défaut. Lorsque vous tapotez la date sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_icon_pack">Choisissez un pack d\'icônes installé. Si une icône est manquante, Mako utilisera l\'icône système de l\'application.</string>
-    <string name="double_tap_lock_method_accessibility">Service d\'accessibilité</string>
-    <string name="double_tap_lock_method_accessibility_info">Utilise le Service d\'accessibilité.
-Le déverrouillage biométrique (empreinte digitale, visage) fonctionne normalement.
-Nécessite Android 9+.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Nécessite Android 9+</string>
-    <string name="double_tap_lock_method_admin_info">Utilise l\'API Administrateur de l\'appareil.
-Le déverrouillage biométrique (empreinte digitale) peut ne pas fonctionner.</string>
-    <string name="double_tap_lock_method_device_admin">Administrateur de l\'appareil</string>
-    <string name="double_tap_lock_method_label">Méthode de verrouillage</string>
-    <string name="double_tap_sleep_admin_declined_toast">L\'accès administrateur de l\'appareil n\'a pas été accordé</string>
-    <string name="double_tap_sleep_admin_explanation">Mako a besoin de l\'autorisation d\'administrateur de l\'appareil pour éteindre l\'écran lorsque vous effectuez un double appui sur l\'écran d\'accueil.</string>
-    <string name="double_tap_sleep_enable_admin_toast">Activez l\'accès administrateur de l\'appareil pour le double appui</string>
-    <string name="double_tap_sleep_failed_toast">Impossible de verrouiller l\'écran</string>
-    <string name="double_tap_sleep_label">Double appui pour éteindre l\'écran</string>
     <string name="easter_eggs_counter">Encore %1$d...</string>
     <string name="easter_eggs_unlock">Tu peux arrêter de jouer avec xD</string>
     <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_description">Pinapayagan ang Mako na i-lock ang screen gamit ang accessibility gesture.</string>
     <string name="activity_lock_label">I-lock</string>
     <string name="altdescr_ascend_group">Ilipat ang grupo pataas</string>
     <string name="altdescr_clear_search">I-clear ang paghahanap</string>
@@ -51,26 +50,11 @@
     <string name="ctxmenu_move_to_group">Palitan ang grupo...</string>
     <string name="ctxmenu_open_settings">Mga setting ng app...</string>
     <string name="ctxmenu_rename_app">Palitan ang pangalan ng app...</string>
-    <string name="device_admin_description">Pinapayagan ang Mako na i-lock ang screen gamit ang home screen gesture.</string>
     <string name="device_admin_label">Mako screen lock</string>
     <string name="disclaimer_delete_group">Ang iyong mga app ay ililipat sa sumusunod na grupo.</string>
     <string name="disclaimer_pick_clock_app">Kapag pumili ka ng app dito, ito ang magiging default na aksyon ng orasan. Kapag na-tap mo ang orasan sa iyong home screen, ilulunsad ang app na ito.</string>
     <string name="disclaimer_pick_date_app">Kapag pumili ka ng app dito, ito ang magiging default na aksyon ng petsa. Kapag na-tap mo ang petsa sa iyong home screen, ilulunsad ang app na ito.</string>
     <string name="disclaimer_pick_icon_pack">Pumili ng naka-install na icon pack. Kung may kulang na icon, gagamitin ng Mako ang system icon para sa app na iyon.</string>
-    <string name="double_tap_lock_method_accessibility">Accessibility Service</string>
-    <string name="double_tap_lock_method_accessibility_info">Gumagamit ng Accessibility Service.
-Gumagana nang normal ang biometric unlock (fingerprint, face).
-Kailangan ng Android 9+.</string>
-    <string name="double_tap_lock_method_accessibility_unavailable">Kailangan ng Android 9+</string>
-    <string name="double_tap_lock_method_admin_info">Gumagamit ng Device Admin API.
-Maaaring hindi gumana ang biometric unlock (fingerprint).</string>
-    <string name="double_tap_lock_method_device_admin">Device Admin</string>
-    <string name="double_tap_lock_method_label">Paraan ng pag-lock</string>
-    <string name="double_tap_sleep_admin_declined_toast">Hindi naibigay ang access sa device admin</string>
-    <string name="double_tap_sleep_admin_explanation">Kailangan ng Mako ng pahintulot na device admin para patayin ang screen kapag dalawang beses mong tinap ang home screen.</string>
-    <string name="double_tap_sleep_enable_admin_toast">I-enable ang access sa device admin para sa double tap to sleep</string>
-    <string name="double_tap_sleep_failed_toast">Hindi ma-lock ang screen</string>
-    <string name="double_tap_sleep_label">Double tap para matulog</string>
     <string name="easter_eggs_counter">%1$d pa...</string>
     <string name="easter_eggs_unlock">Pwede bang tumigil ka sa paglalaro dito xD</string>
     <string name="filepicker_icon_pack_not_selected">Walang napiling icon pack</string>
