@@ -53,6 +53,8 @@
     <string name="disclaimer_pick_clock_app">Sélectionner une application ici la définira comme action horloge par défaut. Lorsque vous tapotez l\'horloge sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_date_app">Sélectionner une application ici la définira comme action date par défaut. Lorsque vous tapotez la date sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_icon_pack">Choisissez un pack d\'icônes installé. Si une icône est manquante, Mako utilisera l\'icône système de l\'application.</string>
+    <string name="dialog_save_pin_title">Enregistrer ce code PIN ?</string>
+    <string name="dialog_save_pin_warning">Veillez à vous en souvenir. Si vous oubliez votre code PIN, vous devrez peut-être effacer les données de l\'application Mako pour accéder de nouveau aux paramètres.</string>
     <string name="easter_eggs_counter">Encore %1$d…</string>
     <string name="easter_eggs_unlock">Tu peux arrêter de jouer avec xD</string>
     <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>
@@ -107,8 +109,8 @@
     <string name="toast_no_clock_app_found">Aucune application horloge trouvée</string>
     <string name="toast_no_date_app_found">Aucune application de date trouvée</string>
     <string name="toast_no_icon_pack_found">Aucun pack d\'icônes compatible trouvé</string>
+    <string name="toast_pin_removed">Code PIN supprimé et paramètres déverrouillés</string>
     <string name="toast_pin_saved">PIN enregistré</string>
-    <string name="toast_pin_too_short">Le PIN doit comporter au moins 1 chiffre</string>
     <string name="toast_reset_done">Réinitialisation effectuée</string>
     <string name="toast_reset_failed">Échec de la réinitialisation</string>
     <string name="toast_select_target_group">Sélectionnez un groupe cible</string>

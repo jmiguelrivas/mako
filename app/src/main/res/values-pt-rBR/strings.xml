@@ -53,6 +53,8 @@
     <string name="disclaimer_pick_clock_app">Selecionar um aplicativo aqui irá defini-lo como sua ação de toque padrão. Quando você toca no relógio na tela inicial, este aplicativo será iniciado.</string>
     <string name="disclaimer_pick_date_app">Selecionar um aplicativo aqui irá defini-lo como sua ação de data padrão. Quando você toca na data na tela inicial, este aplicativo será iniciado.</string>
     <string name="disclaimer_pick_icon_pack">Escolha um pacote de ícones instalado. Se um ícone estiver ausente, o Mako usará o ícone do sistema para esse aplicativo.</string>
+    <string name="dialog_save_pin_title">Salvar este PIN?</string>
+    <string name="dialog_save_pin_warning">Memorize este PIN. Se você esquecê-lo, talvez seja necessário limpar os dados do app Mako para recuperar o acesso às configurações.</string>
     <string name="easter_eggs_counter">%1$d mais…</string>
     <string name="easter_eggs_unlock">Pode, por favor, parar de brincar com ele xD</string>
     <string name="filepicker_icon_pack_not_selected">Nenhum pacote de ícones selecionado</string>
@@ -107,8 +109,8 @@
     <string name="toast_no_clock_app_found">Nenhum aplicativo de relógio encontrado</string>
     <string name="toast_no_date_app_found">Nenhum aplicativo de data encontrado</string>
     <string name="toast_no_icon_pack_found">Nenhum pacote de ícones compatível encontrado</string>
+    <string name="toast_pin_removed">PIN removido e configurações desbloqueadas</string>
     <string name="toast_pin_saved">PIN salvo</string>
-    <string name="toast_pin_too_short">PIN deve ser de pelo menos 1 dígito</string>
     <string name="toast_reset_done">Redefinição feita</string>
     <string name="toast_reset_failed">Redefinir falhou</string>
     <string name="toast_select_target_group">Selecione um grupo de destino</string>
