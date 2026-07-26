@@ -53,6 +53,8 @@
     <string name="disclaimer_pick_clock_app">Valitse sovellus, joka avataan, kun kosketat kellonaikaa kotinäytössä.</string>
     <string name="disclaimer_pick_date_app">Valitse sovellus, joka avataan, kun kosketat päivämäärää kotinäytössä.</string>
     <string name="disclaimer_pick_icon_pack">Valitse kuvakkeiden tyyli. Jos valitussa tyylissä ei ole jollekin sovellukselle kuvaketta, käytetään sovelluksen normaalia kuvaketta.</string>
+    <string name="dialog_save_pin_title">Tallennetaanko tämä PIN-koodi?</string>
+    <string name="dialog_save_pin_warning">Varmista, että muistat sen. Jos unohdat PIN-koodin, sinun on ehkä tyhjennettävä Makon sovellustiedot päästäksesi jälleen asetuksiin.</string>
     <string name="easter_eggs_counter">%1$d lisää…</string>
     <string name="easter_eggs_unlock">Lopeta se leikkiminen xD</string>
     <string name="filepicker_icon_pack_not_selected">Kuvakepakettia ei ole valittu</string>
@@ -107,8 +109,8 @@
     <string name="toast_no_clock_app_found">Ei kellosovellusta</string>
     <string name="toast_no_date_app_found">Ei kalenterisovellusta</string>
     <string name="toast_no_icon_pack_found">Sopivaa kuvakepakettia ei löytynyt</string>
+    <string name="toast_pin_removed">PIN-koodi poistettu ja asetusten lukitus avattu</string>
     <string name="toast_pin_saved">PIN tallennettu</string>
-    <string name="toast_pin_too_short">Aseta vähintään yksi numero</string>
     <string name="toast_reset_done">Nollaus onnistui</string>
     <string name="toast_reset_failed">Nollaus epäonnistui</string>
     <string name="toast_select_target_group">Valitse ryhmä</string>

@@ -52,6 +52,8 @@
     <string name="disclaimer_pick_clock_app">Buradan bir uygulama seçmek, onu varsayılan saat eylemi olarak ayarlar. Ana ekranınızdaki saate dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_date_app">Buradan bir uygulama seçmek, onu varsayılan tarih eylemi olarak ayarlar. Ana ekranınızdaki tarihe dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_icon_pack">Yüklü bir ikon paketi seçin. Bir ikon eksikse Mako, o uygulama için sistem ikonunu kullanır.</string>
+    <string name="dialog_save_pin_title">Bu PIN kaydedilsin mi?</string>
+    <string name="dialog_save_pin_warning">Bu PIN\'i hatırladığınızdan emin olun. PIN\'inizi unutursanız ayarlara yeniden erişmek için Mako\'nun uygulama verilerini temizlemeniz gerekebilir.</string>
     <string name="easter_eggs_counter">%1$d kez daha…</string>
     <string name="easter_eggs_unlock">Lütfen bununla oynamayı bırakır mısın xD</string>
     <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>
@@ -104,8 +106,8 @@
     <string name="toast_no_clock_app_found">Saat uygulaması bulunamadı</string>
     <string name="toast_no_date_app_found">Tarih uygulaması bulunamadı</string>
     <string name="toast_no_icon_pack_found">Uyumlu ikon paketi bulunamadı</string>
+    <string name="toast_pin_removed">PIN kaldırıldı ve ayarların kilidi açıldı</string>
     <string name="toast_pin_saved">PIN kaydedildi</string>
-    <string name="toast_pin_too_short">PIN en az 1 haneli olmalıdır</string>
     <string name="toast_reset_done">Sıfırlama tamamlandı</string>
     <string name="toast_reset_failed">Sıfırlama başarısız</string>
     <string name="toast_select_target_group">Bir hedef grup seçin</string>

@@ -52,6 +52,8 @@
     <string name="disclaimer_pick_clock_app">在主屏幕上点击时间，默认打开时钟。在此设置一个应用，点击时钟将会启动该应用。</string>
     <string name="disclaimer_pick_date_app">在主屏幕上点击日期，默认打开日历。在此设置一个应用，点击日期将会启动该应用。</string>
     <string name="disclaimer_pick_icon_pack">选择的图标包如果缺少某个图标,Mako启动器将使用该应用默认的图标。</string>
+    <string name="dialog_save_pin_title">保存此 PIN？</string>
+    <string name="dialog_save_pin_warning">请务必记住此 PIN。如果忘记 PIN，可能需要清除 Mako 的应用数据才能重新访问设置。</string>
     <string name="easter_eggs_counter">%1$d more…</string>
     <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
     <string name="filepicker_icon_pack_not_selected">未选择图标包</string>
@@ -106,8 +108,8 @@
     <string name="toast_no_clock_app_found">No clock app found</string>
     <string name="toast_no_date_app_found">No date app found</string>
     <string name="toast_no_icon_pack_found">没有安装图标包</string>
+    <string name="toast_pin_removed">PIN 已移除，设置已解锁</string>
     <string name="toast_pin_saved">PIN 已保存</string>
-    <string name="toast_pin_too_short">PIN密码必须至少1位数字</string>
     <string name="toast_reset_done">Reset done</string>
     <string name="toast_reset_failed">Reset failed</string>
     <string name="toast_select_target_group">Select a target group</string>

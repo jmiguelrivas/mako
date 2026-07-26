@@ -52,6 +52,8 @@
     <string name="disclaimer_pick_clock_app">Die ausgewählte App wird als Standard-Uhr-Aktion festgelegt. Beim Antippen der Uhr auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_date_app">Die ausgewählte App wird als Standard-Datumsaktion festgelegt. Beim Antippen des Datums auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_icon_pack">Wähle ein installiertes Icon-Paket aus. Bei fehlenden Icons wird Mako das System-Icon für die App verwenden.</string>
+    <string name="dialog_save_pin_title">Diese PIN speichern?</string>
+    <string name="dialog_save_pin_warning">Merke dir diese PIN. Wenn du sie vergisst, musst du möglicherweise die App-Daten von Mako löschen, um wieder auf die Einstellungen zugreifen zu können.</string>
     <string name="easter_eggs_counter">Noch %1$d…</string>
     <string name="easter_eggs_unlock">Kannst du bitte aufhören damit zu spielen xD</string>
     <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>
@@ -104,8 +106,8 @@
     <string name="toast_no_clock_app_found">Keine Uhr-App gefunden</string>
     <string name="toast_no_date_app_found">Keine Datums-App gefunden</string>
     <string name="toast_no_icon_pack_found">Kein kompatibles Icon-Paket gefunden</string>
+    <string name="toast_pin_removed">PIN entfernt und Einstellungen entsperrt</string>
     <string name="toast_pin_saved">PIN gespeichert</string>
-    <string name="toast_pin_too_short">PIN muss mindestens 1 Ziffer lang sein</string>
     <string name="toast_reset_done">Zurücksetzen abgeschlossen</string>
     <string name="toast_reset_failed">Zurücksetzen fehlgeschlagen</string>
     <string name="toast_select_target_group">Wählen Sie eine Zielgruppe aus</string>

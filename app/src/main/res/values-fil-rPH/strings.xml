@@ -53,6 +53,8 @@
     <string name="disclaimer_pick_clock_app">Kapag pumili ka ng app dito, ito ang magiging default na aksyon ng orasan. Kapag na-tap mo ang orasan sa iyong home screen, ilulunsad ang app na ito.</string>
     <string name="disclaimer_pick_date_app">Kapag pumili ka ng app dito, ito ang magiging default na aksyon ng petsa. Kapag na-tap mo ang petsa sa iyong home screen, ilulunsad ang app na ito.</string>
     <string name="disclaimer_pick_icon_pack">Pumili ng naka-install na icon pack. Kung may kulang na icon, gagamitin ng Mako ang system icon para sa app na iyon.</string>
+    <string name="dialog_save_pin_title">I-save ang PIN na ito?</string>
+    <string name="dialog_save_pin_warning">Siguraduhing matatandaan mo ito. Kapag nakalimutan mo ang iyong PIN, maaaring kailanganin mong i-clear ang data ng Mako app para muling ma-access ang settings.</string>
     <string name="easter_eggs_counter">%1$d pa…</string>
     <string name="easter_eggs_unlock">Pwede bang tumigil ka sa paglalaro dito xD</string>
     <string name="filepicker_icon_pack_not_selected">Walang napiling icon pack</string>
@@ -107,8 +109,8 @@
     <string name="toast_no_clock_app_found">Walang nakitang app ng orasan</string>
     <string name="toast_no_date_app_found">Walang nakitang app ng petsa</string>
     <string name="toast_no_icon_pack_found">Walang nakitang compatible na icon pack</string>
+    <string name="toast_pin_removed">Tinanggal ang PIN at na-unlock ang settings</string>
     <string name="toast_pin_saved">Na-save ang PIN</string>
-    <string name="toast_pin_too_short">Ang PIN ay dapat may hindi bababa sa 1 na digit</string>
     <string name="toast_reset_done">Tapos na ang pag-reset</string>
     <string name="toast_reset_failed">Nabigo ang pag-reset</string>
     <string name="toast_select_target_group">Pumili ng target na grupo</string>

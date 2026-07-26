@@ -60,6 +60,8 @@
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_icon_pack">Choose an installed icon pack. If an icon is missing, Mako will use the system icon for that app.</string>
+    <string name="dialog_save_pin_title">Save this PIN?</string>
+    <string name="dialog_save_pin_warning">Make sure you remember it. If you forget your PIN, you may need to clear Mako\'s app data to regain access to settings.</string>
     <string name="easter_eggs_counter">%1$d more…</string>
     <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
@@ -114,8 +116,8 @@
     <string name="toast_no_clock_app_found">No clock app found</string>
     <string name="toast_no_date_app_found">No date app found</string>
     <string name="toast_no_icon_pack_found">No compatible icon pack found</string>
+    <string name="toast_pin_removed">PIN removed and settings unlocked</string>
     <string name="toast_pin_saved">PIN saved</string>
-    <string name="toast_pin_too_short">PIN must be at least 1 digits</string>
     <string name="toast_reset_done">Reset done</string>
     <string name="toast_reset_failed">Reset failed</string>
     <string name="toast_select_target_group">Select a target group</string>
