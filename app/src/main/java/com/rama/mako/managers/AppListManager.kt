@@ -13,6 +13,9 @@ import android.view.View.generateViewId
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.rama.mako.R
 import com.rama.bohio.R as BohioR
 import com.rama.bohio.util.Dimens.spToPx
@@ -25,7 +28,8 @@ import com.rama.bohio.managers.ThemeManager
 
 class AppListManager(
     private val context: Context,
-    private val container: LinearLayout,
+    private val recyclerView: RecyclerView,
+    private val headerView: View,
     private val appsProvider: AppsProvider,
     private val onAppLaunched: (() -> Unit)? = null
 ) {
@@ -46,9 +50,8 @@ class AppListManager(
     private val iconManager = IconManager(context, appsProvider)
     private val groupsManager = GroupsManager(context, appsProvider)
     private val items = mutableListOf<ListItem>()
-    private val adapters = mutableListOf<ArrayAdapter<ListItem>>()
-    private val adapterLists = mutableListOf<MutableList<ListItem>>()
-    private var columnCount: Int = 1
+    private val adapter = AppAdapter()
+    private lateinit var layoutManager: GridLayoutManager
     private var allAppsCache: List<AppsProvider.AppEntry> = emptyList()
     private val searchableNameCache = mutableMapOf<String, String>()
     private val packageNameCache = mutableMapOf<String, String>()
@@ -60,6 +63,10 @@ class AppListManager(
         private const val PACKAGE_SCORE_PENALTY = 2000
         private const val GROUP_SCORE_PENALTY = 4000
         private const val APP_SIZE_WARNING_BYTES = 200L * 1024 * 1024 // 200 MB
+        private const val VIEW_TYPE_HOME_HEADER = 0
+        private const val VIEW_TYPE_GROUP_HEADER = 1
+        private const val VIEW_TYPE_APP = 2
+        private const val VIEW_TYPE_EMPTY = 3
     }
 
     private var isMultiSelectMode = false
@@ -68,10 +75,9 @@ class AppListManager(
     private var selectedCountText: TextView? = null
     private var renameButton: FrameLayout? = null
     private var appSettingsButton: FrameLayout? = null
-    private var suppressNextClick = false
 
     fun setup() {
-        recreateListViews()
+        configureRecyclerView()
         updateAppsCache()
         buildItems()
         setupMultiSelectBar()
@@ -88,8 +94,9 @@ class AppListManager(
     fun isInMultiSelectMode(): Boolean = isMultiSelectMode
 
     fun refresh() {
-        if (computeColumnCount() != columnCount) {
-            recreateListViews()
+        val columnCount = computeColumnCount()
+        if (layoutManager.spanCount != columnCount) {
+            layoutManager.spanCount = columnCount
         }
         updateAppsCache()
         buildItems()
@@ -157,7 +164,7 @@ class AppListManager(
                 .forEach { items.add(ListItem.App(it)) }
         }
 
-        splitItemsForColumns()
+        adapter.updateItems(arrangeItemsForColumns(items))
     }
 
     private fun getAppCacheKey(app: AppsProvider.AppEntry): String {
@@ -409,7 +416,7 @@ class AppListManager(
 
         items.clear()
         items.addAll(filteredItems)
-        splitItemsForColumns()
+        adapter.updateItems(arrangeItemsForColumns(items))
     }
 
     private fun openAppSettings(app: AppsProvider.AppEntry) {
@@ -429,11 +436,6 @@ class AppListManager(
     }
 
     private fun handleIconClick(app: AppsProvider.AppEntry) {
-        if (suppressNextClick) {
-            suppressNextClick = false
-            return
-        }
-
         if (isMultiSelectMode) {
             toggleSelection(app)
             return
@@ -608,7 +610,7 @@ class AppListManager(
     }
 
     private fun setupMultiSelectBar() {
-        val root = container.rootView
+        val root = recyclerView.rootView
         multiSelectBar = root.findViewById(R.id.menu_bar)
         selectedCountText = root.findViewById(R.id.selected_count)
         renameButton = root.findViewById(R.id.rename_btn)
@@ -750,276 +752,259 @@ class AppListManager(
         return context.resources.getInteger(R.integer.app_list_column_count)
     }
 
-    private fun recreateListViews() {
-        columnCount = computeColumnCount()
-        container.removeAllViews()
-        adapters.clear()
-        adapterLists.clear()
+    private fun arrangeItemsForColumns(source: List<ListItem>): List<ListItem> {
+        val columnCount = computeColumnCount()
+        if (columnCount == 1) return source.toList()
 
-        repeat(columnCount) { columnIndex ->
-            val listView = ListView(context).apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    0,
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    1f
-                )
-                dividerHeight = 0
-                divider = null
-                isFocusableInTouchMode = false
-                isNestedScrollingEnabled = false
-                setCacheColorHint(android.graphics.Color.TRANSPARENT)
-            }
+        val columns = if (prefs.hasGroupHeaders()) {
+            splitItemsByGroupBlocks(source, columnCount)
+        } else {
+            splitItemsEvenly(source, columnCount)
+        }
+        val rowCount = columns.maxOfOrNull { it.size } ?: 0
 
-            container.addView(listView)
-
-            val backingList = mutableListOf<ListItem>()
-            val adapter = createColumnAdapter(backingList)
-            adapters.add(adapter)
-            adapterLists.add(backingList)
-            listView.adapter = adapter
-
-            listView.setOnFocusChangeListener { _, hasFocus ->
-                if (hasFocus && listView.focusedChild == null) {
-                    listView.setSelection(0)
+        return buildList(rowCount * columnCount) {
+            repeat(rowCount) { row ->
+                repeat(columnCount) { column ->
+                    add(columns[column].getOrNull(row) ?: ListItem.Empty)
                 }
             }
-
-            listView.setOnItemClickListener { _, _, position, _ ->
-                if (suppressNextClick) {
-                    suppressNextClick = false
-                    return@setOnItemClickListener
-                }
-                when (val item = adapter.getItem(position) ?: return@setOnItemClickListener) {
-                    is ListItem.Header -> {
-                        if (prefs.hasCollapsibleGroups()) {
-                            val isExpanded = prefs.isGroupExpanded(item.id)
-                            prefs.setGroupExpanded(item.id, !isExpanded)
-                            refresh()
-                        }
-                    }
-
-                    is ListItem.App -> {
-                        if (isMultiSelectMode) {
-                            toggleSelection(item.info)
-                        } else if (!appsProvider.launch(item.info)) {
-                            Toast.makeText(
-                                context,
-                                context.getString(R.string.toast_unable_launch_app),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            refresh()
-                        } else {
-                            onAppLaunched?.invoke()
-                        }
-                    }
-                }
-            }
-
         }
     }
 
-    private fun splitItemsForColumns() {
-        val columns = when {
-            columnCount == 1 -> listOf(items.toList())
-            prefs.hasGroupHeaders() -> splitItemsByGroupBlocks()
-            else -> splitItemsEvenly()
-        }
-
-        adapters.forEachIndexed { index, adapter ->
-            val backingList = adapterLists[index]
-            backingList.clear()
-            backingList.addAll(columns.getOrElse(index) { emptyList() })
-            adapter.notifyDataSetChanged()
-        }
-    }
-
-    private fun splitItemsByGroupBlocks(): List<List<ListItem>> {
+    private fun splitItemsByGroupBlocks(
+        source: List<ListItem>,
+        columnCount: Int
+    ): List<List<ListItem>> {
         val blocks = mutableListOf<List<ListItem>>()
-        var current = mutableListOf<ListItem>()
-        for (item in items) {
-            if (item is ListItem.Header) {
-                if (current.isNotEmpty()) blocks.add(current)
-                current = mutableListOf(item)
-            } else {
-                current.add(item)
-            }
-        }
-        if (current.isNotEmpty()) blocks.add(current)
+        var currentBlock = mutableListOf<ListItem>()
 
-        // Assign whole groups to columns by group index so a group never jumps
-        // between columns when it is expanded or collapsed.
-        val blocksPerColumn = ceil(blocks.size.toFloat() / columnCount).toInt()
-        val columns = List(columnCount) { mutableListOf<ListItem>() }
-        for ((index, block) in blocks.withIndex()) {
-            val columnIndex = (index / blocksPerColumn).coerceAtMost(columnCount - 1)
-            columns[columnIndex].addAll(block)
+        source.forEach { item ->
+            if (item is ListItem.Header && currentBlock.isNotEmpty()) {
+                blocks.add(currentBlock)
+                currentBlock = mutableListOf()
+            }
+            currentBlock.add(item)
         }
-        return columns.map { it.toList() }
+        if (currentBlock.isNotEmpty()) blocks.add(currentBlock)
+
+        val columns = List(columnCount) { mutableListOf<ListItem>() }
+        if (blocks.isEmpty()) return columns
+
+        val blocksPerColumn = ceil(blocks.size.toFloat() / columnCount).toInt()
+        blocks.forEachIndexed { index, block ->
+            val column = (index / blocksPerColumn).coerceAtMost(columnCount - 1)
+            columns[column].addAll(block)
+        }
+        return columns
     }
 
-    private fun splitItemsEvenly(): List<List<ListItem>> {
-        val itemsPerColumn = ceil(items.size.toFloat() / columnCount).toInt()
-        return List(columnCount) { index ->
-            val start = index * itemsPerColumn
-            val end = minOf(start + itemsPerColumn, items.size)
-            items.subList(start, end).toList()
+    private fun splitItemsEvenly(
+        source: List<ListItem>,
+        columnCount: Int
+    ): List<List<ListItem>> {
+        val itemsPerColumn = ceil(source.size.toFloat() / columnCount).toInt()
+        return List(columnCount) { column ->
+            val start = (column * itemsPerColumn).coerceAtMost(source.size)
+            val end = (start + itemsPerColumn).coerceAtMost(source.size)
+            source.subList(start, end)
         }
+    }
+
+    private fun configureRecyclerView() {
+        layoutManager = GridLayoutManager(context, computeColumnCount())
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return adapter.getSpanSize(position, layoutManager.spanCount)
+            }
+        }
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
     }
 
     private fun notifyAdapters() {
-        adapters.forEach { it.notifyDataSetChanged() }
+        adapter.notifyDataSetChanged()
     }
 
-    private fun createColumnAdapter(backingList: MutableList<ListItem>): ArrayAdapter<ListItem> {
-        return object : ArrayAdapter<ListItem>(
-            context,
-            0,
-            backingList
-        ) {
-            override fun getViewTypeCount() = 3
-            override fun getItemViewType(position: Int) = when (getItem(position)) {
-                is ListItem.Header -> 0
-                is ListItem.App -> 1
-                else -> 1
-            }
+    private inner class AppAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        private val adapterItems = mutableListOf<ListItem>()
 
-            override fun isEnabled(position: Int) = true
-            override fun areAllItemsEnabled() = true
+        override fun getItemCount(): Int = adapterItems.size + 1
 
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                val item = getItem(position)!!
-
-                return when (item) {
-                    is ListItem.Header -> {
-                        val view =
-                            convertView ?: View.inflate(context, R.layout.app_list_header, null)
-                        val text = view.findViewById<TextView>(R.id.header_text)
-
-                        val groupId = item.id
-                        val groupName = item.title
-                        val collapsible = prefs.hasCollapsibleGroups()
-
-                        val isExpanded = if (collapsible) prefs.isGroupExpanded(groupId) else false
-
-                        val collapseIndicator = if (collapsible) {
-                            context.getString(
-                                if (isExpanded)
-                                    BohioR.string.settings_section_collapse_indicator
-                                else
-                                    BohioR.string.settings_section_expand_indicator
-                            ) + " "
-                        } else ""
-
-                        text.text = collapseIndicator + groupName.uppercase()
-                        ThemeManager.applyTheme(context, text)
-
-                        if (collapsible) {
-                            view.setOnClickListener {
-                                prefs.setGroupExpanded(groupId, !isExpanded)
-                                refresh()
-                            }
-                        } else {
-                            view.setOnClickListener(null)
-                        }
-
-                        view
-                    }
-
-                    is ListItem.App -> {
-                        val view =
-                            convertView ?: View.inflate(context, R.layout.list_item_app, null)
-                        val app = item.info
-                        val pkg = app.packageName
-                        val label = view.findViewById<TextView>(R.id.open_app_button)
-                        val emptySpace = view.findViewById<View>(R.id.empty_space)
-                        val selectionCheck = view.findViewById<ImageView>(R.id.selection_check)
-
-                        val icon = view.findViewById<ImageView>(R.id.app_icon)
-                        val showIcons = prefs.hasIconsVisible()
-
-                        renderAppInfo(view, app)
-
-                        val key = getSelectionKey(app)
-                        if (isMultiSelectMode) {
-                            selectionCheck.visibility = View.VISIBLE
-                            selectionCheck.alpha = if (key in selectedApps) 1f else 0.3f
-                        } else {
-                            selectionCheck.visibility = View.GONE
-                        }
-
-                        if (showIcons) {
-                            val drawable = iconManager.getIcon(app)
-
-                            icon.setImageDrawable(drawable)
-                            icon.visibility = View.VISIBLE
-
-                            icon.setOnClickListener {
-                                handleIconClick(app)
-                            }
-
-                            icon.setOnLongClickListener {
-                                if (isMultiSelectMode) {
-                                    toggleSelection(app); true
-                                } else {
-                                    suppressNextClick = true
-                                    enterMultiSelectMode(app); true
-                                }
-                            }
-                        } else {
-                            icon.visibility = View.GONE
-                            icon.setImageDrawable(null)
-                            icon.setOnClickListener(null)
-                        }
-
-                        label.text = getDisplayName(app)
-
-                        val launchOrToggle: () -> Unit = {
-                            if (suppressNextClick) {
-                                suppressNextClick = false
-                            } else if (isMultiSelectMode) {
-                                toggleSelection(app)
-                            } else if (!appsProvider.launch(app)) {
-                                Toast.makeText(
-                                    context,
-                                    context.getString(R.string.toast_unable_launch_app),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                refresh()
-                            } else {
-                                onAppLaunched?.invoke()
-                            }
-                        }
-
-                        label.setOnClickListener { launchOrToggle() }
-                        emptySpace.setOnClickListener { launchOrToggle() }
-
-                        label.setOnLongClickListener {
-                            if (isMultiSelectMode) {
-                                toggleSelection(app); true
-                            } else {
-                                suppressNextClick = true
-                                enterMultiSelectMode(app); true
-                            }
-                        }
-                        emptySpace.setOnLongClickListener {
-                            if (isMultiSelectMode) {
-                                toggleSelection(app); true
-                            } else {
-                                context.startActivity(Intent(context, SettingsActivity::class.java))
-                                true
-                            }
-                        }
-
-                        ThemeManager.applyTheme(context, label)
-                        view
-                    }
-                }
+        override fun getItemViewType(position: Int): Int {
+            if (position == 0) return VIEW_TYPE_HOME_HEADER
+            return when (adapterItems[position - 1]) {
+                is ListItem.Header -> VIEW_TYPE_GROUP_HEADER
+                is ListItem.App -> VIEW_TYPE_APP
+                ListItem.Empty -> VIEW_TYPE_EMPTY
             }
         }
+
+        fun getSpanSize(position: Int, spanCount: Int): Int {
+            return if (position == 0) spanCount else 1
+        }
+
+        fun updateItems(newItems: List<ListItem>) {
+            adapterItems.clear()
+            adapterItems.addAll(newItems)
+            notifyDataSetChanged()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            return when (viewType) {
+                VIEW_TYPE_HOME_HEADER -> HomeHeaderViewHolder(headerView)
+                VIEW_TYPE_GROUP_HEADER -> GroupHeaderViewHolder(
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.app_list_header, parent, false)
+                )
+                VIEW_TYPE_EMPTY -> EmptyViewHolder(Space(parent.context).apply {
+                    importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+                })
+                else -> AppViewHolder(
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.list_item_app, parent, false)
+                )
+            }
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            if (position == 0) return
+            when (val item = adapterItems[position - 1]) {
+                is ListItem.Header -> bindGroupHeader(holder as GroupHeaderViewHolder, item)
+                is ListItem.App -> bindApp(holder as AppViewHolder, item.info)
+                ListItem.Empty -> Unit
+            }
+        }
+    }
+
+    private class HomeHeaderViewHolder(view: View) : RecyclerView.ViewHolder(view)
+
+    private class GroupHeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val text: TextView = view.findViewById(R.id.header_text)
+    }
+
+    private class EmptyViewHolder(view: View) : RecyclerView.ViewHolder(view)
+
+    private class AppViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val label: TextView = view.findViewById(R.id.open_app_button)
+        val emptySpace: View = view.findViewById(R.id.empty_space)
+        val selectionCheck: ImageView = view.findViewById(R.id.selection_check)
+        val icon: ImageView = view.findViewById(R.id.app_icon)
+    }
+
+    private fun bindGroupHeader(holder: GroupHeaderViewHolder, item: ListItem.Header) {
+        val collapsible = prefs.hasCollapsibleGroups()
+        val isExpanded = collapsible && prefs.isGroupExpanded(item.id)
+        val collapseIndicator = if (collapsible) {
+            context.getString(
+                if (isExpanded) {
+                    BohioR.string.settings_section_collapse_indicator
+                } else {
+                    BohioR.string.settings_section_expand_indicator
+                }
+            ) + " "
+        } else {
+            ""
+        }
+
+        holder.text.text = collapseIndicator + item.title.uppercase()
+        ThemeManager.applyTheme(context, holder.text)
+        ViewCompat.setAccessibilityHeading(holder.itemView, true)
+        holder.itemView.isFocusable = collapsible
+        holder.itemView.setOnClickListener(
+            if (collapsible) {
+                View.OnClickListener {
+                    val position = holder.bindingAdapterPosition
+                    val offset = holder.itemView.top - recyclerView.paddingTop
+                    prefs.setGroupExpanded(item.id, !prefs.isGroupExpanded(item.id))
+                    refresh()
+                    if (position != RecyclerView.NO_POSITION) {
+                        layoutManager.scrollToPositionWithOffset(position, offset)
+                    }
+                }
+            } else {
+                null
+            }
+        )
+    }
+
+    private fun bindApp(holder: AppViewHolder, app: AppsProvider.AppEntry) {
+        val view = holder.itemView
+        val showIcons = prefs.hasIconsVisible()
+        renderAppInfo(view, app)
+        view.isFocusable = true
+
+        val key = getSelectionKey(app)
+        val isSelected = key in selectedApps
+        holder.selectionCheck.visibility = if (isMultiSelectMode) View.VISIBLE else View.GONE
+        holder.selectionCheck.alpha = if (isSelected) 1f else 0.3f
+        view.isSelected = isSelected
+
+        if (showIcons) {
+            holder.icon.setImageDrawable(iconManager.getIcon(app))
+            holder.icon.visibility = View.VISIBLE
+            holder.icon.setOnClickListener { handleIconClick(app) }
+            holder.icon.setOnLongClickListener {
+                if (isMultiSelectMode) {
+                    toggleSelection(app)
+                } else {
+                    enterMultiSelectMode(app)
+                }
+                true
+            }
+        } else {
+            holder.icon.visibility = View.GONE
+            holder.icon.setImageDrawable(null)
+            holder.icon.setOnClickListener(null)
+            holder.icon.setOnLongClickListener(null)
+        }
+
+        holder.label.text = getDisplayName(app)
+
+        val launchOrToggle = View.OnClickListener {
+            if (isMultiSelectMode) {
+                toggleSelection(app)
+            } else if (!appsProvider.launch(app)) {
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.toast_unable_launch_app),
+                    Toast.LENGTH_SHORT
+                ).show()
+                refresh()
+            } else {
+                onAppLaunched?.invoke()
+            }
+        }
+
+        view.setOnClickListener(launchOrToggle)
+        holder.label.setOnClickListener(launchOrToggle)
+        holder.emptySpace.setOnClickListener(launchOrToggle)
+
+        val selectOnLongPress = View.OnLongClickListener {
+            if (isMultiSelectMode) {
+                toggleSelection(app)
+            } else {
+                enterMultiSelectMode(app)
+            }
+            true
+        }
+        view.setOnLongClickListener(selectOnLongPress)
+        holder.label.setOnLongClickListener(selectOnLongPress)
+        holder.emptySpace.setOnLongClickListener {
+            if (isMultiSelectMode) {
+                toggleSelection(app)
+            } else {
+                context.startActivity(Intent(context, SettingsActivity::class.java))
+            }
+            true
+        }
+
+        ThemeManager.applyTheme(context, holder.label)
     }
 
     private sealed class ListItem {
         data class Header(val id: String, val title: String) : ListItem()
         data class App(val info: AppsProvider.AppEntry) : ListItem()
+        data object Empty : ListItem()
     }
 }

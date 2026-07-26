@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/apps_layout"
+    android:gravity="start"
+    style="@style/HorizontalList">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="16sp">
+
+        <Button
+            android:id="@+id/time"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:focusable="false"
+            style="@style/H1" />
+
+        <LinearLayout
+            android:id="@+id/date_row"
+            android:paddingBottom="4sp"
+            android:gravity="start"
+            style="@style/HorizontalListDivided">
+
+            <ImageView
+                android:layout_width="16sp"
+                android:layout_height="16sp"
+                app:tint="@color/icon"
+                android:src="@drawable/px_calendar_today" />
+
+            <TextView
+                android:id="@+id/date"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/battery_row"
+            style="@style/HorizontalListDivided">
+
+            <ImageView
+                android:layout_width="16sp"
+                android:layout_height="16sp"
+                app:tint="@color/icon"
+                android:src="@drawable/px_battery_full_alt" />
+
+            <TextView
+                android:id="@+id/battery"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/foreground" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/lock_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12sp">
+
+        <ImageView
+            android:id="@+id/lock_icon"
+            android:src="@drawable/px_lock"
+            style="@style/Icon24" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12sp">
+
+        <ImageView
+            android:src="@drawable/px_search"
+            android:contentDescription="@string/altdescr_search_icon"
+            style="@style/Icon24" />
+    </FrameLayout>
+</LinearLayout>
