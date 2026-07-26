@@ -117,7 +117,4 @@
     <string name="toast_unable_open_wallpaper_app">Nenhum aplicativo de papel de parede disponível</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="checkbox_multi_column"></string>
-    <string name="checkbox_show_api_indicators"></string>
-    <string name="checkbox_show_app_size"></string>
 </resources>

@@ -44,7 +44,6 @@
     <string name="checkbox_show_search">Arama çubuğunu göster</string>
     <string name="checkbox_show_ungrouped_apps">Gruplanmamış uygulamaları göster</string>
     <string name="checkbox_show_year_day">Yılın gününü göster</string>
-    <string name="checkbox_show_year_week"></string>
     <string name="ctxmenu_move_to_group">Grubu değiştir…</string>
     <string name="ctxmenu_open_settings">Uygulama ayarları…</string>
     <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır…</string>
@@ -77,8 +76,6 @@
     <string name="multi_select_move_to_group">Gruba taşı</string>
     <string name="new_group_header">------ Yeni Grup</string>
     <string name="new_group_header_count">------ Yeni Grup %1$d</string>
-    <string name="privacy_space_row_locked"></string>
-    <string name="privacy_space_row_unlocked"></string>
     <string name="radio_background_wallpaper">Duvar kağıdı</string>
     <string name="radio_celsius">Celsius</string>
     <string name="radio_clock_12">12 saat (AM/PM)</string>
@@ -117,7 +114,4 @@
     <string name="toast_unable_open_wallpaper_app">Duvar kağıdı uygulaması bulunamadı</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="checkbox_multi_column"></string>
-    <string name="checkbox_show_api_indicators"></string>
-    <string name="checkbox_show_app_size"></string>
 </resources>

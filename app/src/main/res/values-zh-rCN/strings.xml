@@ -44,7 +44,6 @@
     <string name="checkbox_show_search">显示搜索图标</string>
     <string name="checkbox_show_ungrouped_apps">Show ungrouped apps</string>
     <string name="checkbox_show_year_day">显示已过天数</string>
-    <string name="checkbox_show_year_week"></string>
     <string name="ctxmenu_move_to_group">Change group…</string>
     <string name="ctxmenu_open_settings">App settings…</string>
     <string name="ctxmenu_rename_app">Rename app…</string>
@@ -117,7 +116,4 @@
     <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="checkbox_multi_column"></string>
-    <string name="checkbox_show_api_indicators"></string>
-    <string name="checkbox_show_app_size"></string>
 </resources>
