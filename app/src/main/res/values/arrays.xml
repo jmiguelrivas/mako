@@ -14,7 +14,7 @@
         <item>fi</item>
         <item>fil-rPH</item>
         <item>pt-rBR</item>
-        <item>zn-rCN</item>
+        <item>zh-rCN</item>
     </string-array>
 
     <string-array name="supported_language_labels">
@@ -26,7 +26,7 @@
         <item>@string/radio_language_fi</item>
         <item>@string/radio_language_fil_rPH</item>
         <item>@string/radio_language_pt_rBR</item>
-        <item>@string/radio_language_zn_rCN</item>
+        <item>@string/radio_language_zh_rCN</item>
     </string-array>
 
     <string-array name="wallpaper_screen_opacity_strength">

@@ -44,7 +44,6 @@
     <string name="checkbox_show_search">Suchleiste anzeigen</string>
     <string name="checkbox_show_ungrouped_apps">Zeige nicht gruppierte Apps an</string>
     <string name="checkbox_show_year_day">Tag des Jahres anzeigen</string>
-    <string name="checkbox_show_year_week"></string>
     <string name="ctxmenu_move_to_group">Gruppe ändern…</string>
     <string name="ctxmenu_open_settings">App-Einstellungen…</string>
     <string name="ctxmenu_rename_app">App umbenennen…</string>
@@ -77,8 +76,6 @@
     <string name="multi_select_move_to_group">In Gruppe verschieben</string>
     <string name="new_group_header">------ Neue Gruppe</string>
     <string name="new_group_header_count">------ Neue Gruppe %1$d</string>
-    <string name="privacy_space_row_locked"></string>
-    <string name="privacy_space_row_unlocked"></string>
     <string name="radio_background_wallpaper">Hintergrundbild</string>
     <string name="radio_celsius">Celsius</string>
     <string name="radio_clock_12">12-Stunden-Format (AM/PM)</string>
@@ -117,7 +114,4 @@
     <string name="toast_unable_open_wallpaper_app">Keine Wallpaper-App verfügbar</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="checkbox_multi_column"></string>
-    <string name="checkbox_show_api_indicators"></string>
-    <string name="checkbox_show_app_size"></string>
 </resources>

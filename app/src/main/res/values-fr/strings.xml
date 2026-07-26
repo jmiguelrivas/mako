@@ -17,7 +17,6 @@
     <string name="btn_delete_group">Supprimer le groupe</string>
     <string name="btn_edit_apps">Gérer les applications installées</string>
     <string name="btn_export_data">Exporter les données</string>
-    <string name="btn_heal_data"></string>
     <string name="btn_import_data">Importer les données</string>
     <string name="btn_lock">Verrouiller</string>
     <string name="btn_refresh_launcher">Actualiser le launcher</string>
@@ -44,7 +43,6 @@
     <string name="checkbox_show_search">Afficher la barre de recherche</string>
     <string name="checkbox_show_ungrouped_apps">Afficher les applications non groupées</string>
     <string name="checkbox_show_year_day">Afficher le jour de l\'année</string>
-    <string name="checkbox_show_year_week"></string>
     <string name="ctxmenu_move_to_group">Changer de groupe…</string>
     <string name="ctxmenu_open_settings">Paramètres de l\'application…</string>
     <string name="ctxmenu_rename_app">Renommer l\'application…</string>
@@ -77,8 +75,6 @@
     <string name="multi_select_move_to_group">Déplacer vers le groupe</string>
     <string name="new_group_header">------ Nouveau groupe</string>
     <string name="new_group_header_count">------ Nouveau groupe %1$d</string>
-    <string name="privacy_space_row_locked"></string>
-    <string name="privacy_space_row_unlocked"></string>
     <string name="radio_background_wallpaper">Afficher le fond d\'écran</string>
     <string name="radio_celsius">Celsius</string>
     <string name="radio_clock_12">12 heures (AM/PM)</string>
@@ -97,8 +93,6 @@
     <string name="temp_warm">Chaud</string>
     <string name="toast_app_selected">Sélectionné : %1$s</string>
     <string name="toast_group_label_updated">Libellé mis à jour</string>
-    <string name="toast_heal_data_done"></string>
-    <string name="toast_heal_data_unchanged"></string>
     <string name="toast_icon_pack_selected">Pack d\'icônes sélectionné : %1$s</string>
     <string name="toast_import_done">Importation réussie</string>
     <string name="toast_import_failed">Échec de l\'importation</string>
@@ -117,7 +111,4 @@
     <string name="toast_unable_open_wallpaper_app">Aucune application de fond d\'écran disponible</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="checkbox_multi_column"></string>
-    <string name="checkbox_show_api_indicators"></string>
-    <string name="checkbox_show_app_size"></string>
 </resources>
