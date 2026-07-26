@@ -49,12 +49,12 @@
     <string name="ctxmenu_open_settings">Sovelluksen asetukset…</string>
     <string name="ctxmenu_rename_app">Muuta sovelluksen nimeä…</string>
     <string name="device_admin_label">Makon näytön lukitus</string>
+    <string name="dialog_save_pin_title">Tallennetaanko tämä PIN-koodi?</string>
+    <string name="dialog_save_pin_warning">Varmista, että muistat sen. Jos unohdat PIN-koodin, sinun on ehkä tyhjennettävä Makon sovellustiedot päästäksesi jälleen asetuksiin.</string>
     <string name="disclaimer_delete_group">Sovellukset siirretään valittuun ryhmään.</string>
     <string name="disclaimer_pick_clock_app">Valitse sovellus, joka avataan, kun kosketat kellonaikaa kotinäytössä.</string>
     <string name="disclaimer_pick_date_app">Valitse sovellus, joka avataan, kun kosketat päivämäärää kotinäytössä.</string>
     <string name="disclaimer_pick_icon_pack">Valitse kuvakkeiden tyyli. Jos valitussa tyylissä ei ole jollekin sovellukselle kuvaketta, käytetään sovelluksen normaalia kuvaketta.</string>
-    <string name="dialog_save_pin_title">Tallennetaanko tämä PIN-koodi?</string>
-    <string name="dialog_save_pin_warning">Varmista, että muistat sen. Jos unohdat PIN-koodin, sinun on ehkä tyhjennettävä Makon sovellustiedot päästäksesi jälleen asetuksiin.</string>
     <string name="easter_eggs_counter">%1$d lisää…</string>
     <string name="easter_eggs_unlock">Lopeta se leikkiminen xD</string>
     <string name="filepicker_icon_pack_not_selected">Kuvakepakettia ei ole valittu</string>

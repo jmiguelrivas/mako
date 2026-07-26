@@ -48,12 +48,12 @@
     <string name="ctxmenu_open_settings">App-Einstellungen…</string>
     <string name="ctxmenu_rename_app">App umbenennen…</string>
     <string name="device_admin_label">Mako Bildschirm sperren</string>
+    <string name="dialog_save_pin_title">Diese PIN speichern?</string>
+    <string name="dialog_save_pin_warning">Merke dir diese PIN. Wenn du sie vergisst, musst du möglicherweise die App-Daten von Mako löschen, um wieder auf die Einstellungen zugreifen zu können.</string>
     <string name="disclaimer_delete_group">Die Apps werden in die folgende Gruppe verschoben.</string>
     <string name="disclaimer_pick_clock_app">Die ausgewählte App wird als Standard-Uhr-Aktion festgelegt. Beim Antippen der Uhr auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_date_app">Die ausgewählte App wird als Standard-Datumsaktion festgelegt. Beim Antippen des Datums auf dem Startbildschirm wird diese App gestartet.</string>
     <string name="disclaimer_pick_icon_pack">Wähle ein installiertes Icon-Paket aus. Bei fehlenden Icons wird Mako das System-Icon für die App verwenden.</string>
-    <string name="dialog_save_pin_title">Diese PIN speichern?</string>
-    <string name="dialog_save_pin_warning">Merke dir diese PIN. Wenn du sie vergisst, musst du möglicherweise die App-Daten von Mako löschen, um wieder auf die Einstellungen zugreifen zu können.</string>
     <string name="easter_eggs_counter">Noch %1$d…</string>
     <string name="easter_eggs_unlock">Kannst du bitte aufhören damit zu spielen xD</string>
     <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>

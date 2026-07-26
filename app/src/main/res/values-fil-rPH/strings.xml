@@ -49,12 +49,12 @@
     <string name="ctxmenu_open_settings">Mga setting ng app…</string>
     <string name="ctxmenu_rename_app">Palitan ang pangalan ng app…</string>
     <string name="device_admin_label">Mako screen lock</string>
+    <string name="dialog_save_pin_title">I-save ang PIN na ito?</string>
+    <string name="dialog_save_pin_warning">Siguraduhing matatandaan mo ito. Kapag nakalimutan mo ang iyong PIN, maaaring kailanganin mong i-clear ang data ng Mako app para muling ma-access ang settings.</string>
     <string name="disclaimer_delete_group">Ang iyong mga app ay ililipat sa sumusunod na grupo.</string>
     <string name="disclaimer_pick_clock_app">Kapag pumili ka ng app dito, ito ang magiging default na aksyon ng orasan. Kapag na-tap mo ang orasan sa iyong home screen, ilulunsad ang app na ito.</string>
     <string name="disclaimer_pick_date_app">Kapag pumili ka ng app dito, ito ang magiging default na aksyon ng petsa. Kapag na-tap mo ang petsa sa iyong home screen, ilulunsad ang app na ito.</string>
     <string name="disclaimer_pick_icon_pack">Pumili ng naka-install na icon pack. Kung may kulang na icon, gagamitin ng Mako ang system icon para sa app na iyon.</string>
-    <string name="dialog_save_pin_title">I-save ang PIN na ito?</string>
-    <string name="dialog_save_pin_warning">Siguraduhing matatandaan mo ito. Kapag nakalimutan mo ang iyong PIN, maaaring kailanganin mong i-clear ang data ng Mako app para muling ma-access ang settings.</string>
     <string name="easter_eggs_counter">%1$d pa…</string>
     <string name="easter_eggs_unlock">Pwede bang tumigil ka sa paglalaro dito xD</string>
     <string name="filepicker_icon_pack_not_selected">Walang napiling icon pack</string>

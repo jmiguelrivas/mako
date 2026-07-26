@@ -47,12 +47,12 @@
     <string name="ctxmenu_open_settings">Paramètres de l\'application…</string>
     <string name="ctxmenu_rename_app">Renommer l\'application…</string>
     <string name="device_admin_label">Verrouillage d\'écran Mako</string>
+    <string name="dialog_save_pin_title">Enregistrer ce code PIN ?</string>
+    <string name="dialog_save_pin_warning">Veillez à vous en souvenir. Si vous oubliez votre code PIN, vous devrez peut-être effacer les données de l\\'application Mako pour accéder de nouveau aux paramètres.</string>
     <string name="disclaimer_delete_group">Vos applications seront déplacées vers le groupe suivant.</string>
     <string name="disclaimer_pick_clock_app">Sélectionner une application ici la définira comme action horloge par défaut. Lorsque vous tapotez l\'horloge sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_date_app">Sélectionner une application ici la définira comme action date par défaut. Lorsque vous tapotez la date sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_icon_pack">Choisissez un pack d\'icônes installé. Si une icône est manquante, Mako utilisera l\'icône système de l\'application.</string>
-    <string name="dialog_save_pin_title">Enregistrer ce code PIN ?</string>
-    <string name="dialog_save_pin_warning">Veillez à vous en souvenir. Si vous oubliez votre code PIN, vous devrez peut-être effacer les données de l\'application Mako pour accéder de nouveau aux paramètres.</string>
     <string name="easter_eggs_counter">Encore %1$d…</string>
     <string name="easter_eggs_unlock">Tu peux arrêter de jouer avec xD</string>
     <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>
