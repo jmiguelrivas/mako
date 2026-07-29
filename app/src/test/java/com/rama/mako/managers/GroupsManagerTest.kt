@@ -141,7 +141,7 @@ class GroupsManagerTest {
     }
 
     private fun fakeAppEntry(packageName: String): AppsProvider.AppEntry =
-        AppsProvider.AppEntry(
+        AppsProvider.ActivityEntry(
             packageName = packageName,
             label = packageName,
             userHandle = Process.myUserHandle(),

@@ -103,6 +103,7 @@
             android:padding="12sp">
 
             <ImageView
+                android:id="@+id/app_settings_icon"
                 android:src="@drawable/px_cog"
                 android:contentDescription="@string/ctxmenu_open_settings"
                 style="@style/Icon24" />

@@ -75,6 +75,7 @@ class AppListManager(
     private var selectedCountText: TextView? = null
     private var renameButton: FrameLayout? = null
     private var appSettingsButton: FrameLayout? = null
+    private var appSettingsIcon: ImageView? = null
 
     fun setup() {
         configureRecyclerView()
@@ -115,9 +116,9 @@ class AppListManager(
 
     private fun getAllGroupIds(): List<String> {
         val knownGroupIds = groupsManager.getGroupIds()
-        val appGroupIds = allAppsCache.map { app ->
-            prefs.getAppGroupId(app.packageName, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
-        }.distinct()
+        val appGroupIds = allAppsCache
+            .map(prefs::getAppGroupId)
+            .distinct()
         val unknownGroupIds = appGroupIds.filter { it !in knownGroupIds }
         return (knownGroupIds + unknownGroupIds).distinct()
     }
@@ -132,9 +133,7 @@ class AppListManager(
         val allApps = allAppsCache
 
         // Map apps by groupId (NOT label)
-        val groupedMap = allApps.groupBy { app ->
-            prefs.getAppGroupId(app.packageName, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
-        }
+        val groupedMap = allApps.groupBy(prefs::getAppGroupId)
 
         items.clear()
 
@@ -167,9 +166,8 @@ class AppListManager(
         adapter.updateItems(arrangeItemsForColumns(items))
     }
 
-    private fun getAppCacheKey(app: AppsProvider.AppEntry): String {
-        return "${app.packageName}:${app.userHandle.hashCode()}"
-    }
+    private fun getAppCacheKey(app: AppsProvider.AppEntry): String =
+        PrefsManager.FileKeys.appKey(app)
 
     private fun getSearchableName(app: AppsProvider.AppEntry): String {
         val key = getAppCacheKey(app)
@@ -320,7 +318,7 @@ class AppListManager(
     }
 
     private fun getDisplayName(app: AppsProvider.AppEntry): String {
-        val baseName = prefs.getCustomName(app.packageName, app.userHandle) ?: app.displayLabel
+        val baseName = prefs.getCustomName(app) ?: app.displayLabel
         return if (prefs.hasProfileIndicator() && app.isWorkProfile) {
             "[${app.profileInitial}] $baseName"
         } else {
@@ -344,9 +342,7 @@ class AppListManager(
         val allApps = allAppsCache
 
         // Group by ID
-        val groupedMap = allApps.groupBy { app ->
-            prefs.getAppGroupId(app.packageName, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
-        }
+        val groupedMap = allApps.groupBy(prefs::getAppGroupId)
 
         val allGroupIds = getAllGroupIds()
             .sortedBy { prefs.getGroupLabel(it).lowercase(Locale.ROOT) }
@@ -420,19 +416,39 @@ class AppListManager(
     }
 
     private fun openAppSettings(app: AppsProvider.AppEntry) {
-        // Apps living in another profile (e.g. the private space) must be opened
-        // via LauncherApps with that profile's UserHandle, otherwise the system
-        // resolves App Info (and therefore Uninstall) against the wrong user and
-        // the private space app can't be found/uninstalled.
-        if (appsProvider.openAppDetails(app)) return
+        when (app) {
+            is AppsProvider.ShortcutEntry -> {
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.h2_remove_shortcut)
+                    .setMessage(getDisplayName(app))
+                    .setPositiveButton(R.string.btn_remove_shortcut) { _, _ ->
+                        if (!appsProvider.unpinShortcut(app)) {
+                            Toast.makeText(
+                                context,
+                                R.string.toast_unable_remove_shortcut,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        refresh()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show()
+            }
 
-        context.startActivity(
-            Intent(
-                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts("package", app.packageName, null)
-            )
-                .apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
-        )
+            is AppsProvider.ActivityEntry -> {
+                // Apps living in another profile (e.g. the private space) must be opened
+                // via LauncherApps with that profile's UserHandle, otherwise the system
+                // resolves App Info (and therefore Uninstall) against the wrong user and
+                // the private space app can't be found/uninstalled.
+                if (appsProvider.openAppDetails(app)) return
+                context.startActivity(
+                    Intent(
+                        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.fromParts("package", app.packageName, null)
+                    ).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+                )
+            }
+        }
     }
 
     private fun handleIconClick(app: AppsProvider.AppEntry) {
@@ -464,6 +480,12 @@ class AppListManager(
         val apiSeparator = view.findViewById<TextView>(R.id.api_separator)
         val targetApiText = view.findViewById<TextView>(R.id.target_api)
         val appSizeText = view.findViewById<TextView>(R.id.app_size)
+
+        if (app !is AppsProvider.ActivityEntry) {
+            apiRow.visibility = View.GONE
+            appSizeText.visibility = View.GONE
+            return
+        }
 
         ThemeManager.applyTheme(context, apiRow)
         ThemeManager.applyTheme(context, appSizeText)
@@ -501,9 +523,7 @@ class AppListManager(
     }
 
     private fun showRenameDialog(app: AppsProvider.AppEntry) {
-        val pkg = app.packageName
-        val currentName = prefs.getCustomName(app.packageName, app.userHandle)
-            ?: app.label
+        val currentName = prefs.getCustomName(app) ?: app.label
 
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_rename_app, null)
         ThemeManager.applyTheme(context, view)
@@ -518,7 +538,7 @@ class AppListManager(
         val dialog = AlertDialog.Builder(context).setView(view).create()
 
         yesButton.setOnClickListener {
-            input.text.toString().trim().let { prefs.setCustomName(pkg, app.userHandle, it) }
+            input.text.toString().trim().let { prefs.setCustomName(app, it) }
             refresh()
             Toast.makeText(
                 context,
@@ -529,7 +549,7 @@ class AppListManager(
         }
 
         resetButton.setOnClickListener {
-            prefs.clearCustomName(pkg, app.userHandle)
+            prefs.clearCustomName(app)
             refresh()
             Toast.makeText(
                 context,
@@ -544,7 +564,6 @@ class AppListManager(
     }
 
     private fun showGroupsDialog(app: AppsProvider.AppEntry) {
-        val pkg = app.packageName
 
         val view = View.inflate(context, R.layout.dialog_groups_pick, null)
 
@@ -561,8 +580,7 @@ class AppListManager(
 
             val radioGroup = RadioGroup(context)
 
-            val currentGroupId =
-                prefs.getAppGroupId(pkg, app.userHandle) ?: PrefsManager.SystemIds.UNGROUPED
+            val currentGroupId = prefs.getAppGroupId(app)
 
             // All group IDs (include ungrouped)
             val groupIds = groupsManager.getGroupIds()
@@ -586,7 +604,7 @@ class AppListManager(
                 ThemeManager.applyTheme(context, radio)
 
                 radio.setOnClickListener {
-                    prefs.setAppGroupId(pkg, app.userHandle, groupId)
+                    prefs.setAppGroupId(app, groupId)
                     refresh()
                     dialog.dismiss()
                 }
@@ -605,9 +623,8 @@ class AppListManager(
         dialog.show()
     }
 
-    private fun getSelectionKey(app: AppsProvider.AppEntry): String {
-        return "${app.packageName}:${app.userHandle.hashCode()}"
-    }
+    private fun getSelectionKey(app: AppsProvider.AppEntry): String =
+        PrefsManager.FileKeys.appKey(app)
 
     private fun setupMultiSelectBar() {
         val root = recyclerView.rootView
@@ -615,6 +632,7 @@ class AppListManager(
         selectedCountText = root.findViewById(R.id.selected_count)
         renameButton = root.findViewById(R.id.rename_btn)
         appSettingsButton = root.findViewById(R.id.app_settings)
+        appSettingsIcon = root.findViewById(R.id.app_settings_icon)
 
         val moveButton = root.findViewById<FrameLayout>(R.id.move_to_group_button)
         val cancelButton = root.findViewById<FrameLayout>(R.id.multi_select_cancel_button)
@@ -679,9 +697,17 @@ class AppListManager(
             R.string.multi_select_count,
             selectedApps.size
         )
-        val isSingle = selectedApps.size == 1
+        val selectedApp = getSingleSelectedApp()
+        val isSingle = selectedApp != null
         renameButton?.visibility = if (isSingle) View.VISIBLE else View.GONE
         appSettingsButton?.visibility = if (isSingle) View.VISIBLE else View.GONE
+        appSettingsIcon?.contentDescription = context.getString(
+            if (selectedApp is AppsProvider.ShortcutEntry) {
+                R.string.btn_remove_shortcut
+            } else {
+                R.string.ctxmenu_open_settings
+            }
+        )
     }
 
     private fun showBatchGroupsDialog() {
@@ -740,7 +766,7 @@ class AppListManager(
         for (key in selectedApps) {
             val app = allAppsCache.find { getSelectionKey(it) == key }
             if (app != null) {
-                prefs.setAppGroupId(app.packageName, app.userHandle, groupId)
+                prefs.setAppGroupId(app, groupId)
             }
         }
         exitMultiSelectMode()

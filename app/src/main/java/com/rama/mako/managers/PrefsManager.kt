@@ -59,11 +59,27 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
             return if (userId == 0) "app:$pkg" else "app:$pkg:profile_$userId"
         }
 
+        fun appKey(app: AppsProvider.AppEntry): String {
+            val base = appKey(app.packageName, app.userHandle)
+            return if (app is AppsProvider.ShortcutEntry) {
+                "$base:shortcut_${app.shortcutId}"
+            } else base
+        }
+
+        fun isShortcutAppKey(key: String): Boolean =
+            ":shortcut_" in key
+
         fun APP_GROUP_ID(pkg: String, userHandle: UserHandle) =
             "${appKey(pkg, userHandle)}:group_id"
 
+        fun APP_GROUP_ID(app: AppsProvider.AppEntry) =
+            "${appKey(app)}:group_id"
+
         fun APP_CUSTOM_LABEL(pkg: String, userHandle: UserHandle) =
             "${appKey(pkg, userHandle)}:custom_label"
+
+        fun APP_CUSTOM_LABEL(app: AppsProvider.AppEntry) =
+            "${appKey(app)}:custom_label"
 
         fun GROUP_LABEL(id: String) = "group:$id:label"
         fun GROUP_VISIBLE(id: String) = "group:$id:visible"
@@ -259,23 +275,35 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
             .apply()
     }
 
-    fun getAppGroupId(pkg: String, userHandle: UserHandle): String {
-        return prefs.getString(FileKeys.APP_GROUP_ID(pkg, userHandle), null)
+    fun getAppGroupId(app: AppsProvider.AppEntry): String =
+        getAppGroupId(FileKeys.APP_GROUP_ID(app))
+
+    fun getAppGroupId(pkg: String, userHandle: UserHandle): String =
+        getAppGroupId(FileKeys.APP_GROUP_ID(pkg, userHandle))
+
+    private fun getAppGroupId(key: String): String {
+        return prefs.getString(key, null)
             ?: SystemIds.UNGROUPED.also {
-                prefs.edit().putString(FileKeys.APP_GROUP_ID(pkg, userHandle), it).apply()
+                prefs.edit().putString(key, it).apply()
             }
     }
+
+    fun getRawAppGroupId(app: AppsProvider.AppEntry): String? =
+        prefs.getString(FileKeys.APP_GROUP_ID(app), null)
 
     fun getRawAppGroupId(pkg: String, userHandle: UserHandle): String? =
         prefs.getString(FileKeys.APP_GROUP_ID(pkg, userHandle), null)
 
-    fun setAppGroupId(pkg: String, userHandle: UserHandle, groupId: String?) {
-        val key = FileKeys.APP_GROUP_ID(pkg, userHandle)
-        if (groupId != null) {
-            prefs.edit().putString(key, groupId).apply()
-        } else {
-            prefs.edit().remove(key).apply()
-        }
+    fun setAppGroupId(app: AppsProvider.AppEntry, groupId: String?) =
+        setAppGroupId(FileKeys.APP_GROUP_ID(app), groupId)
+
+    fun setAppGroupId(pkg: String, userHandle: UserHandle, groupId: String?) =
+        setAppGroupId(FileKeys.APP_GROUP_ID(pkg, userHandle), groupId)
+
+    private fun setAppGroupId(key: String, groupId: String?) {
+        val editor = prefs.edit()
+        if (groupId != null) editor.putString(key, groupId) else editor.remove(key)
+        editor.apply()
     }
 
     fun getGroupIds(): Set<String> =
@@ -317,14 +345,18 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     fun setGroupOrder(id: String, value: Int) =
         prefs.edit().putInt(FileKeys.GROUP_ORDER(id), value).apply()
 
-    fun healData(installedApps: List<AppsProvider.AppEntry>): Boolean {
+    fun healData(
+        installedApps: List<AppsProvider.AppEntry>,
+        preserveShortcutData: Boolean
+    ): Boolean {
         if (installedApps.isEmpty()) return false
 
         val editor = prefs.edit()
         var changed = false
+        val preservedShortcutGroupIds = mutableSetOf<String>()
 
         val installedKeys = installedApps
-            .map { FileKeys.appKey(it.packageName, it.userHandle) }
+            .map(FileKeys::appKey)
             .toSet()
 
         getAllKeys().forEach { key ->
@@ -336,15 +368,24 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
                 else -> null
             }
 
-            if (appKey != null && appKey !in installedKeys) {
+            if (appKey == null) return@forEach
+            if (preserveShortcutData && FileKeys.isShortcutAppKey(appKey)) {
+                if (key.endsWith(":group_id")) {
+                    prefs.getString(key, null)?.let(preservedShortcutGroupIds::add)
+                }
+                return@forEach
+            }
+
+            if (appKey !in installedKeys) {
                 editor.remove(key)
                 changed = true
             }
         }
 
         val activeGroupIds = mutableSetOf(SystemIds.UNGROUPED, SystemIds.FAVORITES)
+        activeGroupIds.addAll(preservedShortcutGroupIds)
         installedApps.forEach { app ->
-            getRawAppGroupId(app.packageName, app.userHandle)?.let(activeGroupIds::add)
+            getRawAppGroupId(app)?.let(activeGroupIds::add)
         }
 
         val currentGroupIds = getGroupIds().toMutableSet()
@@ -528,11 +569,20 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     fun isKeypadRandomized(): Boolean =
         prefs.getBoolean(FileKeys.SECURITY_KEYPAD_RANDOMIZED, true)
 
+    fun getCustomName(app: AppsProvider.AppEntry): String? =
+        prefs.getString(FileKeys.APP_CUSTOM_LABEL(app), null)
+
     fun getCustomName(pkg: String, userHandle: UserHandle): String? =
         prefs.getString(FileKeys.APP_CUSTOM_LABEL(pkg, userHandle), null)
 
+    fun setCustomName(app: AppsProvider.AppEntry, name: String) =
+        prefs.edit().putString(FileKeys.APP_CUSTOM_LABEL(app), name).apply()
+
     fun setCustomName(pkg: String, userHandle: UserHandle, name: String) =
         prefs.edit().putString(FileKeys.APP_CUSTOM_LABEL(pkg, userHandle), name).apply()
+
+    fun clearCustomName(app: AppsProvider.AppEntry) =
+        prefs.edit().remove(FileKeys.APP_CUSTOM_LABEL(app)).apply()
 
     fun clearCustomName(pkg: String, userHandle: UserHandle) =
         prefs.edit().remove(FileKeys.APP_CUSTOM_LABEL(pkg, userHandle)).apply()

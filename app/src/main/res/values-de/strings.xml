@@ -12,6 +12,7 @@
     <string name="app_desc">Ein leichtgewichtiger, ablenkungsfreier Android-Launcher mit einem Fokus auf Privatssphäre und lokaler Nutzung, optimiert auf Fokus und Einfachheit.</string>
     <string name="btn_about_mako">Über Mako</string>
     <string name="btn_add_group">+ Neue Gruppe hinzufügen</string>
+    <string name="btn_add_shortcut">Hinzufügen</string>
     <string name="btn_change_wallpaper">Betriebssystemhintergrundbild ändern</string>
     <string name="btn_clear_data">Daten löschen</string>
     <string name="btn_delete_group">Gruppe entfernen</string>
@@ -21,6 +22,7 @@
     <string name="btn_import_data">Daten importieren</string>
     <string name="btn_lock">Sperren</string>
     <string name="btn_refresh_launcher">Launcher neu laden</string>
+    <string name="btn_remove_shortcut">Entfernen</string>
     <string name="btn_select_icon_pack">Icon-Paket auswählen</string>
     <string name="btn_set_clock_app">Aktion beim Tippen auf die Uhr ändern</string>
     <string name="btn_set_date_app">Aktion beim Tippen auf das Datum ändern</string>
@@ -58,8 +60,10 @@
     <string name="easter_eggs_unlock">Kannst du bitte aufhören damit zu spielen xD</string>
     <string name="filepicker_icon_pack_not_selected">Kein Icon-Paket ausgewählt</string>
     <string name="filepicker_selected_icon_pack">Ausgewähltes Paket: %1$s</string>
+    <string name="h2_add_shortcut">Verknüpfung hinzufügen?</string>
     <string name="h2_delete_group">Sind Sie sicher, dass Sie die Gruppe entfernen möchten?</string>
     <string name="h2_rename_app">App umbenennen</string>
+    <string name="h2_remove_shortcut">Verknüpfung entfernen?</string>
     <string name="h2_select_group">Gruppe auswählen</string>
     <string name="h3_apps">Anwendungen</string>
     <string name="h3_background">Hintergrund</string>
@@ -110,10 +114,13 @@
     <string name="toast_pin_saved">PIN gespeichert</string>
     <string name="toast_reset_done">Zurücksetzen abgeschlossen</string>
     <string name="toast_reset_failed">Zurücksetzen fehlgeschlagen</string>
+    <string name="toast_shortcut_added">%1$s hinzugefügt</string>
+    <string name="toast_unable_add_shortcut">Verknüpfung konnte nicht hinzugefügt werden</string>
     <string name="toast_select_target_group">Wählen Sie eine Zielgruppe aus</string>
     <string name="toast_unable_launch_app">App konnte nicht geöffnet werden</string>
     <string name="toast_unable_open_settings">Launcher-Einstellungen konnten nicht geöffnet werden</string>
     <string name="toast_unable_open_wallpaper_app">Keine Wallpaper-App verfügbar</string>
+    <string name="toast_unable_remove_shortcut">Verknüpfung konnte nicht entfernt werden</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
 </resources>
