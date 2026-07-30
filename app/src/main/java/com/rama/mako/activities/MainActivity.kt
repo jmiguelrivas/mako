@@ -391,11 +391,19 @@ class MainActivity : CsActivity() {
             if (searchVisible && !isSearchBarAlwaysVisible) View.VISIBLE else View.GONE
     }
 
+    private fun resolveConfiguredApp(storedValue: String): AppsProvider.AppEntry? {
+        if (storedValue.isEmpty()) return null
+        val allApps = appsProvider.getAll()
+        return allApps.firstOrNull { PrefsManager.FileKeys.appKey(it) == storedValue }
+            ?: allApps.filterIsInstance<AppsProvider.ActivityEntry>()
+                .firstOrNull { it.packageName == storedValue }
+    }
+
     // --- Open date app ---
     private fun openDateApp() {
         val packageName = prefs.getDateApp()
         if (packageName.isNotEmpty()) {
-            val app = appsProvider.getAll().firstOrNull { it.packageName == packageName }
+            val app = resolveConfiguredApp(packageName)
             if (app != null) {
                 if (!appsProvider.launch(app)) {
                     Toast.makeText(
@@ -413,7 +421,7 @@ class MainActivity : CsActivity() {
     private fun openSystemClock() {
         val packageName = prefs.getClockApp()
         if (packageName.isNotEmpty()) {
-            val app = appsProvider.getAll().firstOrNull { it.packageName == packageName }
+            val app = resolveConfiguredApp(packageName)
             if (app != null) {
                 if (!appsProvider.launch(app)) {
                     Toast.makeText(

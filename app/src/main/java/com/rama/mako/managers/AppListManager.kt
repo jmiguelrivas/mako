@@ -416,6 +416,15 @@ class AppListManager(
     private fun openAppSettings(app: AppsProvider.AppEntry) {
         when (app) {
             is AppsProvider.ShortcutEntry -> {
+                if (!app.isPinned) {
+                    allAppsCache.filterIsInstance<AppsProvider.ActivityEntry>()
+                        .firstOrNull {
+                            it.packageName == app.packageName && it.userHandle == app.userHandle
+                        }
+                        ?.let { openAppSettings(it) }
+                    return
+                }
+
                 AlertDialog.Builder(context)
                     .setTitle(R.string.h2_remove_shortcut)
                     .setMessage(getDisplayName(app))
@@ -700,7 +709,7 @@ class AppListManager(
         renameButton?.visibility = if (isSingle) View.VISIBLE else View.GONE
         appSettingsButton?.visibility = if (isSingle) View.VISIBLE else View.GONE
         appSettingsIcon?.contentDescription = context.getString(
-            if (selectedApp is AppsProvider.ShortcutEntry) {
+            if (selectedApp is AppsProvider.ShortcutEntry && selectedApp.isPinned) {
                 R.string.btn_remove_shortcut
             } else {
                 R.string.ctxmenu_open_settings
