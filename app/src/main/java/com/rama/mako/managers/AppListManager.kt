@@ -29,7 +29,6 @@ import com.rama.bohio.managers.ThemeManager
 class AppListManager(
     private val context: Context,
     private val recyclerView: RecyclerView,
-    private val headerView: View,
     private val appsProvider: AppsProvider,
     private val onAppLaunched: (() -> Unit)? = null
 ) {
@@ -63,7 +62,6 @@ class AppListManager(
         private const val PACKAGE_SCORE_PENALTY = 2000
         private const val GROUP_SCORE_PENALTY = 4000
         private const val APP_SIZE_WARNING_BYTES = 200L * 1024 * 1024 // 200 MB
-        private const val VIEW_TYPE_HOME_HEADER = 0
         private const val VIEW_TYPE_GROUP_HEADER = 1
         private const val VIEW_TYPE_APP = 2
         private const val VIEW_TYPE_EMPTY = 3
@@ -839,11 +837,6 @@ class AppListManager(
 
     private fun configureRecyclerView() {
         layoutManager = GridLayoutManager(context, computeColumnCount())
-        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                return adapter.getSpanSize(position, layoutManager.spanCount)
-            }
-        }
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
     }
@@ -855,19 +848,14 @@ class AppListManager(
     private inner class AppAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val adapterItems = mutableListOf<ListItem>()
 
-        override fun getItemCount(): Int = adapterItems.size + 1
+        override fun getItemCount(): Int = adapterItems.size
 
         override fun getItemViewType(position: Int): Int {
-            if (position == 0) return VIEW_TYPE_HOME_HEADER
-            return when (adapterItems[position - 1]) {
+            return when (adapterItems[position]) {
                 is ListItem.Header -> VIEW_TYPE_GROUP_HEADER
                 is ListItem.App -> VIEW_TYPE_APP
                 ListItem.Empty -> VIEW_TYPE_EMPTY
             }
-        }
-
-        fun getSpanSize(position: Int, spanCount: Int): Int {
-            return if (position == 0) spanCount else 1
         }
 
         fun updateItems(newItems: List<ListItem>) {
@@ -878,7 +866,6 @@ class AppListManager(
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             return when (viewType) {
-                VIEW_TYPE_HOME_HEADER -> HomeHeaderViewHolder(headerView)
                 VIEW_TYPE_GROUP_HEADER -> GroupHeaderViewHolder(
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.app_list_header, parent, false)
@@ -894,16 +881,13 @@ class AppListManager(
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            if (position == 0) return
-            when (val item = adapterItems[position - 1]) {
+            when (val item = adapterItems[position]) {
                 is ListItem.Header -> bindGroupHeader(holder as GroupHeaderViewHolder, item)
                 is ListItem.App -> bindApp(holder as AppViewHolder, item.info)
                 ListItem.Empty -> Unit
             }
         }
     }
-
-    private class HomeHeaderViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private class GroupHeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val text: TextView = view.findViewById(R.id.header_text)
