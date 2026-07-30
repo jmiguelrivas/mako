@@ -145,8 +145,7 @@ class MainActivity : CsActivity() {
         applyHomeBackground(force = true)
 
         appList = findViewById(R.id.app_list)
-        homeHeader = layoutInflater.inflate(R.layout.home_list_header, null)
-        ThemeManager.applyTheme(this, homeHeader)
+        homeHeader = findViewById(R.id.apps_layout)
 
         timeText = homeHeader.findViewById(R.id.time)
         dateText = homeHeader.findViewById(R.id.date)
@@ -167,7 +166,6 @@ class MainActivity : CsActivity() {
         appListManager = AppListManager(
             this,
             appList,
-            homeHeader,
             appsProvider
         ) {
             if (isSearchExpanded) {
