@@ -12,6 +12,7 @@
     <string name="app_desc">Isang magaan at walang gambalang Android launcher na inuuna ang privacy at gumagana nang buo sa device, dinisenyo para sa pokus at pagiging simple.</string>
     <string name="btn_about_mako">Tungkol sa Mako</string>
     <string name="btn_add_group">+ Magdagdag ng Bagong Grupo</string>
+    <string name="btn_add_shortcut">Idagdag</string>
     <string name="btn_change_wallpaper">Palitan ang wallpaper ng OS</string>
     <string name="btn_clear_data">I-clear ang Data</string>
     <string name="btn_delete_group">Tanggalin ang grupo</string>
@@ -21,6 +22,7 @@
     <string name="btn_import_data">I-import ang Data</string>
     <string name="btn_lock">I-lock</string>
     <string name="btn_refresh_launcher">I-refresh ang launcher</string>
+    <string name="btn_remove_shortcut">Alisin</string>
     <string name="btn_select_icon_pack">Pumili ng icon pack</string>
     <string name="btn_set_clock_app">Palitan ang Aksyon sa Pag-tap ng Orasan</string>
     <string name="btn_set_date_app">Palitan ang Aksyon sa Pag-tap ng Petsa</string>
@@ -59,8 +61,10 @@
     <string name="easter_eggs_unlock">Pwede bang tumigil ka sa paglalaro dito xD</string>
     <string name="filepicker_icon_pack_not_selected">Walang napiling icon pack</string>
     <string name="filepicker_selected_icon_pack">Napiling pack: %1$s</string>
+    <string name="h2_add_shortcut">Idagdag ang shortcut?</string>
     <string name="h2_delete_group">Sigurado ka bang gusto mong tanggalin ang grupong ito?</string>
     <string name="h2_rename_app">Palitan ang pangalan ng app</string>
+    <string name="h2_remove_shortcut">Alisin ang shortcut?</string>
     <string name="h2_select_group">Pumili ng Grupo</string>
     <string name="h3_apps">Mga Application</string>
     <string name="h3_background">Background</string>
@@ -113,10 +117,13 @@
     <string name="toast_pin_saved">Na-save ang PIN</string>
     <string name="toast_reset_done">Tapos na ang pag-reset</string>
     <string name="toast_reset_failed">Nabigo ang pag-reset</string>
+    <string name="toast_shortcut_added">Naidagdag ang %1$s</string>
+    <string name="toast_unable_add_shortcut">Hindi maidagdag ang shortcut</string>
     <string name="toast_select_target_group">Pumili ng target na grupo</string>
     <string name="toast_unable_launch_app">Hindi ma-launch ang app</string>
     <string name="toast_unable_open_settings">Hindi mabuksan ang settings ng launcher</string>
     <string name="toast_unable_open_wallpaper_app">Walang available na wallpaper app</string>
+    <string name="toast_unable_remove_shortcut">Hindi maalis ang shortcut</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
 </resources>

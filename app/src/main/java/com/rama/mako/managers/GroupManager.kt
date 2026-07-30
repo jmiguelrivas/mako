@@ -71,8 +71,8 @@ class GroupsManager(
     fun deleteGroup(groupId: String, newGroupId: String?) {
         val allApps = appsProvider.getAll()
         allApps.forEach { app ->
-            if (prefs.getAppGroupId(app.packageName, app.userHandle) == groupId) {
-                prefs.setAppGroupId(app.packageName, app.userHandle, newGroupId)
+            if (prefs.getAppGroupId(app) == groupId) {
+                prefs.setAppGroupId(app, newGroupId)
             }
         }
 
@@ -97,7 +97,10 @@ class GroupsManager(
     }
 
     fun healData(): Boolean {
-        val changed = prefs.healData(appsProvider.getAll())
+        val changed = prefs.healData(
+            installedApps = appsProvider.getAll(),
+            preserveShortcutData = !appsProvider.hasShortcutHostPermission()
+        )
         if (changed) reindexOrder()
         return changed
     }

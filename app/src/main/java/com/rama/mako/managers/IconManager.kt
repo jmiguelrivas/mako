@@ -38,14 +38,15 @@ class IconManager(
     private val appFilterCache = mutableMapOf<String, Map<String, String>>()
 
     fun getIcon(app: AppsProvider.AppEntry): Drawable {
+        val activity = app as? AppsProvider.ActivityEntry ?: return appsProvider.getIcon(app)
         val source = prefs.getIconSource()
         val selectedPack = prefs.getIconPackPackage()
-        val cacheKey = buildCacheKey(app, source, selectedPack)
+        val cacheKey = buildCacheKey(activity, source, selectedPack)
 
         return iconCache.getOrPut(cacheKey) {
             when (source) {
                 PrefsManager.IconSource.MONOCHROME -> getMonochromeIcon(app)
-                PrefsManager.IconSource.ICON_PACK -> getIconFromPack(app, selectedPack)
+                PrefsManager.IconSource.ICON_PACK -> getIconFromPack(activity, selectedPack)
                 else -> null
             } ?: appsProvider.getIcon(app)
         }
@@ -102,7 +103,7 @@ class IconManager(
     }
 
     private fun getIconFromPack(
-        app: AppsProvider.AppEntry,
+        app: AppsProvider.ActivityEntry,
         packageName: String
     ): Drawable? {
         if (packageName.isBlank()) return null
@@ -265,7 +266,7 @@ class IconManager(
     }
 
     private fun buildCacheKey(
-        app: AppsProvider.AppEntry,
+        app: AppsProvider.ActivityEntry,
         source: String,
         selectedPack: String
     ): String {

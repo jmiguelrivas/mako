@@ -17,6 +17,7 @@
     <string name="battery_temp_labeled" translatable="false">%1$d°%2$s (%3$s)</string>
     <string name="btn_about_mako">About Mako</string>
     <string name="btn_add_group">+ Add New Group</string>
+    <string name="btn_add_shortcut">Add</string>
     <string name="btn_change_wallpaper">Change OS wallpaper</string>
     <string name="btn_clear_data">Clear Data</string>
     <string name="btn_delete_group">Delete group</string>
@@ -26,6 +27,7 @@
     <string name="btn_import_data">Import Data</string>
     <string name="btn_lock">Lock</string>
     <string name="btn_refresh_launcher">Refresh launcher</string>
+    <string name="btn_remove_shortcut">Remove</string>
     <string name="btn_select_icon_pack">Choose icon pack</string>
     <string name="btn_set_clock_app">Change Clock Tap Action</string>
     <string name="btn_set_date_app">Change Date Tap Action</string>
@@ -60,7 +62,7 @@
     <string name="ctxmenu_rename_app">Rename app…</string>
     <string name="device_admin_label">Mako screen lock</string>
     <string name="dialog_save_pin_title">Save this PIN?</string>
-    <string name="dialog_save_pin_warning">Make sure you remember it. If you forget your PIN, you may need to clear Mako\\'s app data to regain access to settings.</string>
+    <string name="dialog_save_pin_warning">Make sure you remember it. If you forget your PIN, you may need to clear Mako\'s app data to regain access to settings.</string>
     <string name="disclaimer_delete_group">Your apps will go to the following group.</string>
     <string name="disclaimer_pick_clock_app">Selecting an app here will set it as your default clock action. When you tap the clock on your home screen, this app will be launched.</string>
     <string name="disclaimer_pick_date_app">Selecting an app here will set it as your default date action. When you tap the date on your home screen, this app will be launched.</string>
@@ -69,8 +71,10 @@
     <string name="easter_eggs_unlock">Can you please stop playing with it xD</string>
     <string name="filepicker_icon_pack_not_selected">No icon pack selected</string>
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
+    <string name="h2_add_shortcut">Add shortcut?</string>
     <string name="h2_delete_group">Are you sure you want to delete this group?</string>
     <string name="h2_rename_app">Rename app</string>
+    <string name="h2_remove_shortcut">Remove shortcut?</string>
     <string name="h2_select_group">Select Group</string>
     <string name="h3_apps">Applications</string>
     <string name="h3_background">Background</string>
@@ -123,10 +127,13 @@
     <string name="toast_pin_saved">PIN saved</string>
     <string name="toast_reset_done">Reset done</string>
     <string name="toast_reset_failed">Reset failed</string>
+    <string name="toast_shortcut_added">%1$s added</string>
+    <string name="toast_unable_add_shortcut">Unable to add shortcut</string>
     <string name="toast_select_target_group">Select a target group</string>
     <string name="toast_unable_launch_app">Unable to launch app</string>
     <string name="toast_unable_open_settings">Unable to open launcher settings</string>
     <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>
+    <string name="toast_unable_remove_shortcut">Unable to remove shortcut</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
 </resources>

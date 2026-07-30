@@ -12,6 +12,7 @@
     <string name="app_desc">Un launcher Android léger, sans distraction, qui privilégie la confidentialité et fonctionne entièrement sur l\'appareil, conçu pour la concentration et la simplicité.</string>
     <string name="btn_about_mako">À propos de Mako</string>
     <string name="btn_add_group">+ Ajouter un groupe</string>
+    <string name="btn_add_shortcut">Ajouter</string>
     <string name="btn_change_wallpaper">Modifier le fond d\'écran du système</string>
     <string name="btn_clear_data">Effacer les données</string>
     <string name="btn_delete_group">Supprimer le groupe</string>
@@ -20,6 +21,7 @@
     <string name="btn_import_data">Importer les données</string>
     <string name="btn_lock">Verrouiller</string>
     <string name="btn_refresh_launcher">Actualiser le launcher</string>
+    <string name="btn_remove_shortcut">Supprimer</string>
     <string name="btn_select_icon_pack">Choisir un pack d\'icônes</string>
     <string name="btn_set_clock_app">Modifier l\'action de l\'horloge</string>
     <string name="btn_set_date_app">Modifier l\'action de la date</string>
@@ -48,7 +50,7 @@
     <string name="ctxmenu_rename_app">Renommer l\'application…</string>
     <string name="device_admin_label">Verrouillage d\'écran Mako</string>
     <string name="dialog_save_pin_title">Enregistrer ce code PIN ?</string>
-    <string name="dialog_save_pin_warning">Veillez à vous en souvenir. Si vous oubliez votre code PIN, vous devrez peut-être effacer les données de l\\'application Mako pour accéder de nouveau aux paramètres.</string>
+    <string name="dialog_save_pin_warning">Veillez à vous en souvenir. Si vous oubliez votre code PIN, vous devrez peut-être effacer les données de l\'application Mako pour accéder de nouveau aux paramètres.</string>
     <string name="disclaimer_delete_group">Vos applications seront déplacées vers le groupe suivant.</string>
     <string name="disclaimer_pick_clock_app">Sélectionner une application ici la définira comme action horloge par défaut. Lorsque vous tapotez l\'horloge sur l\'écran d\'accueil, cette application sera lancée.</string>
     <string name="disclaimer_pick_date_app">Sélectionner une application ici la définira comme action date par défaut. Lorsque vous tapotez la date sur l\'écran d\'accueil, cette application sera lancée.</string>
@@ -57,8 +59,10 @@
     <string name="easter_eggs_unlock">Tu peux arrêter de jouer avec xD</string>
     <string name="filepicker_icon_pack_not_selected">Aucun pack d\'icônes sélectionné</string>
     <string name="filepicker_selected_icon_pack">Pack sélectionné : %1$s</string>
+    <string name="h2_add_shortcut">Ajouter le raccourci ?</string>
     <string name="h2_delete_group">Voulez-vous vraiment supprimer ce groupe ?</string>
     <string name="h2_rename_app">Renommer l\'application</string>
+    <string name="h2_remove_shortcut">Supprimer le raccourci ?</string>
     <string name="h2_select_group">Sélectionner un groupe</string>
     <string name="h3_apps">Applications</string>
     <string name="h3_background">Arrière-plan</string>
@@ -107,10 +111,13 @@
     <string name="toast_pin_saved">PIN enregistré</string>
     <string name="toast_reset_done">Réinitialisation effectuée</string>
     <string name="toast_reset_failed">Échec de la réinitialisation</string>
+    <string name="toast_shortcut_added">%1$s ajouté</string>
+    <string name="toast_unable_add_shortcut">Impossible d\'ajouter le raccourci</string>
     <string name="toast_select_target_group">Sélectionnez un groupe cible</string>
     <string name="toast_unable_launch_app">Impossible de lancer l\'application</string>
     <string name="toast_unable_open_settings">Impossible d\'ouvrir les paramètres du launcher</string>
     <string name="toast_unable_open_wallpaper_app">Aucune application de fond d\'écran disponible</string>
+    <string name="toast_unable_remove_shortcut">Impossible de supprimer le raccourci</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
 </resources>

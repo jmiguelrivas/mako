@@ -12,6 +12,7 @@
     <string name="app_desc">Um launcher Android leve e livre de distrações, onde privacidade é em primeiro lugar e inteiramente no dispositivo, projetado para foco e simplicidade.</string>
     <string name="btn_about_mako">Sobre Mako</string>
     <string name="btn_add_group">+ Adicionar Novo Grupo</string>
+    <string name="btn_add_shortcut">Adicionar</string>
     <string name="btn_change_wallpaper">Alterar papel de parede do sistema operacional</string>
     <string name="btn_clear_data">Limpar Dados</string>
     <string name="btn_delete_group">Apagar Grupo</string>
@@ -21,6 +22,7 @@
     <string name="btn_import_data">Importar Dados</string>
     <string name="btn_lock">Bloqueio</string>
     <string name="btn_refresh_launcher">Atualizar Laucher</string>
+    <string name="btn_remove_shortcut">Remover</string>
     <string name="btn_select_icon_pack">Escolher Pacotes de Ícones</string>
     <string name="btn_set_clock_app">Trocar Ação de toque no relógio</string>
     <string name="btn_set_date_app">Trocar Ação de toque na Data</string>
@@ -59,8 +61,10 @@
     <string name="easter_eggs_unlock">Pode, por favor, parar de brincar com ele xD</string>
     <string name="filepicker_icon_pack_not_selected">Nenhum pacote de ícones selecionado</string>
     <string name="filepicker_selected_icon_pack">Pacote selecionado: %1$s</string>
+    <string name="h2_add_shortcut">Adicionar atalho?</string>
     <string name="h2_delete_group">Tem certeza de que deseja excluir esse grupo?</string>
     <string name="h2_rename_app">Renomear App</string>
+    <string name="h2_remove_shortcut">Remover atalho?</string>
     <string name="h2_select_group">Selecionar Grupo</string>
     <string name="h3_apps">Aplicativos</string>
     <string name="h3_background">Fundo</string>
@@ -113,10 +117,13 @@
     <string name="toast_pin_saved">PIN salvo</string>
     <string name="toast_reset_done">Redefinição feita</string>
     <string name="toast_reset_failed">Redefinir falhou</string>
+    <string name="toast_shortcut_added">%1$s adicionado</string>
+    <string name="toast_unable_add_shortcut">Não foi possível adicionar o atalho</string>
     <string name="toast_select_target_group">Selecione um grupo de destino</string>
     <string name="toast_unable_launch_app">Não é possível iniciar aplicativo</string>
     <string name="toast_unable_open_settings">Não é possível abrir as configurações do laucher</string>
     <string name="toast_unable_open_wallpaper_app">Nenhum aplicativo de papel de parede disponível</string>
+    <string name="toast_unable_remove_shortcut">Não foi possível remover o atalho</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
 </resources>

@@ -12,6 +12,7 @@
     <string name="app_desc">Odak ve sadelik için tasarlanmış, gizliliği önceleyen ve tamamen cihaz üzerinde çalışan, hafif ve dikkat dağıtmayan bir Android başlatıcı.</string>
     <string name="btn_about_mako">Mako hakkında</string>
     <string name="btn_add_group">+ Yeni Grup Ekle</string>
+    <string name="btn_add_shortcut">Ekle</string>
     <string name="btn_change_wallpaper">Sistem duvar kağıdını değiştir</string>
     <string name="btn_clear_data">Veriyi Temizle</string>
     <string name="btn_delete_group">Grubu sil</string>
@@ -21,6 +22,7 @@
     <string name="btn_import_data">Veriyi İçe Aktar</string>
     <string name="btn_lock">Kilitle</string>
     <string name="btn_refresh_launcher">Başlatıcıyı yenile</string>
+    <string name="btn_remove_shortcut">Kaldır</string>
     <string name="btn_select_icon_pack">İkon paketi seç</string>
     <string name="btn_set_clock_app">Saat dokunuş eylemini değiştir</string>
     <string name="btn_set_date_app">Tarih dokunuş eylemini değiştir</string>
@@ -49,7 +51,7 @@
     <string name="ctxmenu_rename_app">Uygulamayı yeniden adlandır…</string>
     <string name="device_admin_label">Mako ekran kilidi</string>
     <string name="dialog_save_pin_title">Bu PIN kaydedilsin mi?</string>
-    <string name="dialog_save_pin_warning">Bu PIN\\'i hatırladığınızdan emin olun. PIN\\'inizi unutursanız ayarlara yeniden erişmek için Mako\\'nun uygulama verilerini temizlemeniz gerekebilir.</string>
+    <string name="dialog_save_pin_warning">Bu PIN\'i hatırladığınızdan emin olun. PIN\'inizi unutursanız ayarlara yeniden erişmek için Mako\'nun uygulama verilerini temizlemeniz gerekebilir.</string>
     <string name="disclaimer_delete_group">Uygulamalarınız aşağıdaki gruba taşınacaktır.</string>
     <string name="disclaimer_pick_clock_app">Buradan bir uygulama seçmek, onu varsayılan saat eylemi olarak ayarlar. Ana ekranınızdaki saate dokunduğunuzda bu uygulama açılır.</string>
     <string name="disclaimer_pick_date_app">Buradan bir uygulama seçmek, onu varsayılan tarih eylemi olarak ayarlar. Ana ekranınızdaki tarihe dokunduğunuzda bu uygulama açılır.</string>
@@ -58,8 +60,10 @@
     <string name="easter_eggs_unlock">Lütfen bununla oynamayı bırakır mısın xD</string>
     <string name="filepicker_icon_pack_not_selected">İkon paketi seçilmedi</string>
     <string name="filepicker_selected_icon_pack">Seçili paket: %1$s</string>
+    <string name="h2_add_shortcut">Kısayol eklensin mi?</string>
     <string name="h2_delete_group">Bu grubu silmek istediğinizden emin misiniz?</string>
     <string name="h2_rename_app">Uygulamayı yeniden adlandır</string>
+    <string name="h2_remove_shortcut">Kısayol kaldırılsın mı?</string>
     <string name="h2_select_group">Grup Seç</string>
     <string name="h3_apps">Uygulamalar</string>
     <string name="h3_background">Arka Plan</string>
@@ -110,10 +114,13 @@
     <string name="toast_pin_saved">PIN kaydedildi</string>
     <string name="toast_reset_done">Sıfırlama tamamlandı</string>
     <string name="toast_reset_failed">Sıfırlama başarısız</string>
+    <string name="toast_shortcut_added">%1$s eklendi</string>
+    <string name="toast_unable_add_shortcut">Kısayol eklenemedi</string>
     <string name="toast_select_target_group">Bir hedef grup seçin</string>
     <string name="toast_unable_launch_app">Uygulama başlatılamadı</string>
     <string name="toast_unable_open_settings">Başlatıcı ayarları açılamadı</string>
     <string name="toast_unable_open_wallpaper_app">Duvar kağıdı uygulaması bulunamadı</string>
+    <string name="toast_unable_remove_shortcut">Kısayol kaldırılamadı</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
 </resources>

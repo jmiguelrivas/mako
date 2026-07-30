@@ -48,6 +48,17 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+        <activity
+            android:name=".activities.ConfirmPinShortcutActivity"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.DeviceDefault.Dialog">
+            <intent-filter>
+                <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:exported="false"
