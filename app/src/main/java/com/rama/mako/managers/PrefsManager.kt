@@ -185,18 +185,6 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putBoolean(FileKeys.SECURITY_KEYPAD_RANDOMIZED, true)
         editor.putBoolean(FileKeys.SECURITY_KEYPAD_VISIBLE, false)
 
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_CLOCK, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_TEMPERATURE, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_BACKGROUND, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_DATE, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_BATTERY, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_ICONS, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_GROUPS, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_SEARCH, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_DATA, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_APPS, true)
-        editor.putBoolean(PrefKeys.SETTINGS_SECTION_SECURITY, true)
-
         fun migrateLegacyPrefs(sync: Boolean = false) {
             val editor = prefs.edit()
             var hasChanges = false
