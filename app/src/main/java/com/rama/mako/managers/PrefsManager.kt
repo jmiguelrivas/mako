@@ -26,6 +26,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val APPS_MULTI_COLUMN = "apps:multi_column"
         const val APPS_SHOW_API_INDICATORS = "apps:show_api_indicators"
         const val APPS_SHOW_SIZE = "apps:show_size"
+        const val APPS_SHOW_SHORTCUTS = "apps:show_shortcuts"
 
         const val HOME_BACKGROUND_MODE = "home:background_mode"
         const val HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH =
@@ -163,6 +164,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putBoolean(FileKeys.APPS_MULTI_COLUMN, false)
         editor.putBoolean(FileKeys.APPS_SHOW_API_INDICATORS, false)
         editor.putBoolean(FileKeys.APPS_SHOW_SIZE, false)
+        editor.putBoolean(FileKeys.APPS_SHOW_SHORTCUTS, false)
 
         editor.putString(FileKeys.HOME_BACKGROUND_MODE, BackgroundMode.DEFAULT)
         editor.putInt(FileKeys.HOME_BACKGROUND_MODE_SCREEN_OPACITY_STRENGTH, 9)
@@ -430,6 +432,9 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun hasAppSizeVisible(): Boolean =
         prefs.getBoolean(FileKeys.APPS_SHOW_SIZE, false)
+
+    fun hasAppShortcuts(): Boolean =
+        prefs.getBoolean(FileKeys.APPS_SHOW_SHORTCUTS, false)
 
     fun setMultiColumnEnabled(enabled: Boolean) =
         prefs.edit().putBoolean(FileKeys.APPS_MULTI_COLUMN, enabled).apply()

@@ -584,6 +584,11 @@
                     android:text="@string/checkbox_show_app_size"
                     style="@style/Checkbox" />
 
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/show_app_shortcuts"
+                    android:text="@string/checkbox_show_app_shortcuts"
+                    style="@style/Checkbox" />
+
             </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Security-->
             <com.rama.bohio.widgets.WdCollapsibleSection

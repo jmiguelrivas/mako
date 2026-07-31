@@ -136,4 +136,5 @@
     <string name="toast_unable_remove_shortcut">Unable to remove shortcut</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
+    <string name="checkbox_show_app_shortcuts">Show app shortcuts</string>
 </resources>
