@@ -55,7 +55,7 @@ class AppsProvider(private val context: Context) {
     private val appSizeCache = mutableMapOf<String, Long>()
     private val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
 
-    fun getAll(): List<AppEntry> {
+    fun getAll(includeShortcuts: Boolean = true): List<AppEntry> {
         val realApps = userManager.userProfiles.flatMap { userHandle ->
             val profileInitial = getProfileInitial(userHandle)
 
@@ -75,6 +75,10 @@ class AppsProvider(private val context: Context) {
                     activityInfo = info,
                     profileInitial = profileInitial
                 )
+            }
+
+            if (!includeShortcuts) {
+                return@flatMap appEntries
             }
 
             // Used to prefix shortcut labels with their parent app's name, e.g. "Clock: Timer".
@@ -190,7 +194,7 @@ class AppsProvider(private val context: Context) {
 
     fun hasShortcutHostPermission(): Boolean =
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
-            launcherApps.hasShortcutHostPermission()
+                launcherApps.hasShortcutHostPermission()
 
     private fun getShortcutEntries(
         userHandle: UserHandle,
@@ -202,8 +206,8 @@ class AppsProvider(private val context: Context) {
         val query = LauncherApps.ShortcutQuery().apply {
             setQueryFlags(
                 LauncherApps.ShortcutQuery.FLAG_MATCH_MANIFEST or
-                    LauncherApps.ShortcutQuery.FLAG_MATCH_DYNAMIC or
-                    LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED
+                        LauncherApps.ShortcutQuery.FLAG_MATCH_DYNAMIC or
+                        LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED
             )
         }
         return runCatching {
@@ -212,7 +216,7 @@ class AppsProvider(private val context: Context) {
                 val shortcutLabel = shortcut.shortLabel?.toString()
                     ?.ifBlank { null }
                     ?: shortcut.longLabel?.toString()
-                    ?.ifBlank { null }
+                        ?.ifBlank { null }
                     ?: shortcutId
                 val appLabel = appLabelsByPackage[shortcut.`package`]
                 val combinedLabel = if (appLabel != null) {

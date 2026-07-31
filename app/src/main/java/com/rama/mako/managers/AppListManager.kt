@@ -122,7 +122,7 @@ class AppListManager(
     }
 
     private fun updateAppsCache() {
-        allAppsCache = appsProvider.getAll()
+        allAppsCache = appsProvider.getAll(includeShortcuts = prefs.hasAppShortcuts())
         searchableNameCache.clear()
         packageNameCache.clear()
     }
@@ -879,9 +879,11 @@ class AppListManager(
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.app_list_header, parent, false)
                 )
+
                 VIEW_TYPE_EMPTY -> EmptyViewHolder(Space(parent.context).apply {
                     importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
                 })
+
                 else -> AppViewHolder(
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.list_item_app, parent, false)
