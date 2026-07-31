@@ -59,7 +59,6 @@ class SettingsClockController(private val activity: SettingsActivity) {
         val listView = dialogView.findViewById<ListView>(R.id.app_list)
         val closeBtn = dialogView.findViewById<Button>(R.id.close_button)
         val apps = appsProvider.getAll()
-            .filterIsInstance<AppsProvider.ActivityEntry>()
             .sortedBy { it.label.lowercase() }
 
         val adapter = object : BaseAdapter() {
@@ -85,7 +84,7 @@ class SettingsClockController(private val activity: SettingsActivity) {
         listView.setOnItemClickListener { _, itemView, position, _ ->
             itemView.performHapticFeedback(android.view.HapticFeedbackConstants.KEYBOARD_TAP)
             val selectedApp = apps[position]
-            prefs.setClockApp(selectedApp.packageName)
+            prefs.setClockApp(PrefsManager.FileKeys.appKey(selectedApp))
             Toast.makeText(
                 activity,
                 activity.getString(R.string.toast_app_selected, selectedApp.label),

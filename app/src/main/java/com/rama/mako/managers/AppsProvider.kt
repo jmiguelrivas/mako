@@ -45,7 +45,8 @@ class AppsProvider(private val context: Context) {
         userHandle: UserHandle,
         profileInitial: String?,
         val shortcutId: String,
-        val shortcutInfo: ShortcutInfo
+        val shortcutInfo: ShortcutInfo,
+        val isPinned: Boolean = false
     ) : AppEntry(packageName, label, userHandle, profileInitial)
 
     private val launcherApps =
@@ -54,7 +55,7 @@ class AppsProvider(private val context: Context) {
     private val appSizeCache = mutableMapOf<String, Long>()
     private val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
 
-    fun getAll(): List<AppEntry> {
+    fun getAll(includeShortcuts: Boolean = true): List<AppEntry> {
         val realApps = userManager.userProfiles.flatMap { userHandle ->
             val profileInitial = getProfileInitial(userHandle)
 
@@ -76,7 +77,16 @@ class AppsProvider(private val context: Context) {
                 )
             }
 
-            val shortcutEntries = getPinnedShortcutEntries(userHandle, profileInitial)
+            if (!includeShortcuts) {
+                return@flatMap appEntries
+            }
+
+            // Used to prefix shortcut labels with their parent app's name, e.g. "Clock: Timer".
+            val appLabelsByPackage = activities
+                .groupBy { it.applicationInfo.packageName }
+                .mapValues { (_, infos) -> infos.first().label.toString() }
+
+            val shortcutEntries = getShortcutEntries(userHandle, profileInitial, appLabelsByPackage)
 
             appEntries + shortcutEntries
         }
@@ -184,32 +194,44 @@ class AppsProvider(private val context: Context) {
 
     fun hasShortcutHostPermission(): Boolean =
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
-            launcherApps.hasShortcutHostPermission()
+                launcherApps.hasShortcutHostPermission()
 
-    private fun getPinnedShortcutEntries(
+    private fun getShortcutEntries(
         userHandle: UserHandle,
-        profileInitial: String?
+        profileInitial: String?,
+        appLabelsByPackage: Map<String, String>
     ): List<ShortcutEntry> {
         if (!hasShortcutHostPermission()) return emptyList()
 
         val query = LauncherApps.ShortcutQuery().apply {
-            setQueryFlags(LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED)
+            setQueryFlags(
+                LauncherApps.ShortcutQuery.FLAG_MATCH_MANIFEST or
+                        LauncherApps.ShortcutQuery.FLAG_MATCH_DYNAMIC or
+                        LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED
+            )
         }
         return runCatching {
             launcherApps.getShortcuts(query, userHandle).orEmpty().map { shortcut ->
                 val shortcutId = shortcut.id
-                val label = shortcut.shortLabel?.toString()
+                val shortcutLabel = shortcut.shortLabel?.toString()
                     ?.ifBlank { null }
                     ?: shortcut.longLabel?.toString()
-                    ?.ifBlank { null }
+                        ?.ifBlank { null }
                     ?: shortcutId
+                val appLabel = appLabelsByPackage[shortcut.`package`]
+                val combinedLabel = if (appLabel != null) {
+                    "$appLabel: $shortcutLabel"
+                } else {
+                    shortcutLabel
+                }
                 ShortcutEntry(
                     packageName = shortcut.`package`,
-                    label = label,
+                    label = combinedLabel,
                     userHandle = userHandle,
                     profileInitial = profileInitial,
                     shortcutId = shortcutId,
-                    shortcutInfo = shortcut
+                    shortcutInfo = shortcut,
+                    isPinned = shortcut.isPinned
                 )
             }
         }.getOrDefault(emptyList())
