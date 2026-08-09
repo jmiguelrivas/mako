@@ -2,6 +2,8 @@
 
 ## 50
 
+- Option to pin a group on top
+
 ## 49
 
 - Show PWAs

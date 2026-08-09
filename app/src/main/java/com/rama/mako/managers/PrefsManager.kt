@@ -86,6 +86,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         fun GROUP_VISIBLE(id: String) = "group:$id:visible"
         fun GROUP_EXPANDED(id: String) = "group:$id:expanded"
         fun GROUP_ORDER(id: String) = "group:$id:order"
+        fun GROUP_KEEP_EXPANDED(id: String) = "group:$id:keep_expanded"
     }
 
     object UI {
@@ -262,6 +263,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
             .remove(FileKeys.GROUP_VISIBLE(id))
             .remove(FileKeys.GROUP_EXPANDED(id))
             .remove(FileKeys.GROUP_ORDER(id))
+            .remove(FileKeys.GROUP_KEEP_EXPANDED(id))
             .apply()
     }
 
@@ -326,6 +328,12 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.apply()
     }
 
+    fun isGroupKeepExpanded(id: String): Boolean =
+        prefs.getBoolean(FileKeys.GROUP_KEEP_EXPANDED(id), false)
+
+    fun setGroupKeepExpanded(id: String, value: Boolean) =
+        prefs.edit().putBoolean(FileKeys.GROUP_KEEP_EXPANDED(id), value).apply()
+
     fun hasGroupOrder(id: String): Boolean =
         prefs.contains(FileKeys.GROUP_ORDER(id))
 
@@ -385,6 +393,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
             editor.remove(FileKeys.GROUP_VISIBLE(id))
             editor.remove(FileKeys.GROUP_EXPANDED(id))
             editor.remove(FileKeys.GROUP_ORDER(id))
+            editor.remove(FileKeys.GROUP_KEEP_EXPANDED(id))
             currentGroupIds.remove(id)
             changed = true
         }

@@ -8,6 +8,8 @@
     <string name="altdescr_search_icon">Toggle search</string>
     <string name="altdescr_selection_check">Selected</string>
     <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
+    <string name="altdescr_toggle_group_keep_expanded_on">Keep group open when collapsing</string>
+    <string name="altdescr_toggle_group_keep_expanded_off">Let group collapse</string>
     <string name="altdescr_toggle_pin_visibility">Toggle PIN visibility</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
     <string name="app_name" translatable="false">@string/product_mako</string>

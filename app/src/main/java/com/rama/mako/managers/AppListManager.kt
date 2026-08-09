@@ -104,7 +104,9 @@ class AppListManager(
     fun collapseAllGroups(): Boolean {
         if (!prefs.hasGroupHeaders() || !prefs.hasCollapsibleGroups()) return false
 
-        val expandedIds = getAllGroupIds().filter { prefs.isGroupExpanded(it) }
+        val expandedIds = getAllGroupIds().filter {
+            prefs.isGroupExpanded(it) && !prefs.isGroupKeepExpanded(it)
+        }
         if (expandedIds.isEmpty()) return false
 
         prefs.setGroupsExpanded(expandedIds.toSet(), false)
@@ -118,7 +120,9 @@ class AppListManager(
             .map(prefs::getAppGroupId)
             .distinct()
         val unknownGroupIds = appGroupIds.filter { it !in knownGroupIds }
-        return (knownGroupIds + unknownGroupIds).distinct()
+        return (knownGroupIds + unknownGroupIds)
+            .distinct()
+            .sortedWith(compareByDescending { prefs.isGroupKeepExpanded(it) })
     }
 
     private fun updateAppsCache() {
@@ -154,7 +158,7 @@ class AppListManager(
                 )
             }
 
-            val isExpanded = prefs.isGroupExpanded(groupId)
+            val isExpanded = prefs.isGroupKeepExpanded(groupId) || prefs.isGroupExpanded(groupId)
             if (!isExpanded) return@forEach
 
             apps.sortedBy { getSearchableName(it) }
@@ -914,8 +918,9 @@ class AppListManager(
     }
 
     private fun bindGroupHeader(holder: GroupHeaderViewHolder, item: ListItem.Header) {
-        val collapsible = prefs.hasCollapsibleGroups()
-        val isExpanded = collapsible && prefs.isGroupExpanded(item.id)
+        val pinned = prefs.isGroupKeepExpanded(item.id)
+        val collapsible = prefs.hasCollapsibleGroups() && !pinned
+        val isExpanded = pinned || (collapsible && prefs.isGroupExpanded(item.id))
         val collapseIndicator = if (collapsible) {
             context.getString(
                 if (isExpanded) {

@@ -16,6 +16,19 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/toggle_keep_expanded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12sp">
+
+        <ImageView
+            android:id="@+id/toggle_keep_expanded_img"
+            android:src="@drawable/px_pin_outline"
+            android:contentDescription="@string/altdescr_toggle_group_keep_expanded_off"
+            style="@style/Icon24" />
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/ascend_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
