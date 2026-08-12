@@ -353,8 +353,9 @@ class AppListManager(
 
             val apps = groupedMap[groupId] ?: return@forEach
 
-            val isVisible = prefs.isGroupVisible(groupId)
-            if (!isVisible) return@forEach
+            if (!prefs.includeHiddenGroupsInSearch() && !prefs.isGroupVisible(groupId)) {
+                return@forEach
+            }
 
             val label = prefs.getGroupLabel(groupId)
             val normalizedGroupLabel = normalizeForSearch(label)

@@ -3,6 +3,7 @@
 ## 50
 
 - Option to pin a group on top
+- Option to include hidden groups in search
 
 ## 49
 

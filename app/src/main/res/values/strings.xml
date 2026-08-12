@@ -41,6 +41,7 @@
     <string name="checkbox_click_on_icons_open_app_settings">Open app settings when clicking icons</string>
     <string name="checkbox_collapse_groups_on_home_focus">Collapse groups when returning home</string>
     <string name="checkbox_has_collapsible_groups">Allow collapsing groups</string>
+    <string name="checkbox_include_hidden_in_search">Include hidden groups in search</string>
     <string name="checkbox_lock_settings">Lock Settings</string>
     <string name="checkbox_multi_column">Multi-column layout</string>
     <string name="checkbox_randomized_keypad">Randomized keypad</string>

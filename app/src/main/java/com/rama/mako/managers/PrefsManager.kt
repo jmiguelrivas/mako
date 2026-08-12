@@ -17,6 +17,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
     object FileKeys {
         const val APPS_SEARCH = "apps:search"
         const val APPS_SEARCH_ALWAYS_VISIBLE = "apps:search:always_visible"
+        const val APPS_SEARCH_INCLUDE_HIDDEN_GROUPS = "apps:search:include_hidden_groups"
         const val APPS_PROFILE_INDICATOR = "apps:profile_indicator"
 
         const val APPS_ICONS = "apps:icons"
@@ -156,6 +157,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putString(FileKeys.CLOCK_APP, "")
 
         editor.putBoolean(FileKeys.APPS_SEARCH, false)
+        editor.putBoolean(FileKeys.APPS_SEARCH_INCLUDE_HIDDEN_GROUPS, false)
         editor.putBoolean(FileKeys.APPS_PROFILE_INDICATOR, true)
 
         editor.putBoolean(FileKeys.APPS_ICONS, false)
@@ -411,6 +413,9 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun isSearchBarAlwaysVisible(): Boolean =
         prefs.getBoolean(FileKeys.APPS_SEARCH_ALWAYS_VISIBLE, false)
+
+    fun includeHiddenGroupsInSearch(): Boolean =
+        prefs.getBoolean(FileKeys.APPS_SEARCH_INCLUDE_HIDDEN_GROUPS, false)
 
     fun hasIconsVisible(): Boolean =
         getIconSource() != IconSource.NONE

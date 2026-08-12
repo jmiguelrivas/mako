@@ -555,6 +555,11 @@
                     android:id="@+id/always_show_search"
                     android:text="@string/checkbox_always_show_search_bar"
                     style="@style/Checkbox" />
+
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/search_include_hidden"
+                    android:text="@string/checkbox_include_hidden_in_search"
+                    style="@style/Checkbox" />
             </com.rama.bohio.widgets.WdCollapsibleSection>
             <!--Apps-->
             <com.rama.bohio.widgets.WdCollapsibleSection
