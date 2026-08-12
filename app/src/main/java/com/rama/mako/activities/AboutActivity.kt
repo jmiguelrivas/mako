@@ -34,6 +34,17 @@ class AboutActivity : CsActivity() {
             startActivity(intent)
         }
 
+        val githubButton = findViewById<View>(R.id.github_button)
+        githubButton.setOnClickListener {
+            val rawUrl = getString(BohioR.string.product_mako_url)
+            val url = if (rawUrl.startsWith("http://") || rawUrl.startsWith("https://")) rawUrl else "https://$rawUrl"
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(url)
+            )
+            startActivity(intent)
+        }
+
         val version = packageManager.getPackageInfo(packageName, 0).versionCode
         val nameView = findViewById<TextView>(R.id.name_version)
         nameView.text = getString(BohioR.string.name_version, getString(R.string.app_name), version)
