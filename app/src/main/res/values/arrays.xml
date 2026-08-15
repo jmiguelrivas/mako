@@ -14,6 +14,7 @@
         <item>fi</item>
         <item>fil-rPH</item>
         <item>pt-rBR</item>
+        <item>jp</item>
         <item>zh-rCN</item>
     </string-array>
 
@@ -26,6 +27,7 @@
         <item>@string/radio_language_fi</item>
         <item>@string/radio_language_fil_rPH</item>
         <item>@string/radio_language_pt_rBR</item>
+        <item>@string/radio_language_jp</item>
         <item>@string/radio_language_zh_rCN</item>
     </string-array>
 

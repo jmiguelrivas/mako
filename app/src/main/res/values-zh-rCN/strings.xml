@@ -62,8 +62,8 @@
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
     <string name="h2_add_shortcut">添加快捷方式？</string>
     <string name="h2_delete_group">您确定删除此群组吗？</string>
-    <string name="h2_rename_app">Rename app</string>
     <string name="h2_remove_shortcut">删除快捷方式？</string>
+    <string name="h2_rename_app">Rename app</string>
     <string name="h2_select_group">Select Group</string>
     <string name="h3_apps">应用显示</string>
     <string name="h3_background">桌面透明度</string>
@@ -116,9 +116,9 @@
     <string name="toast_pin_saved">PIN 已保存</string>
     <string name="toast_reset_done">Reset done</string>
     <string name="toast_reset_failed">Reset failed</string>
+    <string name="toast_select_target_group">Select a target group</string>
     <string name="toast_shortcut_added">已添加 %1$s</string>
     <string name="toast_unable_add_shortcut">无法添加快捷方式</string>
-    <string name="toast_select_target_group">Select a target group</string>
     <string name="toast_unable_launch_app">Unable to launch app</string>
     <string name="toast_unable_open_settings">Unable to open launcher settings</string>
     <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>

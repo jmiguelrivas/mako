@@ -63,8 +63,8 @@
     <string name="filepicker_selected_icon_pack">Napiling pack: %1$s</string>
     <string name="h2_add_shortcut">Idagdag ang shortcut?</string>
     <string name="h2_delete_group">Sigurado ka bang gusto mong tanggalin ang grupong ito?</string>
-    <string name="h2_rename_app">Palitan ang pangalan ng app</string>
     <string name="h2_remove_shortcut">Alisin ang shortcut?</string>
+    <string name="h2_rename_app">Palitan ang pangalan ng app</string>
     <string name="h2_select_group">Pumili ng Grupo</string>
     <string name="h3_apps">Mga Application</string>
     <string name="h3_background">Background</string>
@@ -117,9 +117,9 @@
     <string name="toast_pin_saved">Na-save ang PIN</string>
     <string name="toast_reset_done">Tapos na ang pag-reset</string>
     <string name="toast_reset_failed">Nabigo ang pag-reset</string>
+    <string name="toast_select_target_group">Pumili ng target na grupo</string>
     <string name="toast_shortcut_added">Naidagdag ang %1$s</string>
     <string name="toast_unable_add_shortcut">Hindi maidagdag ang shortcut</string>
-    <string name="toast_select_target_group">Pumili ng target na grupo</string>
     <string name="toast_unable_launch_app">Hindi ma-launch ang app</string>
     <string name="toast_unable_open_settings">Hindi mabuksan ang settings ng launcher</string>
     <string name="toast_unable_open_wallpaper_app">Walang available na wallpaper app</string>

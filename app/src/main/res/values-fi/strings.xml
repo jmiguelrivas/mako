@@ -63,8 +63,8 @@
     <string name="filepicker_selected_icon_pack">Valittu paketti: %1$s</string>
     <string name="h2_add_shortcut">Lisätäänkö pikakuvake?</string>
     <string name="h2_delete_group">Haluatko varmasti poistaa tämän ryhmän?</string>
-    <string name="h2_rename_app">Nimeä sovellus uudelleen</string>
     <string name="h2_remove_shortcut">Poistetaanko pikakuvake?</string>
+    <string name="h2_rename_app">Nimeä sovellus uudelleen</string>
     <string name="h2_select_group">Valitse ryhmä</string>
     <string name="h3_apps">Sovellukset</string>
     <string name="h3_background">Tausta</string>
@@ -117,9 +117,9 @@
     <string name="toast_pin_saved">PIN tallennettu</string>
     <string name="toast_reset_done">Nollaus onnistui</string>
     <string name="toast_reset_failed">Nollaus epäonnistui</string>
+    <string name="toast_select_target_group">Valitse ryhmä</string>
     <string name="toast_shortcut_added">%1$s lisätty</string>
     <string name="toast_unable_add_shortcut">Pikakuvakkeen lisääminen epäonnistui</string>
-    <string name="toast_select_target_group">Valitse ryhmä</string>
     <string name="toast_unable_launch_app">Sovelluksen käynnistäminen epäonnistui</string>
     <string name="toast_unable_open_settings">Asetusten avaaminen epäonnistui</string>
     <string name="toast_unable_open_wallpaper_app">Sovellusta taustakuville ei löytynyt</string>

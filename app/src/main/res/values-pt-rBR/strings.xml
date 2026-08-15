@@ -63,8 +63,8 @@
     <string name="filepicker_selected_icon_pack">Pacote selecionado: %1$s</string>
     <string name="h2_add_shortcut">Adicionar atalho?</string>
     <string name="h2_delete_group">Tem certeza de que deseja excluir esse grupo?</string>
-    <string name="h2_rename_app">Renomear App</string>
     <string name="h2_remove_shortcut">Remover atalho?</string>
+    <string name="h2_rename_app">Renomear App</string>
     <string name="h2_select_group">Selecionar Grupo</string>
     <string name="h3_apps">Aplicativos</string>
     <string name="h3_background">Fundo</string>
@@ -117,9 +117,9 @@
     <string name="toast_pin_saved">PIN salvo</string>
     <string name="toast_reset_done">Redefinição feita</string>
     <string name="toast_reset_failed">Redefinir falhou</string>
+    <string name="toast_select_target_group">Selecione um grupo de destino</string>
     <string name="toast_shortcut_added">%1$s adicionado</string>
     <string name="toast_unable_add_shortcut">Não foi possível adicionar o atalho</string>
-    <string name="toast_select_target_group">Selecione um grupo de destino</string>
     <string name="toast_unable_launch_app">Não é possível iniciar aplicativo</string>
     <string name="toast_unable_open_settings">Não é possível abrir as configurações do laucher</string>
     <string name="toast_unable_open_wallpaper_app">Nenhum aplicativo de papel de parede disponível</string>

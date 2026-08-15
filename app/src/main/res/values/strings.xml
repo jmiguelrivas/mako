@@ -7,9 +7,9 @@
     <string name="altdescr_descend_group">Move group down</string>
     <string name="altdescr_search_icon">Toggle search</string>
     <string name="altdescr_selection_check">Selected</string>
-    <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
-    <string name="altdescr_toggle_group_keep_expanded_on">Keep group open when collapsing</string>
     <string name="altdescr_toggle_group_keep_expanded_off">Let group collapse</string>
+    <string name="altdescr_toggle_group_keep_expanded_on">Keep group open when collapsing</string>
+    <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
     <string name="altdescr_toggle_pin_visibility">Toggle PIN visibility</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
     <string name="app_name" translatable="false">@string/product_mako</string>
@@ -46,6 +46,7 @@
     <string name="checkbox_multi_column">Multi-column layout</string>
     <string name="checkbox_randomized_keypad">Randomized keypad</string>
     <string name="checkbox_show_api_indicators">Show min/target API levels</string>
+    <string name="checkbox_show_app_shortcuts">Show app shortcuts</string>
     <string name="checkbox_show_app_size">Show app size</string>
     <string name="checkbox_show_battery">Show battery</string>
     <string name="checkbox_show_battery_charge_status">Show battery charge status</string>
@@ -76,8 +77,8 @@
     <string name="filepicker_selected_icon_pack">Selected pack: %1$s</string>
     <string name="h2_add_shortcut">Add shortcut?</string>
     <string name="h2_delete_group">Are you sure you want to delete this group?</string>
-    <string name="h2_rename_app">Rename app</string>
     <string name="h2_remove_shortcut">Remove shortcut?</string>
+    <string name="h2_rename_app">Rename app</string>
     <string name="h2_select_group">Select Group</string>
     <string name="h3_apps">Applications</string>
     <string name="h3_background">Background</string>
@@ -130,14 +131,13 @@
     <string name="toast_pin_saved">PIN saved</string>
     <string name="toast_reset_done">Reset done</string>
     <string name="toast_reset_failed">Reset failed</string>
+    <string name="toast_select_target_group">Select a target group</string>
     <string name="toast_shortcut_added">%1$s added</string>
     <string name="toast_unable_add_shortcut">Unable to add shortcut</string>
-    <string name="toast_select_target_group">Select a target group</string>
     <string name="toast_unable_launch_app">Unable to launch app</string>
     <string name="toast_unable_open_settings">Unable to open launcher settings</string>
     <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>
     <string name="toast_unable_remove_shortcut">Unable to remove shortcut</string>
     <string name="unit_celsius">C</string>
     <string name="unit_fahrenheit">F</string>
-    <string name="checkbox_show_app_shortcuts">Show app shortcuts</string>
 </resources>
