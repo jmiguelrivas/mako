@@ -128,6 +128,4 @@
     <string name="toast_unable_open_settings">ランチャーの設定を開くことができません</string>
     <string name="toast_unable_open_wallpaper_app">使用可能な壁紙アプリがありません</string>
     <string name="toast_unable_remove_shortcut">ショートカットを削除できません</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>

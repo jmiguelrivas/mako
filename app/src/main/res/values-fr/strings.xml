@@ -118,6 +118,4 @@
     <string name="toast_unable_open_settings">Impossible d\'ouvrir les paramètres du launcher</string>
     <string name="toast_unable_open_wallpaper_app">Aucune application de fond d\'écran disponible</string>
     <string name="toast_unable_remove_shortcut">Impossible de supprimer le raccourci</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>
