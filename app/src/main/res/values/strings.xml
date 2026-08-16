@@ -138,6 +138,6 @@
     <string name="toast_unable_open_settings">Unable to open launcher settings</string>
     <string name="toast_unable_open_wallpaper_app">No wallpaper app available</string>
     <string name="toast_unable_remove_shortcut">Unable to remove shortcut</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
+    <string name="unit_celsius" translatable="false">C</string>
+    <string name="unit_fahrenheit" translatable="false">F</string>
 </resources>

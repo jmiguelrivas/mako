@@ -124,6 +124,4 @@
     <string name="toast_unable_open_settings">Asetusten avaaminen epäonnistui</string>
     <string name="toast_unable_open_wallpaper_app">Sovellusta taustakuville ei löytynyt</string>
     <string name="toast_unable_remove_shortcut">Pikakuvakkeen poistaminen epäonnistui</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>

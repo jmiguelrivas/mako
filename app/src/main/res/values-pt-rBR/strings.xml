@@ -124,6 +124,4 @@
     <string name="toast_unable_open_settings">Não é possível abrir as configurações do laucher</string>
     <string name="toast_unable_open_wallpaper_app">Nenhum aplicativo de papel de parede disponível</string>
     <string name="toast_unable_remove_shortcut">Não foi possível remover o atalho</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>

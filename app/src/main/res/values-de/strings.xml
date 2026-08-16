@@ -121,6 +121,4 @@
     <string name="toast_unable_open_settings">Launcher-Einstellungen konnten nicht geöffnet werden</string>
     <string name="toast_unable_open_wallpaper_app">Keine Wallpaper-App verfügbar</string>
     <string name="toast_unable_remove_shortcut">Verknüpfung konnte nicht entfernt werden</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>

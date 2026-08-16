@@ -121,6 +121,4 @@
     <string name="toast_unable_open_settings">Başlatıcı ayarları açılamadı</string>
     <string name="toast_unable_open_wallpaper_app">Duvar kağıdı uygulaması bulunamadı</string>
     <string name="toast_unable_remove_shortcut">Kısayol kaldırılamadı</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>
