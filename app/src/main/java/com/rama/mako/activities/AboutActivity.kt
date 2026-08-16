@@ -38,8 +38,8 @@ class AboutActivity : CsActivity() {
         }
 
         val contributorsLayout = findViewById<LinearLayout>(R.id.contributors)
-        val contributorsNamesData = resources.getStringArray(R.array.app_contributor_names)
-        val contributorsUrlData = resources.getStringArray(R.array.app_contributor_urls)
+        val contributorsNamesData = resources.getStringArray(BohioR.array.app_contributor_names)
+        val contributorsUrlData = resources.getStringArray(BohioR.array.app_contributor_urls)
         val contributors = contributorsNamesData.zip(contributorsUrlData)
 
         contributors.forEachIndexed { index, (name, url) ->
@@ -61,8 +61,8 @@ class AboutActivity : CsActivity() {
         }
 
         val catalogueLayout = findViewById<LinearLayout>(R.id.catalogue)
-        val catalogueIconData = resources.obtainTypedArray(R.array.catalogue_icon)
-        val catalogueUrlData = resources.getStringArray(R.array.catalogue_url)
+        val catalogueIconData = resources.obtainTypedArray(BohioR.array.catalogue_icon)
+        val catalogueUrlData = resources.getStringArray(BohioR.array.catalogue_url)
 
         for (i in catalogueUrlData.indices) {
             val icon = catalogueIconData.getResourceId(i, 0)

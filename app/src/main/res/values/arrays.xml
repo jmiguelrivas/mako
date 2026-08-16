@@ -51,34 +51,4 @@
         <item>@string/app_offline_desc</item>
         <item>@string/license_gpl3</item>
     </string-array>
-
-    <string-array name="app_contributor_names">
-        <item>@string/contributor_pombo</item>
-        <item>@string/contributor_isotjs</item>
-        <item>@string/contributor_joerikaiser</item>
-    </string-array>
-
-    <string-array name="app_contributor_urls">
-        <item>@string/contributor_pombo_url</item>
-        <item>@string/contributor_isotjs_url</item>
-        <item>@string/contributor_joerikaiser_url</item>
-    </string-array>
-
-    <string-array name="catalogue_icon">
-        <item>@drawable/rama_mako</item>
-        <item>@drawable/rama_txori</item>
-        <item>@drawable/rama_tui</item>
-        <item>@drawable/rama_teyin</item>
-        <item>@drawable/rama_okapi</item>
-        <item>@drawable/rama_jaguar</item>
-    </string-array>
-
-    <string-array name="catalogue_url">
-        <item>@string/product_mako_url</item>
-        <item>@string/product_txori_url</item>
-        <item>@string/product_tui_url</item>
-        <item>@string/product_teyin_url</item>
-        <item>@string/product_okapi_url</item>
-        <item>@string/product_jaguar_url</item>
-    </string-array>
 </resources>
