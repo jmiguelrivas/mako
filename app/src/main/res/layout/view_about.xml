@@ -42,13 +42,6 @@
                 android:gravity="center_horizontal"
                 style="@style/VerticalListDivided" />
 
-            <!--            <com.rama.bohio.widgets.WdLabel-->
-            <!--                android:id="@+id/github_button"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:icon="@drawable/px_github"-->
-            <!--                android:text="@string/product_mako_url" />-->
-
             <TextView
                 android:text="@string/h3_contributors"
                 style="@style/H3" />
@@ -58,19 +51,14 @@
                 android:gravity="center_horizontal"
                 style="@style/VerticalListDivided" />
 
-            <View style="@style/Separator" />
+            <TextView
+                android:text="Apps by Rama"
+                style="@style/H3" />
 
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_user"
-                android:text="@string/contributor_etwasmitbaum" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_github"
-                android:text="@string/contributor_etwasmitbaum_url" />
+            <LinearLayout
+                android:id="@+id/catalogue"
+                android:gravity="center_horizontal"
+                style="@style/VerticalListDivided" />
 
             <TextView
                 android:text="@string/h3_icons"

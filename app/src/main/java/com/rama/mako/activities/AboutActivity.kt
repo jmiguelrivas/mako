@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.rama.bohio.widgets.WdLabel
+import com.rama.bohio.widgets.WdLabelLink
 import com.rama.mako.CsActivity
 import com.rama.mako.R
 import com.rama.bohio.R as BohioR
@@ -59,6 +60,21 @@ class AboutActivity : CsActivity() {
             }
         }
 
+        val catalogueLayout = findViewById<LinearLayout>(R.id.catalogue)
+        val catalogueIconData = resources.obtainTypedArray(R.array.catalogue_icon)
+        val catalogueUrlData = resources.getStringArray(R.array.catalogue_url)
+
+        for (i in catalogueUrlData.indices) {
+            val icon = catalogueIconData.getResourceId(i, 0)
+            val url = catalogueUrlData[i]
+
+            val urlTag = WdLabelLink(this)
+            urlTag.setText(url)
+            urlTag.setIcon(icon)
+
+            catalogueLayout.addView(urlTag)
+        }
+
         val discordButton = findViewById<View>(R.id.discord_button)
         discordButton.setOnClickListener {
             val intent = Intent(
@@ -67,18 +83,6 @@ class AboutActivity : CsActivity() {
             )
             startActivity(intent)
         }
-
-//        val githubButton = findViewById<View>(R.id.github_button)
-//        githubButton.setOnClickListener {
-//            val rawUrl = getString(BohioR.string.product_mako_url)
-//            val url =
-//                if (rawUrl.startsWith("http://") || rawUrl.startsWith("https://")) rawUrl else "https://$rawUrl"
-//            val intent = Intent(
-//                Intent.ACTION_VIEW,
-//                Uri.parse(url)
-//            )
-//            startActivity(intent)
-//        }
 
         val version = packageManager.getPackageInfo(packageName, 0).versionCode
         val nameView = findViewById<TextView>(R.id.name_version)
