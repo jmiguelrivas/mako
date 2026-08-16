@@ -37,92 +37,26 @@
                 android:text="@string/h3_app"
                 style="@style/H3" />
 
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_seedlings"
-                android:text="@string/app_name" />
+            <LinearLayout
+                android:id="@+id/claims"
+                android:gravity="center_horizontal"
+                style="@style/VerticalListDivided" />
 
-            <com.rama.bohio.widgets.WdLabel
-                android:id="@+id/github_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_github"
-                android:text="@string/product_mako_url" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_octagon_check"
-                android:text="@string/app_ads_desc" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_octagon_check"
-                android:text="@string/app_background_tasks_desc" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_octagon_check"
-                android:text="@string/app_trackers_desc" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_octagon_check"
-                android:text="@string/app_offline_desc" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_octagon_check"
-                android:text="@string/license_gpl3" />
+            <!--            <com.rama.bohio.widgets.WdLabel-->
+            <!--                android:id="@+id/github_button"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:icon="@drawable/px_github"-->
+            <!--                android:text="@string/product_mako_url" />-->
 
             <TextView
                 android:text="@string/h3_contributors"
                 style="@style/H3" />
 
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_user"
-                android:text="@string/app_creator" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_github"
-                android:text="@string/app_creator_url" />
-
-            <View style="@style/Separator" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_user"
-                android:text="@string/contributor_isotjs" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_github"
-                android:text="@string/contributor_isotjs_url" />
-
-            <View style="@style/Separator" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_user"
-                android:text="@string/contributor_joerikaiser" />
-
-            <com.rama.bohio.widgets.WdLabel
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/px_github"
-                android:text="@string/contributor_joerikaiser_url" />
+            <LinearLayout
+                android:id="@+id/contributors"
+                android:gravity="center_horizontal"
+                style="@style/VerticalListDivided" />
 
             <View style="@style/Separator" />
 

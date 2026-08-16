@@ -43,4 +43,24 @@
         <item>8</item>
         <item>9</item>
     </string-array>
+
+    <string-array name="app_claims">
+        <item>@string/app_ads_desc</item>
+        <item>@string/app_background_tasks_desc</item>
+        <item>@string/app_trackers_desc</item>
+        <item>@string/app_offline_desc</item>
+        <item>@string/license_gpl3</item>
+    </string-array>
+
+    <string-array name="app_contributor_names">
+        <item>@string/app_creator</item>
+        <item>@string/contributor_isotjs</item>
+        <item>@string/contributor_joerikaiser</item>
+    </string-array>
+
+    <string-array name="app_contributor_urls">
+        <item>@string/app_creator_url</item>
+        <item>@string/contributor_isotjs</item>
+        <item>@string/contributor_joerikaiser</item>
+    </string-array>
 </resources>
