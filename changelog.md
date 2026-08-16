@@ -5,7 +5,7 @@
 - Option to pin a group on top
 - Option to include hidden groups in search
 - Adding Japanese
-- Adding apps catalogue
+- Add catalogue
 
 ## 49
 
