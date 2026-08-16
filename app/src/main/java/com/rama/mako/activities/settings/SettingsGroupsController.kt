@@ -44,6 +44,9 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
         val delete = row.findViewById<FrameLayout>(R.id.delete_group)
         val toggle = row.findViewById<FrameLayout>(R.id.toggle_visibility)
         val toggleIcon = row.findViewById<ImageView>(R.id.toggle_visibility_img)
+        val toggleKeepExpanded = row.findViewById<FrameLayout>(R.id.toggle_keep_expanded)
+        val toggleKeepExpandedIcon =
+            row.findViewById<ImageView>(R.id.toggle_keep_expanded_img)
         val saveButton = row.findViewById<FrameLayout>(R.id.save_changes_button)
         val ascend = row.findViewById<FrameLayout>(R.id.ascend_group)
         val descend = row.findViewById<FrameLayout>(R.id.descend_group)
@@ -60,12 +63,32 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
             )
         }
 
+        fun updateKeepExpandedIcon() {
+            toggleKeepExpandedIcon.setImageResource(
+                if (prefs.isGroupKeepExpanded(groupId)) R.drawable.px_pin
+                else R.drawable.px_pin_outline
+            )
+            toggleKeepExpandedIcon.contentDescription = activity.getString(
+                if (prefs.isGroupKeepExpanded(groupId)) {
+                    R.string.altdescr_toggle_group_keep_expanded_on
+                } else {
+                    R.string.altdescr_toggle_group_keep_expanded_off
+                }
+            )
+        }
+
         updateIcon()
+        updateKeepExpandedIcon()
 
         UiActions.setClickWithHaptics(toggle) {
             val newValue = !prefs.isGroupVisible(groupId)
             prefs.setGroupVisible(groupId, newValue)
             updateIcon()
+        }
+
+        UiActions.setClickWithHaptics(toggleKeepExpanded) {
+            prefs.setGroupKeepExpanded(groupId, !prefs.isGroupKeepExpanded(groupId))
+            updateKeepExpandedIcon()
         }
 
         val originalText = name.text.toString()

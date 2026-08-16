@@ -19,6 +19,11 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             listOf(R.id.always_show_search)
         )
         bindWdCheckbox(R.id.always_show_search, FileKeys.APPS_SEARCH_ALWAYS_VISIBLE, false)
+        bindWdCheckbox(
+            R.id.search_include_hidden,
+            FileKeys.APPS_SEARCH_INCLUDE_HIDDEN_GROUPS,
+            false
+        )
 
         val showGroupHeader = activity.findViewById<WdCheckbox>(R.id.show_group_header)
         val hasCollapsibleGroups = activity.findViewById<WdCheckbox>(R.id.has_collapsible_groups)

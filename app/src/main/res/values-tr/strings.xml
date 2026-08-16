@@ -12,7 +12,7 @@
     <string name="app_desc">Odak ve sadelik için tasarlanmış, gizliliği önceleyen ve tamamen cihaz üzerinde çalışan, hafif ve dikkat dağıtmayan bir Android başlatıcı.</string>
     <string name="btn_about_mako">Mako hakkında</string>
     <string name="btn_add_group">+ Yeni Grup Ekle</string>
-    <string name="btn_add_shortcut">Ekle</string>
+    <string name="btn_add_shortcut">Ekl</string>
     <string name="btn_change_wallpaper">Sistem duvar kağıdını değiştir</string>
     <string name="btn_clear_data">Veriyi Temizle</string>
     <string name="btn_delete_group">Grubu sil</string>
@@ -62,8 +62,8 @@
     <string name="filepicker_selected_icon_pack">Seçili paket: %1$s</string>
     <string name="h2_add_shortcut">Kısayol eklensin mi?</string>
     <string name="h2_delete_group">Bu grubu silmek istediğinizden emin misiniz?</string>
-    <string name="h2_rename_app">Uygulamayı yeniden adlandır</string>
     <string name="h2_remove_shortcut">Kısayol kaldırılsın mı?</string>
+    <string name="h2_rename_app">Uygulamayı yeniden adlandır</string>
     <string name="h2_select_group">Grup Seç</string>
     <string name="h3_apps">Uygulamalar</string>
     <string name="h3_background">Arka Plan</string>
@@ -114,13 +114,11 @@
     <string name="toast_pin_saved">PIN kaydedildi</string>
     <string name="toast_reset_done">Sıfırlama tamamlandı</string>
     <string name="toast_reset_failed">Sıfırlama başarısız</string>
+    <string name="toast_select_target_group">Bir hedef grup seçin</string>
     <string name="toast_shortcut_added">%1$s eklendi</string>
     <string name="toast_unable_add_shortcut">Kısayol eklenemedi</string>
-    <string name="toast_select_target_group">Bir hedef grup seçin</string>
     <string name="toast_unable_launch_app">Uygulama başlatılamadı</string>
     <string name="toast_unable_open_settings">Başlatıcı ayarları açılamadı</string>
     <string name="toast_unable_open_wallpaper_app">Duvar kağıdı uygulaması bulunamadı</string>
     <string name="toast_unable_remove_shortcut">Kısayol kaldırılamadı</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>

@@ -14,6 +14,7 @@
         <item>fi</item>
         <item>fil-rPH</item>
         <item>pt-rBR</item>
+        <item>jp</item>
         <item>zh-rCN</item>
     </string-array>
 
@@ -26,6 +27,7 @@
         <item>@string/radio_language_fi</item>
         <item>@string/radio_language_fil_rPH</item>
         <item>@string/radio_language_pt_rBR</item>
+        <item>@string/radio_language_jp</item>
         <item>@string/radio_language_zh_rCN</item>
     </string-array>
 
@@ -40,5 +42,13 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+    </string-array>
+
+    <string-array name="app_claims">
+        <item>@string/app_ads_desc</item>
+        <item>@string/app_background_tasks_desc</item>
+        <item>@string/app_trackers_desc</item>
+        <item>@string/app_offline_desc</item>
+        <item>@string/license_gpl3</item>
     </string-array>
 </resources>

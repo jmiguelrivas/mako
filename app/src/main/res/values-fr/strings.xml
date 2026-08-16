@@ -61,8 +61,8 @@
     <string name="filepicker_selected_icon_pack">Pack sélectionné : %1$s</string>
     <string name="h2_add_shortcut">Ajouter le raccourci ?</string>
     <string name="h2_delete_group">Voulez-vous vraiment supprimer ce groupe ?</string>
-    <string name="h2_rename_app">Renommer l\'application</string>
     <string name="h2_remove_shortcut">Supprimer le raccourci ?</string>
+    <string name="h2_rename_app">Renommer l\'application</string>
     <string name="h2_select_group">Sélectionner un groupe</string>
     <string name="h3_apps">Applications</string>
     <string name="h3_background">Arrière-plan</string>
@@ -111,13 +111,11 @@
     <string name="toast_pin_saved">PIN enregistré</string>
     <string name="toast_reset_done">Réinitialisation effectuée</string>
     <string name="toast_reset_failed">Échec de la réinitialisation</string>
+    <string name="toast_select_target_group">Sélectionnez un groupe cible</string>
     <string name="toast_shortcut_added">%1$s ajouté</string>
     <string name="toast_unable_add_shortcut">Impossible d\'ajouter le raccourci</string>
-    <string name="toast_select_target_group">Sélectionnez un groupe cible</string>
     <string name="toast_unable_launch_app">Impossible de lancer l\'application</string>
     <string name="toast_unable_open_settings">Impossible d\'ouvrir les paramètres du launcher</string>
     <string name="toast_unable_open_wallpaper_app">Aucune application de fond d\'écran disponible</string>
     <string name="toast_unable_remove_shortcut">Impossible de supprimer le raccourci</string>
-    <string name="unit_celsius">C</string>
-    <string name="unit_fahrenheit">F</string>
 </resources>

@@ -1,5 +1,12 @@
 # Changelog
 
+## 50
+
+- Option to pin a group on top
+- Option to include hidden groups in search
+- Adding Japanese
+- Add catalogue
+
 ## 49
 
 - Show PWAs
