@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.rama.bohio.widgets.WdLabel
@@ -17,18 +19,24 @@ class AboutActivity : CsActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.view_about)
+        setContentView(BohioR.layout.view_about)
 
-        val root = findViewById<View>(R.id.about_root)
+        val root = findViewById<View>(BohioR.id.about_root)
         applyEdgeToEdgePadding(root)
         applyCurrentTheme(root)
 
-        val closeButton = findViewById<View>(R.id.close_button)
+        val closeButton = findViewById<Button>(BohioR.id.close_button)
         closeButton.setOnClickListener {
             finish()
         }
 
-        val claimsLayout = findViewById<LinearLayout>(R.id.claims)
+        val appIcon = findViewById<ImageView>(BohioR.id.app_icon)
+        appIcon.setImageResource(R.drawable.mako)
+
+        val appDescription = findViewById<TextView>(BohioR.id.app_description)
+        appDescription.setText(R.string.app_desc)
+
+        val claimsLayout = findViewById<LinearLayout>(BohioR.id.claims)
         val claimsData = resources.getStringArray(R.array.app_claims)
         claimsData.forEach { claim ->
             val tag = WdLabel(this)
@@ -37,7 +45,7 @@ class AboutActivity : CsActivity() {
             claimsLayout.addView(tag)
         }
 
-        val contributorsLayout = findViewById<LinearLayout>(R.id.contributors)
+        val contributorsLayout = findViewById<LinearLayout>(BohioR.id.contributors)
         val contributorsNamesData = resources.getStringArray(BohioR.array.app_contributor_names)
         val contributorsUrlData = resources.getStringArray(BohioR.array.app_contributor_urls)
         val contributors = contributorsNamesData.zip(contributorsUrlData)
@@ -60,7 +68,7 @@ class AboutActivity : CsActivity() {
             }
         }
 
-        val catalogueLayout = findViewById<LinearLayout>(R.id.catalogue)
+        val catalogueLayout = findViewById<LinearLayout>(BohioR.id.catalogue)
         val catalogueIconData = resources.obtainTypedArray(BohioR.array.catalogue_icon)
         val catalogueUrlData = resources.getStringArray(BohioR.array.catalogue_url)
 
@@ -75,7 +83,7 @@ class AboutActivity : CsActivity() {
             catalogueLayout.addView(urlTag)
         }
 
-        val discordButton = findViewById<View>(R.id.discord_button)
+        val discordButton = findViewById<View>(BohioR.id.discord_button)
         discordButton.setOnClickListener {
             val intent = Intent(
                 Intent.ACTION_VIEW,
@@ -85,7 +93,7 @@ class AboutActivity : CsActivity() {
         }
 
         val version = packageManager.getPackageInfo(packageName, 0).versionCode
-        val nameView = findViewById<TextView>(R.id.name_version)
+        val nameView = findViewById<TextView>(BohioR.id.name_version)
         nameView.text = getString(BohioR.string.name_version, getString(R.string.app_name), version)
     }
 }
