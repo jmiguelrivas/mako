@@ -14,7 +14,7 @@ android {
         applicationId = "com.rama.mako"
         minSdk = 21
         targetSdk = 37
-        versionCode = 50
+        versionCode = 51
         versionName = "$currentYear.$versionCode"
     }
 

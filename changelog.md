@@ -1,5 +1,9 @@
 # Changelog
 
+## 51
+
+- Reworking about page
+
 ## 50
 
 - Option to pin a group on top
