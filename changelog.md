@@ -1,5 +1,10 @@
 # Changelog
 
+## 51
+
+- Reworking about page
+- Add monochrome icons auto generated from fill icons for apps that didn't provide one
+
 ## 50
 
 - Option to pin a group on top
