@@ -7,6 +7,8 @@
     <string name="altdescr_descend_group">Siirrä ryhmä alemmas</string>
     <string name="altdescr_search_icon">Näytä haku</string>
     <string name="altdescr_selection_check">Valittu</string>
+    <string name="altdescr_toggle_group_keep_expanded_off">Salli ryhmän sulkeutuminen</string>
+    <string name="altdescr_toggle_group_keep_expanded_on">Estä ryhmän sulkeutuminen</string>
     <string name="altdescr_toggle_group_visibility">Näytä ryhmä</string>
     <string name="altdescr_toggle_pin_visibility">Näytä PIN</string>
     <string name="app_desc">Kevyt, siisti ja helppokäyttöinen aloitusnäyttösovellus Androidille, joka kunnioittaa yksityisyyttäsi.</string>
@@ -34,8 +36,13 @@
     <string name="checkbox_click_on_icons_open_app_settings">Avaa sovelluksen asetukset kuvaketta koskettaessa</string>
     <string name="checkbox_collapse_groups_on_home_focus">Sulje ryhmät kotinäyttöön palatessa</string>
     <string name="checkbox_has_collapsible_groups">Suljettavat ryhmät</string>
+    <string name="checkbox_include_hidden_in_search">Näytä piilotetut ryhmät haussa</string>
     <string name="checkbox_lock_settings">Lukitse asetukset</string>
+    <string name="checkbox_multi_column">Monirivinen asettelu</string>
     <string name="checkbox_randomized_keypad">Satunnainen numeronäppäimistö</string>
+    <string name="checkbox_show_api_indicators">Näytä minimi/tavoite API tasot</string>
+    <string name="checkbox_show_app_shortcuts">Näytä sovellusten pikatoiminnot</string>
+    <string name="checkbox_show_app_size">Näytä sovellusten koko</string>
     <string name="checkbox_show_battery">Näytä akun latausprosentti</string>
     <string name="checkbox_show_battery_charge_status">Näytä akun latautumisen tila</string>
     <string name="checkbox_show_battery_temperature">Näytä akun lämpötila</string>

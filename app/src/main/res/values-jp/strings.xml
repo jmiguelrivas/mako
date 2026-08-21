@@ -61,7 +61,6 @@
     <string name="disclaimer_pick_clock_app">ここで選択したアプリはデフォルトの時計アクションとして設定されます。ホーム画面の時計をタップすると、アプリが起動します。</string>
     <string name="disclaimer_pick_date_app">ここで選択したアプリはデフォルトの日付アクションとして設定されます。ホーム画面の日付をタップすると、アプリが起動します。</string>
     <string name="disclaimer_pick_icon_pack">インストール済みのアイコンパックを選択してください。アイコンがない場合、Makoはそのアプリのシステムアイコンを使用します。</string>
-    <string name="easter_eggs_counter">%1$d more…</string>
     <string name="easter_eggs_unlock">それで遊ぶのをやめていただけますか(｡-∀-)</string>
     <string name="filepicker_icon_pack_not_selected">アイコンパックが選択されていません</string>
     <string name="filepicker_selected_icon_pack">選択済みのアイコンパック: %1$s</string>
