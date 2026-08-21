@@ -65,8 +65,8 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
 
         fun updateKeepExpandedIcon() {
             toggleKeepExpandedIcon.setImageResource(
-                if (prefs.isGroupKeepExpanded(groupId)) R.drawable.px_pin
-                else R.drawable.px_pin_outline
+                if (prefs.isGroupKeepExpanded(groupId)) BohioR.drawable.px_pin
+                else BohioR.drawable.px_pin_outline
             )
             toggleKeepExpandedIcon.contentDescription = activity.getString(
                 if (prefs.isGroupKeepExpanded(groupId)) {
