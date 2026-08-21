@@ -5,13 +5,20 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
+import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.ColorFilter
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.Paint
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.drawable.AdaptiveIconDrawable
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.util.LruCache
 import android.util.Xml
 import com.rama.bohio.managers.ThemeManager
 import org.xmlpull.v1.XmlPullParser
@@ -24,6 +31,7 @@ class IconManager(
 
     companion object {
         private const val MONOCHROME_SCALE = 1.5f
+        private const val MIN_CACHE_CAPACITY = 200
     }
 
     data class IconPackEntry(
@@ -34,22 +42,37 @@ class IconManager(
 
     private val prefs = PrefsManager.getInstance(context)
     private val packageManager = context.packageManager
-    private val iconCache = mutableMapOf<String, Drawable>()
+    private val iconCache by lazy {
+        val appCount = runCatching { appsProvider.getAll().size }.getOrDefault(0)
+        val capacity = (appCount * 2).coerceAtLeast(MIN_CACHE_CAPACITY)
+        object : LruCache<String, Drawable>(capacity) {}
+    }
     private val appFilterCache = mutableMapOf<String, Map<String, String>>()
 
     fun getIcon(app: AppsProvider.AppEntry): Drawable {
         val activity = app as? AppsProvider.ActivityEntry ?: return appsProvider.getIcon(app)
         val source = prefs.getIconSource()
         val selectedPack = prefs.getIconPackPackage()
-        val cacheKey = buildCacheKey(activity, source, selectedPack)
-
-        return iconCache.getOrPut(cacheKey) {
-            when (source) {
-                PrefsManager.IconSource.MONOCHROME -> getMonochromeIcon(app)
-                PrefsManager.IconSource.ICON_PACK -> getIconFromPack(activity, selectedPack)
-                else -> null
-            } ?: appsProvider.getIcon(app)
+        val tintColor = if (source == PrefsManager.IconSource.MONOCHROME) {
+            resolveSystemMonochromeTintColor()
+        } else {
+            0
         }
+        val cacheKey = buildCacheKey(activity, source, selectedPack, tintColor)
+
+        val cached = iconCache.get(cacheKey)
+        if (cached != null) {
+            return cached.constantState?.newDrawable(context.resources)?.mutate() ?: cached
+        }
+
+        val resolved = when (source) {
+            PrefsManager.IconSource.MONOCHROME -> getMonochromeIcon(app, tintColor)
+            PrefsManager.IconSource.ICON_PACK -> getIconFromPack(activity, selectedPack)
+            else -> null
+        } ?: appsProvider.getIcon(app)
+
+        iconCache.put(cacheKey, resolved)
+        return resolved.constantState?.newDrawable(context.resources)?.mutate() ?: resolved
     }
 
     fun getInstalledIconPacks(): List<IconPackEntry> {
@@ -82,19 +105,78 @@ class IconManager(
         }.getOrNull()
     }
 
-    private fun getMonochromeIcon(app: AppsProvider.AppEntry): Drawable? {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return null
-
+    private fun getMonochromeIcon(
+        app: AppsProvider.AppEntry,
+        tintColor: Int
+    ): Drawable? {
         val baseIcon = appsProvider.getIcon(app)
-        val adaptiveIcon = baseIcon as? AdaptiveIconDrawable ?: return null
-        val monochrome = adaptiveIcon.monochrome ?: return null
-        val tintColor = resolveSystemMonochromeTintColor()
-        val tintedDrawable =
-            (monochrome.constantState?.newDrawable()?.mutate() ?: monochrome).apply {
-                setTint(tintColor)
-            }
+        val adaptiveIcon = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            baseIcon as? AdaptiveIconDrawable
+        } else {
+            null
+        }
 
-        return ScaledDrawable(tintedDrawable, MONOCHROME_SCALE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val monochrome = adaptiveIcon?.monochrome
+            if (monochrome != null) {
+                val tintedDrawable =
+                    (monochrome.constantState?.newDrawable()?.mutate() ?: monochrome).apply {
+                        setTint(tintColor)
+                    }
+                return ScaledDrawable(tintedDrawable, MONOCHROME_SCALE)
+            }
+        }
+
+        return runCatching {
+            if (adaptiveIcon != null) {
+                val foreground = adaptiveIcon.foreground ?: baseIcon
+                val fallback = generateMonochromeFallback(foreground, tintColor)
+                ScaledDrawable(fallback, MONOCHROME_SCALE)
+            } else {
+                generateMonochromeFallback(baseIcon, tintColor)
+            }
+        }.getOrNull()
+    }
+
+    private fun generateMonochromeFallback(source: Drawable, tintColor: Int): Drawable {
+        val size = (context.resources.displayMetrics.density * 72).toInt().coerceAtLeast(96)
+        val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+
+        val originalBounds = Rect(source.bounds)
+        try {
+            source.setBounds(0, 0, size, size)
+            source.draw(canvas)
+        } finally {
+            source.bounds = originalBounds
+        }
+
+        val rT = Color.red(tintColor) / 255f
+        val gT = Color.green(tintColor) / 255f
+        val bT = Color.blue(tintColor) / 255f
+
+        val contrast = 1.35f
+        val lr = 0.299f * contrast
+        val lg = 0.587f * contrast
+        val lb = 0.114f * contrast
+        val translate = (1f - contrast) * 0.5f * 255f
+
+        val matrix = floatArrayOf(
+            lr * rT, lg * rT, lb * rT, 0f, translate * rT,
+            lr * gT, lg * gT, lb * gT, 0f, translate * gT,
+            lr * bT, lg * bT, lb * bT, 0f, translate * bT,
+            0f, 0f, 0f, 1f, 0f
+        )
+
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG).apply {
+            colorFilter = ColorMatrixColorFilter(ColorMatrix(matrix))
+        }
+
+        val tintedBitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+        val tintedCanvas = Canvas(tintedBitmap)
+        tintedCanvas.drawBitmap(bitmap, 0f, 0f, paint)
+
+        return BitmapDrawable(context.resources, tintedBitmap)
     }
 
     private fun resolveSystemMonochromeTintColor(): Int {
@@ -268,9 +350,10 @@ class IconManager(
     private fun buildCacheKey(
         app: AppsProvider.ActivityEntry,
         source: String,
-        selectedPack: String
+        selectedPack: String,
+        tintColor: Int
     ): String {
-        return "$source:$selectedPack:${app.packageName}:${app.activityInfo.componentName.className}:${app.userHandle.hashCode()}"
+        return "$source:$selectedPack:$tintColor:${app.packageName}:${app.activityInfo.componentName.className}:${app.userHandle.hashCode()}"
     }
 
     private fun getIconPackActions(): List<String> {
@@ -316,5 +399,30 @@ class IconManager(
         override fun getIntrinsicWidth(): Int = drawable.intrinsicWidth
 
         override fun getIntrinsicHeight(): Int = drawable.intrinsicHeight
+
+        override fun mutate(): Drawable {
+            drawable.mutate()
+            return this
+        }
+
+        override fun getConstantState(): ConstantState? {
+            val state = drawable.constantState ?: return null
+            return ScaledConstantState(state, scale)
+        }
+
+        private class ScaledConstantState(
+            private val wrappedState: ConstantState,
+            private val scale: Float
+        ) : ConstantState() {
+            override fun newDrawable(): Drawable {
+                return ScaledDrawable(wrappedState.newDrawable(), scale)
+            }
+
+            override fun newDrawable(res: android.content.res.Resources?): Drawable {
+                return ScaledDrawable(wrappedState.newDrawable(res), scale)
+            }
+
+            override fun getChangingConfigurations(): Int = wrappedState.changingConfigurations
+        }
     }
 }

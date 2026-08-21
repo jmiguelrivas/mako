@@ -59,8 +59,6 @@
     <string name="checkbox_show_ungrouped_apps">Show ungrouped apps</string>
     <string name="checkbox_show_year_day">Show day of the year</string>
     <string name="checkbox_show_year_week">Show week of the year</string>
-    <string name="contributor_etwasmitbaum" translatable="false">etwasmitbaum</string>
-    <string name="contributor_etwasmitbaum_url" translatable="false">github.com/etwasmitbaum</string>
     <string name="ctxmenu_move_to_group">Change group…</string>
     <string name="ctxmenu_open_settings">App settings…</string>
     <string name="ctxmenu_rename_app">Rename app…</string>
