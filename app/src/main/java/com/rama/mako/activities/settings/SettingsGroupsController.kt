@@ -20,6 +20,14 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
     fun setup() {
         val container = activity.findViewById<LinearLayout>(R.id.groups)
 
+        val autoCollapseCheckbox = activity.findViewById<com.rama.bohio.widgets.WdCheckbox>(R.id.auto_collapse_groups)
+        autoCollapseCheckbox?.apply {
+            setChecked(prefs.isAutoCollapseGroupsEnabled())
+            setOnCheckedChangeListener { isChecked ->
+                prefs.setAutoCollapseGroupsEnabled(isChecked)
+            }
+        }
+
         fun render() {
             container.removeAllViews()
             groupsManager.getGroupIds().forEach { id ->
@@ -35,6 +43,8 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
             render()
         }
     }
+
+    // ------------------- The rest of the class is unchanged -------------------
 
     private fun addGroupRow(groupId: String, groupLabel: String, container: LinearLayout) {
         val row = activity.layoutInflater.inflate(R.layout.list_item_group, container, false)
