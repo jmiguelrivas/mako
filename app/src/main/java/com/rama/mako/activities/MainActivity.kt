@@ -348,8 +348,11 @@ class MainActivity : CsActivity() {
 
         schedulePostResumeRefresh(skipAppListRefresh = groupsWereCollapsed)
 
-        if (isSearchBarAlwaysVisible)
+        if (isSearchBarAlwaysVisible) {
             expandSearch()
+        } else if (isSearchExpanded) {
+            collapseSearch()
+        }
     }
 
     override fun onPause() {
