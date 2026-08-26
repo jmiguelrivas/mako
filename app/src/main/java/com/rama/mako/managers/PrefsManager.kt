@@ -36,8 +36,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val GROUPS_HEADERS = "groups:headers"
         const val GROUPS_COLLAPSIBLE = "groups:collapsible"
         const val GROUPS_COLLAPSE_ON_HOME_FOCUS = "groups:collapse_on_home_focus"
-
-        const val AUTO_COLLAPSE_GROUPS = "auto_collapse_groups"
+        const val GROUPS_AUTO_COLLAPSE = "auto_collapse_groups"
 
         @Deprecated("Migrated into DATE_FORMAT (see MIGRATION_DATE_FORMAT_RADIO)")
         const val DATE_VISIBLE = "date:visible"
@@ -350,10 +349,10 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         prefs.edit().putInt(FileKeys.GROUP_ORDER(id), value).apply()
 
     fun isAutoCollapseGroupsEnabled(): Boolean =
-        getBoolean(FileKeys.AUTO_COLLAPSE_GROUPS, false)
+        getBoolean(FileKeys.GROUPS_AUTO_COLLAPSE, false)
 
     fun setAutoCollapseGroupsEnabled(enabled: Boolean) {
-        setBoolean(FileKeys.AUTO_COLLAPSE_GROUPS, enabled)
+        setBoolean(FileKeys.GROUPS_AUTO_COLLAPSE, enabled)
     }
 
     fun healData(
