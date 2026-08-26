@@ -1053,4 +1053,5 @@ class AppListManager(
         data class App(val info: AppsProvider.AppEntry) : ListItem()
         data object Empty : ListItem()
     }
+    
 }
