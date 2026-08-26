@@ -960,6 +960,10 @@ class AppListManager(
                     }
 
                     refresh()
+                    val newPosition = items.indexOfFirst { it is ListItem.Header && it.id == item.id }
+                    if (newPosition != -1) {
+                        layoutManager.scrollToPositionWithOffset(newPosition, offset)
+                    }
                     if (position != RecyclerView.NO_POSITION) {
                         layoutManager.scrollToPositionWithOffset(position, offset)
                     }
