@@ -952,16 +952,11 @@ class AppListManager(
                     prefs.setGroupExpanded(item.id, shouldExpand)
 
                     // If we are expanding and auto‑collapse is on, collapse all other non‑pinned groups
-                    if (shouldExpand && prefs.isAutoCollapseGroupsEnabled()) {
-                        val allGroupIds = getAllGroupIds()
-                        allGroupIds.forEach { otherId ->
-                            if (otherId != item.id &&
-                                !prefs.isGroupKeepExpanded(otherId) &&
-                                prefs.isGroupExpanded(otherId)
-                            ) {
-                                prefs.setGroupExpanded(otherId, false)
-                            }
-                        }
+                    val toCollapse = allGroupIds.filter {
+                        it != item.id && !prefs.isGroupKeepExpanded(it) && prefs.isGroupExpanded(it)
+                    }.toSet()
+                    if (toCollapse.isNotEmpty()) {
+                        prefs.setGroupsExpanded(toCollapse, false)
                     }
 
                     refresh()
