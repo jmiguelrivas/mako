@@ -1,5 +1,7 @@
 # Changelog
 
+## 52
+
 ## 51
 
 - Reworking about page
