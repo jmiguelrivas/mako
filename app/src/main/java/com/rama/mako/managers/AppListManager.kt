@@ -938,13 +938,32 @@ class AppListManager(
         ThemeManager.applyTheme(context, holder.text)
         ViewCompat.setAccessibilityHeading(holder.itemView, true)
         holder.itemView.isFocusable = collapsible
+
         holder.itemView.setOnClickListener(
             if (collapsible) {
                 View.OnClickListener {
                     val position = holder.bindingAdapterPosition
                     val offset = holder.itemView.top - recyclerView.paddingTop
-                    prefs.setGroupExpanded(item.id, !prefs.isGroupExpanded(item.id))
+
+                    val currentlyExpanded = prefs.isGroupExpanded(item.id)
+                    val shouldExpand = !currentlyExpanded
+
+                    // Toggle the clicked group
+                    prefs.setGroupExpanded(item.id, shouldExpand)
+
+                    // If we are expanding and auto‑collapse is on, collapse all other non‑pinned groups
+                    val toCollapse = allGroupIds.filter {
+                        it != item.id && !prefs.isGroupKeepExpanded(it) && prefs.isGroupExpanded(it)
+                    }.toSet()
+                    if (toCollapse.isNotEmpty()) {
+                        prefs.setGroupsExpanded(toCollapse, false)
+                    }
+
                     refresh()
+                    val newPosition = items.indexOfFirst { it is ListItem.Header && it.id == item.id }
+                    if (newPosition != -1) {
+                        layoutManager.scrollToPositionWithOffset(newPosition, offset)
+                    }
                     if (position != RecyclerView.NO_POSITION) {
                         layoutManager.scrollToPositionWithOffset(position, offset)
                     }
@@ -1034,4 +1053,5 @@ class AppListManager(
         data class App(val info: AppsProvider.AppEntry) : ListItem()
         data object Empty : ListItem()
     }
+    
 }

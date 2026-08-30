@@ -30,6 +30,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
         val collapseOnHomeFocus =
             activity.findViewById<WdCheckbox>(R.id.collapse_groups_on_home_focus)
 
+
         fun updateCollapseOnHomeVisibility() {
             collapseOnHomeFocus.visibility =
                 if (showGroupHeader.isChecked() && hasCollapsibleGroups.isChecked()) {
@@ -50,6 +51,7 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             R.id.has_collapsible_groups,
             FileKeys.GROUPS_COLLAPSIBLE,
             false,
+            listOf(R.id.auto_collapse_groups),
             onChange = { updateCollapseOnHomeVisibility() }
         )
         bindWdCheckbox(
@@ -57,6 +59,12 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS,
             false
         )
+
+        val autoCollapseGroups = activity.findViewById<WdCheckbox>(R.id.auto_collapse_groups)
+        autoCollapseGroups.setChecked(prefs.isAutoCollapseGroupsEnabled())
+        autoCollapseGroups.setOnCheckedChangeListener { checked ->
+            prefs.setAutoCollapseGroupsEnabled(checked)
+        }
 
         updateCollapseOnHomeVisibility()
         bindWdCheckbox(R.id.show_year_day, FileKeys.DATE_YEAR_DAY, prefs.isYearDayVisible())

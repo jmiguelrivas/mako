@@ -91,6 +91,11 @@
                     android:text="@string/checkbox_collapse_groups_on_home_focus"
                     style="@style/Checkbox" />
 
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/auto_collapse_groups"
+    		        android:text="@string/auto_collapse_groups_label"
+    		        style="@style/Checkbox" />
+
                 <View style="@style/Separator" />
 
                 <LinearLayout
