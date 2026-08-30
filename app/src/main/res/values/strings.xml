@@ -11,7 +11,7 @@
     <string name="altdescr_toggle_group_keep_expanded_on">Keep group open when collapsing</string>
     <string name="altdescr_toggle_group_visibility">Toggle group visibility</string>
     <string name="altdescr_toggle_pin_visibility">Toggle PIN visibility</string>
-    <string name="checkbox_auto_collapse_groups">Auto-collapse other groups</string>
+    <string name="auto_collapse_groups_label">Auto-collapse other groups</string>
     <string name="app_desc">A lightweight, distraction-free Android launcher that’s privacy-first and entirely on-device, designed for focus and simplicity.</string>
     <string name="app_name" translatable="false">@string/product_mako</string>
     <string name="battery_status_power" translatable="false">%1$s %2$dx</string>
