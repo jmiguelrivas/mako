@@ -1,5 +1,7 @@
 package com.rama.mako.managers
 
+import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.content.Context
 import android.content.pm.LauncherActivityInfo
 import android.content.pm.LauncherApps
@@ -70,7 +72,7 @@ class AppsProvider(private val context: Context) {
             val appEntries = activities.map { info ->
                 ActivityEntry(
                     packageName = info.applicationInfo.packageName,
-                    label = info.label.toString(),
+                    label = localizedActivityLabel(info),
                     userHandle = userHandle,
                     activityInfo = info,
                     profileInitial = profileInitial
@@ -84,7 +86,7 @@ class AppsProvider(private val context: Context) {
             // Used to prefix shortcut labels with their parent app's name, e.g. "Clock: Timer".
             val appLabelsByPackage = activities
                 .groupBy { it.applicationInfo.packageName }
-                .mapValues { (_, infos) -> infos.first().label.toString() }
+                .mapValues { (_, infos) -> localizedActivityLabel(infos.first()) }
 
             val shortcutEntries = getShortcutEntries(userHandle, profileInitial, appLabelsByPackage)
 
@@ -235,6 +237,22 @@ class AppsProvider(private val context: Context) {
                 )
             }
         }.getOrDefault(emptyList())
+    }
+
+    private fun localizedActivityLabel(info: LauncherActivityInfo): String {
+        return try {
+            val pm = context.packageManager
+            val activityInfo = pm.getActivityInfo(info.componentName, 0)
+            val appInfo = activityInfo.applicationInfo
+
+            val overrideConfig = Configuration(context.resources.configuration)
+            val res = pm.getResourcesForApplication(appInfo, overrideConfig)
+
+            val labelRes = if (activityInfo.labelRes != 0) activityInfo.labelRes else appInfo.labelRes
+            if (labelRes != 0) res.getText(labelRes).toString() else info.label.toString()
+        } catch (e: Exception) {
+            info.label.toString()
+        }
     }
 
     private fun appCacheKey(app: AppEntry): String =
