@@ -5,19 +5,14 @@
     <string name="altdescr_clear_search">Borrar búsqueda</string>
     <string name="altdescr_delete_group">Eliminar grupo</string>
     <string name="altdescr_descend_group">Bajar grupo</string>
-    <string name="altdescr_search_icon">Activar o desactivar la búsqueda</string>
+    <string name="altdescr_search_icon">Alternar la búsqueda</string>
     <string name="altdescr_selection_check">Seleccionado</string>
     <string name="altdescr_toggle_group_keep_expanded_off">Permitir que el grupo se contraiga</string>
     <string name="altdescr_toggle_group_keep_expanded_on">Mantener el grupo abierto al contraer</string>
     <string name="altdescr_toggle_group_visibility">Alternar visibilidad del grupo</string>
     <string name="altdescr_toggle_pin_visibility">Alternar visibilidad del PIN</string>
-    <string name="auto_collapse_groups_label">Contraer grupos automáticamente al abrir otro</string>
     <string name="app_desc">Un launcher de Android ligero y sin distracciones, centrado en la privacidad y que funciona totalmente en el dispositivo, diseñado para la concentración y la simplicidad.</string>
-    <string name="app_name" translatable="false">@string/product_mako</string>
-    <string name="battery_status_power" translatable="false">%1$s %2$dx</string>
-    <string name="battery_status_power_type" translatable="false">%1$s (%2$s) %3$dx</string>
-    <string name="battery_temp" translatable="false">%1$d°%2$s</string>
-    <string name="battery_temp_labeled" translatable="false">%1$d°%2$s (%3$s)</string>
+    <string name="auto_collapse_groups_label">Contraer grupos automáticamente al abrir otro</string>
     <string name="btn_about_mako">Acerca de Mako</string>
     <string name="btn_add_group">+ Añadir grupo</string>
     <string name="btn_add_shortcut">Añadir</string>
@@ -73,7 +68,7 @@
     <string name="easter_eggs_counter">%1$d más…</string>
     <string name="easter_eggs_unlock">¿Puedes dejar de jugar con esto? xD</string>
     <string name="filepicker_icon_pack_not_selected">Ningún pack de iconos seleccionado</string>
-    <string name="filepicker_selected_icon_pack">Pack seleccionado: %1$s</string>
+    <string name="filepicker_selected_icon_pack">Pack seleccionado: %1$d</string>
     <string name="h2_add_shortcut">¿Añadir acceso directo?</string>
     <string name="h2_delete_group">¿Seguro que quieres eliminar este grupo?</string>
     <string name="h2_remove_shortcut">¿Eliminar acceso directo?</string>
@@ -134,9 +129,7 @@
     <string name="toast_shortcut_added">%1$s añadido</string>
     <string name="toast_unable_add_shortcut">No se pudo añadir el acceso directo</string>
     <string name="toast_unable_launch_app">No se pudo abrir la aplicación</string>
-    <string name="toast_unable_open_settings">No se pudieron abrir los ajustes del launcher</string>
+    <string name="toast_unable_open_settings">No se pudieron abrir los ajustes del lanzador</string>
     <string name="toast_unable_open_wallpaper_app">No hay ninguna aplicación de fondos de pantalla disponible</string>
     <string name="toast_unable_remove_shortcut">No se pudo eliminar el acceso directo</string>
-    <string name="unit_celsius" translatable="false">C</string>
-    <string name="unit_fahrenheit" translatable="false">F</string>
 </resources>
