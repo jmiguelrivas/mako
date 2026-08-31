@@ -1,5 +1,10 @@
 # Changelog
 
+## 52
+
+- Add Spanish
+- Add auto-collapse option
+
 ## 51
 
 - Reworking about page

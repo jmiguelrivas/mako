@@ -70,6 +70,7 @@ class MainActivity : CsActivity() {
     private var lastAppliedTheme: String? = null
     private lateinit var lockButton: FrameLayout
     private lateinit var lockButtonIcon: ImageView
+    private var lastAppliedLanguage: String? = null
 
     companion object {
         private const val WALLPAPER_CHANGED_ACTION = "android.intent.action.WALLPAPER_CHANGED"
@@ -336,10 +337,18 @@ class MainActivity : CsActivity() {
         }
     }
 
+
     override fun onResume() {
         super.onResume()
         registerWallpaperReceiverIfNeeded()
         registerPrivacySpaceReceiverIfNeeded()
+
+        val currentLanguage = prefs.getAppLanguage()
+        if (lastAppliedLanguage != null && lastAppliedLanguage != currentLanguage) {
+            recreate()
+            return
+        }
+
         applyHomeBackground(force = true)
         syncSettings()
 
@@ -348,8 +357,11 @@ class MainActivity : CsActivity() {
 
         schedulePostResumeRefresh(skipAppListRefresh = groupsWereCollapsed)
 
-        if (isSearchBarAlwaysVisible)
+        if (isSearchBarAlwaysVisible) {
             expandSearch()
+        } else if (isSearchExpanded) {
+            collapseSearch()
+        }
     }
 
     override fun onPause() {

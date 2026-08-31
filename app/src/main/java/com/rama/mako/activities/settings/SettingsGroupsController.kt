@@ -36,6 +36,8 @@ class SettingsGroupsController(private val activity: SettingsActivity) {
         }
     }
 
+    // ------------------- The rest of the class is unchanged -------------------
+
     private fun addGroupRow(groupId: String, groupLabel: String, container: LinearLayout) {
         val row = activity.layoutInflater.inflate(R.layout.list_item_group, container, false)
         ThemeManager.applyTheme(activity, row)
