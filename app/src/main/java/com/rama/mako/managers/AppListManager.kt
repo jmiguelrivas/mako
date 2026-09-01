@@ -952,15 +952,20 @@ class AppListManager(
                     prefs.setGroupExpanded(item.id, shouldExpand)
 
                     // If we are expanding and auto‑collapse is on, collapse all other non‑pinned groups
-                    val toCollapse = getAllGroupIds().filter {
-                        it != item.id && !prefs.isGroupKeepExpanded(it) && prefs.isGroupExpanded(it)
-                    }.toSet()
-                    if (toCollapse.isNotEmpty()) {
-                        prefs.setGroupsExpanded(toCollapse, false)
+                    if (shouldExpand && prefs.isAutoCollapseGroupsEnabled()) {
+                        val toCollapse = getAllGroupIds().filter {
+                            it != item.id && !prefs.isGroupKeepExpanded(it) && prefs.isGroupExpanded(
+                                it
+                            )
+                        }.toSet()
+                        if (toCollapse.isNotEmpty()) {
+                            prefs.setGroupsExpanded(toCollapse, false)
+                        }
                     }
 
                     refresh()
-                    val newPosition = items.indexOfFirst { it is ListItem.Header && it.id == item.id }
+                    val newPosition =
+                        items.indexOfFirst { it is ListItem.Header && it.id == item.id }
                     if (newPosition != -1) {
                         layoutManager.scrollToPositionWithOffset(newPosition, offset)
                     }
@@ -1053,5 +1058,5 @@ class AppListManager(
         data class App(val info: AppsProvider.AppEntry) : ListItem()
         data object Empty : ListItem()
     }
-    
+
 }
