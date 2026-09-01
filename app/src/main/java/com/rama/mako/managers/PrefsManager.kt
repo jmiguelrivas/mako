@@ -37,6 +37,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         const val GROUPS_COLLAPSIBLE = "groups:collapsible"
         const val GROUPS_COLLAPSE_ON_HOME_FOCUS = "groups:collapse_on_home_focus"
         const val GROUPS_AUTO_COLLAPSE = "auto_collapse_groups"
+        const val GROUPS_POSITION_BOTTOM = "groups:position_bottom"
 
         @Deprecated("Migrated into DATE_FORMAT (see MIGRATION_DATE_FORMAT_RADIO)")
         const val DATE_VISIBLE = "date:visible"
@@ -188,6 +189,7 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
         editor.putBoolean(FileKeys.GROUPS_HEADERS, true)
         editor.putBoolean(FileKeys.GROUPS_COLLAPSIBLE, true)
         editor.putBoolean(FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS, false)
+        editor.putBoolean(FileKeys.GROUPS_POSITION_BOTTOM, false)
         editor.putBoolean(FileKeys.SECURITY_KEYPAD_RANDOMIZED, true)
         editor.putBoolean(FileKeys.SECURITY_KEYPAD_VISIBLE, false)
 
@@ -485,6 +487,12 @@ class PrefsManager private constructor(context: Context) : BohioPrefsManager(con
 
     fun shouldCollapseGroupsOnHomeFocus(): Boolean =
         prefs.getBoolean(FileKeys.GROUPS_COLLAPSE_ON_HOME_FOCUS, false)
+
+    fun isGroupsPositionBottom(): Boolean =
+        prefs.getBoolean(FileKeys.GROUPS_POSITION_BOTTOM, false)
+
+    fun setGroupsPositionBottom(value: Boolean) =
+        prefs.edit().putBoolean(FileKeys.GROUPS_POSITION_BOTTOM, value).apply()
 
     fun getClockFormat(): String =
         prefs.getString(FileKeys.CLOCK_FORMAT, "") ?: ""

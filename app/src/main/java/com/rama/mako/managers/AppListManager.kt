@@ -97,6 +97,7 @@ class AppListManager(
         if (layoutManager.spanCount != columnCount) {
             layoutManager.spanCount = columnCount
         }
+        layoutManager.reverseLayout = prefs.isGroupsPositionBottom()
         updateAppsCache()
         buildItems()
     }
@@ -139,7 +140,11 @@ class AppListManager(
 
         items.clear()
 
-        getAllGroupIds().forEach { groupId ->
+        val groupIds = getAllGroupIds().let {
+            if (prefs.isGroupsPositionBottom()) it.reversed() else it
+        }
+
+        groupIds.forEach { groupId ->
 
             val apps = groupedMap[groupId] ?: return@forEach
 
@@ -851,6 +856,7 @@ class AppListManager(
 
     private fun configureRecyclerView() {
         layoutManager = GridLayoutManager(context, computeColumnCount())
+        layoutManager.reverseLayout = prefs.isGroupsPositionBottom()
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
     }
@@ -948,15 +954,15 @@ class AppListManager(
                     val currentlyExpanded = prefs.isGroupExpanded(item.id)
                     val shouldExpand = !currentlyExpanded
 
-                    // Toggle the clicked group
                     prefs.setGroupExpanded(item.id, shouldExpand)
 
-                    // If we are expanding and auto‑collapse is on, collapse all other non‑pinned groups
-                    val toCollapse = getAllGroupIds().filter {
-                        it != item.id && !prefs.isGroupKeepExpanded(it) && prefs.isGroupExpanded(it)
-                    }.toSet()
-                    if (toCollapse.isNotEmpty()) {
-                        prefs.setGroupsExpanded(toCollapse, false)
+                    if (shouldExpand && prefs.isAutoCollapseGroupsEnabled()) {
+                        val toCollapse = getAllGroupIds().filter {
+                            it != item.id && !prefs.isGroupKeepExpanded(it) && prefs.isGroupExpanded(it)
+                        }.toSet()
+                        if (toCollapse.isNotEmpty()) {
+                            prefs.setGroupsExpanded(toCollapse, false)
+                        }
                     }
 
                     refresh()
@@ -1053,5 +1059,5 @@ class AppListManager(
         data class App(val info: AppsProvider.AppEntry) : ListItem()
         data object Empty : ListItem()
     }
-    
+
 }

@@ -66,6 +66,8 @@ class SettingsCheckboxController(private val activity: SettingsActivity) {
             prefs.setAutoCollapseGroupsEnabled(checked)
         }
 
+        bindWdCheckbox(R.id.groups_position_bottom, FileKeys.GROUPS_POSITION_BOTTOM, false)
+
         updateCollapseOnHomeVisibility()
         bindWdCheckbox(R.id.show_year_day, FileKeys.DATE_YEAR_DAY, prefs.isYearDayVisible())
         bindWdCheckbox(R.id.show_year_week, FileKeys.DATE_YEAR_WEEK, prefs.isYearWeekVisible())
