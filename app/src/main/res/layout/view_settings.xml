@@ -55,6 +55,11 @@
                     android:text="@string/checkbox_prevent_home_screen_rotation"
                     style="@style/Checkbox" />
 
+                <com.rama.bohio.widgets.WdCheckbox
+                    android:id="@+id/nav_bar_transparent"
+                    android:text="@string/checkbox_nav_bar_transparent"
+                    style="@style/Checkbox" />
+
                 <LinearLayout style="@style/VerticalListDivided_BG2">
 
                     <TextView
