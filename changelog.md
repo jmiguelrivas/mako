@@ -1,5 +1,7 @@
 # Changelog
 
+## 54
+
 ## 53
 
 - Fix collapsing groups
