@@ -1,5 +1,9 @@
 # Changelog
 
+## 53
+
+- Fix collapsing groups
+
 ## 52
 
 - Add Spanish
