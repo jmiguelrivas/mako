@@ -1,5 +1,11 @@
 # Changelog
 
+## 54
+
+- LTS version
+- Reworking group list so they work on smaller screens
+- Making delete group modal easier to understand
+
 ## 53
 
 - Fix collapsing groups
