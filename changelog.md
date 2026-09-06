@@ -2,6 +2,9 @@
 
 ## 54
 
+- LTS version
+- Reworking group list so they work on smaller screens
+
 ## 53
 
 - Fix collapsing groups
